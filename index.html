@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GenixAI — AI Content Generator in 55+ Languages</title>
+<meta name="description" content="Generate social media captions, resumes, ads, emails, SEO copy in any language. 25 AI tools. Free to start.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#07070d;--bg2:#0d0d18;--bg3:#13131f;--bg4:#1a1a28;--bg5:#20202f;
+  --a1:#6d5acd;--a2:#8b72f0;--a3:#a990ff;--a4:#cbbfff;
+  --g1:#0ea472;--g2:#14c584;
+  --p1:#d946a0;--p2:#f472c0;
+  --t1:#f0eeff;--t2:#b8b4d4;--t3:#6e6a8a;--t4:#3a3755;
+  --bd:#1e1c2e;--bd2:#2d2a45;--bd3:#3d3a5c;
+  --r:14px;--r2:10px;--r3:6px;
+}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--t1);min-height:100vh;overflow-x:hidden}
+.dk{font-family:'Bricolage Grotesque',sans-serif}
+
+/* ── NAV ── */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;border-bottom:1px solid var(--bd);background:rgba(7,7,13,0.93);backdrop-filter:blur(24px);position:sticky;top:0;z-index:200}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#6d5acd,#a990ff,#f472c0);display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;color:#fff;font-family:'Bricolage Grotesque',sans-serif}
+.logo-text{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:700;background:linear-gradient(135deg,#a990ff,#f472c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-right{display:flex;gap:10px;align-items:center}
+.pill-free{background:rgba(14,164,114,0.15);border:1px solid rgba(14,164,114,0.3);color:#14c584;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:.5px}
+.btn{padding:10px 22px;border-radius:var(--r2);font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn-ghost{background:transparent;color:var(--t2);border:1px solid var(--bd2)}
+.btn-ghost:hover{background:var(--bg3);color:var(--t1)}
+.btn-grad{background:linear-gradient(135deg,#6d5acd,#8b72f0);color:#fff;box-shadow:0 4px 20px rgba(109,90,205,0.3)}
+.btn-grad:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 6px 28px rgba(109,90,205,0.4)}
+.btn-lg{padding:14px 36px;font-size:15px;border-radius:var(--r)}
+
+/* ── HERO ── */
+.hero{padding:72px 28px 56px;text-align:center;max-width:900px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(109,90,205,0.12);border:1px solid rgba(109,90,205,0.25);color:var(--a3);font-size:12px;font-weight:700;padding:6px 18px;border-radius:20px;margin-bottom:28px;letter-spacing:.8px;text-transform:uppercase}
+.hero-title{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(38px,6vw,72px);font-weight:800;line-height:1.05;margin-bottom:22px;letter-spacing:-1px}
+.grad{background:linear-gradient(135deg,#6d5acd 0%,#a990ff 40%,#f472c0 75%,#f59e0b 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:18px;color:var(--t2);line-height:1.75;max-width:600px;margin:0 auto 36px;font-weight:300}
+.hero-sub strong{color:var(--t1);font-weight:600}
+.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.stats-bar{display:flex;gap:0;justify-content:center;flex-wrap:wrap;background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;max-width:680px;margin:0 auto}
+.stat-cell{flex:1;min-width:100px;padding:18px 20px;text-align:center;border-right:1px solid var(--bd)}
+.stat-cell:last-child{border-right:none}
+.stat-n{font-family:'Bricolage Grotesque',sans-serif;font-size:26px;font-weight:700;background:linear-gradient(135deg,#a990ff,#f472c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.stat-l{font-size:12px;color:var(--t3);margin-top:4px;font-weight:500}
+
+/* ── LANGUAGE DEMO ── */
+.lang-section{max-width:900px;margin:0 auto;padding:0 28px 60px}
+.section-badge{display:inline-block;background:rgba(109,90,205,0.12);border:1px solid rgba(109,90,205,0.2);color:var(--a3);font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px}
+.section-title{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(26px,4vw,40px);font-weight:700;margin-bottom:10px;letter-spacing:-.5px}
+.section-sub{font-size:16px;color:var(--t2);line-height:1.65;font-weight:300}
+.lang-demo-box{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);padding:28px;margin-top:28px}
+.lang-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.lang-chip{padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1px solid var(--bd2);color:var(--t2);background:var(--bg4);cursor:pointer;transition:all .15s}
+.lang-chip:hover{border-color:var(--bd3);color:var(--t1)}
+.lang-chip.active{background:rgba(109,90,205,0.2);border-color:var(--a2);color:var(--a3)}
+.demo-card{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r2);padding:20px}
+.demo-input-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--bd)}
+.demo-arrow{font-size:20px;margin-top:2px;color:var(--t3)}
+.demo-label{font-size:11px;font-weight:700;letter-spacing:.8px;color:var(--t3);text-transform:uppercase;margin-bottom:4px}
+.demo-val{font-size:14px;color:var(--t2);line-height:1.5}
+.demo-output-text{font-size:15px;color:var(--t1);line-height:1.7;font-weight:500}
+
+/* ── TOOLS SECTION ── */
+.tools-section{padding:0 28px 60px;max-width:1100px;margin:0 auto}
+.sec-center{text-align:center;max-width:600px;margin:0 auto 32px}
+.cat-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.cat-btn{padding:6px 16px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--bd2);background:var(--bg3);color:var(--t3);transition:all .15s;letter-spacing:.3px}
+.cat-btn:hover{color:var(--t2);border-color:var(--bd3)}
+.cat-btn.active{background:rgba(109,90,205,0.15);border-color:var(--a2);color:var(--a3)}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:12px}
+.tc{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);padding:20px;cursor:pointer;transition:all .22s;position:relative;overflow:hidden}
+.tc:hover{border-color:var(--bd3);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.tc-icon{font-size:26px;margin-bottom:12px;display:block}
+.tc-tag{position:absolute;top:12px;right:12px;font-size:10px;font-weight:700;padding:3px 8px;border-radius:8px;letter-spacing:.3px}
+.tc-tag.hot{background:rgba(239,68,68,0.15);color:#fca5a5;border:1px solid rgba(239,68,68,0.2)}
+.tc-tag.new{background:rgba(14,164,114,0.15);color:#6ee7b7;border:1px solid rgba(14,164,114,0.2)}
+.tc-tag.pro{background:rgba(109,90,205,0.15);color:var(--a3);border:1px solid rgba(109,90,205,0.2)}
+.tc-name{font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:700;margin-bottom:4px}
+.tc-desc{font-size:12px;color:var(--t3);line-height:1.5}
+
+/* ── PRICING ── */
+.pricing-section{padding:60px 28px;max-width:1000px;margin:0 auto}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin-top:40px}
+.pc{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);padding:28px;position:relative;overflow:hidden}
+.pc.featured{border-color:var(--a2)}
+.pc.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#6d5acd,#a990ff,#f472c0)}
+.pc-popular{position:absolute;top:20px;right:20px;background:linear-gradient(135deg,#6d5acd,#8b72f0);color:#fff;font-size:10px;font-weight:800;padding:4px 10px;border-radius:8px;letter-spacing:.5px;text-transform:uppercase}
+.pc-name{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;margin-bottom:6px}
+.pc-tagline{font-size:13px;color:var(--t3);margin-bottom:20px}
+.pc-price{font-family:'Bricolage Grotesque',sans-serif;font-size:48px;font-weight:800;line-height:1;background:linear-gradient(135deg,#a990ff,#f472c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.pc-price-free{font-family:'Bricolage Grotesque',sans-serif;font-size:48px;font-weight:800;line-height:1;color:var(--t1)}
+.pc-mo{font-size:16px;color:var(--t3);font-weight:400;font-family:'Plus Jakarta Sans',sans-serif;-webkit-text-fill-color:var(--t3);background:none}
+.pc-period{font-size:12px;color:var(--t3);margin-bottom:24px;margin-top:4px}
+.divider{height:1px;background:var(--bd);margin:20px 0}
+.features-list{list-style:none;margin-bottom:24px}
+.features-list li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--t2);padding:6px 0;line-height:1.4}
+.features-list li.check::before{content:'✓';color:var(--g1);font-weight:700;flex-shrink:0;margin-top:1px}
+.features-list li.cross{color:var(--t4)}
+.features-list li.cross::before{content:'✗';color:var(--t4);font-weight:700;flex-shrink:0;margin-top:1px}
+.pc-btn{width:100%;padding:13px;border-radius:var(--r2);font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s;border:none}
+
+/* ── CTA ── */
+.cta-band{background:linear-gradient(135deg,rgba(109,90,205,0.12),rgba(244,114,192,0.06));border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:64px 28px;text-align:center}
+
+/* ── FOOTER ── */
+footer{padding:28px;text-align:center;border-top:1px solid var(--bd);color:var(--t3);font-size:13px;line-height:1.8}
+footer a{color:var(--a3);text-decoration:none}
+
+/* ── APP LAYOUT ── */
+#app-view{display:none}
+.app-layout{display:flex;height:calc(100vh - 57px)}
+.sidebar{width:260px;background:var(--bg2);border-right:1px solid var(--bd);display:flex;flex-direction:column;overflow-y:auto;flex-shrink:0}
+.sb-header{padding:14px;border-bottom:1px solid var(--bd)}
+.sb-search{width:100%;background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r2);padding:9px 14px;color:var(--t1);font-family:'Plus Jakarta Sans',sans-serif;font-size:13px}
+.sb-search::placeholder{color:var(--t3)}
+.sb-search:focus{outline:none;border-color:var(--a1)}
+.sb-cat-label{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--t4);padding:12px 16px 4px;text-transform:uppercase}
+.sb-item{display:flex;align-items:center;gap:10px;padding:9px 14px;cursor:pointer;transition:all .12s;border:1px solid transparent;margin:2px 8px;border-radius:var(--r2);background:none;width:calc(100% - 16px);text-align:left}
+.sb-item:hover{background:var(--bg3)}
+.sb-item.active{background:rgba(109,90,205,0.12);border-color:rgba(109,90,205,0.2)}
+.sb-icon{font-size:16px;width:24px;text-align:center;flex-shrink:0}
+.sb-name{font-size:13px;font-weight:500;color:var(--t2);flex:1}
+.sb-item.active .sb-name{color:var(--a3);font-weight:600}
+.sb-tag{font-size:9px;font-weight:700;padding:2px 6px;border-radius:6px}
+.sb-tag.hot{background:rgba(239,68,68,0.15);color:#fca5a5}
+.sb-tag.new{background:rgba(14,164,114,0.15);color:#6ee7b7}
+
+/* ── GENERATOR ── */
+.gen-main{flex:1;overflow-y:auto;background:var(--bg)}
+.gen-topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--bd);background:var(--bg2)}
+.breadcrumb{font-size:13px;color:var(--t3)}
+.breadcrumb span{color:var(--t1);font-weight:600}
+.usage-info{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--t3)}
+.usage-track{width:80px;height:4px;background:var(--bg4);border-radius:2px;overflow:hidden}
+.usage-fill{height:100%;background:linear-gradient(90deg,#6d5acd,#a990ff);border-radius:2px;transition:width .3s}
+.gen-body{padding:24px;overflow-y:auto}
+.gen-inner{max-width:820px}
+.tool-header{margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--bd)}
+.tool-title-row{font-family:'Bricolage Grotesque',sans-serif;font-size:26px;font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.tool-sub{font-size:14px;color:var(--t3);line-height:1.5}
+.lang-indicator{display:inline-flex;align-items:center;gap:6px;background:rgba(14,164,114,0.1);border:1px solid rgba(14,164,114,0.2);color:#14c584;font-size:11px;font-weight:700;padding:4px 12px;border-radius:12px;margin-top:10px;letter-spacing:.3px}
+.form-box{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);padding:22px;margin-bottom:16px}
+.fl{font-size:10px;font-weight:800;letter-spacing:1.2px;color:var(--t3);margin-bottom:8px;display:block;text-transform:uppercase}
+.fi{width:100%;background:var(--bg4);border:1px solid var(--bd);border-radius:var(--r2);padding:11px 15px;color:var(--t1);font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;transition:border-color .2s;resize:none;line-height:1.6}
+.fi:focus{outline:none;border-color:var(--a1)}
+.fi::placeholder{color:var(--t4)}
+select.fi{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236e6a8a' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.fg{margin-bottom:14px}
+.gen-btn{width:100%;padding:15px;border-radius:var(--r2);border:none;cursor:pointer;font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:700;background:linear-gradient(135deg,#6d5acd,#8b72f0);color:#fff;letter-spacing:.3px;transition:all .2s;box-shadow:0 4px 24px rgba(109,90,205,0.3)}
+.gen-btn:hover:not(:disabled){opacity:.92;transform:translateY(-1px)}
+.gen-btn:disabled{opacity:.35;cursor:not-allowed;transform:none;box-shadow:none}
+.output-box{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;margin-top:16px}
+.out-head{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--bd);background:var(--bg4)}
+.out-title{font-size:11px;font-weight:800;letter-spacing:1.2px;color:var(--a3);text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.out-dot{width:7px;height:7px;border-radius:50%;background:var(--a2);animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.out-actions{display:flex;gap:6px}
+.oa{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r3);padding:5px 12px;font-size:12px;font-weight:600;color:var(--t2);cursor:pointer;transition:all .15s}
+.oa:hover{background:var(--bg4);color:var(--t1)}
+.oa.copied{color:var(--g1);border-color:rgba(14,164,114,0.3)}
+.out-body{padding:22px;font-size:14px;line-height:1.85;color:var(--t2);white-space:pre-wrap;min-height:180px}
+.loading-state{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;min-height:200px}
+.spin-ring{width:48px;height:48px;border-radius:50%;border:2px solid rgba(109,90,205,0.3);border-top-color:var(--a2);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-lang{font-size:13px;color:var(--t3)}
+.hist-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.hist-pill{background:var(--bg3);border:1px solid var(--bd);border-radius:12px;padding:4px 12px;font-size:11px;font-weight:600;color:var(--t3);cursor:pointer;transition:all .15s}
+.hist-pill:hover{border-color:var(--a2);color:var(--a3)}
+.error-box{background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.2);border-radius:var(--r2);padding:16px;font-size:13px;color:#fca5a5;margin-top:12px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px){
+  .hero-title{font-size:36px}
+  .pricing-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .stats-bar{flex-direction:row}
+}
+@media(max-width:600px){
+  .app-layout{flex-direction:column;height:auto}
+  .sidebar{width:100%;height:auto;max-height:220px;flex-direction:column;overflow-x:auto}
+  .row2,.row3{grid-template-columns:1fr}
+  .tools-grid{grid-template-columns:1fr 1fr}
+}
+
+/* ── ANIMATIONS ── */
+.fade-in{animation:fadeIn .35s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-50px);transition:opacity .8s ease,transform .8s ease}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(50px);transition:opacity .8s ease,transform .8s ease}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.float-anim{animation:float 4s ease-in-out infinite}
+@keyframes gradShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes glow{0%,100%{box-shadow:0 0 20px rgba(109,90,205,0.3)}50%{box-shadow:0 0 40px rgba(109,90,205,0.6)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* COUNTER */
+.counter-section{padding:60px 28px;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);background:var(--bg2)}
+.counter-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;max-width:900px;margin:0 auto;text-align:center}
+.counter-item{padding:20px}
+.counter-num{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(36px,5vw,54px);font-weight:800;background:linear-gradient(135deg,#a990ff,#f472c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:8px}
+.counter-label{font-size:14px;color:var(--t2);font-weight:500}
+/* MARQUEE */
+.marquee-section{padding:28px 0;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);overflow:hidden;background:var(--bg2)}
+.marquee-track{display:flex;gap:48px;animation:marquee 25s linear infinite;white-space:nowrap;width:max-content}
+.marquee-item{font-size:13px;font-weight:600;color:var(--t3);display:flex;align-items:center;gap:10px}
+.marquee-dot{width:5px;height:5px;border-radius:50%;background:var(--a2);flex-shrink:0}
+/* ABOUT */
+.about-section{padding:80px 28px;max-width:1100px;margin:0 auto}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:48px}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr;gap:32px}}
+.about-card-main{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);padding:28px;margin-bottom:16px;position:relative;overflow:hidden}
+.about-card-main::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#6d5acd,#a990ff,#f472c0)}
+.about-cards-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.about-card-sm{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);padding:18px;display:flex;align-items:center;gap:14px;transition:all .2s}
+.about-card-sm:hover{border-color:var(--bd3);transform:translateY(-2px)}
+.about-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.about-icon.purple{background:rgba(109,90,205,0.15)}
+.about-icon.pink{background:rgba(244,114,192,0.15)}
+.about-icon.green{background:rgba(14,164,114,0.15)}
+.about-icon.amber{background:rgba(245,158,11,0.15)}
+.about-text-content p{font-size:16px;color:var(--t2);line-height:1.85;margin-bottom:16px;font-weight:300}
+.about-text-content strong{color:var(--t1);font-weight:600}
+.highlight-list{display:flex;flex-direction:column;gap:14px;margin-top:24px}
+.hl-item{display:flex;align-items:flex-start;gap:12px}
+.hl-dot{width:32px;height:32px;border-radius:10px;background:rgba(109,90,205,0.12);border:1px solid rgba(109,90,205,0.2);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;margin-top:2px}
+.hl-text h4{font-size:14px;font-weight:600;margin-bottom:3px}
+.hl-text p{font-size:13px;color:var(--t3);line-height:1.5;margin:0}
+/* HOW IT WORKS */
+.steps-section{padding:80px 28px;background:var(--bg2);border-top:1px solid var(--bd)}
+.steps-inner{max-width:1000px;margin:0 auto}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;margin-top:48px;position:relative}
+.steps-grid::before{content:'';position:absolute;top:35px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,var(--bd2),var(--bd2),transparent);z-index:0}
+@media(max-width:600px){.steps-grid::before{display:none}}
+.step-item{text-align:center;padding:20px 16px;position:relative;z-index:1}
+.step-circle{width:70px;height:70px;border-radius:50%;background:var(--bg3);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:26px;transition:all .3s;position:relative}
+.step-circle::after{content:'';position:absolute;inset:-2px;border-radius:50%;background:linear-gradient(135deg,#6d5acd,#f472c0);z-index:-1;opacity:0;transition:opacity .3s}
+.step-item:hover .step-circle::after{opacity:1}
+.step-item:hover .step-circle{border-color:transparent}
+.step-badge{position:absolute;top:-4px;right:-4px;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#6d5acd,#8b72f0);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif}
+.step-title{font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:700;margin-bottom:6px}
+.step-desc{font-size:12px;color:var(--t3);line-height:1.6}
+/* TESTIMONIALS */
+.testimonials-section{padding:80px 28px;max-width:1100px;margin:0 auto}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:40px}
+.tcard{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);padding:28px;position:relative;transition:all .25s;overflow:hidden}
+.tcard::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(109,90,205,0.04),rgba(244,114,192,0.02));opacity:0;transition:opacity .25s}
+.tcard:hover{border-color:var(--bd3);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.3)}
+.tcard:hover::before{opacity:1}
+.tcard-quote-mark{position:absolute;top:16px;right:20px;font-size:48px;color:rgba(109,90,205,0.1);font-family:Georgia,serif;line-height:1}
+.tcard-stars{color:#f59e0b;font-size:13px;letter-spacing:2px;margin-bottom:14px}
+.tcard-text{font-size:14px;color:var(--t2);line-height:1.8;margin-bottom:20px;font-style:italic}
+.tcard-author{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--bd)}
+.tcard-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;font-family:'Bricolage Grotesque',sans-serif;flex-shrink:0}
+.tcard-name{font-size:14px;font-weight:600}
+.tcard-role{font-size:11px;color:var(--t3);margin-top:2px}
+/* HERO GLOW */
+.hero-wrap{position:relative;overflow:hidden}
+.hero-glow{position:absolute;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(109,90,205,0.08) 0%,transparent 65%);top:-200px;left:50%;transform:translateX(-50%);pointer-events:none}
+.hero-glow-2{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(244,114,192,0.06) 0%,transparent 65%);bottom:-100px;right:-100px;pointer-events:none}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ LANDING PAGE ═══════════════ -->
+<div id="landing-view">
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="logo" href="#">
+      <div class="logo-mark">G</div>
+      <div class="logo-text">GenixAI</div>
+    </a>
+    <div style="display:flex;gap:6px;align-items:center" class="nav-links">
+      <a href="#how" class="btn btn-ghost" style="padding:7px 14px;font-size:13px">How it works</a>
+      <a href="#tools" class="btn btn-ghost" style="padding:7px 14px;font-size:13px">Tools</a>
+      <a href="#pricing" class="btn btn-ghost" style="padding:7px 14px;font-size:13px">Pricing</a>
+    </div>
+    <div class="nav-right">
+      <span class="pill-free">FREE TO USE</span>
+      <button class="btn btn-grad" onclick="showApp()">Launch App →</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">🌍 55+ LANGUAGES &nbsp;·&nbsp; 25 AI TOOLS &nbsp;·&nbsp; WORLDWIDE</div>
+    <h1 class="hero-title">
+      One AI Platform.<br>
+      <span class="grad">Every Language.<br>Every Country.</span>
+    </h1>
+    <p class="hero-sub">
+      Generate social captions, resumes, ads, emails, SEO copy and 20 more tools —
+      <strong>in any of 55+ languages</strong>, for any audience, anywhere in the world.
+      Powered by Claude AI.
+    </p>
+    <div class="hero-ctas">
+      <button class="btn btn-grad btn-lg" onclick="showApp()">✨ Start Generating Free</button>
+      <a href="#tools" class="btn btn-ghost btn-lg">See 25 Tools ↓</a>
+    </div>
+    <div class="stats-bar">
+      <div class="stat-cell"><div class="stat-n">25</div><div class="stat-l">AI Tools</div></div>
+      <div class="stat-cell"><div class="stat-n">55+</div><div class="stat-l">Languages</div></div>
+      <div class="stat-cell"><div class="stat-n">$0</div><div class="stat-l">To Start</div></div>
+      <div class="stat-cell"><div class="stat-n">24/7</div><div class="stat-l">Available</div></div>
+    </div>
+  </div>
+
+  <!-- HOW LANGUAGE WORKS -->
+  <div id="how" class="lang-section">
+    <div>
+      <div class="section-badge">HOW IT WORKS</div>
+      <h2 class="section-title">You choose the language.<br>AI writes in it.</h2>
+      <p class="section-sub">Write your topic in English. Select your output language. GenixAI generates perfect content in that language — every tool, every time.</p>
+    </div>
+    <div class="lang-demo-box">
+      <p style="font-size:13px;font-weight:700;color:var(--t3);margin-bottom:14px;text-transform:uppercase;letter-spacing:.8px">CLICK A LANGUAGE TO SEE LIVE EXAMPLE</p>
+      <div class="lang-chips" id="lang-chips"></div>
+      <div class="demo-card">
+        <div class="demo-input-row">
+          <div style="flex:1">
+            <div class="demo-label">Your Input (English)</div>
+            <div class="demo-val">"Our product will change your life — start today!"</div>
+          </div>
+          <div class="demo-arrow">→</div>
+          <div style="flex:1">
+            <div class="demo-label">Output Language</div>
+            <div class="demo-val" id="demo-lang-name" style="color:var(--a3);font-weight:600">Urdu (اردو)</div>
+          </div>
+        </div>
+        <div class="demo-label">✦ AI Generated Output</div>
+        <div class="demo-output-text" id="demo-output">آپ کی زندگی بدل جائے گی ہمارے پروڈکٹ سے — آج ہی شروع کریں!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOOLS -->
+  <div id="tools" class="tools-section">
+    <div class="sec-center">
+      <div class="section-badge">25 AI TOOLS</div>
+      <h2 class="section-title">Everything You Need</h2>
+      <p class="section-sub">Every tool works in all 55+ languages. One platform, unlimited content.</p>
+    </div>
+    <div class="cat-filters" id="cat-filters"></div>
+    <div class="tools-grid" id="tools-grid"></div>
+  </div>
+
+  <!-- PRICING -->
+  <div id="pricing" class="pricing-section">
+    <div class="sec-center">
+      <div class="section-badge">PRICING</div>
+      <h2 class="section-title">Simple Pricing.<br>Big Value.</h2>
+      <p class="section-sub">Start free. Upgrade when you need more. Cancel anytime.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pc">
+        <div class="pc-name">Free</div>
+        <div class="pc-tagline">Try GenixAI today — no card needed</div>
+        <div class="pc-price-free">Free</div>
+        <div class="pc-period">Always free</div>
+        <div class="divider"></div>
+        <ul class="features-list">
+          <li class="check">25 generations per month</li>
+          <li class="check">All 25 AI tools</li>
+          <li class="check">All 55+ languages</li>
+          <li class="check">Basic tones & styles</li>
+          <li class="cross">Unlimited generations</li>
+          <li class="cross">Export PDF / DOCX</li>
+          <li class="cross">Priority support</li>
+        </ul>
+        <button class="pc-btn" onclick="showApp()" style="background:transparent;color:var(--t2);border:1px solid var(--bd2)">Start for Free</button>
+      </div>
+      <div class="pc featured">
+        <div class="pc-popular">MOST POPULAR</div>
+        <div class="pc-name">Pro</div>
+        <div class="pc-tagline">For creators & freelancers</div>
+        <div class="pc-price">$12<span class="pc-mo">/mo</span></div>
+        <div class="pc-period">billed monthly · cancel anytime</div>
+        <div class="divider"></div>
+        <ul class="features-list">
+          <li class="check">Unlimited generations</li>
+          <li class="check">All 25 AI tools</li>
+          <li class="check">All 55+ languages</li>
+          <li class="check">All 12 tone presets</li>
+          <li class="check">Priority support</li>
+          <li class="check">Export PDF / DOCX / TXT</li>
+          <li class="check">Remove GenixAI watermark</li>
+        </ul>
+        <button class="pc-btn" onclick="window.open('https://genixai-app.lemonsqueezy.com/checkout/buy/692cf374-f4a3-4188-b5f2-c2600b22e852')" style="background:linear-gradient(135deg,#6d5acd,#8b72f0);color:#fff;border:none">Get Pro — $12/mo</button>
+      </div>
+      <div class="pc">
+        <div class="pc-name">Business</div>
+        <div class="pc-tagline">For agencies & teams</div>
+        <div class="pc-price">$29<span class="pc-mo">/mo</span></div>
+        <div class="pc-period">billed monthly · up to 5 seats</div>
+        <div class="divider"></div>
+        <ul class="features-list">
+          <li class="check">Everything in Pro</li>
+          <li class="check">5 team members</li>
+          <li class="check">Brand voice profiles</li>
+          <li class="check">Bulk generation mode</li>
+          <li class="check">API access</li>
+          <li class="check">White-label option</li>
+          <li class="check">Dedicated support</li>
+        </ul>
+        <button class="pc-btn" onclick="window.open('https://genixai-app.lemonsqueezy.com/checkout/buy/32e890bb-5d91-48b5-ad4d-f1b30233888a')" style="background:transparent;color:var(--t2);border:1px solid var(--bd2)">Go Business — $29/mo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track" id="marquee-track"></div>
+  </div>
+
+  <!-- COUNTERS -->
+  <div class="counter-section">
+    <div class="counter-grid">
+      <div class="counter-item reveal">
+        <div class="counter-num" data-target="25" data-suffix="">0</div>
+        <div class="counter-label">AI Powered Tools</div>
+      </div>
+      <div class="counter-item reveal reveal-delay-1">
+        <div class="counter-num" data-target="55" data-suffix="+">0</div>
+        <div class="counter-label">Languages Supported</div>
+      </div>
+      <div class="counter-item reveal reveal-delay-2">
+        <div class="counter-num" data-target="2000" data-suffix="+">0</div>
+        <div class="counter-label">Creators Worldwide</div>
+      </div>
+      <div class="counter-item reveal reveal-delay-3">
+        <div class="counter-num" data-target="98" data-suffix="%">0</div>
+        <div class="counter-label">Satisfaction Rate</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS STEPS -->
+  <div class="steps-section">
+    <div class="steps-inner">
+      <div class="sec-center reveal">
+        <div class="section-badge">HOW IT WORKS</div>
+        <h2 class="section-title">Ready in 4 Simple Steps</h2>
+        <p class="section-sub">From signup to generating content in any language — takes less than 2 minutes.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-item reveal reveal-delay-1">
+          <div class="step-circle">
+            🎯
+            <div class="step-badge">1</div>
+          </div>
+          <div class="step-title">Choose Your Tool</div>
+          <div class="step-desc">Pick from 25 AI tools — social captions, resume, ads, email and more</div>
+        </div>
+        <div class="step-item reveal reveal-delay-2">
+          <div class="step-circle">
+            🌍
+            <div class="step-badge">2</div>
+          </div>
+          <div class="step-title">Select Language</div>
+          <div class="step-desc">Choose any of 55+ languages — Urdu, Arabic, Spanish, French, Hindi and more</div>
+        </div>
+        <div class="step-item reveal reveal-delay-3">
+          <div class="step-circle">
+            ✍️
+            <div class="step-badge">3</div>
+          </div>
+          <div class="step-title">Describe Your Topic</div>
+          <div class="step-desc">Write a short description of what you need — any topic, any industry</div>
+        </div>
+        <div class="step-item reveal reveal-delay-4">
+          <div class="step-circle">
+            ✨
+            <div class="step-badge">4</div>
+          </div>
+          <div class="step-title">Get AI Content</div>
+          <div class="step-desc">Professional content generated in seconds — copy, use, publish!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT SECTION -->
+  <div class="about-section" id="about">
+    <div class="sec-center reveal">
+      <div class="section-badge">ABOUT GENIXAI</div>
+      <h2 class="section-title">Built for the World.<br>Not Just One Country.</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text-content reveal-left">
+        <p>Most AI content tools are built for <strong>English speakers only</strong>. GenixAI is different — we built it from the ground up to serve <strong>every language, every culture, every market</strong> on the planet.</p>
+        <p>Whether you're a small business owner in Pakistan, a content creator in Brazil, a freelancer in Egypt, or a startup in Japan — <strong>GenixAI speaks your language</strong> and understands your audience.</p>
+        <div class="highlight-list">
+          <div class="hl-item">
+            <div class="hl-dot">🌍</div>
+            <div class="hl-text">
+              <h4>Truly Multilingual AI</h4>
+              <p>Not just translation — actual content generated natively in 55+ languages with cultural context</p>
+            </div>
+          </div>
+          <div class="hl-item">
+            <div class="hl-dot">⚡</div>
+            <div class="hl-text">
+              <h4>25 Tools in One Place</h4>
+              <p>No switching between apps — everything from resumes to ad copy in one platform</p>
+            </div>
+          </div>
+          <div class="hl-item">
+            <div class="hl-dot">🔒</div>
+            <div class="hl-text">
+              <h4>Powered by Claude AI</h4>
+              <p>Built on Anthropic's Claude — one of the world's most capable and safe AI models</p>
+            </div>
+          </div>
+          <div class="hl-item">
+            <div class="hl-dot">💰</div>
+            <div class="hl-text">
+              <h4>Affordable for Everyone</h4>
+              <p>Priced for global creators — not just Western markets. Start free, upgrade anytime</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="about-card-main float-anim">
+          <div style="font-size:13px;font-weight:700;letter-spacing:1px;color:var(--a3);margin-bottom:16px;text-transform:uppercase">✦ Live Generation Example</div>
+          <div style="background:var(--bg4);border-radius:var(--r2);padding:14px;margin-bottom:12px;font-size:13px;color:var(--t3)">
+            📝 Input: <span style="color:var(--t1)">"Launch sale for new clothing brand"</span>
+          </div>
+          <div style="background:var(--bg4);border-radius:var(--r2);padding:14px;margin-bottom:12px">
+            <div style="font-size:11px;color:var(--g1);font-weight:700;margin-bottom:6px">🇵🇰 URDU OUTPUT</div>
+            <div style="font-size:14px;color:var(--t1);line-height:1.7">نئے برانڈ کا آغاز — بہترین قیمتوں پر شاندار ملبوسات! آج ہی شاپنگ کریں 🛍️ #فیشن #سیل</div>
+          </div>
+          <div style="background:var(--bg4);border-radius:var(--r2);padding:14px">
+            <div style="font-size:11px;color:var(--p2);font-weight:700;margin-bottom:6px">🇸🇦 ARABIC OUTPUT</div>
+            <div style="font-size:14px;color:var(--t1);line-height:1.7">إطلاق علامتنا التجارية — أزياء رائعة بأسعار لا تُصدق! تسوقوا الآن 🛍️ #موضة #تخفيضات</div>
+          </div>
+        </div>
+        <div class="about-cards-row">
+          <div class="about-card-sm">
+            <div class="about-icon purple">🚀</div>
+            <div>
+              <div style="font-size:13px;font-weight:600">10x Faster</div>
+              <div style="font-size:11px;color:var(--t3)">Than manual writing</div>
+            </div>
+          </div>
+          <div class="about-card-sm">
+            <div class="about-icon green">✅</div>
+            <div>
+              <div style="font-size:13px;font-weight:600">100% Original</div>
+              <div style="font-size:11px;color:var(--t3)">Unique every time</div>
+            </div>
+          </div>
+          <div class="about-card-sm">
+            <div class="about-icon pink">🌍</div>
+            <div>
+              <div style="font-size:13px;font-weight:600">55+ Languages</div>
+              <div style="font-size:11px;color:var(--t3)">Global reach</div>
+            </div>
+          </div>
+          <div class="about-card-sm">
+            <div class="about-icon amber">⚡</div>
+            <div>
+              <div style="font-size:13px;font-weight:600">Instant Results</div>
+              <div style="font-size:11px;color:var(--t3)">Under 10 seconds</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div class="testimonials-section">
+    <div class="sec-center reveal" style="max-width:600px;margin:0 auto">
+      <div class="section-badge">TESTIMONIALS</div>
+      <h2 class="section-title">Loved by Creators Worldwide</h2>
+      <p class="section-sub">Join thousands of marketers, freelancers and businesses using GenixAI.</p>
+    </div>
+    <div class="tgrid" style="max-width:1100px;margin:40px auto 0">
+      <div class="tcard reveal reveal-delay-1">
+        <div class="tcard-quote-mark">"</div>
+        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-text">GenixAI has completely transformed my content workflow. I create Instagram captions in Arabic and English simultaneously — my engagement went up 300%!</div>
+        <div class="tcard-author">
+          <div class="tcard-avatar" style="background:rgba(109,90,205,0.2);color:var(--a3)">SA</div>
+          <div>
+            <div class="tcard-name">Sara Ahmed</div>
+            <div class="tcard-role">Social Media Manager · Dubai, UAE</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard reveal reveal-delay-2">
+        <div class="tcard-quote-mark">"</div>
+        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-text">As a freelancer, I use GenixAI to write ad copy for clients across 5 countries. The multilingual feature is unmatched — nothing else comes close at this price.</div>
+        <div class="tcard-author">
+          <div class="tcard-avatar" style="background:rgba(14,164,114,0.2);color:#14c584">MK</div>
+          <div>
+            <div class="tcard-name">Miguel Kosta</div>
+            <div class="tcard-role">Digital Marketing Freelancer · Brazil</div>
+          </div>
+        </div>
+      </div>
+      <div class="tcard reveal reveal-delay-3">
+        <div class="tcard-quote-mark">"</div>
+        <div class="tcard-stars">★★★★★</div>
+        <div class="tcard-text">I built my entire resume in Urdu and English within 5 minutes. Got the job interview the next week! The AI Resume Builder is absolutely incredible.</div>
+        <div class="tcard-author">
+          <div class="tcard-avatar" style="background:rgba(244,114,192,0.2);color:var(--p2)">AR</div>
+          <div>
+            <div class="tcard-name">Abdul Rehman</div>
+            <div class="tcard-role">Software Engineer · Lahore, Pakistan</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:800;margin-bottom:14px;letter-spacing:-.5px">Start Generating in 30 Seconds</h2>
+    <p style="font-size:17px;color:var(--t2);font-weight:300;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.65">No credit card. No setup. 25 tools, 55+ languages, free forever.</p>
+    <button class="btn btn-grad btn-lg" onclick="showApp()">🚀 Launch GenixAI Free</button>
+  </div>
+
+  <footer>
+    © 2025 GenixAI · AI-powered content for every language, every country<br>
+    <a href="mailto:support@genixai.com">support@genixai.com</a> &nbsp;·&nbsp;
+    <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="#">Terms of Service</a>
+  </footer>
+</div>
+
+<!-- ═══════════════ APP VIEW ═══════════════ -->
+<div id="app-view">
+  <nav class="nav">
+    <a class="logo" href="#">
+      <div class="logo-mark">G</div>
+      <div class="logo-text">GenixAI</div>
+    </a>
+    <div class="nav-right">
+      <span class="pill-free" id="usage-pill">FREE · 0/25 used</span>
+      <button class="btn btn-ghost" onclick="showLanding()" style="font-size:13px;padding:8px 16px">← Home</button>
+    </div>
+  </nav>
+
+  <div class="app-layout">
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="sb-header">
+        <input class="sb-search" id="sb-search" placeholder="🔍 Search tools..." oninput="filterTools(this.value)">
+      </div>
+      <div id="sidebar-tools"></div>
+    </div>
+
+    <!-- GENERATOR -->
+    <div class="gen-main">
+      <div class="gen-topbar">
+        <div class="breadcrumb">GenixAI <span>›</span> <span id="breadcrumb-tool">Social Captions</span></div>
+        <div class="usage-info">
+          <span id="usage-text">0 / 25 today</span>
+          <div class="usage-track"><div class="usage-fill" id="usage-bar" style="width:0%"></div></div>
+        </div>
+      </div>
+      <div class="gen-body">
+        <div class="gen-inner">
+          <div id="history-strip" class="hist-row" style="display:none"></div>
+          <div class="tool-header">
+            <div class="tool-title-row" id="tool-title">📱 Social Captions</div>
+            <div class="tool-sub" id="tool-sub">Viral captions for any social media platform</div>
+            <div class="lang-indicator">🌍 Output Language: <span id="lang-display">English</span></div>
+          </div>
+          <div class="form-box fade-in" id="form-area"></div>
+          <div id="output-area"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════ DATA ═══════════
+const LANGS = [
+  "English","Urdu (اردو)","Hindi (हिन्दी)","Arabic (العربية)","Spanish (Español)",
+  "French (Français)","German (Deutsch)","Portuguese (Português)","Italian (Italiano)",
+  "Dutch (Nederlands)","Turkish (Türkçe)","Russian (Русский)","Chinese Simplified (中文)",
+  "Chinese Traditional (繁體中文)","Japanese (日本語)","Korean (한국어)","Bengali (বাংলা)",
+  "Punjabi (ਪੰਜਾਬੀ)","Tamil (தமிழ்)","Telugu (తెలుగు)","Marathi (मराठी)","Gujarati (ગુજરાતી)",
+  "Kannada (ಕನ್ನಡ)","Malayalam (മലയാളം)","Persian/Farsi (فارسی)","Pashto (پښتو)",
+  "Swahili (Kiswahili)","Hausa","Yoruba","Zulu","Amharic (አማርኛ)","Somali (Soomaali)",
+  "Indonesian (Bahasa)","Malay (Bahasa Melayu)","Filipino (Tagalog)","Vietnamese (Tiếng Việt)",
+  "Thai (ภาษาไทย)","Polish (Polski)","Swedish (Svenska)","Norwegian (Norsk)","Danish (Dansk)",
+  "Finnish (Suomi)","Greek (Ελληνικά)","Czech (Čeština)","Romanian (Română)","Hungarian (Magyar)",
+  "Hebrew (עברית)","Ukrainian (Українська)","Serbian (Српски)","Croatian (Hrvatski)",
+  "Slovak (Slovenčina)","Bulgarian (Български)","Lithuanian (Lietuvių)","Latvian (Latviešu)",
+  "Estonian (Eesti)","Afrikaans"
+];
+
+const TONES = [
+  "Professional","Casual & Friendly","Funny & Witty","Inspirational","Urgent & Bold",
+  "Luxury & Premium","Storytelling","Empathetic","Persuasive","Minimalist","Playful","Authoritative"
+];
+
+const TOOLS = [
+  {id:'social',icon:'📱',name:'Social Captions',desc:'Viral captions for any platform',cat:'Content',tag:'hot'},
+  {id:'hashtags',icon:'#️⃣',name:'Hashtag Generator',desc:'30 trending hashtags per niche',cat:'Content',tag:'hot'},
+  {id:'thread',icon:'🧵',name:'Twitter Thread',desc:'Viral thread with hooks & CTA',cat:'Content'},
+  {id:'linkedin',icon:'💼',name:'LinkedIn Post',desc:'Professional posts that grow reach',cat:'Content',tag:'new'},
+  {id:'blog',icon:'✍️',name:'Blog Post Writer',desc:'Full SEO-optimized articles',cat:'Content'},
+  {id:'story',icon:'📖',name:'Brand Story',desc:'Compelling brand storytelling',cat:'Content'},
+  {id:'email',icon:'📧',name:'Email Campaign',desc:'Subject lines + full email body',cat:'Marketing'},
+  {id:'cold',icon:'📬',name:'Cold Email',desc:'B2B outreach emails that convert',cat:'Marketing',tag:'new'},
+  {id:'ad',icon:'🎯',name:'Ad Copy',desc:'Facebook, Google, Instagram ads',cat:'Marketing',tag:'hot'},
+  {id:'video',icon:'🎬',name:'Video Ad Script',desc:'30-60 second video scripts',cat:'Marketing'},
+  {id:'youtube',icon:'▶️',name:'YouTube Package',desc:'Title, description, hook script',cat:'Marketing'},
+  {id:'podcast',icon:'🎙️',name:'Podcast Script',desc:'Full episode outline & intro',cat:'Marketing'},
+  {id:'product',icon:'🛍️',name:'Product Description',desc:'eCommerce listings that sell',cat:'Ecommerce',tag:'hot'},
+  {id:'review',icon:'⭐',name:'Review Response',desc:'Reply to good & bad reviews',cat:'Ecommerce'},
+  {id:'pitch',icon:'💡',name:'Sales Pitch',desc:'Verbal sales pitch for any product',cat:'Business'},
+  {id:'press',icon:'📰',name:'Press Release',desc:'Professional news announcements',cat:'Business'},
+  {id:'business',icon:'🏢',name:'Business Name',desc:'Catchy names + taglines',cat:'Business'},
+  {id:'faq',icon:'❓',name:'FAQ Generator',desc:'10 Q&As for any product/service',cat:'Business'},
+  {id:'landing',icon:'🖥️',name:'Landing Page Copy',desc:'High-converting page sections',cat:'Business',tag:'new'},
+  {id:'bio',icon:'👤',name:'Bio Generator',desc:'Multi-platform profile bios',cat:'Personal'},
+  {id:'resume',icon:'📄',name:'AI Resume Builder',desc:'ATS-optimized professional resume',cat:'Personal',tag:'hot'},
+  {id:'cover',icon:'📝',name:'Cover Letter',desc:'Tailored cover letters fast',cat:'Personal'},
+  {id:'seo',icon:'🔍',name:'SEO Meta Tags',desc:'Title tags, meta, schema markup',cat:'SEO'},
+  {id:'keyword',icon:'🗝️',name:'Keyword Research',desc:'SEO keywords + search intent',cat:'SEO',tag:'new'},
+  {id:'translate',icon:'🌍',name:'AI Translator',desc:'Translate & culturally localize',cat:'Tools'},
+];
+
+const DEMO_EXAMPLES = [
+  {flag:'🇵🇰',lang:'Urdu',name:'Urdu (اردو)',text:'آپ کی زندگی بدل جائے گی ہمارے پروڈکٹ سے — آج ہی شروع کریں!'},
+  {flag:'🇸🇦',lang:'Arabic',name:'Arabic (العربية)',text:'منتجنا سيغير حياتك — ابدأ الآن واحصل على نتائج مذهلة!'},
+  {flag:'🇮🇳',lang:'Hindi',name:'Hindi (हिन्दी)',text:'हमारा उत्पाद आपकी जिंदगी बदल देगा — आज ही शुरू करें!'},
+  {flag:'🇫🇷',lang:'French',name:'French (Français)',text:'Notre produit va transformer votre vie — Commencez aujourd\'hui!'},
+  {flag:'🇪🇸',lang:'Spanish',name:'Spanish (Español)',text:'¡Nuestro producto cambiará tu vida — Empieza hoy mismo!'},
+  {flag:'🇩🇪',lang:'German',name:'German (Deutsch)',text:'Unser Produkt wird Ihr Leben verändern — Starten Sie noch heute!'},
+  {flag:'🇧🇷',lang:'Portuguese',name:'Portuguese (Português)',text:'Nosso produto vai mudar sua vida — Comece hoje mesmo!'},
+  {flag:'🇨🇳',lang:'Chinese',name:'Chinese Simplified (中文)',text:'我们的产品将改变您的生活——今天就开始吧！'},
+];
+
+// ═══════════ STATE ═══════════
+let currentTool = TOOLS[0];
+let formValues = {
+  lang: 'English', tone: 'Professional', topic: '', platform: 'Instagram',
+  niche: '', goal: '', audience: '', storyType: 'Brand origin', pageType: 'Landing page',
+  industry: 'Technology', name: '', role: '', exp: '3-5 years', skills: '',
+  company: '', background: '', targetLang: 'Spanish (Español)'
+};
+let outputHistory = [];
+let usageCount = parseInt(localStorage.getItem('gx_usage') || '0');
+let usageDate = localStorage.getItem('gx_date') || '';
+let isCopied = false;
+
+// ═══════════ USAGE TRACKING ═══════════
+function getToday() { return new Date().toDateString(); }
+function checkUsage() {
+  if (usageDate !== getToday()) { usageCount = 0; usageDate = getToday(); saveUsage(); }
+}
+function incrementUsage() {
+  usageCount++; usageDate = getToday(); saveUsage(); updateUsageUI();
+}
+function saveUsage() {
+  localStorage.setItem('gx_usage', usageCount);
+  localStorage.setItem('gx_date', usageDate);
+}
+function updateUsageUI() {
+  const pct = Math.min((usageCount / 25) * 100, 100);
+  document.getElementById('usage-bar').style.width = pct + '%';
+  document.getElementById('usage-text').textContent = usageCount + ' / 25 today';
+  document.getElementById('usage-pill').textContent = 'FREE · ' + usageCount + '/25 used';
+}
+
+// ═══════════ NAVIGATION ═══════════
+function showApp() {
+  document.getElementById('landing-view').style.display = 'none';
+  document.getElementById('app-view').style.display = 'block';
+  checkUsage(); updateUsageUI(); renderSidebar(); renderForm();
+}
+function showLanding() {
+  document.getElementById('landing-view').style.display = 'block';
+  document.getElementById('app-view').style.display = 'none';
+}
+
+// ═══════════ LANDING PAGE INIT ═══════════
+function initLanding() {
+  // Lang demo chips
+  const chipsEl = document.getElementById('lang-chips');
+  DEMO_EXAMPLES.forEach((ex, i) => {
+    const chip = document.createElement('div');
+    chip.className = 'lang-chip' + (i === 0 ? ' active' : '');
+    chip.textContent = ex.flag + ' ' + ex.lang;
+    chip.onclick = () => {
+      document.querySelectorAll('.lang-chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      document.getElementById('demo-lang-name').textContent = ex.name;
+      document.getElementById('demo-output').textContent = ex.flag + ' ' + ex.text;
+    };
+    chipsEl.appendChild(chip);
+  });
+
+  // Category filters
+  const cats = ['All', ...new Set(TOOLS.map(t => t.cat))];
+  let activeCat = 'All';
+  const filtersEl = document.getElementById('cat-filters');
+  cats.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className = 'cat-btn' + (cat === 'All' ? ' active' : '');
+    btn.textContent = cat;
+    btn.onclick = () => {
+      activeCat = cat;
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderToolsGrid(activeCat);
+    };
+    filtersEl.appendChild(btn);
+  });
+  renderToolsGrid('All');
+}
+
+function renderToolsGrid(cat) {
+  const grid = document.getElementById('tools-grid');
+  grid.innerHTML = '';
+  TOOLS.filter(t => cat === 'All' || t.cat === cat).forEach(tool => {
+    const card = document.createElement('div');
+    card.className = 'tc';
+    card.innerHTML = `
+      ${tool.tag ? `<div class="tc-tag ${tool.tag}">${tool.tag.toUpperCase()}</div>` : ''}
+      <span class="tc-icon">${tool.icon}</span>
+      <div class="tc-name">${tool.name}</div>
+      <div class="tc-desc">${tool.desc}</div>
+    `;
+    card.onclick = () => { showApp(); selectTool(tool); };
+    grid.appendChild(card);
+  });
+}
+
+// ═══════════ SIDEBAR ═══════════
+function renderSidebar(filter = '') {
+  const container = document.getElementById('sidebar-tools');
+  container.innerHTML = '';
+  const cats = [...new Set(TOOLS.map(t => t.cat))];
+  const filtered = filter ? TOOLS.filter(t => t.name.toLowerCase().includes(filter.toLowerCase())) : TOOLS;
+
+  if (filter) {
+    filtered.forEach(tool => container.appendChild(createSbItem(tool)));
+  } else {
+    cats.forEach(cat => {
+      const label = document.createElement('div');
+      label.className = 'sb-cat-label';
+      label.textContent = cat;
+      container.appendChild(label);
+      TOOLS.filter(t => t.cat === cat).forEach(tool => container.appendChild(createSbItem(tool)));
+    });
+  }
+}
+
+function createSbItem(tool) {
+  const btn = document.createElement('button');
+  btn.className = 'sb-item' + (currentTool.id === tool.id ? ' active' : '');
+  btn.innerHTML = `
+    <span class="sb-icon">${tool.icon}</span>
+    <span class="sb-name">${tool.name}</span>
+    ${tool.tag ? `<span class="sb-tag ${tool.tag}">${tool.tag.toUpperCase()}</span>` : ''}
+  `;
+  btn.onclick = () => selectTool(tool);
+  return btn;
+}
+
+function filterTools(val) { renderSidebar(val); }
+
+function selectTool(tool) {
+  currentTool = tool;
+  document.getElementById('tool-title').textContent = tool.icon + ' ' + tool.name;
+  document.getElementById('tool-sub').textContent = tool.desc;
+  document.getElementById('breadcrumb-tool').textContent = tool.name;
+  document.getElementById('output-area').innerHTML = '';
+  renderSidebar(document.getElementById('sb-search').value);
+  renderForm();
+  updateLangDisplay();
+}
+
+// ═══════════ FORM RENDERING ═══════════
+function renderForm() {
+  const area = document.getElementById('form-area');
+  area.className = 'form-box fade-in';
+  let html = '';
+  const id = currentTool.id;
+
+  const inp = (lbl, key, ph, rows = 1) => `
+    <div class="fg">
+      <label class="fl">${lbl}</label>
+      ${rows > 1
+        ? `<textarea class="fi" rows="${rows}" placeholder="${ph}" oninput="formValues['${key}']=this.value;updateLangDisplay()">${formValues[key] || ''}</textarea>`
+        : `<input class="fi" placeholder="${ph}" value="${escHtml(formValues[key] || '')}" oninput="formValues['${key}']=this.value;updateLangDisplay()">`
+      }
+    </div>`;
+
+  const sel = (lbl, key, opts) => `
+    <div class="fg">
+      <label class="fl">${lbl}</label>
+      <select class="fi" onchange="formValues['${key}']=this.value;updateLangDisplay()">
+        ${opts.map(o => `<option${formValues[key] === o ? ' selected' : ''}>${escHtml(o)}</option>`).join('')}
+      </select>
+    </div>`;
+
+  const row2 = (a, b) => `<div class="row2">${a}${b}</div>`;
+  const row3 = (a, b, c) => `<div class="row3">${a}${b}${c}</div>`;
+  const common = () => row2(sel('Output Language', 'lang', LANGS), sel('Tone', 'tone', TONES));
+
+  if (id === 'hashtags') {
+    html = inp('Niche / Topic', 'topic', 'e.g. travel photography, fitness, food blog...') +
+           inp('Extra Context (optional)', 'niche', 'e.g. targeting women 25-35 in USA') + common();
+  } else if (id === 'resume') {
+    html = row2(inp('Full Name', 'name', 'John Smith'), inp('Target Job Title', 'role', 'Senior Software Engineer')) +
+           row2(inp('Years of Experience', 'exp', '5 years'), inp('Industry', 'industry', 'Technology')) +
+           inp('Key Skills (comma-separated)', 'skills', 'React, Node.js, AWS, Python, Project Management...') +
+           inp('Career Summary', 'topic', 'Briefly describe your background, top achievements...', 3) +
+           sel('Output Language', 'lang', LANGS);
+  } else if (id === 'cover') {
+    html = inp('Job Title Applying For', 'topic', 'Senior Marketing Manager', 1) +
+           inp('Company Name', 'company', 'Google, Startup XYZ, Agency Name...') +
+           inp('Your Background', 'background', '5 years in digital marketing, led product launches...', 2) +
+           common();
+  } else if (id === 'translate') {
+    html = inp('Text to Translate', 'topic', 'Paste your content here...', 4) +
+           row2(sel('Translate To', 'targetLang', LANGS), sel('Tone', 'tone', TONES));
+  } else if (id === 'social' || id === 'bio') {
+    html = inp('Topic / Brand / Person', 'topic', 'Describe what this content is about...', 3) +
+           row2(
+             sel('Platform', 'platform', ['Instagram','Twitter/X','LinkedIn','TikTok','Facebook','GitHub','YouTube','Pinterest']),
+             sel('Language', 'lang', LANGS)
+           ) + sel('Tone', 'tone', TONES);
+  } else if (id === 'ad' || id === 'video') {
+    html = inp('Product / Service', 'topic', 'Describe what you are advertising...', 3) +
+           row2(
+             sel('Platform', 'platform', ['Facebook Ads','Instagram Ads','Google Ads','TikTok Ads','YouTube Ads']),
+             sel('Language', 'lang', LANGS)
+           ) + sel('Tone', 'tone', TONES);
+  } else if (['pitch','product','cold','faq'].includes(id)) {
+    html = inp('Topic / Product / Service', 'topic', 'Describe in detail...', 3) +
+           inp('Target Audience', 'audience', 'e.g. small business owners, young professionals...') +
+           common();
+  } else if (id === 'business') {
+    html = inp('Business Concept / Niche', 'topic', 'What does your business do?', 2) +
+           row2(inp('Industry', 'industry', 'Technology / Fashion / Food...'), sel('Language', 'lang', LANGS));
+  } else if (id === 'seo' || id === 'landing') {
+    html = inp('Topic / Page / Product', 'topic', 'What is this page or content about?', 2) +
+           row2(inp('Page Type', 'pageType', 'Landing page / Blog / Product...'), sel('Language', 'lang', LANGS));
+  } else {
+    html = inp('Topic / Subject', 'topic', 'What do you want to create?', 3) + common();
+  }
+
+  const canGen = id === 'hashtags' ? '(formValues.topic||formValues.niche).trim()' : 'formValues.topic.trim()';
+  html += `<button class="gen-btn" id="gen-btn" onclick="generate()" ${!eval(canGen) ? 'disabled' : ''}>✦ Generate with AI — ${currentTool.name}</button>`;
+  area.innerHTML = html;
+}
+
+function updateLangDisplay() {
+  const lang = formValues.lang || 'English';
+  document.getElementById('lang-display').textContent = lang;
+  const btn = document.getElementById('gen-btn');
+  if (btn) {
+    const id = currentTool.id;
+    const canGen = id === 'hashtags' ? (formValues.topic || formValues.niche).trim() : formValues.topic.trim();
+    btn.disabled = !canGen;
+  }
+}
+
+// ═══════════ PROMPT BUILDER ═══════════
+function buildPrompt(id, d) {
+  const lang = d.lang || 'English';
+  const tone = d.tone || 'Professional';
+  const t = d.topic || '';
+  const L = `Write your ENTIRE response in ${lang}. Tone: ${tone}.\n\n`;
+
+  const prompts = {
+    social: `${L}Write 3 highly engaging social media captions for:\nTopic: "${t}"\nPlatform: ${d.platform||'Instagram'}\n\nFormat each:\n✦ Caption 1:\n[caption with emojis]\n.\n[5-6 hashtags]\n\n✦ Caption 2:\n[same format]\n\n✦ Caption 3:\n[same format]\n\nMake them scroll-stopping and authentic.`,
+    hashtags: `${L}Generate 30 optimized hashtags for: "${t||d.niche}"\n\n🔥 HIGH REACH — 10 hashtags (500K–5M posts):\n\n⚡ MEDIUM REACH — 10 hashtags (50K–500K posts):\n\n🎯 LOW COMPETITION — 10 hashtags (under 50K):\n\nEach on its own line. Format: #hashtag`,
+    thread: `${L}Write a viral Twitter/X thread about: "${t}"\n\n• 8–10 tweets\n• Tweet 1: powerful hook that stops scrolling\n• Tweets 2-8: value, insights, story\n• Final tweet: strong CTA + ask to retweet\n\nFormat:\nTweet 1:\n[text under 280 chars]\n\nTweet 2:\n[text] etc.`,
+    linkedin: `${L}Write 3 LinkedIn post variations about: "${t}"\n\nEach post:\n— Strong hook (first line gets attention)\n— Story or insight body (3–4 short paragraphs)\n— CTA or thought-provoking question\n— 3 relevant hashtags\n\nMake them professional yet human and relatable.`,
+    blog: `${L}Write a complete SEO blog post titled: "${t}"\n\nStructure:\n# [H1 Title — compelling]\n## Introduction with hook\n## [H2 Section 1]\n## [H2 Section 2]\n## [H2 Section 3]\n## Key Takeaways (bullet list)\n## Conclusion with CTA\n\nApproximately 700 words. Informative, engaging, SEO-optimized.`,
+    story: `${L}Write a compelling brand story about: "${t}"\nStyle: ${d.storyType||'Brand origin'}\n\nStructure:\n— Relatable opening scene\n— The problem or tension\n— The turning point / solution\n— Transformation and results\n— Memorable closing\n\nApproximately 350 words. Emotionally resonant.`,
+    email: `${L}Create a complete email campaign for: "${t}"\nGoal: ${d.goal||'Engagement'}\n\n📧 5 SUBJECT LINE OPTIONS:\n1. [option]\n2. [option]\n3. [option]\n4. [option]\n5. [option]\n\n✉️ FULL EMAIL BODY:\nSubject: [best option from above]\n\n[Greeting]\n[Opening hook]\n[Main value section]\n[CTA button text]\n[Sign-off]`,
+    cold: `${L}Write a 3-email cold outreach sequence for: "${t}"\nTarget: ${d.audience||'Decision makers'}\n\nEMAIL 1 — INTRO (Day 1):\nSubject: [compelling subject]\n[email body — under 80 words]\n\nEMAIL 2 — FOLLOW UP (Day 4):\nSubject: [Re: subject]\n[follow up — under 60 words]\n\nEMAIL 3 — LAST TOUCH (Day 8):\nSubject: [closing attempt]\n[final attempt — under 50 words]`,
+    ad: `${L}Write high-converting ad copy for: "${t}"\nPlatform: ${d.platform||'Facebook Ads'}\n\n📌 AD VARIATION 1 — PROBLEM/SOLUTION:\nHeadline: [max 40 chars]\nPrimary Text: [2-3 sentences]\nCTA Button: [text]\n\n📌 AD VARIATION 2 — SOCIAL PROOF:\n[same format]\n\n📌 AD VARIATION 3 — URGENCY:\n[same format]`,
+    video: `${L}Write a 60-second video ad script for: "${t}"\n\n[0–5s] HOOK:\n[5–20s] PROBLEM (agitate the pain):\n[20–40s] SOLUTION (show product):\n[40–55s] PROOF / TESTIMONIAL:\n[55–60s] CALL TO ACTION:\n\nB-ROLL SUGGESTIONS for each section:\nAlso provide: ON-SCREEN TEXT ideas`,
+    youtube: `${L}Complete YouTube content package for: "${t}"\n\n🎬 5 TITLE OPTIONS (high CTR):\n\n📝 VIDEO DESCRIPTION (SEO-optimized, 250 words):\n\n🪝 30-SECOND HOOK SCRIPT (word for word):\n\n🏷️ 15 TAGS:\n\n📌 3 CHAPTER TIMESTAMPS:\n\n💬 PINNED COMMENT IDEA:`,
+    podcast: `${L}Complete podcast episode package for: "${t}"\n\n🎙️ EPISODE TITLE OPTIONS (3):\n\n📋 EPISODE OUTLINE:\n— Intro (2 min): [what to say]\n— Segment 1 (8 min): [topic]\n— Segment 2 (8 min): [topic]\n— Segment 3 (8 min): [topic]\n— Outro (2 min): [CTA + sign-off]\n\n🗣️ FULL INTRO SCRIPT (2 minutes, word for word):\n\n❓ 5 INTERVIEW QUESTIONS (if applicable):`,
+    product: `${L}Write a premium product listing for: "${t}"\nTarget audience: ${d.audience||'General consumers'}\n\n✦ POWER HEADLINE:\n\n📖 STORY HOOK (2 compelling sentences):\n\n⭐ TOP 5 BENEFITS (not features — benefits):\n\n📦 FEATURES LIST:\n\n🎯 CALL TO ACTION:\n\n⚡ SHORT VERSION (for ads, under 60 words):`,
+    review: `${L}Write professional review responses for a business in: "${t}"\n\nPOSITIVE REVIEW RESPONSE:\n[warm, appreciative, mentions specific details, re-engages]\n\nNEUTRAL REVIEW RESPONSE:\n[thanks + gently addresses + invites back]\n\nNEGATIVE REVIEW RESPONSE:\n[empathetic, professional, takes responsibility, offers solution]\n\nKeep each under 80 words.`,
+    pitch: `${L}Write a complete sales pitch for: "${t}"\nAudience: ${d.audience||'Potential customers'}\n\n🎯 30-SECOND ELEVATOR PITCH:\n\n⏱️ 2-MINUTE FULL PITCH:\n— Opening hook\n— Problem statement\n— Your solution\n— Proof / social proof\n— Offer & CTA\n\n❓ 5 COMMON OBJECTIONS + RESPONSES:`,
+    press: `${L}Write a professional press release for: "${t}"\n\n[HEADLINE — factual and newsworthy]\n\nFOR IMMEDIATE RELEASE\n[City, Date] —\n\n[Lede paragraph — who, what, when, where, why]\n\n[Body paragraph 1 — details and context]\n\n[Executive quote]\n\n[Body paragraph 2 — additional information]\n\n[Boilerplate: About the Company]\n\n[Media Contact]\nName:\nEmail:\nPhone:`,
+    business: `${L}Generate creative business names for: "${t}"\nIndustry: ${d.industry||'Technology'}\n\n🏆 TOP 10 BUSINESS NAME IDEAS:\n[name] — [one-line meaning]\n(list all 10)\n\n✦ TOP 3 DEEP DIVE:\nFor each name provide:\n• Why it works\n• Tagline option A\n• Tagline option B\n• Domain suggestion`,
+    faq: `${L}Generate 12 FAQ questions and detailed answers for: "${t}"\n\nCover these areas:\n— What it is / how it works (3 questions)\n— Pricing and value (2 questions)\n— Trust and safety (2 questions)\n— Getting started (2 questions)\n— Common concerns (3 questions)\n\nFormat:\nQ1: [question]\nA: [2-3 sentence answer]\n\n(continue for all 12)`,
+    landing: `${L}Write complete landing page copy for: "${t}"\n\n🦸 HERO SECTION:\nHeadline (under 10 words):\nSubheadline (1 sentence):\nCTA Button Text:\nSub-CTA (trust builder):\n\n💡 3 VALUE PROPOSITIONS:\n[Icon] | [Title] | [1-sentence description]\n(×3)\n\n🔥 5 KEY FEATURES:\n[Feature title]: [description]\n(×5)\n\n💬 2 TESTIMONIALS:\n[name, title, company]\n[quote]\n\n🎯 FINAL CTA SECTION:\nHeadline:\nSubtext:\nButton:`,
+    bio: `${L}Create 5 professional bios for: "${t}"\nPlatform: ${d.platform||'LinkedIn'}\n\n📌 MICRO BIO (80 chars — Twitter/TikTok):\n📌 SHORT BIO (150 chars — Instagram):\n📌 MEDIUM BIO (100 words — LinkedIn summary):\n📌 CREATIVE BIO (storytelling style, 120 words):\n📌 ACHIEVEMENT-LED BIO (leads with biggest wins, 150 words):`,
+    resume: `${L}Create a complete ATS-optimized resume.\n\nName: ${d.name||'[Your Name]'}\nTarget Role: ${d.role||t}\nExperience: ${d.exp||'3-5'} years\nKey Skills: ${d.skills||'[your skills]'}\nIndustry: ${d.industry||'Technology'}\nBackground: ${t}\n\nFormat exactly as follows:\n\n━━━━ CONTACT INFORMATION ━━━━\n[Full Name]\n[Email] | [Phone] | [LinkedIn] | [City, Country]\n\n━━━━ PROFESSIONAL SUMMARY ━━━━\n[3-4 powerful sentences with keywords]\n\n━━━━ CORE COMPETENCIES ━━━━\n[Skills organized in 3 categories]\n\n━━━━ PROFESSIONAL EXPERIENCE ━━━━\n[3 job positions, each with:\n• Company | Role | Dates\n• 3 bullet achievements using action verbs + metrics]\n\n━━━━ EDUCATION ━━━━\n[Degree, Institution, Year]\n\n━━━━ CERTIFICATIONS & AWARDS ━━━━\n[Relevant items]`,
+    cover: `${L}Write a tailored cover letter.\nApplying for: "${t}"\nCompany: ${d.company||'[Company]'}\nBackground: ${d.background||'Experienced professional'}\n\nRules:\n— Do NOT start with "I am writing to apply"\n— Open with a compelling hook\n— Paragraph 1: Why this company specifically\n— Paragraph 2: Your top 3 relevant achievements with numbers\n— Paragraph 3: How you will add specific value\n— Closing: Confident CTA\n\nFormal but personable. Under 300 words.`,
+    seo: `${L}Generate a complete SEO package for: "${t}"\nPage type: ${d.pageType||'Landing page'}\n\n🏷️ TITLE TAG (under 58 chars):\n\n📝 META DESCRIPTION (under 158 chars):\n\n🔑 PRIMARY TARGET KEYWORD:\n\n🔑 5 SECONDARY/LSI KEYWORDS:\n\n📱 OPEN GRAPH TITLE:\n\n📱 OPEN GRAPH DESCRIPTION:\n\n🔗 RECOMMENDED URL SLUG:\n\n📊 SCHEMA MARKUP TYPE:\n\n⚡ TOP 3 ON-PAGE SEO TIPS for this content:`,
+    keyword: `${L}Do keyword research for the topic: "${t}"\n\n🎯 PRIMARY KEYWORD (highest commercial value):\n\n📊 10 HIGH-VALUE KEYWORDS TABLE:\n[keyword] | [search intent] | [competition level]\n(list 10)\n\n💎 5 LONG-TAIL KEYWORDS (easy to rank for):\n\n❓ 10 "PEOPLE ALSO ASK" QUESTIONS:\n\n📝 5 CONTENT TITLE IDEAS using these keywords:`,
+    translate: `Translate and fully localize the following text to ${d.targetLang||'Spanish'}.\n\nORIGINAL TEXT:\n"${t}"\n\n━━ ACCURATE TRANSLATION ━━\n[word-for-word accurate translation]\n\n━━ CULTURALLY ADAPTED VERSION ━━\n[feels completely natural to native speakers — adjust idioms, tone, cultural references]\n\n━━ FORMAL VERSION (for business use) ━━\n[formal/professional variant]\n\n━━ CULTURAL NOTES ━━\n[3 practical tips for marketing to this audience]`,
+  };
+  return prompts[id] || `${L}Help me with the following: "${t}"`;
+}
+
+// ═══════════ GENERATE ═══════════
+async function generate() {
+  if (usageCount >= 25) {
+    showUpgradePrompt(); return;
+  }
+
+  const outputArea = document.getElementById('output-area');
+  outputArea.innerHTML = `
+    <div class="output-box fade-in">
+      <div class="out-head">
+        <div class="out-title"><div class="out-dot"></div>Generating in ${formValues.lang}...</div>
+      </div>
+      <div class="out-body loading-state">
+        <div class="spin-ring"></div>
+        <div class="loading-lang">AI is crafting your content in ${formValues.lang}...</div>
+      </div>
+    </div>`;
+
+  document.getElementById('gen-btn').disabled = true;
+  document.getElementById('gen-btn').textContent = '✦ Generating...';
+
+  try {
+    const prompt = buildPrompt(currentTool.id, formValues);
+    const resp = await fetch('/api/generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt })
+    });
+    const data = await resp.json();
+
+    if (data.error) throw new Error(data.error);
+
+    const text = data.text || 'Error: No output received.';
+    incrementUsage();
+
+    outputHistory.unshift({ name: currentTool.name, lang: formValues.lang, text });
+    if (outputHistory.length > 5) outputHistory.pop();
+    updateHistoryStrip();
+
+    outputArea.innerHTML = `
+      <div class="output-box fade-in">
+        <div class="out-head">
+          <div class="out-title">✦ Generated in ${formValues.lang}</div>
+          <div class="out-actions">
+            <button class="oa" id="copy-btn" onclick="copyOutput()">Copy All</button>
+            <button class="oa" onclick="generate()">↺ Regenerate</button>
+          </div>
+        </div>
+        <div class="out-body" id="output-text">${escHtml(text)}</div>
+      </div>`;
+  } catch (err) {
+    outputArea.innerHTML = `<div class="error-box">⚠️ Error: ${escHtml(err.message)}<br><small>Make sure your API key is set in Vercel environment variables.</small></div>`;
+  }
+
+  const btn = document.getElementById('gen-btn');
+  if (btn) { btn.disabled = false; btn.textContent = '✦ Generate with AI — ' + currentTool.name; }
+}
+
+function copyOutput() {
+  const el = document.getElementById('output-text');
+  if (!el) return;
+  navigator.clipboard.writeText(el.textContent);
+  const btn = document.getElementById('copy-btn');
+  if (btn) { btn.textContent = '✓ Copied!'; btn.classList.add('copied'); setTimeout(() => { btn.textContent = 'Copy All'; btn.classList.remove('copied'); }, 2000); }
+}
+
+function updateHistoryStrip() {
+  const strip = document.getElementById('history-strip');
+  if (!outputHistory.length) { strip.style.display = 'none'; return; }
+  strip.style.display = 'flex';
+  strip.innerHTML = '<span style="font-size:11px;color:var(--t4);align-self:center;margin-right:4px;flex-shrink:0">RECENT:</span>' +
+    outputHistory.map((h, i) => `<div class="hist-pill" onclick="showHistory(${i})">${h.name} · ${h.lang}</div>`).join('');
+}
+
+function showHistory(i) {
+  const h = outputHistory[i];
+  const outputArea = document.getElementById('output-area');
+  outputArea.innerHTML = `
+    <div class="output-box fade-in">
+      <div class="out-head">
+        <div class="out-title">✦ ${h.name} — ${h.lang}</div>
+        <div class="out-actions">
+          <button class="oa" id="copy-btn" onclick="copyOutput()">Copy All</button>
+        </div>
+      </div>
+      <div class="out-body" id="output-text">${escHtml(h.text)}</div>
+    </div>`;
+}
+
+function showUpgradePrompt() {
+  document.getElementById('output-area').innerHTML = `
+    <div class="output-box fade-in">
+      <div class="out-body" style="text-align:center;padding:40px">
+        <div style="font-size:32px;margin-bottom:16px">⚡</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:700;margin-bottom:8px">Daily Limit Reached</div>
+        <div style="font-size:14px;color:var(--t2);margin-bottom:24px">You've used 25 free generations today. Upgrade for unlimited access.</div>
+        <button class="btn btn-grad btn-lg" onclick="window.open('https://genixai-app.lemonsqueezy.com/checkout/buy/692cf374-f4a3-4188-b5f2-c2600b22e852')">Upgrade to Pro — $12/mo</button>
+        <div style="font-size:12px;color:var(--t3);margin-top:12px">Limit resets at midnight · Free plan: 25/day</div>
+      </div>
+    </div>`;
+}
+
+// ═══════════ UTILS ═══════════
+function escHtml(str) {
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ═══════════ INIT ═══════════
+initLanding();
+
+// ── SCROLL REVEAL ──
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
+
+// ── COUNTER ANIMATION ──
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const duration = 2000;
+  const step = target / (duration / 16);
+  let current = 0;
+  const timer = setInterval(() => {
+    current += step;
+    if (current >= target) { current = target; clearInterval(timer); }
+    el.textContent = (target >= 1000 ? Math.floor(current).toLocaleString() : Math.floor(current)) + suffix;
+  }, 16);
+}
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.counter-num').forEach(animateCounter);
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.counter-section').forEach(s => counterObserver.observe(s));
+
+// ── MARQUEE ──
+const marqueeItems = [
+  '🌍 55+ Languages', '✨ 25 AI Tools', '📱 Social Captions', '📄 Resume Builder',
+  '🎯 Ad Copy', '📧 Email Campaigns', '🔍 SEO Meta Tags', '▶️ YouTube Scripts',
+  '💼 LinkedIn Posts', '🛍️ Product Listings', '🧵 Twitter Threads', '🌍 AI Translator',
+  '📰 Press Releases', '🏢 Business Names', '📝 Cover Letters', '🗝️ Keyword Research',
+  '🌍 55+ Languages', '✨ 25 AI Tools', '📱 Social Captions', '📄 Resume Builder',
+  '🎯 Ad Copy', '📧 Email Campaigns', '🔍 SEO Meta Tags', '▶️ YouTube Scripts',
+  '💼 LinkedIn Posts', '🛍️ Product Listings', '🧵 Twitter Threads', '🌍 AI Translator',
+];
+const track = document.getElementById('marquee-track');
+if (track) {
+  marqueeItems.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'marquee-item';
+    div.innerHTML = `<span class="marquee-dot"></span>${item}`;
+    track.appendChild(div);
+  });
+}
+
+// ── NAV SCROLL EFFECT ──
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('.nav');
+  if (nav) nav.style.borderBottomColor = window.scrollY > 50 ? 'rgba(109,90,205,0.2)' : 'var(--bd)';
+});
+checkUsage();
+</script>
+</body>
+</html>
