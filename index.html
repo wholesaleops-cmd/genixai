@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GenixAI — World's #1 AI Platform | 50 Tools | 55+ Languages</title>
+<meta name="description" content="50 AI tools. 55+ languages. The world's most powerful multilingual AI content platform. Free to start.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#060610;--bg2:#0b0b1a;--bg3:#111126;--bg4:#181830;--a1:#7c5cfc;--a2:#9b7dff;--a3:#b89dff;--g1:#00d4a0;--p1:#ff4da6;--p2:#ff80c0;--gold:#f0b429;--t1:#f4f0ff;--t2:#a8a4c8;--t3:#5a5878;--t4:#2e2c48;--bd:#1e1c3a;--bd2:#2d2b50;--bd3:#3d3b68;--r:16px;--r2:10px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t1);min-height:100vh;overflow-x:hidden}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:var(--bd3);border-radius:3px}
+.hf{font-family:'Syne',sans-serif}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px;border-bottom:1px solid rgba(124,92,252,.15);background:rgba(6,6,16,.92);backdrop-filter:blur(30px);position:sticky;top:0;z-index:200}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer;text-decoration:none}
+.logo-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#7c5cfc,#b89dff,#ff4da6);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:17px;font-weight:800;color:#fff;box-shadow:0 4px 16px rgba(124,92,252,.4)}
+.logo-name{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;background:linear-gradient(135deg,#b89dff,#ff80c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:4px}
+.nav-link{padding:7px 16px;font-size:13px;font-weight:500;color:var(--t2);background:none;border:none;cursor:pointer;border-radius:8px;transition:all .2s;text-decoration:none}
+.nav-link:hover{color:var(--t1);background:rgba(255,255,255,.05)}
+.nav-right{display:flex;gap:10px;align-items:center}
+.pill-free{background:rgba(0,212,160,.12);border:1px solid rgba(0,212,160,.25);color:var(--g1);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:.5px}
+.btn{padding:10px 24px;border-radius:var(--r2);font-family:'Syne',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;border:none;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn-ghost{background:transparent;color:var(--t2);border:1px solid var(--bd2)}
+.btn-ghost:hover{color:var(--t1);border-color:var(--bd3);background:rgba(255,255,255,.04)}
+.btn-primary{background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;box-shadow:0 4px 20px rgba(124,92,252,.35)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 32px rgba(124,92,252,.5)}
+.btn-lg{padding:15px 40px;font-size:15px;border-radius:var(--r)}
+.btn-xl{padding:18px 52px;font-size:16px;border-radius:var(--r)}
+/* HERO */
+.hero-wrap{position:relative;overflow:hidden;padding:100px 40px 80px;text-align:center}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.h-orb1{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(124,92,252,.12) 0%,transparent 65%);top:-200px;left:50%;transform:translateX(-50%)}
+.h-orb2{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,77,166,.07) 0%,transparent 65%);top:0;right:5%}
+.h-orb3{position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(0,212,160,.06) 0%,transparent 65%);bottom:0;left:5%}
+.h-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(124,92,252,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(124,92,252,.04) 1px,transparent 1px);background-size:60px 60px}
+.hero-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,92,252,.1);border:1px solid rgba(124,92,252,.2);color:var(--a3);font-size:12px;font-weight:700;padding:7px 20px;border-radius:20px;margin-bottom:32px;letter-spacing:1px;text-transform:uppercase}
+.h-dot{width:6px;height:6px;border-radius:50%;background:var(--a2);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(42px,7vw,82px);font-weight:800;line-height:1.02;letter-spacing:-2px;margin-bottom:24px}
+.hero-title .l1{display:block;color:var(--t1)}
+.hero-title .l2{display:block;background:linear-gradient(135deg,#7c5cfc 0%,#b89dff 35%,#ff4da6 65%,#f0b429 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200%;animation:gradMove 4s linear infinite}
+@keyframes gradMove{0%{background-position:0% center}100%{background-position:200% center}}
+.hero-sub{font-size:19px;color:var(--t2);line-height:1.75;max-width:620px;margin:0 auto 40px;font-weight:300}
+.hero-sub strong{color:var(--t1);font-weight:600}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:52px}
+.hero-trust{display:flex;align-items:center;justify-content:center;gap:32px;flex-wrap:wrap}
+.ti{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--t3);font-weight:500}
+.ti-dot{width:6px;height:6px;border-radius:50%;background:var(--g1)}
+/* STATS */
+.stats-bar{border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);background:var(--bg2)}
+.stats-inner{display:flex;max-width:1100px;margin:0 auto}
+.sc{flex:1;padding:28px 20px;text-align:center;border-right:1px solid var(--bd);transition:background .3s}
+.sc:last-child{border-right:none}
+.sc:hover{background:rgba(124,92,252,.04)}
+.sv{font-family:'Syne',sans-serif;font-size:clamp(28px,3vw,42px);font-weight:800;background:linear-gradient(135deg,#b89dff,#ff80c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:6px}
+.sl{font-size:13px;color:var(--t3);font-weight:500}
+/* MARQUEE */
+.mq-wrap{padding:18px 0;border-bottom:1px solid var(--bd);overflow:hidden}
+.mq-track{display:flex;animation:marquee 35s linear infinite;width:max-content}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mq-item{display:flex;align-items:center;gap:8px;padding:6px 24px;font-size:13px;font-weight:600;color:var(--t3);white-space:nowrap;border-right:1px solid var(--bd)}
+/* SECTIONS */
+.sec-wrap{padding:80px 40px;max-width:1200px;margin:0 auto}
+.sec-ctr{text-align:center;max-width:680px;margin:0 auto 56px}
+.sec-ey{display:inline-block;background:rgba(124,92,252,.1);border:1px solid rgba(124,92,252,.2);color:var(--a3);font-size:11px;font-weight:700;padding:5px 16px;border-radius:20px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px}
+.sec-title{font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,48px);font-weight:800;line-height:1.1;letter-spacing:-.5px;margin-bottom:14px}
+.sec-sub{font-size:17px;color:var(--t2);line-height:1.7;font-weight:300}
+/* TOOLS */
+.tools-outer{background:var(--bg);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:80px 0}
+.tools-con{max-width:1300px;margin:0 auto;padding:0 40px}
+.ttabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:28px;background:var(--bg2);padding:6px;border-radius:var(--r);border:1px solid var(--bd);width:fit-content}
+.ttab{padding:8px 18px;border-radius:var(--r2);font-size:12px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--t3);transition:all .2s;font-family:'Inter',sans-serif;letter-spacing:.3px}
+.ttab:hover{color:var(--t2)}
+.ttab.active{background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;box-shadow:0 4px 16px rgba(124,92,252,.3)}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(205px,1fr));gap:12px}
+.tc{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:22px;cursor:pointer;transition:all .25s;position:relative;overflow:hidden}
+.tc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(124,92,252,.06),rgba(255,77,166,.03));opacity:0;transition:opacity .25s}
+.tc:hover{border-color:rgba(124,92,252,.4);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.4)}
+.tc:hover::before{opacity:1}
+.tc:hover .tc-em{transform:scale(1.15)}
+.tc-em{font-size:28px;margin-bottom:14px;display:block;transition:transform .2s}
+.tc-tag{position:absolute;top:12px;right:12px;font-size:9px;font-weight:800;padding:3px 8px;border-radius:6px;letter-spacing:.5px;text-transform:uppercase}
+.tc-tag.hot{background:rgba(255,77,166,.15);color:#ff80c0;border:1px solid rgba(255,77,166,.2)}
+.tc-tag.new{background:rgba(0,212,160,.12);color:var(--g1);border:1px solid rgba(0,212,160,.2)}
+.tc-tag.pro{background:rgba(240,180,41,.12);color:var(--gold);border:1px solid rgba(240,180,41,.2)}
+.tc-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:5px}
+.tc-desc{font-size:12px;color:var(--t3);line-height:1.5}
+/* HOW */
+.how-wrap{background:var(--bg2);border-top:1px solid var(--bd)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;position:relative}
+.steps::before{content:'';position:absolute;top:44px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(124,92,252,.3),rgba(255,77,166,.3),transparent);z-index:0}
+.step{padding:40px 24px;text-align:center;position:relative;z-index:1;border-right:1px solid var(--bd)}
+.step:last-child{border-right:none}
+.step-ic{width:88px;height:88px;border-radius:50%;background:var(--bg3);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:32px;position:relative;transition:all .3s}
+.step-ic::after{content:'';position:absolute;inset:-2px;border-radius:50%;background:linear-gradient(135deg,#7c5cfc,#ff4da6);z-index:-1;opacity:0;transition:opacity .3s}
+.step:hover .step-ic::after{opacity:1}
+.step:hover .step-ic{border-color:transparent}
+.step-n{position:absolute;top:-4px;right:-4px;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif}
+.step-t{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:8px}
+.step-d{font-size:13px;color:var(--t3);line-height:1.65}
+/* LANG DEMO */
+.ldemo-box{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:36px;margin-top:40px;position:relative;overflow:hidden}
+.ldemo-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#7c5cfc,#b89dff,#ff4da6,#f0b429)}
+.lchips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.lchip{padding:7px 16px;border-radius:20px;font-size:13px;font-weight:600;border:1px solid var(--bd2);color:var(--t2);background:var(--bg3);cursor:pointer;transition:all .2s}
+.lchip:hover{color:var(--t1);border-color:var(--bd3)}
+.lchip.active{background:rgba(124,92,252,.15);border-color:var(--a2);color:var(--a3)}
+.dcard{background:var(--bg);border:1px solid var(--bd);border-radius:var(--r2);padding:22px}
+.drow{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;margin-bottom:18px}
+.darr{width:40px;height:40px;border-radius:50%;background:rgba(124,92,252,.15);border:1px solid rgba(124,92,252,.2);display:flex;align-items:center;justify-content:center;font-size:18px}
+.dl{font-size:10px;font-weight:800;letter-spacing:1px;color:var(--t3);text-transform:uppercase;margin-bottom:6px}
+.dv{font-size:14px;line-height:1.6}
+.dout{font-size:15px;color:var(--t1);line-height:1.75;font-weight:500;padding:16px;background:rgba(124,92,252,.06);border-radius:var(--r2);border:1px solid rgba(124,92,252,.1)}
+/* ABOUT */
+.about-wrap{background:var(--bg2);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.av-main{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);padding:28px;margin-bottom:14px;position:relative;overflow:hidden}
+.av-main::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#7c5cfc,#b89dff,#ff4da6)}
+.av-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.av-sm{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);padding:18px;display:flex;align-items:center;gap:14px;transition:all .2s}
+.av-sm:hover{border-color:var(--bd3);transform:translateY(-2px)}
+.av-ic{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.av-ic.p{background:rgba(124,92,252,.15)}
+.av-ic.g{background:rgba(0,212,160,.12)}
+.av-ic.r{background:rgba(255,77,166,.12)}
+.av-ic.y{background:rgba(240,180,41,.12)}
+.av-t{font-size:13px;font-weight:600;margin-bottom:2px}
+.av-s{font-size:11px;color:var(--t3)}
+.about-txt p{font-size:16px;color:var(--t2);line-height:1.85;margin-bottom:16px;font-weight:300}
+.about-txt strong{color:var(--t1);font-weight:600}
+.hl-list{margin-top:24px;display:flex;flex-direction:column;gap:14px}
+.hl{display:flex;align-items:flex-start;gap:12px}
+.hl-ic{width:34px;height:34px;border-radius:10px;background:rgba(124,92,252,.1);border:1px solid rgba(124,92,252,.15);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;margin-top:2px}
+.hl-t{font-size:14px;font-weight:600;margin-bottom:3px}
+.hl-d{font-size:13px;color:var(--t3);line-height:1.5;margin:0}
+/* TESTIMONIALS */
+.tcard{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:32px;position:relative;overflow:hidden;transition:all .25s}
+.tcard:hover{border-color:rgba(124,92,252,.3);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.tqm{position:absolute;top:20px;right:24px;font-size:56px;color:rgba(124,92,252,.08);font-family:Georgia,serif;line-height:1}
+.tst{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:16px}
+.tbody{font-size:15px;color:var(--t2);line-height:1.8;margin-bottom:24px;font-style:italic}
+.tfoot{display:flex;align-items:center;gap:12px;padding-top:18px;border-top:1px solid var(--bd)}
+.tav{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;font-family:'Syne',sans-serif;flex-shrink:0}
+.tnm{font-size:14px;font-weight:700}
+.trl{font-size:12px;color:var(--t3);margin-top:2px}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+/* PRICING */
+.pc{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:32px;position:relative;overflow:hidden;transition:all .25s}
+.pc:hover{transform:translateY(-3px)}
+.pc.feat{border-color:rgba(124,92,252,.4)}
+.pc.feat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#7c5cfc,#b89dff,#ff4da6)}
+.pc-pop{position:absolute;top:20px;right:20px;background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;font-size:10px;font-weight:800;padding:4px 12px;border-radius:8px;letter-spacing:.5px;text-transform:uppercase;font-family:'Syne',sans-serif}
+.pc-name{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;margin-bottom:6px}
+.pc-tag{font-size:13px;color:var(--t3);margin-bottom:24px}
+.pc-price{font-family:'Syne',sans-serif;font-size:54px;font-weight:800;line-height:1;background:linear-gradient(135deg,#b89dff,#ff80c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.pc-free{font-family:'Syne',sans-serif;font-size:54px;font-weight:800;line-height:1;color:var(--t1)}
+.pc-mo{font-family:'Inter',sans-serif;font-size:16px;color:var(--t3);font-weight:400;-webkit-text-fill-color:var(--t3);background:none}
+.pc-per{font-size:12px;color:var(--t3);margin-bottom:24px;margin-top:4px}
+.pc-div{height:1px;background:var(--bd);margin:20px 0}
+.pcl{list-style:none;margin-bottom:28px}
+.pcl li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--t2);padding:7px 0;line-height:1.4}
+.pcl li.y::before{content:'✓';color:var(--g1);font-weight:700;flex-shrink:0}
+.pcl li.n{color:var(--t4)}
+.pcl li.n::before{content:'✗';color:var(--t4);font-weight:700;flex-shrink:0}
+.pc-btn{width:100%;padding:14px;border-radius:var(--r2);font-family:'Syne',sans-serif;font-size:15px;font-weight:700;cursor:pointer;border:none;transition:all .2s}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+/* CTA */
+.cta-wrap{padding:100px 40px;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--bd)}
+.cta-glow{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(124,92,252,.1) 0%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%)}
+footer{padding:40px;border-top:1px solid var(--bd);text-align:center;color:var(--t3);font-size:13px;line-height:2;background:var(--bg2)}
+footer a{color:var(--a3);text-decoration:none}
+/* APP */
+#app-view{display:none}
+.app-layout{display:flex;height:calc(100vh - 64px)}
+.sb{width:268px;background:var(--bg2);border-right:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden;flex-shrink:0}
+.sb-top{padding:14px;border-bottom:1px solid var(--bd)}
+.sb-srch{width:100%;background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r2);padding:10px 14px;color:var(--t1);font-family:'Inter',sans-serif;font-size:13px}
+.sb-srch::placeholder{color:var(--t3)}
+.sb-srch:focus{outline:none;border-color:var(--a1)}
+.sb-scroll{overflow-y:auto;flex:1;padding:8px}
+.sb-cl{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--t4);padding:12px 10px 6px;text-transform:uppercase}
+.sb-item{display:flex;align-items:center;gap:10px;padding:9px 12px;cursor:pointer;transition:all .12s;border:1px solid transparent;margin:2px 0;border-radius:var(--r2);background:none;width:100%;text-align:left}
+.sb-item:hover{background:var(--bg3)}
+.sb-item.act{background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.2)}
+.sb-em{font-size:16px;width:26px;text-align:center;flex-shrink:0}
+.sb-n{font-size:13px;font-weight:500;color:var(--t2);flex:1}
+.sb-item.act .sb-n{color:var(--a3);font-weight:600}
+.sb-tag{font-size:9px;font-weight:800;padding:2px 7px;border-radius:6px;text-transform:uppercase}
+.sb-tag.hot{background:rgba(255,77,166,.15);color:#ff80c0}
+.sb-tag.new{background:rgba(0,212,160,.12);color:var(--g1)}
+.sb-tag.pro{background:rgba(240,180,41,.12);color:var(--gold)}
+.gen-main{flex:1;overflow-y:auto;background:var(--bg);display:flex;flex-direction:column}
+.gen-tb{display:flex;align-items:center;justify-content:space-between;padding:14px 28px;border-bottom:1px solid var(--bd);background:var(--bg2);flex-shrink:0}
+.bcrumb{font-size:13px;color:var(--t3);display:flex;align-items:center;gap:8px}
+.bcrumb span{color:var(--t1);font-weight:600}
+.u-wrap{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--t3)}
+.u-outer{width:80px;height:4px;background:var(--bg4);border-radius:2px;overflow:hidden}
+.u-inner{height:100%;background:linear-gradient(90deg,#7c5cfc,#b89dff);border-radius:2px;transition:width .3s}
+.gen-body{padding:28px;overflow-y:auto;flex:1}
+.gen-inner{max-width:860px}
+.tool-hdr{margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--bd)}
+.tool-title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:12px}
+.tool-sub2{font-size:14px;color:var(--t3);line-height:1.5}
+.lang-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,212,160,.08);border:1px solid rgba(0,212,160,.18);color:var(--g1);font-size:11px;font-weight:700;padding:5px 14px;border-radius:12px;margin-top:10px;letter-spacing:.3px}
+.fcard{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:24px;margin-bottom:16px}
+.fl{font-size:10px;font-weight:800;letter-spacing:1.2px;color:var(--t3);margin-bottom:8px;display:block;text-transform:uppercase}
+.fi{width:100%;background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r2);padding:12px 16px;color:var(--t1);font-family:'Inter',sans-serif;font-size:14px;transition:border-color .2s;resize:none;line-height:1.6}
+.fi:focus{outline:none;border-color:var(--a1)}
+.fi::placeholder{color:var(--t4)}
+select.fi{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a5878' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.fg{margin-bottom:14px}
+.gen-btn{width:100%;padding:16px;border-radius:var(--r2);border:none;cursor:pointer;font-family:'Syne',sans-serif;font-size:16px;font-weight:700;background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;transition:all .2s;box-shadow:0 4px 24px rgba(124,92,252,.3);letter-spacing:.3px}
+.gen-btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 8px 32px rgba(124,92,252,.45)}
+.gen-btn:disabled{opacity:.35;cursor:not-allowed;transform:none;box-shadow:none}
+.out-card{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;margin-top:16px}
+.out-hdr{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;border-bottom:1px solid var(--bd);background:var(--bg3)}
+.out-ttl{font-size:11px;font-weight:800;letter-spacing:1.2px;color:var(--a3);text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.odot{width:7px;height:7px;border-radius:50%;background:var(--a2);animation:pulse 1.5s infinite}
+.oacts{display:flex;gap:6px}
+.oa{background:var(--bg4);border:1px solid var(--bd);border-radius:6px;padding:5px 14px;font-size:12px;font-weight:600;color:var(--t2);cursor:pointer;transition:all .15s}
+.oa:hover{background:var(--bg3);color:var(--t1)}
+.oa.ok{color:var(--g1);border-color:rgba(0,212,160,.3)}
+.out-body{padding:24px;font-size:14px;line-height:1.9;color:var(--t2);white-space:pre-wrap;min-height:200px}
+.lstt{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;min-height:220px}
+.spin{width:52px;height:52px;border-radius:50%;border:2px solid rgba(124,92,252,.2);border-top-color:var(--a2);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ltxt{font-size:13px;color:var(--t3)}
+.hist-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.hp{background:var(--bg2);border:1px solid var(--bd);border-radius:12px;padding:5px 14px;font-size:11px;font-weight:600;color:var(--t3);cursor:pointer;transition:all .15s}
+.hp:hover{border-color:var(--a2);color:var(--a3)}
+.err-box{background:rgba(255,77,166,.06);border:1px solid rgba(255,77,166,.15);border-radius:var(--r2);padding:16px;font-size:13px;color:#ff80c0;margin-top:12px}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-l{opacity:0;transform:translateX(-40px);transition:opacity .8s ease,transform .8s ease}
+.reveal-l.visible{opacity:1;transform:translateX(0)}
+.reveal-r{opacity:0;transform:translateX(40px);transition:opacity .8s ease,transform .8s ease}
+.reveal-r.visible{opacity:1;transform:translateX(0)}
+.rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}.rd4{transition-delay:.4s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.float{animation:float 5s ease-in-out infinite}
+/* RESPONSIVE */
+@media(max-width:900px){.nav-links{display:none}.about-grid{grid-template-columns:1fr}.pgrid{grid-template-columns:1fr}.stats-inner{flex-wrap:wrap}.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.hero-wrap{padding:60px 20px 50px}.sec-wrap{padding:60px 20px}.tools-con{padding:0 20px}.r2,.r3{grid-template-columns:1fr}.app-layout{flex-direction:column;height:auto}.sb{width:100%;height:200px;overflow-x:auto}.tgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="landing-view">
+<nav class="nav">
+  <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <div class="logo-icon">G</div>
+    <div class="logo-name">GenixAI</div>
+  </div>
+  <div class="nav-links">
+    <a href="#tools" class="nav-link">50 Tools</a>
+    <a href="#how" class="nav-link">How it works</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#pricing" class="nav-link">Pricing</a>
+  </div>
+  <div class="nav-right">
+    <span class="pill-free">FREE TO USE</span>
+    <button class="btn btn-primary" onclick="showApp()">Launch App →</button>
+  </div>
+</nav>
+<div class="hero-wrap">
+  <div class="hero-bg"><div class="h-orb1"></div><div class="h-orb2"></div><div class="h-orb3"></div><div class="h-grid"></div></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><div class="h-dot"></div>50 AI TOOLS &nbsp;·&nbsp; 55+ LANGUAGES &nbsp;·&nbsp; WORLDWIDE</div>
+    <h1 class="hero-title"><span class="l1">The World's Most Powerful</span><span class="l2">Multilingual AI Platform</span></h1>
+    <p class="hero-sub">Generate <strong>any content</strong> — captions, resumes, ads, emails, SEO copy and 45 more — in <strong>55+ languages</strong> for any country, any audience, any business.</p>
+    <div class="hero-ctas">
+      <button class="btn btn-primary btn-xl" onclick="showApp()">✨ Start Generating Free</button>
+      <a href="#tools" class="btn btn-ghost btn-lg">Explore 50 Tools ↓</a>
+    </div>
+    <div class="hero-trust">
+      <div class="ti"><div class="ti-dot"></div>5,000+ creators worldwide</div>
+      <div class="ti"><div class="ti-dot"></div>No credit card needed</div>
+      <div class="ti"><div class="ti-dot"></div>Powered by Claude AI</div>
+      <div class="ti"><div class="ti-dot"></div>Results in 10 seconds</div>
+    </div>
+  </div>
+</div>
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="sc"><div class="sv" data-target="50" data-suffix="">0</div><div class="sl">AI Tools</div></div>
+    <div class="sc"><div class="sv" data-target="55" data-suffix="+">0</div><div class="sl">Languages</div></div>
+    <div class="sc"><div class="sv" data-target="5000" data-suffix="+">0</div><div class="sl">Global Users</div></div>
+    <div class="sc"><div class="sv" data-target="10" data-suffix="s">0</div><div class="sl">Avg Generation</div></div>
+    <div class="sc"><div class="sv" data-target="99" data-suffix="%">0</div><div class="sl">Uptime</div></div>
+  </div>
+</div>
+<div class="mq-wrap"><div class="mq-track" id="mq"></div></div>
+<div id="tools" class="tools-outer">
+  <div class="tools-con">
+    <div class="sec-ctr reveal"><div class="sec-ey">50 AI TOOLS</div><h2 class="sec-title">Every Tool You'll Ever Need</h2><p class="sec-sub">50 AI-powered tools in 55+ languages. One platform. Unlimited content possibilities for any business.</p></div>
+    <div class="ttabs" id="ttabs"></div>
+    <div class="tgrid" id="tgrid"></div>
+  </div>
+</div>
+<div id="how" class="how-wrap">
+  <div class="sec-wrap">
+    <div class="sec-ctr reveal"><div class="sec-ey">HOW IT WORKS</div><h2 class="sec-title">4 Steps to Amazing Content</h2><p class="sec-sub">From zero to publish-ready content in any language — in under 60 seconds.</p></div>
+    <div class="steps">
+      <div style="position:absolute;top:44px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(124,92,252,.3),rgba(255,77,166,.3),transparent);z-index:0"></div>
+      <div class="step reveal rd1"><div class="step-ic">🎯<div class="step-n">1</div></div><div class="step-t">Choose Tool</div><div class="step-d">Pick from 50 AI tools — content, marketing, business, SEO, creative and more</div></div>
+      <div class="step reveal rd2"><div class="step-ic">🌍<div class="step-n">2</div></div><div class="step-t">Select Language</div><div class="step-d">Choose any of 55+ languages — Urdu, Arabic, Japanese, French, Swahili and more</div></div>
+      <div class="step reveal rd3"><div class="step-ic">✍️<div class="step-n">3</div></div><div class="step-t">Describe Topic</div><div class="step-d">Write a short description of what you need — any topic, any industry worldwide</div></div>
+      <div class="step reveal rd4"><div class="step-ic">⚡<div class="step-n">4</div></div><div class="step-t">Get AI Content</div><div class="step-d">Professional content in your language within seconds — copy, edit, publish!</div></div>
+    </div>
+  </div>
+</div>
+<div class="sec-wrap">
+  <div class="sec-ctr reveal"><div class="sec-ey">MULTILINGUAL ENGINE</div><h2 class="sec-title">You Pick the Language.<br>AI Writes Perfectly in It.</h2><p class="sec-sub">Not translation — actual AI content generated natively in your language with cultural context and local understanding.</p></div>
+  <div class="ldemo-box reveal">
+    <div class="lchips" id="lchips"></div>
+    <div class="dcard">
+      <div class="drow">
+        <div><div class="dl">Your Input</div><div class="dv" style="color:var(--t2)">"Launch sale for new clothing brand — exciting & bold"</div></div>
+        <div class="darr">→</div>
+        <div><div class="dl">Output Language</div><div class="dv" style="color:var(--a3);font-weight:600" id="dlang">Urdu (اردو)</div></div>
+      </div>
+      <div class="dl">✦ AI Generated Output</div>
+      <div class="dout" id="dout">🔥 نئے برانڈ کا دھماکہ دار آغاز! بہترین ملبوسات، ناقابل یقین قیمتیں — آج ہی اپنا انتخاب کریں! 🛍️ #فیشن #نیاآغاز #سیل</div>
+    </div>
+  </div>
+</div>
+<div id="about" class="about-wrap">
+  <div class="sec-wrap">
+    <div class="about-grid">
+      <div class="about-txt reveal-l">
+        <div class="sec-ey">ABOUT GENIXAI</div>
+        <h2 class="sec-title">Built for the Entire World. Not Just One Market.</h2>
+        <p>Most AI tools are built for <strong>English-speaking Western markets only</strong>. GenixAI is different — built from ground up to serve <strong>every language, every culture, every market</strong> on the planet.</p>
+        <p>Whether you're in <strong>Pakistan, UAE, Brazil, Japan, Nigeria, or Germany</strong> — GenixAI understands your audience and creates content that resonates locally.</p>
+        <div class="hl-list">
+          <div class="hl"><div class="hl-ic">🌍</div><div><div class="hl-t">Truly Multilingual AI</div><div class="hl-d">Content generated natively in 55+ languages with cultural context</div></div></div>
+          <div class="hl"><div class="hl-ic">⚡</div><div><div class="hl-t">50 Tools in One Platform</div><div class="hl-d">No switching apps — everything from one powerful dashboard</div></div></div>
+          <div class="hl"><div class="hl-ic">🔒</div><div><div class="hl-t">Powered by Claude AI</div><div class="hl-d">Built on Anthropic's Claude — the world's safest and most capable AI</div></div></div>
+          <div class="hl"><div class="hl-ic">💰</div><div><div class="hl-t">Global Affordable Pricing</div><div class="hl-d">Priced for every market worldwide — start free, upgrade anytime</div></div></div>
+        </div>
+      </div>
+      <div class="reveal-r">
+        <div class="av-main float">
+          <div style="font-size:11px;font-weight:800;letter-spacing:1px;color:var(--a3);margin-bottom:16px;text-transform:uppercase">✦ Same Topic → 4 Languages Instantly</div>
+          <div style="background:var(--bg4);border-radius:8px;padding:12px;margin-bottom:10px;font-size:13px"><span style="color:var(--t3)">Topic:</span> <span style="color:var(--t1)">"AI tool for content creators — 50% off launch"</span></div>
+          <div style="background:var(--bg);border-radius:8px;padding:12px;margin-bottom:8px"><div style="font-size:10px;color:var(--g1);font-weight:700;margin-bottom:4px">🇵🇰 URDU</div><div style="font-size:13px;line-height:1.6">کنٹینٹ کریٹرز کے لیے AI ٹول — 50% لانچ چھوٹ! آج ہی آزمائیں 🚀</div></div>
+          <div style="background:var(--bg);border-radius:8px;padding:12px;margin-bottom:8px"><div style="font-size:10px;color:var(--p2);font-weight:700;margin-bottom:4px">🇸🇦 ARABIC</div><div style="font-size:13px;line-height:1.6">أداة AI لصنّاع المحتوى — خصم 50%! جرّبها الآن 🚀</div></div>
+          <div style="background:var(--bg);border-radius:8px;padding:12px;margin-bottom:8px"><div style="font-size:10px;color:var(--gold);font-weight:700;margin-bottom:4px">🇫🇷 FRENCH</div><div style="font-size:13px;line-height:1.6">Outil IA pour créateurs — 50% de réduction! Essayez maintenant 🚀</div></div>
+          <div style="background:var(--bg);border-radius:8px;padding:12px"><div style="font-size:10px;color:var(--a3);font-weight:700;margin-bottom:4px">🇯🇵 JAPANESE</div><div style="font-size:13px;line-height:1.6">コンテンツクリエイター向けAI — 50%オフ! 今すぐ試して 🚀</div></div>
+        </div>
+        <div class="av-row">
+          <div class="av-sm"><div class="av-ic p">🚀</div><div><div class="av-t">10x Faster</div><div class="av-s">Than manual writing</div></div></div>
+          <div class="av-sm"><div class="av-ic g">✅</div><div><div class="av-t">100% Unique</div><div class="av-s">Every generation</div></div></div>
+          <div class="av-sm"><div class="av-ic r">🌍</div><div><div class="av-t">55+ Languages</div><div class="av-s">Global reach</div></div></div>
+          <div class="av-sm"><div class="av-ic y">⚡</div><div><div class="av-t">~10 Seconds</div><div class="av-s">Per generation</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="border-top:1px solid var(--bd);padding:80px 40px;max-width:1200px;margin:0 auto">
+  <div class="sec-ctr reveal"><div class="sec-ey">TESTIMONIALS</div><h2 class="sec-title">Loved Worldwide</h2><p class="sec-sub">Join thousands of creators, freelancers, and businesses using GenixAI daily.</p></div>
+  <div class="tgrid">
+    <div class="tcard reveal rd1"><div class="tqm">"</div><div class="tst">★★★★★</div><div class="tbody">GenixAI transformed my workflow completely. Arabic + English captions simultaneously — my engagement tripled in 3 weeks!</div><div class="tfoot"><div class="tav" style="background:rgba(124,92,252,.2);color:var(--a3)">SA</div><div><div class="tnm">Sara Ahmed</div><div class="trl">Social Media Manager · Dubai, UAE</div></div></div></div>
+    <div class="tcard reveal rd2"><div class="tqm">"</div><div class="tst">★★★★★</div><div class="tbody">As a freelancer serving clients in 5 countries, GenixAI is my secret weapon. The multilingual feature is completely unmatched.</div><div class="tfoot"><div class="tav" style="background:rgba(0,212,160,.2);color:var(--g1)">MK</div><div><div class="tnm">Miguel Kosta</div><div class="trl">Digital Freelancer · Brazil</div></div></div></div>
+    <div class="tcard reveal rd3"><div class="tqm">"</div><div class="tst">★★★★★</div><div class="tbody">Built my resume in Urdu + English in 5 minutes. Got the interview the next day. The AI Resume Builder is absolutely incredible!</div><div class="tfoot"><div class="tav" style="background:rgba(255,77,166,.2);color:var(--p2)">AR</div><div><div class="tnm">Abdul Rehman</div><div class="trl">Software Engineer · Lahore, Pakistan</div></div></div></div>
+    <div class="tcard reveal rd1"><div class="tqm">"</div><div class="tst">★★★★★</div><div class="tbody">I run a Daraz store and needed Urdu product descriptions. GenixAI generates perfect listings in seconds. Sales up 200%!</div><div class="tfoot"><div class="tav" style="background:rgba(240,180,41,.2);color:var(--gold)">AK</div><div><div class="tnm">Ayesha Khan</div><div class="trl">eCommerce Seller · Karachi, Pakistan</div></div></div></div>
+    <div class="tcard reveal rd2"><div class="tqm">"</div><div class="tst">★★★★★</div><div class="tbody">We use GenixAI for campaigns in 8 languages. Quality is consistently exceptional. Replaced 3 other tools for our agency.</div><div class="tfoot"><div class="tav" style="background:rgba(124,92,252,.2);color:var(--a3)">JL</div><div><div class="tnm">Julia Larsson</div><div class="trl">Agency Director · Stockholm, Sweden</div></div></div></div>
+    <div class="tcard reveal rd3"><div class="tqm">"</div><div class="tst">★★★★★</div><div class="tbody">YouTube package in Hindi in 30 seconds — full title, description, script, tags. My channel grew 10K subscribers in a month!</div><div class="tfoot"><div class="tav" style="background:rgba(0,212,160,.2);color:var(--g1)">RS</div><div><div class="tnm">Rahul Sharma</div><div class="trl">YouTuber · Mumbai, India</div></div></div></div>
+  </div>
+</div>
+<div id="pricing" style="border-top:1px solid var(--bd);background:var(--bg2);padding:80px 40px">
+  <div class="sec-ctr reveal" style="max-width:700px;margin:0 auto 56px"><div class="sec-ey">PRICING</div><h2 class="sec-title">Simple. Transparent. Powerful.</h2><p class="sec-sub">Start free forever. Upgrade when you need unlimited power.</p></div>
+  <div class="pgrid" style="max-width:1000px;margin:0 auto">
+    <div class="pc reveal rd1">
+      <div class="pc-name">Free</div><div class="pc-tag">Try everything — forever free</div>
+      <div class="pc-free">Free</div><div class="pc-per">Always free · no card needed</div>
+      <div class="pc-div"></div>
+      <ul class="pcl">
+        <li class="y">30 generations per month</li><li class="y">All 50 AI tools</li><li class="y">All 55+ languages</li>
+        <li class="y">Basic tones & styles</li><li class="n">Unlimited generations</li><li class="n">Export PDF / DOCX</li><li class="n">Priority support</li>
+      </ul>
+      <button class="pc-btn" onclick="showApp()" style="background:transparent;color:var(--t2);border:1px solid var(--bd2)">Start for Free</button>
+    </div>
+    <div class="pc feat reveal rd2">
+      <div class="pc-pop">MOST POPULAR</div>
+      <div class="pc-name">Pro</div><div class="pc-tag">For creators & freelancers</div>
+      <div class="pc-price">$12<span class="pc-mo">/mo</span></div><div class="pc-per">billed monthly · cancel anytime</div>
+      <div class="pc-div"></div>
+      <ul class="pcl">
+        <li class="y">Unlimited generations</li><li class="y">All 50 AI tools</li><li class="y">All 55+ languages</li>
+        <li class="y">All 12 tone presets</li><li class="y">Priority support</li><li class="y">Export PDF / DOCX / TXT</li><li class="y">Remove watermark</li>
+      </ul>
+      <button class="pc-btn" onclick="window.open('https://genixai-app.lemonsqueezy.com/checkout/buy/692cf374-f4a3-4188-b5f2-c2600b22e852')" style="background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;border:none;box-shadow:0 4px 20px rgba(124,92,252,.3)">Get Pro — $12/mo</button>
+    </div>
+    <div class="pc reveal rd3">
+      <div class="pc-name">Business</div><div class="pc-tag">For agencies & teams</div>
+      <div class="pc-price">$29<span class="pc-mo">/mo</span></div><div class="pc-per">billed monthly · 5 seats</div>
+      <div class="pc-div"></div>
+      <ul class="pcl">
+        <li class="y">Everything in Pro</li><li class="y">5 team members</li><li class="y">Brand voice profiles</li>
+        <li class="y">Bulk generation</li><li class="y">API access</li><li class="y">White-label option</li><li class="y">Dedicated support</li>
+      </ul>
+      <button class="pc-btn" onclick="window.open('https://genixai-app.lemonsqueezy.com/checkout/buy/32e890bb-5d91-48b5-ad4d-f1b30233888a')" style="background:transparent;color:var(--t2);border:1px solid var(--bd2)">Go Business — $29/mo</button>
+    </div>
+  </div>
+</div>
+<div class="cta-wrap">
+  <div class="cta-glow"></div>
+  <div style="position:relative;z-index:1">
+    <h2 class="sec-title reveal" style="margin-bottom:16px">Ready to Create Content in<br><span style="background:linear-gradient(135deg,#7c5cfc,#b89dff,#ff4da6);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Any Language?</span></h2>
+    <p class="sec-sub reveal" style="margin:0 auto 32px;max-width:520px">50 tools. 55+ languages. Free forever. The world's most powerful AI content platform.</p>
+    <button class="btn btn-primary btn-xl reveal" onclick="showApp()">🚀 Launch GenixAI Free — No Card Needed</button>
+  </div>
+</div>
+<footer>© 2025 GenixAI · The World's #1 Multilingual AI Content Platform<br><a href="mailto:support@genixai.com">support@genixai.com</a> &nbsp;·&nbsp; <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Terms</a> &nbsp;·&nbsp; <a href="#">Affiliates</a></footer>
+</div>
+<div id="app-view">
+<nav class="nav">
+  <div class="logo" onclick="showLanding()"><div class="logo-icon">G</div><div class="logo-name">GenixAI</div></div>
+  <div class="nav-right"><span class="pill-free" id="upill">FREE · 0/30 used</span><button class="btn btn-ghost" onclick="showLanding()" style="font-size:13px;padding:8px 16px">← Home</button></div>
+</nav>
+<div class="app-layout">
+  <div class="sb">
+    <div class="sb-top"><input class="sb-srch" id="sbsrch" placeholder="🔍 Search 50 tools..." oninput="filterSb(this.value)"></div>
+    <div class="sb-scroll" id="sbt"></div>
+  </div>
+  <div class="gen-main">
+    <div class="gen-tb">
+      <div class="bcrumb">GenixAI <span style="color:var(--t4)">›</span> <span id="bc">Social Captions</span></div>
+      <div class="u-wrap"><span id="utxt">0 / 30 today</span><div class="u-outer"><div class="u-inner" id="ubar" style="width:0%"></div></div></div>
+    </div>
+    <div class="gen-body"><div class="gen-inner">
+      <div id="hstrip" class="hist-row" style="display:none"></div>
+      <div class="tool-hdr"><div class="tool-title" id="ttitle">📱 Social Captions</div><div class="tool-sub2" id="tsub">Viral captions for any social media platform</div><div class="lang-badge">🌍 Output Language: <span id="ldisp">English</span></div></div>
+      <div class="fcard" id="farea"></div>
+      <div id="oarea"></div>
+    </div></div>
+  </div>
+</div>
+</div>
+<script>
+const LANGS=["English","Urdu (اردو)","Hindi (हिन्दी)","Arabic (العربية)","Spanish (Español)","French (Français)","German (Deutsch)","Portuguese (Português)","Italian (Italiano)","Dutch (Nederlands)","Turkish (Türkçe)","Russian (Русский)","Chinese Simplified (中文)","Chinese Traditional (繁體中文)","Japanese (日本語)","Korean (한국어)","Bengali (বাংলা)","Punjabi (ਪੰਜਾਬੀ)","Tamil (தமிழ்)","Telugu (తెలుగు)","Marathi (मराठी)","Gujarati (ગુજરાતી)","Kannada (ಕನ್ನಡ)","Malayalam (മലയാളം)","Persian/Farsi (فارسی)","Pashto (پښتو)","Swahili (Kiswahili)","Hausa","Yoruba","Zulu","Amharic (አማርኛ)","Somali (Soomaali)","Indonesian (Bahasa)","Malay (Bahasa Melayu)","Filipino (Tagalog)","Vietnamese (Tiếng Việt)","Thai (ภาษาไทย)","Polish (Polski)","Swedish (Svenska)","Norwegian (Norsk)","Danish (Dansk)","Finnish (Suomi)","Greek (Ελληνικά)","Czech (Čeština)","Romanian (Română)","Hungarian (Magyar)","Hebrew (עברית)","Ukrainian (Українська)","Serbian (Српски)","Croatian (Hrvatski)","Slovak (Slovenčina)","Bulgarian (Български)","Lithuanian (Lietuvių)","Latvian (Latviešu)","Estonian (Eesti)","Afrikaans"];
+const TONES=["Professional","Casual & Friendly","Funny & Witty","Inspirational","Urgent & Bold","Luxury & Premium","Storytelling","Empathetic","Persuasive","Minimalist","Playful","Authoritative"];
+const DEX=[
+  {flag:"🇵🇰",lang:"Urdu",name:"Urdu (اردو)",text:"🔥 نئے برانڈ کا دھماکہ دار آغاز! بہترین ملبوسات، ناقابل یقین قیمتیں — آج ہی اپنا انتخاب کریں! 🛍️ #فیشن #سیل"},
+  {flag:"🇸🇦",lang:"Arabic",name:"Arabic (العربية)",text:"🔥 انطلاق مذهل للعلامة الجديدة! أزياء رائعة بأسعار لا تُصدق — اختر الآن! 🛍️ #موضة #تخفيضات"},
+  {flag:"🇮🇳",lang:"Hindi",name:"Hindi (हिन्दी)",text:"🔥 नए ब्रांड का धमाकेदार आगाज! बेहतरीन कपड़े, अविश्वसनीय कीमतें — आज ही खरीदें! 🛍️ #फैशन #सेल"},
+  {flag:"🇫🇷",lang:"French",name:"French (Français)",text:"🔥 Lancement explosif de notre marque! Vêtements incroyables à prix imbattables — Achetez maintenant! 🛍️"},
+  {flag:"🇪🇸",lang:"Spanish",name:"Spanish (Español)",text:"🔥 ¡Lanzamiento explosivo! Ropa increíble a precios imbatibles — ¡Compra ahora! 🛍️ #Moda #Oferta"},
+  {flag:"🇩🇪",lang:"German",name:"German (Deutsch)",text:"🔥 Explosiver Launch! Unglaubliche Kleidung zu unschlagbaren Preisen — Jetzt kaufen! 🛍️ #Mode #Sale"},
+  {flag:"🇯🇵",lang:"Japanese",name:"Japanese (日本語)",text:"🔥 新ブランドの爆発的なローンチ！信じられない価格で素晴らしい服 — 今すぐ購入！🛍️"},
+];
+const TOOLS=[
+  {id:"social",icon:"📱",name:"Social Captions",desc:"Viral captions for any platform",cat:"Content",tag:"hot"},
+  {id:"hashtags",icon:"#️⃣",name:"Hashtag Generator",desc:"30 trending hashtags per niche",cat:"Content",tag:"hot"},
+  {id:"thread",icon:"🧵",name:"Twitter Thread",desc:"Viral threads with hooks & CTA",cat:"Content"},
+  {id:"linkedin",icon:"💼",name:"LinkedIn Post",desc:"Professional posts that grow reach",cat:"Content",tag:"new"},
+  {id:"blog",icon:"✍️",name:"Blog Post Writer",desc:"Full SEO-optimized articles",cat:"Content"},
+  {id:"story",icon:"📖",name:"Brand Story",desc:"Compelling brand storytelling",cat:"Content"},
+  {id:"quote",icon:"💬",name:"Quote Creator",desc:"Inspiring shareable quotes",cat:"Content",tag:"new"},
+  {id:"newsletter",icon:"📰",name:"Newsletter",desc:"Full email newsletter content",cat:"Content"},
+  {id:"caption_pack",icon:"🎨",name:"Caption Pack",desc:"10 captions for any campaign",cat:"Content",tag:"new"},
+  {id:"email",icon:"📧",name:"Email Campaign",desc:"Subject lines + full email body",cat:"Marketing"},
+  {id:"cold",icon:"📬",name:"Cold Email",desc:"B2B outreach emails that convert",cat:"Marketing",tag:"new"},
+  {id:"ad",icon:"🎯",name:"Ad Copy",desc:"Facebook, Google, Instagram ads",cat:"Marketing",tag:"hot"},
+  {id:"video",icon:"🎬",name:"Video Ad Script",desc:"30-60 second video scripts",cat:"Marketing"},
+  {id:"youtube",icon:"▶️",name:"YouTube Package",desc:"Title, description, hook script",cat:"Marketing"},
+  {id:"podcast",icon:"🎙️",name:"Podcast Script",desc:"Full episode outline & intro",cat:"Marketing"},
+  {id:"influencer",icon:"🌟",name:"Influencer Pitch",desc:"Brand collaboration pitches",cat:"Marketing",tag:"new"},
+  {id:"webinar",icon:"🖥️",name:"Webinar Script",desc:"Full webinar presentation script",cat:"Marketing",tag:"new"},
+  {id:"sms",icon:"💬",name:"SMS Marketing",desc:"High-converting SMS campaigns",cat:"Marketing"},
+  {id:"product",icon:"🛍️",name:"Product Description",desc:"eCommerce listings that sell",cat:"Ecommerce",tag:"hot"},
+  {id:"review",icon:"⭐",name:"Review Response",desc:"Reply to good & bad reviews",cat:"Ecommerce"},
+  {id:"daraz",icon:"🏪",name:"Daraz/Amazon Listing",desc:"Marketplace-optimized listings",cat:"Ecommerce",tag:"new"},
+  {id:"promo",icon:"🎁",name:"Promo Announcement",desc:"Sale & discount announcements",cat:"Ecommerce"},
+  {id:"unboxing",icon:"📦",name:"Unboxing Script",desc:"Product unboxing video scripts",cat:"Ecommerce",tag:"new"},
+  {id:"pitch",icon:"💡",name:"Sales Pitch",desc:"Verbal sales pitch for any product",cat:"Business"},
+  {id:"press",icon:"📰",name:"Press Release",desc:"Professional news announcements",cat:"Business"},
+  {id:"business",icon:"🏢",name:"Business Name",desc:"Catchy names + taglines",cat:"Business"},
+  {id:"faq",icon:"❓",name:"FAQ Generator",desc:"12 Q&As for any product/service",cat:"Business"},
+  {id:"landing",icon:"🖥️",name:"Landing Page Copy",desc:"High-converting page sections",cat:"Business",tag:"new"},
+  {id:"proposal",icon:"📋",name:"Business Proposal",desc:"Professional client proposals",cat:"Business",tag:"new"},
+  {id:"mission",icon:"🎯",name:"Mission Statement",desc:"Company vision & mission copy",cat:"Business"},
+  {id:"investor",icon:"💰",name:"Investor Pitch Deck",desc:"Slide-by-slide pitch content",cat:"Business",tag:"pro"},
+  {id:"bio",icon:"👤",name:"Bio Generator",desc:"Multi-platform profile bios",cat:"Personal"},
+  {id:"resume",icon:"📄",name:"AI Resume Builder",desc:"ATS-optimized professional resume",cat:"Personal",tag:"hot"},
+  {id:"cover",icon:"📝",name:"Cover Letter",desc:"Tailored cover letters fast",cat:"Personal"},
+  {id:"linkedin_summary",icon:"🔗",name:"LinkedIn Summary",desc:"Powerful LinkedIn about section",cat:"Personal",tag:"new"},
+  {id:"apology",icon:"🙏",name:"Apology Letter",desc:"Professional apology messages",cat:"Personal"},
+  {id:"recommendation",icon:"🏅",name:"Recommendation Letter",desc:"Professional reference letters",cat:"Personal",tag:"new"},
+  {id:"seo",icon:"🔍",name:"SEO Meta Tags",desc:"Title tags, meta, schema markup",cat:"SEO"},
+  {id:"keyword",icon:"🗝️",name:"Keyword Research",desc:"SEO keywords + search intent",cat:"SEO",tag:"new"},
+  {id:"seo_blog",icon:"📊",name:"SEO Blog Outline",desc:"Keyword-optimized blog structure",cat:"SEO",tag:"new"},
+  {id:"backlink",icon:"🔗",name:"Backlink Outreach",desc:"Email templates for link building",cat:"SEO",tag:"pro"},
+  {id:"poem",icon:"🎭",name:"Poem / Poetry",desc:"Creative poems in any language",cat:"Creative",tag:"new"},
+  {id:"story_creative",icon:"📚",name:"Short Story",desc:"Engaging creative fiction",cat:"Creative"},
+  {id:"speech",icon:"🎤",name:"Speech Writer",desc:"Speeches for any occasion",cat:"Creative",tag:"new"},
+  {id:"script",icon:"🎬",name:"Movie/Short Script",desc:"Scene scripts & screenplays",cat:"Creative",tag:"pro"},
+  {id:"translate",icon:"🌍",name:"AI Translator",desc:"Translate & culturally localize",cat:"Tools"},
+  {id:"summarize",icon:"📋",name:"Text Summarizer",desc:"Summarize any long text",cat:"Tools",tag:"new"},
+  {id:"rewrite",icon:"✨",name:"Content Rewriter",desc:"Rewrite & improve any content",cat:"Tools"},
+  {id:"grammar",icon:"✏️",name:"Grammar & Style Fix",desc:"Fix grammar, style, clarity",cat:"Tools",tag:"new"},
+];
+const CATS=["All","Content","Marketing","Ecommerce","Business","Personal","SEO","Creative","Tools"];
+let AT=TOOLS[0],fv={lang:"English",tone:"Professional",topic:"",platform:"Instagram",niche:"",goal:"",audience:"",industry:"Technology",name:"",role:"",exp:"3-5 years",skills:"",company:"",background:"",targetLang:"Spanish (Español)",pageType:"Landing page"},hist=[],uc=parseInt(localStorage.getItem("gx_u")||"0"),ud=localStorage.getItem("gx_d")||"";
+function td(){return new Date().toDateString()}
+function chk(){if(ud!==td()){uc=0;ud=td();sv()}}
+function sv(){localStorage.setItem("gx_u",uc);localStorage.setItem("gx_d",ud)}
+function inc(){uc++;ud=td();sv();uui()}
+function uui(){const p=Math.min((uc/30)*100,100);document.getElementById("ubar").style.width=p+"%";document.getElementById("utxt").textContent=uc+" / 30 today";document.getElementById("upill").textContent="FREE · "+uc+"/30 used"}
+function showApp(){document.getElementById("landing-view").style.display="none";document.getElementById("app-view").style.display="block";chk();uui();renderSb();renderForm()}
+function showLanding(){document.getElementById("landing-view").style.display="block";document.getElementById("app-view").style.display="none"}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
+function renderSb(q=""){const c=document.getElementById("sbt");c.innerHTML="";const cats=[...new Set(TOOLS.map(t=>t.cat))];const filt=q?TOOLS.filter(t=>t.name.toLowerCase().includes(q.toLowerCase())||t.desc.toLowerCase().includes(q.toLowerCase())):null;const mk=(t)=>{const b=document.createElement("button");b.className="sb-item"+(AT.id===t.id?" act":"");b.innerHTML=`<span class="sb-em">${t.icon}</span><span class="sb-n">${t.name}</span>${t.tag?`<span class="sb-tag ${t.tag}">${t.tag.toUpperCase()}</span>`:""}`;b.onclick=()=>selTool(t);return b};if(filt){filt.forEach(t=>c.appendChild(mk(t)))}else{cats.forEach(cat=>{const l=document.createElement("div");l.className="sb-cl";l.textContent=cat;c.appendChild(l);TOOLS.filter(t=>t.cat===cat).forEach(t=>c.appendChild(mk(t)))})}}
+function filterSb(v){renderSb(v)}
+function selTool(t){AT=t;document.getElementById("ttitle").textContent=t.icon+" "+t.name;document.getElementById("tsub").textContent=t.desc;document.getElementById("bc").textContent=t.name;document.getElementById("oarea").innerHTML="";renderSb(document.getElementById("sbsrch").value);renderForm();uld()}
+function renderForm(){const id=AT.id,a=document.getElementById("farea");a.className="fcard";
+const inp=(l,k,ph,rows=1)=>`<div class="fg"><label class="fl">${l}</label>${rows>1?`<textarea class="fi" rows="${rows}" placeholder="${ph}" oninput="fv['${k}']=this.value;uld()">${fv[k]||""}</textarea>`:`<input class="fi" placeholder="${ph}" value="${esc(fv[k]||"")}" oninput="fv['${k}']=this.value;uld()">`}</div>`;
+const sel=(l,k,opts)=>`<div class="fg"><label class="fl">${l}</label><select class="fi" onchange="fv['${k}']=this.value;uld()">${opts.map(o=>`<option${fv[k]===o?" selected":""}>${esc(o)}</option>`).join("")}</select></div>`;
+const r2=(a,b)=>`<div class="r2">${a}${b}</div>`;
+const cm=()=>r2(sel("Output Language","lang",LANGS),sel("Tone","tone",TONES));
+let html="";
+if(id==="hashtags")html=inp("Niche / Topic","topic","e.g. fitness, travel photography, food blog...")+inp("Extra Context","niche","e.g. targeting young women in USA")+cm();
+else if(id==="resume")html=r2(inp("Full Name","name","John Smith"),inp("Target Job Title","role","Senior Software Engineer"))+r2(inp("Years of Experience","exp","5 years"),inp("Industry","industry","Technology"))+inp("Key Skills","skills","React, Node.js, AWS, Python...")+inp("Career Summary","topic","Describe your background and achievements...","textarea",3)+sel("Output Language","lang",LANGS);
+else if(id==="cover")html=inp("Job Title Applying For","topic","Senior Marketing Manager")+inp("Company Name","company","Google, Startup XYZ...")+inp("Your Background","background","5 years experience...","textarea",2)+cm();
+else if(id==="translate")html=inp("Text to Translate","topic","Paste your content here...","textarea",4)+r2(sel("Translate To","targetLang",LANGS),sel("Tone","tone",TONES));
+else if(["social","bio","caption_pack"].includes(id))html=inp("Topic / Brand / Person","topic","Describe what this is about...","textarea",3)+r2(sel("Platform","platform",["Instagram","Twitter/X","LinkedIn","TikTok","Facebook","Pinterest","YouTube"]),sel("Language","lang",LANGS))+sel("Tone","tone",TONES);
+else if(["ad","video","sms"].includes(id))html=inp("Product / Service","topic","Describe what you are advertising...","textarea",3)+r2(sel("Platform","platform",["Facebook Ads","Instagram Ads","Google Ads","TikTok Ads","YouTube Ads"]),sel("Language","lang",LANGS))+sel("Tone","tone",TONES);
+else if(["pitch","product","cold","faq","daraz","promo"].includes(id))html=inp("Topic / Product / Service","topic","Describe in detail...","textarea",3)+inp("Target Audience","audience","e.g. small business owners, professionals...")+cm();
+else if(["business","mission","investor"].includes(id))html=inp("Business Concept / Niche","topic","What does your business do?","textarea",2)+r2(inp("Industry","industry","Technology / Fashion / Food..."),sel("Language","lang",LANGS));
+else if(["seo","landing","seo_blog"].includes(id))html=inp("Topic / Page / Product","topic","What is this page or content about?","textarea",2)+r2(inp("Page Type","pageType","Landing page / Blog / Product..."),sel("Language","lang",LANGS));
+else html=inp("Topic / Subject","topic","What do you want to create?","textarea",3)+cm();
+const cg=id==="hashtags"?"(fv.topic||fv.niche).trim()":"fv.topic.trim()";
+html+=`<button class="gen-btn" id="gbtn" onclick="generate()" ${!eval(cg)?"disabled":""}>✦ Generate with AI — ${AT.name}</button>`;
+a.innerHTML=html}
+function uld(){const d=document.getElementById("ldisp");if(d)d.textContent=fv.lang||"English";const b=document.getElementById("gbtn");if(b){const id=AT.id;b.disabled=!(id==="hashtags"?(fv.topic||fv.niche).trim():fv.topic.trim())}}
+function bp(id,d){const L=d.lang||"English",T=d.tone||"Professional",t=d.topic||"";const P=`Write your ENTIRE response in ${L}. Tone: ${T}.
+
+`;
+const m={
+social:`${P}Write 3 viral social media captions for: "${t}"
+Platform: ${d.platform||"Instagram"}
+
+Format each:
+✦ Caption [1/2/3]:
+[caption with emojis]
+.
+[6 hashtags]
+
+Make them scroll-stopping and authentic.`,
+hashtags:`${P}Generate 30 powerful hashtags for: "${t||d.niche}"
+
+🔥 HIGH REACH — 10 hashtags (1M+ posts)
+⚡ MEDIUM REACH — 10 hashtags (100K-1M posts)
+🎯 LOW COMPETITION — 10 hashtags (under 100K)
+
+Format: #hashtag (one per line)`,
+thread:`${P}Write a viral Twitter/X thread about: "${t}"
+• 10 tweets
+• Tweet 1: explosive hook
+• Middle: value/insights
+• Final: CTA + retweet ask
+
+Tweet 1:
+[text]
+
+Tweet 2:
+[text] etc.`,
+linkedin:`${P}Write 3 LinkedIn post variations about: "${t}"
+
+Each: strong hook, story body (3-4 paragraphs), CTA or question, 3-4 hashtags.
+
+Professional yet human.`,
+blog:`${P}Complete SEO blog post: "${t}"
+
+# [H1 Title]
+## Introduction with hook
+## [H2 Section 1]
+## [H2 Section 2]
+## [H2 Section 3]
+## Key Takeaways
+## Conclusion with CTA
+
+~700 words.`,
+story:`${P}Brand story about: "${t}"
+Include: relatable opening, tension, turning point, transformation, powerful close.
+~350 words.`,
+quote:`${P}Create 10 powerful shareable quotes about: "${t}"
+
+Mix: motivational (3), thought-provoking (3), witty (2), insight (2).
+
+Format: "[Quote]" on its own line.`,
+newsletter:`${P}Complete email newsletter about: "${t}"
+
+📰 Subject Lines (3)
+✉️ Preview Text
+👋 Intro
+🔥 Main Story (300 words)
+💡 Quick Tips (3 bullets)
+📣 CTA Section
+👋 Sign-off`,
+caption_pack:`${P}Create 10 diverse captions for campaign: "${t}"
+Platform: ${d.platform}
+
+Mix: 3 questions, 3 story-based, 2 urgent/CTA, 2 educational.
+Each with 4-5 hashtags.`,
+email:`${P}Email campaign for: "${t}"
+Goal: ${d.goal||"Engagement"}
+
+📧 5 SUBJECT LINE OPTIONS:
+
+✉️ FULL EMAIL:
+[Subject, greeting, hook, value, CTA, sign-off]`,
+cold:`${P}3-email cold outreach sequence for: "${t}"
+Target: ${d.audience||"Decision makers"}
+
+EMAIL 1 (Day 1): Subject + body (80 words max)
+EMAIL 2 (Day 4): Follow-up (60 words)
+EMAIL 3 (Day 8): Last touch (50 words)`,
+ad:`${P}High-converting ad copy for: "${t}"
+Platform: ${d.platform||"Facebook Ads"}
+
+📌 AD 1 — PROBLEM/SOLUTION:
+Headline: [max 40 chars]
+Body: [2-3 sentences]
+CTA: [button text]
+
+📌 AD 2 — SOCIAL PROOF:
+[same format]
+
+📌 AD 3 — URGENCY:
+[same format]`,
+video:`${P}60-second video ad script for: "${t}"
+
+[0-5s] HOOK:
+[5-20s] PROBLEM:
+[20-40s] SOLUTION:
+[40-55s] PROOF:
+[55-60s] CTA:
+
+B-ROLL SUGGESTIONS:
+ON-SCREEN TEXT:`,
+youtube:`${P}Complete YouTube package for: "${t}"
+
+🎬 5 TITLE OPTIONS:
+📝 FULL DESCRIPTION (250 words, SEO):
+🪝 30-SEC HOOK SCRIPT:
+🏷️ 15 TAGS:
+📌 3 CHAPTER TIMESTAMPS:
+💬 PINNED COMMENT:`,
+podcast:`${P}Podcast package for: "${t}"
+
+🎙️ 3 EPISODE TITLES:
+📋 OUTLINE (Intro + 3 Segments + Outro with timing):
+🗣️ FULL INTRO SCRIPT (2 min):
+❓ 5 DISCUSSION QUESTIONS:`,
+influencer:`${P}Influencer/brand pitch for: "${t}"
+
+📧 PITCH EMAIL:
+[subject, personal hook, why you, value offer, CTA]
+
+📱 DM VERSION (under 150 chars):
+
+💰 RATE CARD TEMPLATE:`,
+webinar:`${P}Webinar script for: "${t}"
+
+🎯 3 TITLE OPTIONS:
+📋 AGENDA (5 sections with timing):
+🗣️ OPENING SCRIPT (5 min, full script):
+💡 5 KEY SLIDES CONTENT:
+🎤 CLOSING + CTA:`,
+sms:`${P}5 SMS marketing messages for: "${t}"
+
+Each under 160 chars.
+Include urgency, CTA, link placeholder [LINK].
+
+Vary: flash sale, reminder, exclusive, restock, loyalty.`,
+product:`${P}Premium product listing for: "${t}"
+Audience: ${d.audience||"Online shoppers"}
+
+✦ POWER HEADLINE:
+📖 STORY HOOK (2 sentences):
+⭐ TOP 5 BENEFITS:
+📦 FEATURES LIST:
+🎯 CALL TO ACTION:
+⚡ SHORT AD VERSION (60 words):`,
+review:`${P}Review responses for: "${t}"
+
+POSITIVE REVIEW RESPONSE:
+NEUTRAL REVIEW RESPONSE:
+NEGATIVE REVIEW RESPONSE:
+
+Each under 80 words. Warm, professional.`,
+daraz:`${P}Marketplace listing for: "${t}"
+
+🏷️ TITLE (keyword-rich, under 200 chars):
+📝 5 BULLET POINTS:
+📖 FULL DESCRIPTION (300 words):
+🔍 20 BACKEND KEYWORDS:`,
+promo:`${P}Promotion announcement for: "${t}"
+
+📣 HEADLINE:
+💬 3 SOCIAL POST VARIATIONS:
+📧 EMAIL SUBJECT + BODY:
+📱 SMS VERSION:`,
+unboxing:`${P}Unboxing video script for: "${t}"
+
+[0-10s] HOOK:
+[10-30s] PACKAGING REVEAL:
+[30-90s] PRODUCT WALKTHROUGH:
+[90-150s] FIRST IMPRESSIONS:
+[150-180s] RATING & RECOMMENDATION:
+[180-end] CTA + SUBSCRIBE:`,
+pitch:`${P}Sales pitch for: "${t}"
+Audience: ${d.audience||"Prospects"}
+
+🎯 30-SEC ELEVATOR PITCH:
+⏱️ 2-MINUTE FULL PITCH:
+❓ 5 OBJECTIONS + RESPONSES:`,
+press:`${P}Press release for: "${t}"
+
+[HEADLINE]
+FOR IMMEDIATE RELEASE
+[City, Date] —
+[Lede]
+[Body 1]
+[Executive Quote]
+[Body 2]
+[Boilerplate]
+[Contact]`,
+business:`${P}Business name ideas for: "${t}"
+Industry: ${d.industry}
+
+🏆 TOP 10 NAMES: [name — meaning]
+
+✦ TOP 3 DEEP DIVE: [name, why it works, 2 taglines, domain tip]`,
+faq:`${P}12 FAQ Q&As for: "${t}"
+
+Cover: what it is, how it works, pricing, trust, getting started, troubleshooting.
+
+Q1: [question]
+A: [2-3 sentences]`,
+landing:`${P}Landing page copy for: "${t}"
+
+🦸 HERO: Headline + Subheadline + CTA
+💡 3 VALUE PROPS:
+🔥 5 FEATURES:
+💬 2 TESTIMONIALS:
+❓ 3 FAQs:
+🎯 FINAL CTA:`,
+proposal:`${P}Business proposal for: "${t}"
+Client: ${d.audience||"Potential client"}
+
+📋 EXECUTIVE SUMMARY:
+🎯 PROBLEM WE SOLVE:
+💡 OUR SOLUTION:
+📊 SCOPE OF WORK:
+💰 INVESTMENT:
+⏱️ TIMELINE:
+✅ NEXT STEPS:`,
+mission:`${P}Mission, vision, values for: "${t}"
+
+🎯 MISSION STATEMENT:
+🌟 VISION STATEMENT:
+💎 5 CORE VALUES (with descriptions):
+📣 3 BRAND TAGLINE OPTIONS:`,
+investor:`${P}Investor pitch deck content for: "${t}"
+
+Slide 1 PROBLEM:
+Slide 2 SOLUTION:
+Slide 3 MARKET SIZE:
+Slide 4 PRODUCT:
+Slide 5 TRACTION:
+Slide 6 BUSINESS MODEL:
+Slide 7 TEAM:
+Slide 8 ASK:
+
+Each slide: title + 3-4 bullets.`,
+bio:`${P}5 professional bios for: "${t}"
+Platform: ${d.platform||"LinkedIn"}
+
+📌 MICRO (80 chars):
+📌 SHORT (150 chars):
+📌 MEDIUM (100 words):
+📌 CREATIVE (120 words):
+📌 ACHIEVEMENT-LED (150 words):`,
+resume:`${P}Complete ATS resume.
+Name: ${d.name||"[Name]"}
+Role: ${d.role||t}
+Exp: ${d.exp}
+Skills: ${d.skills}
+Industry: ${d.industry}
+Background: ${t}
+
+━━ CONTACT ━━
+━━ SUMMARY ━━
+━━ SKILLS ━━
+━━ EXPERIENCE (3 roles, 3 bullet achievements each) ━━
+━━ EDUCATION ━━
+━━ CERTIFICATIONS ━━`,
+cover:`${P}Cover letter for: "${t}"
+Company: ${d.company}
+Background: ${d.background}
+
+NO "I am writing to apply". Open with hook. Why this company. 3 achievements with numbers. How you add value. Confident CTA.
+
+Under 300 words.`,
+linkedin_summary:`${P}LinkedIn About section for: "${t}"
+
+Opening hook, your story (2-3 paragraphs), what you do & for whom, 3 key achievements, what you seek, CTA.
+
+Under 300 words. First-person, genuine.`,
+apology:`${P}Apology letter for: "${t}"
+
+📧 FORMAL VERSION:
+💬 CASUAL VERSION:
+📱 SHORT MESSAGE:
+
+Genuine, specific, solution-focused.`,
+recommendation:`${P}Recommendation letter for: "${t}"
+From: ${d.audience||"Professional reference"}
+
+Relationship context, 3 specific achievements, key strengths, enthusiastic endorsement.
+
+~300 words. Professional, convincing.`,
+seo:`${P}SEO package for: "${t}"
+Page: ${d.pageType}
+
+🏷️ TITLE TAG (under 58 chars):
+📝 META DESCRIPTION (under 158 chars):
+🔑 PRIMARY KEYWORD:
+🔑 5 LSI KEYWORDS:
+📱 OG TITLE + DESCRIPTION:
+🔗 URL SLUG:
+📊 SCHEMA TYPE:
+⚡ 3 ON-PAGE SEO TIPS:`,
+keyword:`${P}Keyword research for: "${t}"
+
+🎯 PRIMARY KEYWORD:
+📊 10 KEYWORDS: [keyword|intent|difficulty]
+💎 5 LONG-TAIL KEYWORDS:
+❓ 10 PAA QUESTIONS:
+📝 5 CONTENT TITLE IDEAS:`,
+seo_blog:`${P}SEO blog outline for: "${t}"
+
+🎯 FOCUS KEYWORD:
+📰 SEO TITLE:
+📋 FULL OUTLINE (H1, H2s, H3s):
+🔑 KEYWORDS TO INCLUDE:
+⏱️ ESTIMATED READ TIME:`,
+backlink:`${P}Backlink outreach emails for: "${t}"
+
+GUEST POST REQUEST:
+BROKEN LINK REPLACEMENT:
+RESOURCE PAGE INCLUSION:`,
+poem:`${P}3 poems about: "${t}"
+
+1. LYRICAL (rhyming, 3 stanzas)
+2. FREE VERSE (modern, emotional)
+3. HAIKU SERIES (5 haikus)`,
+story_creative:`${P}Short story about: "${t}"
+
+Compelling opening, vivid characters, conflict, rising tension, satisfying resolution.
+~400 words. Immersive.`,
+speech:`${P}Speech for: "${t}"
+Occasion: ${d.audience||"Professional event"}
+
+🎤 OPENING (30 sec, attention-grabbing):
+💡 BODY (3 main points with stories):
+🌟 CLIMAX:
+🎯 CLOSING (memorable CTA):
+~500 words.`,
+script:`${P}Short film script for: "${t}"
+
+INT./EXT. [LOCATION] — [TIME]
+[Description]
+CHARACTER
+(action)
+Dialogue
+
+Write 2-3 scenes. Cinematic.`,
+translate:`Translate and localize: "${t}"
+Target: ${d.targetLang||"Spanish"}
+
+━━ ACCURATE TRANSLATION ━━
+━━ CULTURALLY ADAPTED VERSION ━━
+━━ FORMAL BUSINESS VERSION ━━
+━━ 3 CULTURAL MARKETING TIPS ━━`,
+summarize:`${P}Summarize: "${t}"
+
+📋 ONE-LINE SUMMARY:
+📝 3-SENTENCE SUMMARY:
+🔑 5 KEY POINTS:
+💡 MAIN TAKEAWAY:`,
+rewrite:`${P}Rewrite and improve: "${t}"
+
+1. PROFESSIONAL VERSION:
+2. CASUAL VERSION:
+3. PUNCHY/BOLD VERSION:
+
+Make each significantly better.`,
+grammar:`${P}Fix grammar and style of: "${t}"
+
+✅ CORRECTED VERSION:
+📝 CHANGES MADE (list):
+⭐ ENHANCED VERSION (more compelling):`
+};
+return m[id]||`${P}Help with: "${t}"`}
+async function generate(){
+if(uc>=30){showUpg();return}
+const oa=document.getElementById("oarea");
+oa.innerHTML=`<div class="out-card"><div class="out-hdr"><div class="out-ttl"><div class="odot"></div>Generating in ${fv.lang}...</div></div><div class="out-body lstt"><div class="spin"></div><div class="ltxt">AI crafting your content in ${fv.lang}...</div></div></div>`;
+const gb=document.getElementById("gbtn");if(gb){gb.disabled=true;gb.textContent="✦ Generating..."}
+try{
+const r=await fetch("/api/generate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({prompt:bp(AT.id,fv)})});
+const data=await r.json();
+if(data.error)throw new Error(data.error);
+const txt=data.text||"Error: no output.";
+inc();
+hist.unshift({name:AT.name,lang:fv.lang,text:txt});
+if(hist.length>5)hist.pop();
+uhs();
+oa.innerHTML=`<div class="out-card"><div class="out-hdr"><div class="out-ttl"><div class="odot"></div>Generated in ${fv.lang}</div><div class="oacts"><button class="oa" id="cb" onclick="cpOut()">Copy All</button><button class="oa" onclick="generate()">↺ Redo</button></div></div><div class="out-body" id="otxt">${esc(txt)}</div></div>`;
+}catch(e){oa.innerHTML=`<div class="err-box">⚠️ ${esc(e.message)}<br><small>Check Vercel — ANTHROPIC_API_KEY must be set in Environment Variables.</small></div>`}
+const b=document.getElementById("gbtn");if(b){b.disabled=false;b.textContent="✦ Generate with AI — "+AT.name}}
+function cpOut(){const e=document.getElementById("otxt");if(!e)return;navigator.clipboard.writeText(e.textContent);const b=document.getElementById("cb");if(b){b.textContent="✓ Copied!";b.classList.add("ok");setTimeout(()=>{b.textContent="Copy All";b.classList.remove("ok")},2000)}}
+function uhs(){const s=document.getElementById("hstrip");if(!hist.length){s.style.display="none";return}s.style.display="flex";s.innerHTML="<span style='font-size:11px;color:var(--t4);align-self:center;margin-right:4px;flex-shrink:0'>History:</span>"+hist.map((h,i)=>`<div class="hp" onclick="shH(${i})">${h.name} · ${h.lang}</div>`).join("")}
+function shH(i){const h=hist[i];document.getElementById("oarea").innerHTML=`<div class="out-card"><div class="out-hdr"><div class="out-ttl">✦ ${h.name} — ${h.lang}</div><div class="oacts"><button class="oa" id="cb" onclick="cpOut()">Copy All</button></div></div><div class="out-body" id="otxt">${esc(h.text)}</div></div>`}
+function showUpg(){document.getElementById("oarea").innerHTML=`<div class="out-card"><div class="out-body lstt"><div style="font-size:40px">⚡</div><div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:8px">Daily Limit Reached</div><div style="font-size:14px;color:var(--t2);margin-bottom:24px">You've used 30 free generations. Upgrade for unlimited!</div><button class="btn btn-primary btn-lg" onclick="window.open('https://genixai-app.lemonsqueezy.com/checkout/buy/692cf374-f4a3-4188-b5f2-c2600b22e852')">Upgrade to Pro — \$12/mo</button><div style="font-size:12px;color:var(--t3);margin-top:10px">Resets midnight · 30 free/day</div></div></div>`}
+// LANDING INIT
+function initLanding(){
+// Lang demo
+const cc=document.getElementById("lchips");
+DEX.forEach((ex,i)=>{const c=document.createElement("div");c.className="lchip"+(i===0?" active":"");c.textContent=ex.flag+" "+ex.lang;c.onclick=()=>{document.querySelectorAll(".lchip").forEach(x=>x.classList.remove("active"));c.classList.add("active");document.getElementById("dlang").textContent=ex.name;document.getElementById("dout").textContent=ex.flag+" "+ex.text};cc.appendChild(c)});
+// Tabs + grid
+let aC="All";
+const tabs=document.getElementById("ttabs");
+CATS.forEach(cat=>{const b=document.createElement("button");b.className="ttab"+(cat==="All"?" active":"");b.textContent=cat;b.onclick=()=>{aC=cat;document.querySelectorAll(".ttab").forEach(x=>x.classList.remove("active"));b.classList.add("active");rg(cat)};tabs.appendChild(b)});
+function rg(cat){const g=document.getElementById("tgrid");g.innerHTML="";TOOLS.filter(t=>cat==="All"||t.cat===cat).forEach(tool=>{const d=document.createElement("div");d.className="tc";d.innerHTML=`${tool.tag?`<div class="tc-tag ${tool.tag}">${tool.tag.toUpperCase()}</div>`:""}<span class="tc-em">${tool.icon}</span><div class="tc-name">${tool.name}</div><div class="tc-desc">${tool.desc}</div>`;d.onclick=()=>{showApp();selTool(tool)};g.appendChild(d)})}
+rg("All");
+// Marquee
+const mq=document.getElementById("mq");
+const mi=["📱 Social Captions","#️⃣ Hashtags","📄 Resume Builder","🎯 Ad Copy","📧 Email Campaign","🛍️ Product Listings","▶️ YouTube Package","🔍 SEO Meta Tags","💼 LinkedIn Posts","🎬 Video Scripts","🧵 Twitter Threads","🌍 AI Translator","📰 Press Release","🏢 Business Names","📝 Cover Letters","🗝️ Keyword Research","🎭 Poetry","📚 Short Stories","🎤 Speeches","💡 Sales Pitch","📰 Newsletter","🌟 Influencer Pitch","🖥️ Landing Page","📋 Proposals"];
+[...mi,...mi].forEach(item=>{const d=document.createElement("div");d.className="mq-item";d.innerHTML=`<span>${item.split(" ")[0]}</span>${item.slice(item.indexOf(" ")+1)}`;mq.appendChild(d)});
+}
+// SCROLL REVEAL
+const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add("visible")}),{threshold:.1});
+document.querySelectorAll(".reveal,.reveal-l,.reveal-r").forEach(e=>ro.observe(e));
+// COUNTERS
+function animC(el){const tg=parseInt(el.dataset.target),sf=el.dataset.suffix||"",d=2000,st=tg/(d/16);let cur=0;const t=setInterval(()=>{cur+=st;if(cur>=tg){cur=tg;clearInterval(t)}el.textContent=(tg>=1000?Math.floor(cur).toLocaleString():Math.floor(cur))+sf},16)}
+const co=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.querySelectorAll(".sv").forEach(animC);co.unobserve(x.target)}}),{threshold:.3});
+document.querySelectorAll(".stats-bar").forEach(s=>co.observe(s));
+window.addEventListener("scroll",()=>{const n=document.querySelector(".nav");if(n)n.style.boxShadow=window.scrollY>40?"0 4px 32px rgba(0,0,0,.5)":""});
+initLanding();chk();
+</script>
+<!-- ══════════ AUTH MODAL ══════════ -->
+<div id="auth-overlay" style="display:none;position:fixed;inset:0;background:rgba(6,6,16,0.85);backdrop-filter:blur(20px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px">
+  <div id="auth-modal" style="width:100%;max-width:440px;position:relative">
+
+    <!-- Close button -->
+    <button onclick="closeAuth()" style="position:absolute;top:-16px;right:-16px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:#a8a4c8;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:all .2s" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="this.style.background='rgba(255,255,255,0.06)'">✕</button>
+
+    <!-- Card -->
+    <div style="background:#0d0d1a;border:1px solid #2d2b50;border-radius:20px;overflow:hidden;position:relative">
+      <!-- Top gradient bar -->
+      <div style="height:2px;background:linear-gradient(90deg,#7c5cfc,#b89dff,#ff4da6,#f0b429)"></div>
+
+      <!-- Header -->
+      <div style="padding:32px 32px 0;text-align:center">
+        <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;cursor:pointer" onclick="closeAuth();window.scrollTo({top:0,behavior:'smooth'})">
+          <div style="width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,#7c5cfc,#b89dff,#ff4da6);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:15px;font-weight:800;color:#fff">G</div>
+          <span style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;background:linear-gradient(135deg,#b89dff,#ff80c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent">GenixAI</span>
+        </div>
+        <h2 id="auth-title" style="font-family:'Syne',sans-serif;font-size:26px;font-weight:800;color:#f4f0ff;margin-bottom:6px">Welcome back</h2>
+        <p id="auth-subtitle" style="font-size:14px;color:#5a5878;font-weight:400">Sign in to access 50 AI tools in 55+ languages</p>
+      </div>
+
+      <!-- Body -->
+      <div style="padding:28px 32px 32px">
+
+        <!-- Social buttons -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px">
+          <button onclick="authGoogle()" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:11px;background:rgba(255,255,255,0.04);border:1px solid #2d2b50;border-radius:10px;color:#a8a4c8;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s" onmouseover="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='#3d3b68'" onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.borderColor='#2d2b50'">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            Google
+          </button>
+          <button onclick="authGitHub()" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:11px;background:rgba(255,255,255,0.04);border:1px solid #2d2b50;border-radius:10px;color:#a8a4c8;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s" onmouseover="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='#3d3b68'" onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.borderColor='#2d2b50'">
+            <svg width="16" height="16" fill="#f4f0ff" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.48 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.138 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </button>
+        </div>
+
+        <!-- Divider -->
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+          <div style="flex:1;height:1px;background:#1e1c3a"></div>
+          <span style="font-size:12px;color:#3a3755;font-weight:600">OR CONTINUE WITH EMAIL</span>
+          <div style="flex:1;height:1px;background:#1e1c3a"></div>
+        </div>
+
+        <!-- Form -->
+        <div id="auth-form">
+          <!-- Name field (signup only) -->
+          <div id="name-field" style="display:none;margin-bottom:14px">
+            <label style="font-size:10px;font-weight:800;letter-spacing:1.2px;color:#5a5878;text-transform:uppercase;display:block;margin-bottom:7px">FULL NAME</label>
+            <input id="auth-name" type="text" placeholder="Abdul Raheem Shahid" style="width:100%;background:#111126;border:1px solid #1e1c3a;border-radius:10px;padding:12px 16px;color:#f4f0ff;font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#7c5cfc'" onblur="this.style.borderColor='#1e1c3a'">
+          </div>
+
+          <!-- Email -->
+          <div style="margin-bottom:14px">
+            <label style="font-size:10px;font-weight:800;letter-spacing:1.2px;color:#5a5878;text-transform:uppercase;display:block;margin-bottom:7px">EMAIL ADDRESS</label>
+            <input id="auth-email" type="email" placeholder="you@example.com" style="width:100%;background:#111126;border:1px solid #1e1c3a;border-radius:10px;padding:12px 16px;color:#f4f0ff;font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#7c5cfc'" onblur="this.style.borderColor='#1e1c3a'">
+          </div>
+
+          <!-- Password -->
+          <div id="pass-field" style="margin-bottom:6px">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:7px">
+              <label style="font-size:10px;font-weight:800;letter-spacing:1.2px;color:#5a5878;text-transform:uppercase">PASSWORD</label>
+              <button id="forgot-btn" onclick="showForgot()" style="font-size:12px;color:#7c5cfc;background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-weight:500">Forgot password?</button>
+            </div>
+            <div style="position:relative">
+              <input id="auth-pass" type="password" placeholder="Min 8 characters" style="width:100%;background:#111126;border:1px solid #1e1c3a;border-radius:10px;padding:12px 44px 12px 16px;color:#f4f0ff;font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='#7c5cfc'" onblur="this.style.borderColor='#1e1c3a'" onkeydown="if(event.key==='Enter')submitAuth()">
+              <button onclick="togglePass()" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#5a5878;font-size:14px;padding:4px">👁</button>
+            </div>
+          </div>
+
+          <!-- Error/Success message -->
+          <div id="auth-msg" style="display:none;padding:11px 14px;border-radius:8px;font-size:13px;margin-top:12px;margin-bottom:4px"></div>
+
+          <!-- Submit button -->
+          <button id="auth-submit" onclick="submitAuth()" style="width:100%;padding:14px;background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;border:none;border-radius:10px;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;cursor:pointer;margin-top:16px;transition:all .2s;box-shadow:0 4px 20px rgba(124,92,252,0.3);letter-spacing:.3px" onmouseover="this.style.transform='translateY(-1px)';this.style.boxShadow='0 8px 28px rgba(124,92,252,0.45)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(124,92,252,0.3)'">
+            Sign In
+          </button>
+
+          <!-- Switch mode -->
+          <div style="text-align:center;margin-top:20px;font-size:13px;color:#5a5878">
+            <span id="switch-text">Don't have an account?</span>
+            <button id="switch-btn" onclick="toggleAuthMode()" style="color:#9b7dff;background:none;border:none;cursor:pointer;font-weight:600;font-size:13px;font-family:'Inter',sans-serif;margin-left:4px">Sign Up Free</button>
+          </div>
+        </div>
+
+        <!-- Benefits (signup mode) -->
+        <div id="auth-benefits" style="display:none;margin-top:16px;padding:14px;background:rgba(124,92,252,0.06);border:1px solid rgba(124,92,252,0.12);border-radius:10px">
+          <div style="font-size:12px;font-weight:700;color:#7c5cfc;margin-bottom:8px;letter-spacing:.5px">✦ FREE ACCOUNT INCLUDES</div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="font-size:12px;color:#a8a4c8;display:flex;align-items:center;gap:7px"><span style="color:#00d4a0;font-weight:700">✓</span>30 free generations daily</div>
+            <div style="font-size:12px;color:#a8a4c8;display:flex;align-items:center;gap:7px"><span style="color:#00d4a0;font-weight:700">✓</span>All 50 AI tools</div>
+            <div style="font-size:12px;color:#a8a4c8;display:flex;align-items:center;gap:7px"><span style="color:#00d4a0;font-weight:700">✓</span>All 55+ languages</div>
+            <div style="font-size:12px;color:#a8a4c8;display:flex;align-items:center;gap:7px"><span style="color:#00d4a0;font-weight:700">✓</span>No credit card required</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- User avatar in nav (shown when logged in) -->
+<style>
+.user-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#7c5cfc,#ff4da6);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:13px;font-weight:800;color:#fff;cursor:pointer;border:2px solid rgba(124,92,252,0.3);transition:all .2s;flex-shrink:0}
+.user-avatar:hover{border-color:rgba(124,92,252,0.7);transform:scale(1.05)}
+.user-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:#0d0d1a;border:1px solid #2d2b50;border-radius:14px;padding:8px;min-width:200px;box-shadow:0 16px 48px rgba(0,0,0,0.6);z-index:300;overflow:hidden}
+.ud-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;font-size:13px;font-weight:500;color:#a8a4c8;cursor:pointer;transition:all .15s;border:none;background:none;width:100%;text-align:left}
+.ud-item:hover{background:rgba(255,255,255,0.05);color:#f4f0ff}
+.ud-item.danger:hover{background:rgba(255,77,166,0.08);color:#ff80c0}
+.ud-email{padding:10px 12px;font-size:12px;color:#5a5878;border-bottom:1px solid #1e1c3a;margin-bottom:4px;word-break:break-all}
+.nav-user-wrap{position:relative}
+/* AUTH OVERLAY FLEX */
+#auth-overlay.show{display:flex !important}
+</style>
+
+<script>
+// ══ SUPABASE CONFIG ══
+// TODO: Replace with your Supabase project URL and anon key
+// Get these FREE from: https://supabase.com → New Project → Settings → API
+const SUPABASE_URL = 'https://cffkybrerndyrhwzpzhd.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNmZmt5YnJlcm5keXJod3pwemhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM1OTc0MjMsImV4cCI6MjA4OTE3MzQyM30.UgXb28Dky4Ddy_1eWLe9Esl7KpIvANZFoqK2SOCpjb4';
+
+let supabase = null;
+let currentUser = null;
+let authMode = 'login'; // 'login' | 'signup' | 'forgot'
+let dropdownOpen = false;
+
+// Init Supabase - wait for CDN load
+function initSupabase() {
+  try {
+    if (window.supabase && window.supabase.createClient) {
+      supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      initAuth();
+    }
+  } catch(e) { console.log('Supabase error:', e.message); }
+}
+window.addEventListener('load', function() { setTimeout(initSupabase, 200); });
+
+async function initAuth() {
+  if (!supabase) return;
+  const { data: { session } } = await supabase.auth.getSession();
+  if (session?.user) {
+    currentUser = session.user;
+    updateNavForUser(currentUser);
+  }
+  supabase.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_IN' && session?.user) {
+      currentUser = session.user;
+      updateNavForUser(currentUser);
+      closeAuth();
+      showApp();
+    } else if (event === 'SIGNED_OUT') {
+      currentUser = null;
+      updateNavForGuest();
+    }
+  });
+}
+
+function updateNavForUser(user) {
+  const navRight = document.querySelectorAll('.nav-right');
+  navRight.forEach(nr => {
+    const email = user.email || '';
+    const initials = email.slice(0,2).toUpperCase();
+    const existing = nr.querySelector('.nav-user-wrap');
+    if (!existing) {
+      const wrap = document.createElement('div');
+      wrap.className = 'nav-user-wrap';
+      wrap.innerHTML = `
+        <div class="user-avatar" id="uav" onclick="toggleDropdown()">${initials}</div>
+        <div class="user-dropdown" id="udrop" style="display:none">
+          <div class="ud-email">${email}</div>
+          <button class="ud-item" onclick="closeDropdown();showApp()">⚡ Open App</button>
+          <button class="ud-item" onclick="closeDropdown();window.open('https://genixai-app.lemonsqueezy.com/checkout/buy/692cf374-f4a3-4188-b5f2-c2600b22e852')">💎 Upgrade to Pro</button>
+          <button class="ud-item danger" onclick="signOutUser()">→ Sign Out</button>
+        </div>`;
+      const pill = nr.querySelector('.pill-free');
+      if (pill) pill.style.display = 'none';
+      nr.insertBefore(wrap, nr.firstChild);
+    }
+  });
+}
+
+function updateNavForGuest() {
+  document.querySelectorAll('.nav-user-wrap').forEach(el => el.remove());
+  document.querySelectorAll('.pill-free').forEach(el => el.style.display = '');
+}
+
+function toggleDropdown() {
+  const drop = document.getElementById('udrop');
+  if (!drop) return;
+  dropdownOpen = !dropdownOpen;
+  drop.style.display = dropdownOpen ? 'block' : 'none';
+}
+
+function closeDropdown() {
+  const drop = document.getElementById('udrop');
+  if (drop) drop.style.display = 'none';
+  dropdownOpen = false;
+}
+
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-user-wrap')) closeDropdown();
+});
+
+// ══ AUTH MODAL ══
+function openAuth(mode = 'login') {
+  authMode = mode;
+  const overlay = document.getElementById('auth-overlay');
+  overlay.classList.add('show');
+  overlay.style.display = 'flex';
+  setAuthMode(mode);
+  setTimeout(() => { document.getElementById('auth-email')?.focus(); }, 100);
+}
+
+function closeAuth() {
+  const overlay = document.getElementById('auth-overlay');
+  overlay.classList.remove('show');
+  overlay.style.display = 'none';
+  clearAuthMsg();
+}
+
+function setAuthMode(mode) {
+  authMode = mode;
+  const title = document.getElementById('auth-title');
+  const subtitle = document.getElementById('auth-subtitle');
+  const submit = document.getElementById('auth-submit');
+  const switchText = document.getElementById('switch-text');
+  const switchBtn = document.getElementById('switch-btn');
+  const nameField = document.getElementById('name-field');
+  const passField = document.getElementById('pass-field');
+  const forgotBtn = document.getElementById('forgot-btn');
+  const benefits = document.getElementById('auth-benefits');
+  clearAuthMsg();
+
+  if (mode === 'login') {
+    title.textContent = 'Welcome back';
+    subtitle.textContent = 'Sign in to access 50 AI tools in 55+ languages';
+    submit.textContent = 'Sign In';
+    switchText.textContent = "Don't have an account?";
+    switchBtn.textContent = 'Sign Up Free';
+    nameField.style.display = 'none';
+    passField.style.display = 'block';
+    forgotBtn.style.display = 'block';
+    benefits.style.display = 'none';
+  } else if (mode === 'signup') {
+    title.textContent = 'Create your account';
+    subtitle.textContent = 'Start generating in 55+ languages — free forever';
+    submit.textContent = 'Create Free Account';
+    switchText.textContent = 'Already have an account?';
+    switchBtn.textContent = 'Sign In';
+    nameField.style.display = 'block';
+    passField.style.display = 'block';
+    forgotBtn.style.display = 'none';
+    benefits.style.display = 'block';
+  } else if (mode === 'forgot') {
+    title.textContent = 'Reset password';
+    subtitle.textContent = "Enter your email and we'll send a reset link";
+    submit.textContent = 'Send Reset Link';
+    switchText.textContent = 'Remembered it?';
+    switchBtn.textContent = 'Back to Sign In';
+    nameField.style.display = 'none';
+    passField.style.display = 'none';
+    forgotBtn.style.display = 'none';
+    benefits.style.display = 'none';
+  }
+}
+
+function toggleAuthMode() {
+  if (authMode === 'login') setAuthMode('signup');
+  else setAuthMode('login');
+}
+
+function showForgot() { setAuthMode('forgot'); }
+
+function togglePass() {
+  const input = document.getElementById('auth-pass');
+  input.type = input.type === 'password' ? 'text' : 'password';
+}
+
+function showAuthMsg(msg, type) {
+  const el = document.getElementById('auth-msg');
+  el.style.display = 'block';
+  el.style.background = type === 'error' ? 'rgba(255,77,166,0.08)' : 'rgba(0,212,160,0.08)';
+  el.style.border = type === 'error' ? '1px solid rgba(255,77,166,0.2)' : '1px solid rgba(0,212,160,0.2)';
+  el.style.color = type === 'error' ? '#ff80c0' : '#00d4a0';
+  el.textContent = msg;
+}
+
+function clearAuthMsg() {
+  const el = document.getElementById('auth-msg');
+  if (el) { el.style.display = 'none'; el.textContent = ''; }
+}
+
+function setSubmitLoading(loading) {
+  const btn = document.getElementById('auth-submit');
+  if (!btn) return;
+  if (loading) {
+    btn.disabled = true;
+    btn.textContent = '⟳ Please wait...';
+    btn.style.opacity = '0.7';
+  } else {
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    if (authMode === 'login') btn.textContent = 'Sign In';
+    else if (authMode === 'signup') btn.textContent = 'Create Free Account';
+    else btn.textContent = 'Send Reset Link';
+  }
+}
+
+async function submitAuth() {
+  const email = document.getElementById('auth-email')?.value?.trim();
+  const pass = document.getElementById('auth-pass')?.value;
+  const name = document.getElementById('auth-name')?.value?.trim();
+
+  if (!email) { showAuthMsg('Please enter your email address', 'error'); return; }
+
+  // Guest mode — no Supabase configured yet
+  if (!supabase || SUPABASE_URL === 'YOUR_SUPABASE_URL') {
+    showAuthMsg('⚙️ Auth not configured yet. Running as guest!', 'success');
+    setTimeout(() => { closeAuth(); showApp(); }, 1200);
+    return;
+  }
+
+  setSubmitLoading(true);
+  clearAuthMsg();
+
+  try {
+    if (authMode === 'login') {
+      if (!pass) { showAuthMsg('Please enter your password', 'error'); setSubmitLoading(false); return; }
+      const { error } = await supabase.auth.signInWithPassword({ email, password: pass });
+      if (error) throw error;
+
+    } else if (authMode === 'signup') {
+      if (!pass || pass.length < 8) { showAuthMsg('Password must be at least 8 characters', 'error'); setSubmitLoading(false); return; }
+      const { error } = await supabase.auth.signUp({
+        email, password: pass,
+        options: { data: { full_name: name || email.split('@')[0] } }
+      });
+      if (error) throw error;
+      showAuthMsg('✅ Account created! Check your email to verify.', 'success');
+      setSubmitLoading(false); return;
+
+    } else if (authMode === 'forgot') {
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: window.location.origin
+      });
+      if (error) throw error;
+      showAuthMsg('✅ Reset link sent! Check your email inbox.', 'success');
+      setSubmitLoading(false); return;
+    }
+  } catch (err) {
+    showAuthMsg(err.message || 'Something went wrong. Please try again.', 'error');
+    setSubmitLoading(false);
+  }
+}
+
+async function authGoogle() {
+  if (!supabase || SUPABASE_URL === 'YOUR_SUPABASE_URL') {
+    showAuthMsg('⚙️ Configure Supabase to enable Google login', 'error'); return;
+  }
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: { redirectTo: window.location.origin }
+  });
+  if (error) showAuthMsg(error.message, 'error');
+}
+
+async function authGitHub() {
+  if (!supabase || SUPABASE_URL === 'YOUR_SUPABASE_URL') {
+    showAuthMsg('⚙️ Configure Supabase to enable GitHub login', 'error'); return;
+  }
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: 'github',
+    options: { redirectTo: window.location.origin }
+  });
+  if (error) showAuthMsg(error.message, 'error');
+}
+
+async function signOutUser() {
+  if (supabase) await supabase.auth.signOut();
+  currentUser = null;
+  updateNavForGuest();
+  showLanding();
+}
+
+// Override showApp to require auth
+const _origShowApp = showApp;
+window.showApp = function() {
+  // If Supabase not configured, allow guest access
+  if (!supabase || SUPABASE_URL === 'YOUR_SUPABASE_URL') {
+    _origShowApp(); return;
+  }
+  if (currentUser) {
+    _origShowApp();
+  } else {
+    openAuth('login');
+  }
+};
+
+// Close modal on overlay click
+document.getElementById('auth-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeAuth();
+});
+
+// Keyboard close
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeAuth();
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+</body>
+</html>
