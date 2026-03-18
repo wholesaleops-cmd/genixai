@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GenixAI — World's #1 AI Platform | 50 Tools | 55+ Languages</title>
+<meta name="description" content="50 AI tools. 55+ languages. The world's most powerful multilingual AI content platform.">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#7c5cfc">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="GenixAI">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#060610;--bg2:#0b0b1a;--bg3:#111126;--bg4:#181830;--a1:#7c5cfc;--a2:#9b7dff;--a3:#b89dff;--g1:#00d4a0;--p2:#ff80c0;--gold:#f0b429;--t1:#f4f0ff;--t2:#a8a4c8;--t3:#5a5878;--t4:#2e2c48;--bd:#1e1c3a;--bd2:#2d2b50;--bd3:#3d3b68;--r:14px;--r2:10px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t1);min-height:100vh;overflow-x:hidden}
+.hf{font-family:'Syne',sans-serif}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:var(--bd3);border-radius:3px}
+
+/* NAV */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:62px;border-bottom:1px solid rgba(124,92,252,.15);background:rgba(6,6,16,.94);backdrop-filter:blur(24px);position:sticky;top:0;z-index:100}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.logo-icon{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#7c5cfc,#b89dff,#ff4da6);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#fff}
+.logo-name{font-family:'Syne',sans-serif;font-size:19px;font-weight:800;background:linear-gradient(135deg,#b89dff,#ff80c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:4px}
+.nav-link{padding:7px 14px;font-size:13px;font-weight:500;color:var(--t2);background:none;border:none;cursor:pointer;border-radius:8px;transition:all .2s;text-decoration:none}
+.nav-link:hover{color:var(--t1);background:rgba(255,255,255,.05)}
+.nav-right{display:flex;gap:10px;align-items:center}
+.pill{background:rgba(0,212,160,.12);border:1px solid rgba(0,212,160,.25);color:var(--g1);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:.5px}
+.btn{padding:10px 22px;border-radius:var(--r2);font-family:'Syne',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;border:none;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.btn-ghost{background:transparent;color:var(--t2);border:1px solid var(--bd2)}
+.btn-ghost:hover{color:var(--t1);background:rgba(255,255,255,.04)}
+.btn-primary{background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;box-shadow:0 4px 20px rgba(124,92,252,.3)}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 28px rgba(124,92,252,.45)}
+.btn-lg{padding:14px 36px;font-size:15px;border-radius:var(--r)}
+.btn-xl{padding:16px 44px;font-size:16px;border-radius:var(--r)}
+
+/* HERO */
+.hero-wrap{position:relative;overflow:hidden;padding:90px 32px 70px;text-align:center}
+.h-orb1{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(124,92,252,.1) 0%,transparent 65%);top:-200px;left:50%;transform:translateX(-50%);pointer-events:none}
+.h-orb2{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,77,166,.06) 0%,transparent 65%);top:0;right:5%;pointer-events:none}
+.h-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(124,92,252,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(124,92,252,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:860px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,92,252,.1);border:1px solid rgba(124,92,252,.2);color:var(--a3);font-size:11px;font-weight:700;padding:6px 18px;border-radius:20px;margin-bottom:28px;letter-spacing:1px;text-transform:uppercase}
+.h-dot{width:5px;height:5px;border-radius:50%;background:var(--a2);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(38px,7vw,78px);font-weight:800;line-height:1.04;letter-spacing:-2px;margin-bottom:22px}
+.grad-text{background:linear-gradient(135deg,#7c5cfc 0%,#b89dff 40%,#ff4da6 70%,#f0b429 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200%;animation:gm 4s linear infinite}
+@keyframes gm{0%{background-position:0% center}100%{background-position:200% center}}
+.hero-sub{font-size:18px;color:var(--t2);line-height:1.75;max-width:580px;margin:0 auto 36px;font-weight:300}
+.hero-sub strong{color:var(--t1);font-weight:600}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.hero-trust{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap}
+.trust-i{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--t3);font-weight:500}
+.trust-dot{width:5px;height:5px;border-radius:50%;background:var(--g1)}
+
+/* STATS */
+.stats-bar{border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);background:var(--bg2)}
+.stats-inner{display:flex;max-width:1100px;margin:0 auto}
+.sc{flex:1;padding:26px 20px;text-align:center;border-right:1px solid var(--bd)}
+.sc:last-child{border-right:none}
+.sv{font-family:'Syne',sans-serif;font-size:clamp(26px,3vw,40px);font-weight:800;background:linear-gradient(135deg,#b89dff,#ff80c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:6px}
+.sl{font-size:13px;color:var(--t3);font-weight:500}
+
+/* MARQUEE */
+.mq-outer{padding:16px 0;border-bottom:1px solid var(--bd);overflow:hidden}
+.mq-track{display:flex;animation:marquee 30s linear infinite;width:max-content}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mq-item{display:flex;align-items:center;gap:8px;padding:6px 22px;font-size:13px;font-weight:600;color:var(--t3);white-space:nowrap;border-right:1px solid var(--bd)}
+
+/* SECTIONS */
+.sec{padding:72px 32px;max-width:1200px;margin:0 auto}
+.sec-ctr{text-align:center;max-width:640px;margin:0 auto 48px}
+.sec-ey{display:inline-block;background:rgba(124,92,252,.1);border:1px solid rgba(124,92,252,.2);color:var(--a3);font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+.sec-title{font-family:'Syne',sans-serif;font-size:clamp(26px,4vw,44px);font-weight:800;line-height:1.1;letter-spacing:-.5px;margin-bottom:12px}
+.sec-sub{font-size:16px;color:var(--t2);line-height:1.7;font-weight:300}
+
+/* TOOLS */
+.tools-outer{border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:72px 0}
+.tools-con{max-width:1280px;margin:0 auto;padding:0 32px}
+.ttabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:26px;background:var(--bg2);padding:5px;border-radius:var(--r);border:1px solid var(--bd);width:fit-content}
+.ttab{padding:7px 16px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--t3);transition:all .2s;font-family:'Inter',sans-serif;letter-spacing:.3px}
+.ttab:hover{color:var(--t2)}
+.ttab.act{background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;box-shadow:0 4px 14px rgba(124,92,252,.3)}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:11px}
+.tc{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:20px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.tc:hover{border-color:rgba(124,92,252,.4);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.tc-em{font-size:26px;margin-bottom:12px;display:block;transition:transform .2s}
+.tc:hover .tc-em{transform:scale(1.12)}
+.tc-tag{position:absolute;top:10px;right:10px;font-size:9px;font-weight:800;padding:2px 7px;border-radius:5px;letter-spacing:.4px;text-transform:uppercase}
+.tc-tag.hot{background:rgba(255,77,166,.15);color:#ff80c0;border:1px solid rgba(255,77,166,.2)}
+.tc-tag.new{background:rgba(0,212,160,.12);color:var(--g1);border:1px solid rgba(0,212,160,.2)}
+.tc-tag.pro{background:rgba(240,180,41,.12);color:var(--gold);border:1px solid rgba(240,180,41,.2)}
+.tc-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px}
+.tc-desc{font-size:12px;color:var(--t3);line-height:1.5}
+
+/* HOW IT WORKS */
+.how-wrap{background:var(--bg2);border-top:1px solid var(--bd)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.step{padding:36px 22px;text-align:center;border-right:1px solid var(--bd)}
+.step:last-child{border-right:none}
+.step-ic{width:80px;height:80px;border-radius:50%;background:var(--bg3);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:28px;position:relative;transition:all .3s}
+.step-ic::after{content:'';position:absolute;inset:-2px;border-radius:50%;background:linear-gradient(135deg,#7c5cfc,#ff4da6);z-index:-1;opacity:0;transition:opacity .3s}
+.step:hover .step-ic::after{opacity:1}
+.step:hover .step-ic{border-color:transparent}
+.step-n{position:absolute;top:-4px;right:-4px;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif}
+.step-t{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:6px}
+.step-d{font-size:13px;color:var(--t3);line-height:1.6}
+
+/* LANG DEMO */
+.ldemo{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:32px;margin-top:36px;position:relative;overflow:hidden}
+.ldemo::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#7c5cfc,#b89dff,#ff4da6,#f0b429)}
+.lchips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px}
+.lchip{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;border:1px solid var(--bd2);color:var(--t2);background:var(--bg3);cursor:pointer;transition:all .18s}
+.lchip:hover{color:var(--t1);border-color:var(--bd3)}
+.lchip.act{background:rgba(124,92,252,.15);border-color:var(--a2);color:var(--a3)}
+.demo-card{background:var(--bg);border:1px solid var(--bd);border-radius:var(--r2);padding:20px}
+.demo-grid{display:grid;grid-template-columns:1fr 40px 1fr;gap:14px;align-items:center;margin-bottom:16px}
+.demo-arr{width:40px;height:40px;border-radius:50%;background:rgba(124,92,252,.12);border:1px solid rgba(124,92,252,.2);display:flex;align-items:center;justify-content:center;font-size:16px}
+.dl{font-size:10px;font-weight:800;letter-spacing:1px;color:var(--t3);text-transform:uppercase;margin-bottom:5px}
+.dout{font-size:14px;color:var(--t1);line-height:1.75;font-weight:500;padding:14px;background:rgba(124,92,252,.06);border-radius:8px;border:1px solid rgba(124,92,252,.1)}
+
+/* ABOUT */
+.about-outer{background:var(--bg2);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.av-main{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);padding:26px;margin-bottom:14px;position:relative;overflow:hidden}
+.av-main::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#7c5cfc,#b89dff,#ff4da6)}
+.av-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.av-sm{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);padding:16px;display:flex;align-items:center;gap:12px;transition:all .2s}
+.av-sm:hover{border-color:var(--bd3);transform:translateY(-2px)}
+.av-ic{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.about-txt p{font-size:15px;color:var(--t2);line-height:1.85;margin-bottom:14px;font-weight:300}
+.about-txt strong{color:var(--t1);font-weight:600}
+.hl-list{margin-top:20px;display:flex;flex-direction:column;gap:12px}
+.hl{display:flex;align-items:flex-start;gap:11px}
+.hl-ic{width:32px;height:32px;border-radius:9px;background:rgba(124,92,252,.1);border:1px solid rgba(124,92,252,.15);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;margin-top:2px}
+.hl-t{font-size:14px;font-weight:600;margin-bottom:2px}
+.hl-d{font-size:12px;color:var(--t3);line-height:1.5;margin:0}
+
+/* TESTIMONIALS */
+.tcard{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:28px;position:relative;overflow:hidden;transition:all .22s}
+.tcard:hover{border-color:rgba(124,92,252,.3);transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.4)}
+.tqm{position:absolute;top:16px;right:20px;font-size:52px;color:rgba(124,92,252,.07);font-family:Georgia,serif;line-height:1}
+.tst{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:14px}
+.tbody{font-size:14px;color:var(--t2);line-height:1.8;margin-bottom:20px;font-style:italic}
+.tfoot{display:flex;align-items:center;gap:11px;padding-top:16px;border-top:1px solid var(--bd)}
+.tav{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;font-family:'Syne',sans-serif;flex-shrink:0}
+.tnm{font-size:14px;font-weight:600}
+.trl{font-size:11px;color:var(--t3);margin-top:2px}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+
+/* PRICING */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px;max-width:980px;margin:0 auto}
+.pc{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);padding:28px;position:relative;overflow:hidden;transition:transform .2s}
+.pc:hover{transform:translateY(-2px)}
+.pc.feat{border-color:rgba(124,92,252,.35)}
+.pc.feat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#7c5cfc,#b89dff,#ff4da6)}
+.pc-pop{position:absolute;top:18px;right:18px;background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:7px;letter-spacing:.5px;text-transform:uppercase;font-family:'Syne',sans-serif}
+.pc-name{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:5px}
+.pc-tag{font-size:13px;color:var(--t3);margin-bottom:20px}
+.pc-price{font-family:'Syne',sans-serif;font-size:50px;font-weight:800;line-height:1;background:linear-gradient(135deg,#b89dff,#ff80c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.pc-free{font-family:'Syne',sans-serif;font-size:50px;font-weight:800;line-height:1;color:var(--t1)}
+.pc-mo{font-family:'Inter',sans-serif;font-size:15px;color:var(--t3);font-weight:400;-webkit-text-fill-color:var(--t3);background:none}
+.pc-per{font-size:12px;color:var(--t3);margin-bottom:20px;margin-top:4px}
+.pc-div{height:1px;background:var(--bd);margin:18px 0}
+.pcl{list-style:none;margin-bottom:24px}
+.pcl li{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--t2);padding:6px 0;line-height:1.4}
+.pcl li.y::before{content:'✓';color:var(--g1);font-weight:700;flex-shrink:0}
+.pcl li.n{color:var(--t4)}
+.pcl li.n::before{content:'✗';color:var(--t4);font-weight:700;flex-shrink:0}
+.pc-btn{width:100%;padding:13px;border-radius:var(--r2);font-family:'Syne',sans-serif;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:all .2s}
+
+/* CTA */
+.cta-outer{padding:88px 32px;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--bd)}
+.cta-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(124,92,252,.09) 0%,transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+
+/* FOOTER */
+footer{padding:32px;border-top:1px solid var(--bd);text-align:center;color:var(--t3);font-size:13px;line-height:2;background:var(--bg2)}
+footer a{color:var(--a3);text-decoration:none}
+
+/* ===== APP ===== */
+#app-view{display:none}
+.app-layout{display:flex;height:calc(100vh - 62px)}
+.sb{width:260px;background:var(--bg2);border-right:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden;flex-shrink:0}
+.sb-top{padding:12px;border-bottom:1px solid var(--bd)}
+.sb-srch{width:100%;background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r2);padding:9px 14px;color:var(--t1);font-family:'Inter',sans-serif;font-size:13px}
+.sb-srch::placeholder{color:var(--t3)}
+.sb-srch:focus{outline:none;border-color:var(--a1)}
+.sb-scroll{overflow-y:auto;flex:1;padding:6px}
+.sb-cl{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--t4);padding:10px 10px 5px;text-transform:uppercase}
+.sb-item{display:flex;align-items:center;gap:9px;padding:8px 11px;cursor:pointer;transition:all .12s;border:1px solid transparent;margin:2px 0;border-radius:var(--r2);background:none;width:100%;text-align:left}
+.sb-item:hover{background:var(--bg3)}
+.sb-item.act{background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.2)}
+.sb-em{font-size:15px;width:22px;text-align:center;flex-shrink:0}
+.sb-n{font-size:13px;font-weight:500;color:var(--t2);flex:1}
+.sb-item.act .sb-n{color:var(--a3);font-weight:600}
+.sb-tag{font-size:9px;font-weight:800;padding:2px 6px;border-radius:5px;text-transform:uppercase}
+.sb-tag.hot{background:rgba(255,77,166,.15);color:#ff80c0}
+.sb-tag.new{background:rgba(0,212,160,.12);color:var(--g1)}
+.sb-tag.pro{background:rgba(240,180,41,.12);color:var(--gold)}
+.gen-main{flex:1;overflow-y:auto;background:var(--bg);display:flex;flex-direction:column}
+.gen-tb{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;border-bottom:1px solid var(--bd);background:var(--bg2);flex-shrink:0}
+.bcrumb{font-size:13px;color:var(--t3);display:flex;align-items:center;gap:7px}
+.bcrumb span{color:var(--t1);font-weight:600}
+.u-wrap{display:flex;align-items:center;gap:9px;font-size:12px;color:var(--t3)}
+.u-outer{width:70px;height:4px;background:var(--bg4);border-radius:2px;overflow:hidden}
+.u-inner{height:100%;background:linear-gradient(90deg,#7c5cfc,#b89dff);border-radius:2px;transition:width .3s}
+.gen-body{padding:24px;overflow-y:auto;flex:1}
+.gen-inner{max-width:820px}
+.tool-hdr{margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--bd)}
+.tool-title{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;margin-bottom:7px;display:flex;align-items:center;gap:10px}
+.tool-sub2{font-size:14px;color:var(--t3)}
+.lang-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,212,160,.08);border:1px solid rgba(0,212,160,.18);color:var(--g1);font-size:11px;font-weight:700;padding:4px 12px;border-radius:10px;margin-top:9px;letter-spacing:.3px}
+.fcard{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:22px;margin-bottom:14px}
+.fl{font-size:10px;font-weight:800;letter-spacing:1.2px;color:var(--t3);margin-bottom:7px;display:block;text-transform:uppercase}
+.fi{width:100%;background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r2);padding:11px 15px;color:var(--t1);font-family:'Inter',sans-serif;font-size:14px;transition:border-color .2s;resize:none;line-height:1.6}
+.fi:focus{outline:none;border-color:var(--a1)}
+.fi::placeholder{color:var(--t4)}
+select.fi{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a5878' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.fg{margin-bottom:13px}
+.gen-btn{width:100%;padding:15px;border-radius:var(--r2);border:none;cursor:pointer;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;transition:all .2s;box-shadow:0 4px 20px rgba(124,92,252,.28);letter-spacing:.3px}
+.gen-btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 8px 28px rgba(124,92,252,.42)}
+.gen-btn:disabled{opacity:.35;cursor:not-allowed;transform:none;box-shadow:none}
+.out-card{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;margin-top:14px}
+.out-hdr{display:flex;align-items:center;justify-content:space-between;padding:13px 20px;border-bottom:1px solid var(--bd);background:var(--bg3)}
+.out-ttl{font-size:11px;font-weight:800;letter-spacing:1.2px;color:var(--a3);text-transform:uppercase;display:flex;align-items:center;gap:7px}
+.odot{width:6px;height:6px;border-radius:50%;background:var(--a2);animation:pulse 1.5s infinite}
+.oacts{display:flex;gap:6px}
+.oa{background:var(--bg4);border:1px solid var(--bd);border-radius:6px;padding:4px 12px;font-size:12px;font-weight:600;color:var(--t2);cursor:pointer;transition:all .15s}
+.oa:hover{background:var(--bg2);color:var(--t1)}
+.oa.ok{color:var(--g1);border-color:rgba(0,212,160,.3)}
+.out-body{padding:22px;font-size:14px;line-height:1.9;color:var(--t2);min-height:180px}
+.lstt{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;min-height:200px}
+.spin{width:48px;height:48px;border-radius:50%;border:2px solid rgba(124,92,252,.2);border-top-color:var(--a2);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ltxt{font-size:13px;color:var(--t3)}
+.hist-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.hp{background:var(--bg2);border:1px solid var(--bd);border-radius:11px;padding:4px 12px;font-size:11px;font-weight:600;color:var(--t3);cursor:pointer;transition:all .15s}
+.hp:hover{border-color:var(--a2);color:var(--a3)}
+.err-box{background:rgba(255,77,166,.06);border:1px solid rgba(255,77,166,.15);border-radius:var(--r2);padding:14px;font-size:13px;color:#ff80c0;margin-top:12px}
+
+/* ===== AUTH MODAL ===== */
+.auth-overlay{display:none;position:fixed;inset:0;background:rgba(6,6,16,.88);backdrop-filter:blur(18px);z-index:9999;align-items:center;justify-content:center;padding:20px}
+.auth-overlay.open{display:flex}
+.auth-modal{width:100%;max-width:430px;position:relative}
+.auth-close{position:absolute;top:-14px;right:-14px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:var(--t2);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:all .2s}
+.auth-close:hover{background:rgba(255,255,255,.12);color:var(--t1)}
+.auth-card{background:var(--bg2);border:1px solid var(--bd2);border-radius:18px;overflow:hidden}
+.auth-top-bar{height:2px;background:linear-gradient(90deg,#7c5cfc,#b89dff,#ff4da6,#f0b429)}
+.auth-header{padding:28px 28px 0;text-align:center}
+.auth-logo{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;cursor:pointer}
+.auth-logo-icon{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#7c5cfc,#b89dff,#ff4da6);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:#fff}
+.auth-logo-name{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;background:linear-gradient(135deg,#b89dff,#ff80c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.auth-title{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:var(--t1);margin-bottom:6px}
+.auth-sub{font-size:13px;color:var(--t3);margin-bottom:0}
+.auth-body{padding:24px 28px 28px}
+.auth-socials{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px}
+.soc-btn{display:flex;align-items:center;justify-content:center;gap:7px;padding:10px;background:rgba(255,255,255,.04);border:1px solid var(--bd2);border-radius:9px;color:var(--t2);font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .18s}
+.soc-btn:hover{background:rgba(255,255,255,.08);border-color:var(--bd3);color:var(--t1)}
+.auth-divider{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.auth-divider-line{flex:1;height:1px;background:var(--bd)}
+.auth-divider-txt{font-size:11px;color:var(--t4);font-weight:700;letter-spacing:.5px;white-space:nowrap}
+.auth-field{margin-bottom:13px}
+.auth-label{font-size:10px;font-weight:800;letter-spacing:1.2px;color:var(--t3);display:block;margin-bottom:7px;text-transform:uppercase}
+.auth-input{width:100%;background:var(--bg3);border:1px solid var(--bd);border-radius:9px;padding:11px 15px;color:var(--t1);font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .2s}
+.auth-input:focus{border-color:var(--a1)}
+.auth-input::placeholder{color:var(--t4)}
+.pass-wrap{position:relative}
+.pass-eye{position:absolute;right:11px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--t3);font-size:14px;padding:4px;transition:color .15s}
+.pass-eye:hover{color:var(--t2)}
+.auth-forgot-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+.forgot-btn{color:var(--a2);background:none;border:none;cursor:pointer;font-size:12px;font-weight:500;font-family:'Inter',sans-serif;transition:color .15s}
+.forgot-btn:hover{color:var(--a3)}
+.auth-msg{display:none;padding:10px 13px;border-radius:8px;font-size:13px;margin-top:11px}
+.auth-msg.err{background:rgba(255,77,166,.08);border:1px solid rgba(255,77,166,.2);color:#ff80c0}
+.auth-msg.ok{background:rgba(0,212,160,.08);border:1px solid rgba(0,212,160,.2);color:var(--g1)}
+.auth-submit{width:100%;padding:13px;background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;border:none;border-radius:9px;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;cursor:pointer;margin-top:14px;transition:all .2s;box-shadow:0 4px 18px rgba(124,92,252,.28);letter-spacing:.3px}
+.auth-submit:hover{transform:translateY(-1px);box-shadow:0 7px 24px rgba(124,92,252,.42)}
+.auth-submit:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.auth-switch{text-align:center;margin-top:18px;font-size:13px;color:var(--t3)}
+.auth-switch-btn{color:var(--a2);background:none;border:none;cursor:pointer;font-weight:600;font-size:13px;font-family:'Inter',sans-serif;margin-left:4px;transition:color .15s}
+.auth-switch-btn:hover{color:var(--a3)}
+.auth-benefits{margin-top:14px;padding:12px 14px;background:rgba(124,92,252,.05);border:1px solid rgba(124,92,252,.1);border-radius:9px}
+.auth-benefits-title{font-size:11px;font-weight:700;color:var(--a2);margin-bottom:8px;letter-spacing:.5px}
+.ab-item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--t2);margin-bottom:5px}
+.ab-item:last-child{margin-bottom:0}
+.ab-check{color:var(--g1);font-weight:700;font-size:13px}
+
+/* USER NAV */
+.user-wrap{position:relative}
+.user-av{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#7c5cfc,#ff4da6);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:12px;font-weight:800;color:#fff;cursor:pointer;border:2px solid rgba(124,92,252,.3);transition:all .2s}
+.user-av:hover{border-color:rgba(124,92,252,.6);transform:scale(1.05)}
+.user-drop{position:absolute;top:calc(100% + 8px);right:0;background:var(--bg2);border:1px solid var(--bd2);border-radius:12px;padding:7px;min-width:190px;box-shadow:0 14px 44px rgba(0,0,0,.6);z-index:200;display:none}
+.user-drop.open{display:block}
+.drop-email{padding:8px 10px;font-size:12px;color:var(--t3);border-bottom:1px solid var(--bd);margin-bottom:4px;word-break:break-all}
+.drop-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:7px;font-size:13px;font-weight:500;color:var(--t2);cursor:pointer;transition:all .12s;border:none;background:none;width:100%;text-align:left;font-family:'Inter',sans-serif}
+.drop-item:hover{background:rgba(255,255,255,.05);color:var(--t1)}
+.drop-item.red:hover{background:rgba(255,77,166,.07);color:#ff80c0}
+
+/* RESPONSIVE */
+@media(max-width:900px){.nav-links{display:none}.about-grid{grid-template-columns:1fr}.pgrid{grid-template-columns:1fr}.stats-inner{flex-wrap:wrap}.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.hero-wrap{padding:60px 20px 50px}.sec{padding:56px 20px}.tools-con{padding:0 20px}.r2{grid-template-columns:1fr}.app-layout{flex-direction:column;height:auto}.sb{width:100%;height:190px;overflow-x:auto}.tgrid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}}
+
+/* REVEAL ANIMATIONS */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-l{opacity:0;transform:translateX(-36px);transition:opacity .7s ease,transform .7s ease}
+.reveal-l.visible{opacity:1;transform:translateX(0)}
+.reveal-r{opacity:0;transform:translateX(36px);transition:opacity .7s ease,transform .7s ease}
+.reveal-r.visible{opacity:1;transform:translateX(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.float{animation:float 5s ease-in-out infinite}
+
+/* INSTALL BANNER */
+.install-banner{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#111126,#1a1a30);border:1px solid rgba(124,92,252,.4);border-radius:16px;padding:16px 22px;display:flex;align-items:center;gap:14px;box-shadow:0 8px 40px rgba(0,0,0,.6);z-index:500;max-width:420px;width:calc(100% - 32px);animation:slideUp .4s ease}
+@keyframes slideUp{from{transform:translateX(-50%) translateY(20px);opacity:0}to{transform:translateX(-50%) translateY(0);opacity:1}}
+.ib-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#7c5cfc,#ff4da6);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.ib-text{flex:1}
+.ib-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:3px}
+.ib-sub{font-size:12px;color:var(--t3)}
+.ib-btns{display:flex;gap:7px;flex-shrink:0}
+.ib-btn-install{background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;border:none;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Syne',sans-serif}
+.ib-btn-close{background:transparent;border:1px solid var(--bd2);color:var(--t3);padding:8px 12px;border-radius:8px;font-size:13px;cursor:pointer}
+/* REFERRAL */
+.ref-banner{background:linear-gradient(135deg,rgba(0,212,160,.08),rgba(124,92,252,.06));border:1px solid rgba(0,212,160,.2);border-radius:12px;padding:16px 20px;margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.ref-icon{font-size:28px;flex-shrink:0}
+.ref-text{flex:1}
+.ref-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px}
+.ref-sub{font-size:12px;color:var(--t3);line-height:1.5}
+.ref-link-box{background:var(--bg3);border:1px solid var(--bd);border-radius:8px;padding:8px 12px;font-size:12px;font-family:monospace;color:var(--a3);cursor:pointer;transition:all .2s;word-break:break-all;margin-top:8px}
+.ref-link-box:hover{background:var(--bg4);border-color:var(--a1)}
+/* EARNINGS POPUP */
+.earn-toast{position:fixed;top:80px;right:20px;background:linear-gradient(135deg,#111126,#1a1a30);border:1px solid rgba(0,212,160,.3);border-radius:12px;padding:14px 18px;font-size:14px;color:var(--t1);z-index:600;box-shadow:0 8px 32px rgba(0,0,0,.5);animation:slideIn .35s ease;display:flex;align-items:center;gap:10px;max-width:300px}
+@keyframes slideIn{from{transform:translateX(20px);opacity:0}to{transform:translateX(0);opacity:1}}
+.earn-icon{font-size:20px;flex-shrink:0}
+
+
+.rmd-h1{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;background:linear-gradient(135deg,#b89dff,#ff80c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:28px 0 14px;display:block;line-height:1.3}
+.rmd-h2{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--t1);margin:24px 0 12px;padding-bottom:8px;border-bottom:2px solid rgba(124,92,252,0.2);display:block}
+.rmd-h3{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--a3);margin:18px 0 8px;display:block}
+.rmd-p{margin:10px 0;line-height:1.9;color:var(--t2);font-size:14px}
+.rmd-p strong{color:var(--t1);font-weight:700}
+.rmd-hr{border:none;border-top:1px solid var(--bd2);margin:22px 0}
+.rmd-list{margin:12px 0;display:flex;flex-direction:column;gap:8px}
+.rmd-li{display:flex;gap:12px;align-items:flex-start;line-height:1.7;color:var(--t2);font-size:14px}
+.rmd-li span strong{color:var(--t1);font-weight:700}
+.rmd-num{color:var(--a2);font-weight:800;flex-shrink:0;min-width:24px;font-family:'Syne',sans-serif;font-size:13px}
+.rmd-check{color:var(--g1);font-weight:700;flex-shrink:0;font-size:15px;margin-top:1px}
+.rmd-spacer{height:12px}
+.out-body strong{color:var(--t1);font-weight:700}
+</style>
+</head>
+<body>
+
+<!-- ===== AUTH MODAL ===== -->
+<div class="auth-overlay" id="auth-overlay">
+  <div class="auth-modal">
+    <button class="auth-close" onclick="closeAuth()">&#x2715;</button>
+    <div class="auth-card">
+      <div class="auth-top-bar"></div>
+      <div class="auth-header">
+        <div class="auth-logo" onclick="closeAuth()">
+          <div class="auth-logo-icon">G</div>
+          <div class="auth-logo-name">GenixAI</div>
+        </div>
+        <div class="auth-title" id="a-title">Welcome back</div>
+        <div class="auth-sub" id="a-sub">Sign in to access 50 AI tools in 55+ languages</div>
+      </div>
+      <div class="auth-body">
+        <div class="auth-socials">
+          <button class="soc-btn" onclick="authGoogle()" title="Requires Google OAuth setup in Supabase">
+            <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+            Google
+          </button>
+          <button class="soc-btn" onclick="authGitHub()">
+            <svg width="16" height="16" fill="#f4f0ff" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.72-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.72.08-.72 1.2.08 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.48 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02.005 2.04.138 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.25 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </button>
+        </div>
+        <div class="auth-divider">
+          <div class="auth-divider-line"></div>
+          <div class="auth-divider-txt">OR CONTINUE WITH EMAIL</div>
+          <div class="auth-divider-line"></div>
+        </div>
+        <div id="a-name-field" style="display:none" class="auth-field">
+          <label class="auth-label">Full Name</label>
+          <input id="a-name" class="auth-input" type="text" placeholder="Abdul Raheem Shahid">
+        </div>
+        <div class="auth-field">
+          <label class="auth-label">Email Address</label>
+          <input id="a-email" class="auth-input" type="email" placeholder="you@example.com">
+        </div>
+        <div id="a-pass-field" class="auth-field">
+          <div class="auth-forgot-row">
+            <label class="auth-label" style="margin-bottom:0">Password</label>
+            <button class="forgot-btn" id="a-forgot" onclick="setMode('forgot')">Forgot password?</button>
+          </div>
+          <div class="pass-wrap">
+            <input id="a-pass" class="auth-input" type="password" placeholder="Min 8 characters" onkeydown="if(event.key==='Enter')doAuth()">
+            <button class="pass-eye" onclick="toggleEye()">&#128065;</button>
+          </div>
+        </div>
+        <div class="auth-msg" id="a-msg"></div>
+        <button class="auth-submit" id="a-btn" onclick="doAuth()">Sign In</button>
+        <div class="auth-switch">
+          <span id="a-sw-txt">Don't have an account?</span>
+          <button class="auth-switch-btn" id="a-sw-btn" onclick="toggleMode()">Sign Up Free</button>
+        </div>
+        <div class="auth-benefits" id="a-benefits" style="display:none">
+          <div class="auth-benefits-title">&#10022; FREE ACCOUNT INCLUDES</div>
+          <div class="ab-item"><span class="ab-check">&#10003;</span>30 free generations daily</div>
+          <div class="ab-item"><span class="ab-check">&#10003;</span>All 50 AI tools</div>
+          <div class="ab-item"><span class="ab-check">&#10003;</span>All 55+ languages</div>
+          <div class="ab-item"><span class="ab-check">&#10003;</span>No credit card required</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LANDING ===== -->
+<div id="landing-view">
+<nav class="nav">
+  <div class="logo" onclick="scrollToTop()">
+    <div class="logo-icon">G</div>
+    <div class="logo-name">GenixAI</div>
+  </div>
+  <div class="nav-links">
+    <a href="#tools" class="nav-link">50 Tools</a>
+    <a href="#how" class="nav-link">How it works</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="#pricing" class="nav-link">Pricing</a>
+  </div>
+  <div class="nav-right" id="nav-right">
+    <span class="pill" id="nav-pill">FREE TO USE</span>
+    <button class="btn btn-primary" id="nav-launch-btn" onclick="handleLaunch()">Get Started &#x2192;</button>
+  </div>
+</nav>
+
+<div class="hero-wrap">
+  <div class="h-orb1"></div><div class="h-orb2"></div><div class="h-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><div class="h-dot"></div>50 AI TOOLS &nbsp;&middot;&nbsp; 55+ LANGUAGES &nbsp;&middot;&nbsp; WORLDWIDE</div>
+    <h1 class="hero-title hf">
+      The World's Most Powerful<br>
+      <span class="grad-text">Multilingual AI Platform</span>
+    </h1>
+    <p class="hero-sub">Generate <strong>any content</strong> &#8212; captions, resumes, ads, emails, SEO copy and 45 more &#8212; in <strong>55+ languages</strong> for any country, any audience, any business.</p>
+    <div class="hero-btns">
+      <button class="btn btn-primary btn-xl" onclick="handleSignup()">&#x2728; Start Generating Free</button>
+      <a href="#tools" class="btn btn-ghost btn-lg">Explore 50 Tools &#x2193;</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-i"><div class="trust-dot"></div>5,000+ creators worldwide</div>
+      <div class="trust-i"><div class="trust-dot"></div>No credit card needed</div>
+      <div class="trust-i"><div class="trust-dot"></div>Powered by Claude AI</div>
+      <div class="trust-i"><div class="trust-dot"></div>Results in 10 seconds</div>
+    </div>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="sc"><div class="sv" data-target="50" data-suffix="">0</div><div class="sl">AI Tools</div></div>
+    <div class="sc"><div class="sv" data-target="55" data-suffix="+">0</div><div class="sl">Languages</div></div>
+    <div class="sc"><div class="sv" data-target="5000" data-suffix="+">0</div><div class="sl">Global Users</div></div>
+    <div class="sc"><div class="sv" data-target="10" data-suffix="s">0</div><div class="sl">Avg Generation</div></div>
+    <div class="sc"><div class="sv" data-target="99" data-suffix="%">0</div><div class="sl">Uptime</div></div>
+  </div>
+</div>
+
+<div class="mq-outer"><div class="mq-track" id="mq"></div></div>
+
+<div id="tools" class="tools-outer">
+  <div class="tools-con">
+    <div class="sec-ctr reveal">
+      <div class="sec-ey">50 AI TOOLS</div>
+      <h2 class="sec-title hf">Every Tool You'll Ever Need</h2>
+      <p class="sec-sub">50 AI-powered tools in 55+ languages. One platform. Unlimited possibilities.</p>
+    </div>
+    <div class="ttabs" id="ttabs"></div>
+    <div class="tgrid" id="tgrid"></div>
+  </div>
+</div>
+
+<div id="how" class="how-wrap">
+  <div class="sec" style="max-width:1100px">
+    <div class="sec-ctr reveal">
+      <div class="sec-ey">HOW IT WORKS</div>
+      <h2 class="sec-title hf">4 Steps to Amazing Content</h2>
+      <p class="sec-sub">From zero to publish-ready content in any language in under 60 seconds.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal d1"><div class="step-ic">&#127919;<div class="step-n">1</div></div><div class="step-t hf">Choose Tool</div><div class="step-d">Pick from 50 AI tools — content, marketing, business, SEO, creative and more</div></div>
+      <div class="step reveal d2"><div class="step-ic">&#127757;<div class="step-n">2</div></div><div class="step-t hf">Select Language</div><div class="step-d">Choose any of 55+ languages — Urdu, Arabic, Japanese, French, and more</div></div>
+      <div class="step reveal d3"><div class="step-ic">&#9999;&#65039;<div class="step-n">3</div></div><div class="step-t hf">Describe Topic</div><div class="step-d">Write a short description of what you need — any topic, any industry</div></div>
+      <div class="step reveal d4"><div class="step-ic">&#9889;<div class="step-n">4</div></div><div class="step-t hf">Get AI Content</div><div class="step-d">Professional content in your language within seconds — copy and use!</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-ctr reveal">
+    <div class="sec-ey">MULTILINGUAL ENGINE</div>
+    <h2 class="sec-title hf">You Pick the Language.<br>AI Writes Perfectly in It.</h2>
+    <p class="sec-sub">Not translation — actual AI content generated natively in your language with full cultural context.</p>
+  </div>
+  <div class="ldemo reveal">
+    <div class="lchips" id="lchips"></div>
+    <div class="demo-card">
+      <div class="demo-grid">
+        <div><div class="dl">Your Input</div><div style="font-size:14px;color:var(--t2)">"Launch sale for new clothing brand — exciting &amp; bold"</div></div>
+        <div class="demo-arr">&#x2192;</div>
+        <div><div class="dl">Output Language</div><div style="font-size:14px;color:var(--a3);font-weight:600" id="dlang">Urdu (&#x627;&#x631;&#x62F;&#x648;)</div></div>
+      </div>
+      <div class="dl">&#x2756; AI Generated Output</div>
+      <div class="dout" id="dout">&#x1F525; &#x646;&#x626;&#x6CC; &#x628;&#x631;&#x627;&#x646;&#x688; &#x6A9;&#x627; &#x62F;&#x6BE;&#x645;&#x627;&#x6A9;&#x6CC; &#x622;&#x63A;&#x627;&#x632;! &#x628;&#x6C1;&#x62A;&#x631;&#x6CC;&#x646; &#x645;&#x644;&#x628;&#x648;&#x633;&#x627;&#x62A;&#x548; &#x6E0;&#x6CC;&#x645;&#x62A;&#x6CC;&#x646; &#x2014; &#x622;&#x62C; &#x6C1;&#x6CC; &#x62E;&#x631;&#x6CC;&#x62F;&#x6CC;&#x646;! &#x1F6CD;&#xFE0F;</div>
+    </div>
+  </div>
+</div>
+
+<div id="about" class="about-outer">
+  <div class="sec">
+    <div class="about-grid">
+      <div class="about-txt reveal-l">
+        <div class="sec-ey">ABOUT GENIXAI</div>
+        <h2 class="sec-title hf">Built for the Entire World.<br>Not Just One Market.</h2>
+        <p>Most AI tools are built for <strong>English-speaking Western markets only</strong>. GenixAI is different — built from ground up to serve <strong>every language, every culture, every market</strong> on the planet.</p>
+        <p>Whether you're in <strong>Pakistan, UAE, Brazil, Japan, Nigeria, or Germany</strong> — GenixAI understands your audience and creates content that resonates locally.</p>
+        <div class="hl-list">
+          <div class="hl"><div class="hl-ic">&#127757;</div><div><div class="hl-t">Truly Multilingual AI</div><div class="hl-d">Content generated natively in 55+ languages with cultural context</div></div></div>
+          <div class="hl"><div class="hl-ic">&#9889;</div><div><div class="hl-t">50 Tools in One Platform</div><div class="hl-d">No switching apps — everything from one powerful dashboard</div></div></div>
+          <div class="hl"><div class="hl-ic">&#128274;</div><div><div class="hl-t">Powered by Claude AI</div><div class="hl-d">Built on Anthropic's Claude — world's safest and most capable AI</div></div></div>
+          <div class="hl"><div class="hl-ic">&#x1F4B0;</div><div><div class="hl-t">Global Affordable Pricing</div><div class="hl-d">Priced for every market — start free, upgrade anytime</div></div></div>
+        </div>
+      </div>
+      <div class="reveal-r">
+        <div class="av-main float">
+          <div style="font-size:11px;font-weight:800;letter-spacing:1px;color:var(--a3);margin-bottom:14px;text-transform:uppercase">&#x2756; Same Topic &#x2192; 4 Languages Instantly</div>
+          <div style="background:var(--bg4);border-radius:8px;padding:11px;margin-bottom:9px;font-size:13px"><span style="color:var(--t3)">Topic:</span> <span style="color:var(--t1)">"AI tool for content creators — 50% off launch"</span></div>
+          <div style="background:var(--bg);border-radius:8px;padding:11px;margin-bottom:7px"><div style="font-size:10px;color:var(--g1);font-weight:700;margin-bottom:4px">&#x1F1F5;&#x1F1F0; URDU</div><div style="font-size:13px;line-height:1.6">&#x6A9;&#x646;&#x679;&#x6CC;&#x646;&#x679; &#x6A9;&#x631;&#x6CC;&#x679;&#x631;&#x632; &#x6A9;&#x6CC; AI &#x679;&#x648;&#x644; &#x2014; 50% &#x644;&#x627;&#x646;&#x686; &#x686;&#x6BE;&#x648;&#x679;! &#x1F680;</div></div>
+          <div style="background:var(--bg);border-radius:8px;padding:11px;margin-bottom:7px"><div style="font-size:10px;color:var(--p2);font-weight:700;margin-bottom:4px">&#x1F1F8;&#x1F1E6; ARABIC</div><div style="font-size:13px;line-height:1.6">&#x623;&#x62F;&#x627;&#x629; AI &#x644;&#x635;&#x646;&#x651;&#x627;&#x639; &#x627;&#x644;&#x645;&#x62D;&#x62A;&#x648;&#x649; &#x2014; &#x62E;&#x635;&#x645; 50%! &#x1F680;</div></div>
+          <div style="background:var(--bg);border-radius:8px;padding:11px"><div style="font-size:10px;color:var(--a3);font-weight:700;margin-bottom:4px">&#x1F1EF;&#x1F1F5; JAPANESE</div><div style="font-size:13px;line-height:1.6">&#x30B3;&#x30F3;&#x30C6;&#x30F3;&#x30C4;&#x30AF;&#x30EA;&#x30A8;&#x30FC;&#x30BF;&#x30FC;&#x5411;&#x3051;AI&#x30C4;&#x30FC;&#x30EB; &#x2014; 50%&#x30AA;&#x30D5;! &#x1F680;</div></div>
+        </div>
+        <div class="av-row">
+          <div class="av-sm"><div class="av-ic" style="background:rgba(124,92,252,.15)">&#x1F680;</div><div><div style="font-size:13px;font-weight:600">10x Faster</div><div style="font-size:11px;color:var(--t3)">Than manual writing</div></div></div>
+          <div class="av-sm"><div class="av-ic" style="background:rgba(0,212,160,.12)">&#x2705;</div><div><div style="font-size:13px;font-weight:600">100% Unique</div><div style="font-size:11px;color:var(--t3)">Every generation</div></div></div>
+          <div class="av-sm"><div class="av-ic" style="background:rgba(255,77,166,.12)">&#127757;</div><div><div style="font-size:13px;font-weight:600">55+ Languages</div><div style="font-size:11px;color:var(--t3)">Global reach</div></div></div>
+          <div class="av-sm"><div class="av-ic" style="background:rgba(240,180,41,.12)">&#x26A1;</div><div><div style="font-size:13px;font-weight:600">~10 Seconds</div><div style="font-size:11px;color:var(--t3)">Per generation</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-ctr reveal"><div class="sec-ey">TESTIMONIALS</div><h2 class="sec-title hf">Loved Worldwide</h2><p class="sec-sub">Join thousands of creators, freelancers, and businesses using GenixAI daily.</p></div>
+  <div class="tgrid">
+    <div class="tcard reveal d1"><div class="tqm">"</div><div class="tst">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="tbody">GenixAI transformed my workflow completely. Arabic + English captions simultaneously — my engagement tripled in 3 weeks!</div><div class="tfoot"><div class="tav" style="background:rgba(124,92,252,.2);color:var(--a3)">SA</div><div><div class="tnm">Sara Ahmed</div><div class="trl">Social Media Manager · Dubai, UAE</div></div></div></div>
+    <div class="tcard reveal d2"><div class="tqm">"</div><div class="tst">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="tbody">As a freelancer serving clients in 5 countries, GenixAI is my secret weapon. The multilingual feature is completely unmatched.</div><div class="tfoot"><div class="tav" style="background:rgba(0,212,160,.2);color:var(--g1)">MK</div><div><div class="tnm">Miguel Kosta</div><div class="trl">Digital Freelancer · Brazil</div></div></div></div>
+    <div class="tcard reveal d3"><div class="tqm">"</div><div class="tst">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="tbody">Built my resume in Urdu + English in 5 minutes. Got the interview the next day. The AI Resume Builder is absolutely incredible!</div><div class="tfoot"><div class="tav" style="background:rgba(255,77,166,.2);color:var(--p2)">AR</div><div><div class="tnm">Abdul Rehman</div><div class="trl">Software Engineer · Lahore, Pakistan</div></div></div></div>
+  </div>
+</div>
+
+<div id="pricing" style="border-top:1px solid var(--bd);background:var(--bg2);padding:72px 32px">
+  <div class="sec-ctr reveal" style="max-width:680px;margin:0 auto 48px"><div class="sec-ey">PRICING</div><h2 class="sec-title hf">Simple. Transparent. Powerful.</h2><p class="sec-sub">Start free forever. Upgrade when you need unlimited power.</p></div>
+  <div class="pgrid">
+    <div class="pc reveal d1">
+      <div class="pc-name hf">Free</div><div class="pc-tag">Try everything — forever free</div>
+      <div class="pc-free">Free</div><div class="pc-per">Always free &middot; no card needed</div>
+      <div class="pc-div"></div>
+      <ul class="pcl"><li class="y">30 generations per month</li><li class="y">All 50 AI tools</li><li class="y">All 55+ languages</li><li class="y">Basic tones &amp; styles</li><li class="n">Unlimited generations</li><li class="n">Export PDF / DOCX</li><li class="n">Priority support</li></ul>
+      <button class="pc-btn" onclick="openAuth('signup')" style="background:transparent;color:var(--t2);border:1px solid var(--bd2)">Start for Free</button>
+    </div>
+    <div class="pc feat reveal d2">
+      <div class="pc-pop">MOST POPULAR</div>
+      <div class="pc-name hf">Pro</div><div class="pc-tag">For creators &amp; freelancers</div>
+      <div class="pc-price">$12<span class="pc-mo">/mo</span></div><div class="pc-per">billed monthly &middot; cancel anytime</div>
+      <div class="pc-div"></div>
+      <ul class="pcl"><li class="y">Unlimited generations</li><li class="y">All 50 AI tools</li><li class="y">All 55+ languages</li><li class="y">All 12 tone presets</li><li class="y">Priority support</li><li class="y">Export PDF / DOCX / TXT</li><li class="y">Remove watermark</li></ul>
+      <button class="pc-btn" onclick="window.open('https://genixai-app.lemonsqueezy.com/checkout/buy/692cf374-f4a3-4188-b5f2-c2600b22e852')" style="background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;border:none;box-shadow:0 4px 18px rgba(124,92,252,.28)">Get Pro &#x2014; $12/mo</button>
+    </div>
+    <div class="pc reveal d3">
+      <div class="pc-name hf">Business</div><div class="pc-tag">For agencies &amp; teams</div>
+      <div class="pc-price">$29<span class="pc-mo">/mo</span></div><div class="pc-per">billed monthly &middot; 5 seats</div>
+      <div class="pc-div"></div>
+      <ul class="pcl"><li class="y">Everything in Pro</li><li class="y">5 team members</li><li class="y">Brand voice profiles</li><li class="y">Bulk generation</li><li class="y">API access</li><li class="y">White-label option</li><li class="y">Dedicated support</li></ul>
+      <button class="pc-btn" onclick="window.open('https://genixai-app.lemonsqueezy.com/checkout/buy/32e890bb-5d91-48b5-ad4d-f1b30233888a')" style="background:transparent;color:var(--t2);border:1px solid var(--bd2)">Go Business &#x2014; $29/mo</button>
+    </div>
+  </div>
+</div>
+
+<div class="cta-outer">
+  <div class="cta-glow"></div>
+  <div style="position:relative;z-index:1">
+    <h2 class="sec-title hf reveal" style="margin-bottom:14px">Ready to Create Content in<br><span class="grad-text">Any Language?</span></h2>
+    <p class="sec-sub reveal" style="margin:0 auto 28px;max-width:500px">50 tools. 55+ languages. Free forever.</p>
+    <button class="btn btn-primary btn-xl reveal" onclick="handleSignup()">&#x1F680; Launch GenixAI Free</button>
+  </div>
+</div>
+
+<footer>&copy; 2025 GenixAI &middot; The World's #1 Multilingual AI Content Platform<br><a href="mailto:support@genixai.com">support@genixai.com</a> &nbsp;&middot;&nbsp; <a href="#">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms</a></footer>
+</div>
+
+<!-- ===== APP VIEW ===== -->
+<div id="app-view">
+<nav class="nav">
+  <div class="logo" onclick="showLanding()"><div class="logo-icon">G</div><div class="logo-name">GenixAI</div></div>
+  <div class="nav-right" id="app-nav-right">
+    <span class="pill" id="app-pill">FREE &middot; 0/30 used</span>
+    <button class="btn btn-ghost" onclick="showLanding()" style="font-size:13px;padding:8px 16px">&#x2190; Home</button>
+  </div>
+</nav>
+<div class="app-layout">
+  <div class="sb">
+    <div class="sb-top"><input class="sb-srch" id="sbsrch" placeholder="&#x1F50D; Search 50 tools..." oninput="filterSb(this.value)"></div>
+    <div class="sb-scroll" id="sbt"></div>
+  </div>
+  <div class="gen-main">
+    <div class="gen-tb">
+      <div class="bcrumb">GenixAI <span style="color:var(--t4)">&rsaquo;</span> <span id="bc">Social Captions</span></div>
+      <div class="u-wrap"><span id="utxt">0 / 30 today</span><div class="u-outer"><div class="u-inner" id="ubar" style="width:0%"></div></div></div>
+    </div>
+    <div class="gen-body"><div class="gen-inner">
+      <div id="hstrip" class="hist-row" style="display:none"></div>
+      <div class="tool-hdr"><div class="tool-title hf" id="ttitle">&#x1F4F1; Social Captions</div><div class="tool-sub2" id="tsub">Viral captions for any social media platform</div><div class="lang-badge">&#127757; Output Language: <span id="ldisp">English</span></div></div>
+      <div class="fcard" id="farea"></div>
+      <div id="oarea"></div>
+    </div></div>
+  </div>
+</div>
+</div>
+
+<script>
+// ===== CONFIG =====
+var SUPA_URL = 'https://cffkybrerndyrhwzpzhd.supabase.co';
+var SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNmZmt5YnJlcm5keXJod3pwemhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM1OTc0MjMsImV4cCI6MjA4OTE3MzQyM30.UgXb28Dky4Ddy_1eWLe9Esl7KpIvANZFoqK2SOCpjb4';
+
+var SB = null;
+var CU = null; // current user
+var AMODE = 'login';
+
+// ===== INIT SUPABASE =====
+function initSB() {
+  try {
+    if (window.supabase && window.supabase.createClient) {
+      SB = window.supabase.createClient(SUPA_URL, SUPA_KEY);
+      SB.auth.getSession().then(function(r) {
+        if (r.data && r.data.session && r.data.session.user) {
+          CU = r.data.session.user;
+          updateNavUser();
+        }
+      });
+      SB.auth.onAuthStateChange(function(evt, sess) {
+        if ((evt === 'SIGNED_IN' || evt === 'TOKEN_REFRESHED') && sess && sess.user) {
+          CU = sess.user;
+          updateNavUser();
+          // Only auto-launch if auth modal is open
+          var overlay = document.getElementById('auth-overlay');
+          if (overlay && overlay.classList.contains('open')) {
+            closeAuth();
+            launchApp();
+          }
+        } else if (evt === 'SIGNED_OUT') {
+          CU = null;
+          updateNavGuest();
+        }
+      });
+    }
+  } catch(e) { console.log('SB init:', e); }
+}
+
+// ===== NAV USER =====
+function updateNavUser() {
+  if (!CU) return;
+  var nr = document.getElementById('nav-right');
+  if (!nr) return;
+  var email = CU.email || '';
+  var init = email.slice(0,2).toUpperCase();
+  var pill = document.getElementById('nav-pill');
+  if (pill) pill.style.display = 'none';
+  var old = document.getElementById('user-btn-wrap');
+  if (old) old.remove();
+  var wrap = document.createElement('div');
+  wrap.className = 'user-wrap'; wrap.id = 'user-btn-wrap';
+  wrap.innerHTML = '<div class="user-av" id="uav" onclick="toggleDrop()">'+init+'</div><div class="user-drop" id="udrop"><div class="drop-email">'+email+'</div><button class="drop-item" onclick="closeDrop();launchApp()">&#x26A1; Open App</button><button class="drop-item" onclick="closeDrop();window.open(\'https://genixai-app.lemonsqueezy.com/checkout/buy/692cf374-f4a3-4188-b5f2-c2600b22e852\')">&#x1F4A5; Upgrade to Pro</button><button class="drop-item red" onclick="signOut()">&#x2192; Sign Out</button></div>';
+  nr.insertBefore(wrap, nr.firstChild);
+  document.addEventListener('click', function(e){ if(!e.target.closest('.user-wrap')) closeDrop(); });
+}
+function updateNavGuest() {
+  var w = document.getElementById('user-btn-wrap');
+  if (w) w.remove();
+  var p = document.getElementById('nav-pill');
+  if (p) p.style.display = '';
+}
+function toggleDrop() { var d = document.getElementById('udrop'); if (d) d.classList.toggle('open'); }
+function closeDrop() { var d = document.getElementById('udrop'); if (d) d.classList.remove('open'); }
+async function signOut() { if (SB) await SB.auth.signOut(); CU = null; updateNavGuest(); showLanding(); }
+
+// ===== AUTH MODAL =====
+function openAuth(mode) {
+  AMODE = mode || 'login';
+  var ov = document.getElementById('auth-overlay');
+  ov.classList.add('open');
+  setMode(AMODE);
+  setTimeout(function(){ var e = document.getElementById('a-email'); if(e) e.focus(); }, 150);
+}
+function closeAuth() {
+  document.getElementById('auth-overlay').classList.remove('open');
+  clearMsg();
+}
+function setMode(m) {
+  AMODE = m;
+  var title = document.getElementById('a-title');
+  var sub = document.getElementById('a-sub');
+  var btn = document.getElementById('a-btn');
+  var swTxt = document.getElementById('a-sw-txt');
+  var swBtn = document.getElementById('a-sw-btn');
+  var nf = document.getElementById('a-name-field');
+  var pf = document.getElementById('a-pass-field');
+  var fg = document.getElementById('a-forgot');
+  var ben = document.getElementById('a-benefits');
+  clearMsg();
+  if (m === 'login') {
+    title.textContent = 'Welcome back';
+    sub.textContent = 'Sign in to access 50 AI tools in 55+ languages';
+    btn.textContent = 'Sign In';
+    swTxt.textContent = "Don't have an account?";
+    swBtn.textContent = 'Sign Up Free';
+    nf.style.display = 'none';
+    pf.style.display = 'block';
+    if(fg) fg.style.display = 'block';
+    ben.style.display = 'none';
+  } else if (m === 'signup') {
+    title.textContent = 'Create your account';
+    sub.textContent = 'Start generating in 55+ languages — free forever';
+    btn.textContent = 'Create Free Account';
+    swTxt.textContent = 'Already have an account?';
+    swBtn.textContent = 'Sign In';
+    nf.style.display = 'block';
+    pf.style.display = 'block';
+    if(fg) fg.style.display = 'none';
+    ben.style.display = 'block';
+  } else if (m === 'forgot') {
+    title.textContent = 'Reset password';
+    sub.textContent = "Enter your email and we'll send a reset link";
+    btn.textContent = 'Send Reset Link';
+    swTxt.textContent = 'Remembered it?';
+    swBtn.textContent = 'Back to Sign In';
+    nf.style.display = 'none';
+    pf.style.display = 'none';
+    if(fg) fg.style.display = 'none';
+    ben.style.display = 'none';
+  }
+}
+function toggleMode() { setMode(AMODE === 'login' ? 'signup' : 'login'); }
+function toggleEye() { var p = document.getElementById('a-pass'); if(p) p.type = p.type === 'password' ? 'text' : 'password'; }
+function showMsg(txt, type) {
+  var el = document.getElementById('a-msg');
+  el.style.display = 'block';
+  el.className = 'auth-msg ' + (type || 'err');
+  el.textContent = txt;
+}
+function clearMsg() { var el = document.getElementById('a-msg'); if(el){ el.style.display='none'; el.textContent=''; } }
+function setBtnLoading(on) {
+  var b = document.getElementById('a-btn');
+  if (!b) return;
+  b.disabled = on;
+  if (!on) {
+    if(AMODE==='login') b.textContent='Sign In';
+    else if(AMODE==='signup') b.textContent='Create Free Account';
+    else b.textContent='Send Reset Link';
+  } else { b.textContent='Please wait...'; }
+}
+
+async function doAuth() {
+  var email = (document.getElementById('a-email') || {}).value || '';
+  var pass = (document.getElementById('a-pass') || {}).value || '';
+  var name = (document.getElementById('a-name') || {}).value || '';
+  email = email.trim();
+  if (!email) { showMsg('Please enter your email address', 'err'); return; }
+  if (!SB) { showMsg('Auth system loading... please try again', 'err'); return; }
+  setBtnLoading(true); clearMsg();
+  try {
+    if (AMODE === 'login') {
+      if (!pass) { showMsg('Please enter your password', 'err'); setBtnLoading(false); return; }
+      var r = await SB.auth.signInWithPassword({ email: email, password: pass });
+      if (r.error) throw r.error;
+      // Manually set user and launch since onAuthStateChange may be slow
+      if (r.data && r.data.user) {
+        CU = r.data.user;
+        updateNavUser();
+        closeAuth();
+        launchApp();
+      }
+    } else if (AMODE === 'signup') {
+      if (!pass || pass.length < 8) { showMsg('Password must be at least 8 characters', 'err'); setBtnLoading(false); return; }
+      var r = await SB.auth.signUp({ email: email, password: pass, options: { data: { full_name: name || email.split('@')[0] } } });
+      if (r.error) throw r.error;
+      showMsg('Account created! Check your email to verify, then sign in.', 'ok');
+      setBtnLoading(false); return;
+    } else {
+      var r = await SB.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin });
+      if (r.error) throw r.error;
+      showMsg('Reset link sent! Check your email inbox.', 'ok');
+      setBtnLoading(false); return;
+    }
+  } catch(e) {
+    showMsg(e.message || 'Something went wrong. Please try again.', 'err');
+    setBtnLoading(false);
+  }
+}
+async function authGoogle() {
+  if (!SB) { showMsg('Auth loading, try again', 'err'); return; }
+  try {
+    var r = await SB.auth.signInWithOAuth({ 
+      provider: 'google', 
+      options: { 
+        redirectTo: window.location.origin,
+        skipBrowserRedirect: false
+      } 
+    });
+    if (r.error) { showMsg('Google login not configured yet. Please use email login.', 'err'); }
+  } catch(e) { showMsg('Use email login below ↓', 'err'); }
+}
+async function authGitHub() {
+  if (!SB) { showMsg('Auth loading, try again', 'err'); return; }
+  try {
+    var r = await SB.auth.signInWithOAuth({ 
+      provider: 'github', 
+      options: { redirectTo: window.location.origin } 
+    });
+    if (r.error) { showMsg('GitHub login not configured yet. Please use email login.', 'err'); }
+  } catch(e) { showMsg('Use email login below ↓', 'err'); }
+}
+
+// Close on overlay click
+document.getElementById('auth-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeAuth();
+});
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeAuth(); });
+
+// ===== NAVIGATION =====
+function scrollToTop() { window.scrollTo({top:0,behavior:'smooth'}); }
+function handleLaunch() {
+  if (CU) {
+    launchApp();
+  } else {
+    openAuth('login');
+  }
+}
+function handleSignup() {
+  if (CU) {
+    launchApp();
+  } else {
+    openAuth('signup');
+  }
+}
+function showLanding() {
+  document.getElementById('landing-view').style.display = 'block';
+  document.getElementById('app-view').style.display = 'none';
+}
+function launchApp() {
+  document.getElementById('landing-view').style.display = 'none';
+  document.getElementById('app-view').style.display = 'block';
+  chkUsage(); uui(); renderSb(); renderForm();
+}
+
+// ===== USAGE =====
+var uc = parseInt(localStorage.getItem('gx_u') || '0');
+var ud = localStorage.getItem('gx_d') || '';
+function td() { return new Date().toDateString(); }
+function chkUsage() { if (ud !== td()) { uc = 0; ud = td(); svUsage(); } }
+function svUsage() { localStorage.setItem('gx_u', uc); localStorage.setItem('gx_d', ud); }
+function incUsage() { uc++; ud = td(); svUsage(); uui(); }
+function uui() {
+  var p = Math.min((uc/30)*100, 100);
+  var bar = document.getElementById('ubar');
+  var txt = document.getElementById('utxt');
+  var pill = document.getElementById('app-pill');
+  if (bar) bar.style.width = p + '%';
+  if (txt) txt.textContent = uc + ' / 30 today';
+  if (pill) pill.textContent = 'FREE \u00b7 ' + uc + '/30 used';
+}
+
+// ===== DATA =====
+var LANGS = ["English","Urdu (\u0627\u0631\u062f\u0648)","Hindi (\u0939\u093f\u0928\u094d\u0926\u0940)","Arabic (\u0627\u0644\u0639\u0631\u0628\u064a\u0629)","Spanish (Espa\u00f1ol)","French (Fran\u00e7ais)","German (Deutsch)","Portuguese (Portugu\u00eas)","Italian (Italiano)","Dutch (Nederlands)","Turkish (T\u00fcrk\u00e7e)","Russian (\u0420\u0443\u0441\u0441\u043a\u0438\u0439)","Chinese Simplified (\u4e2d\u6587)","Chinese Traditional (\u7e41\u9ad4\u4e2d\u6587)","Japanese (\u65e5\u672c\u8a9e)","Korean (\ud55c\uad6d\uc5b4)","Bengali (\u09ac\u09be\u0982\u09b2\u09be)","Punjabi (\u0a2a\u0a70\u0a1c\u0a3e\u0a2c\u0a40)","Tamil (\u0ba4\u0bae\u0bbf\u0bb4\u0bcd)","Telugu (\u0c24\u0c46\u0c32\u0c41\u0c17\u0c41)","Marathi (\u092e\u0930\u093e\u0920\u0940)","Gujarati (\u0a97\u0ac1\u0a9c\u0ab0\u0abe\u0aa4\u0ac0)","Kannada (\u0c95\u0ca8\u0ccd\u0ca8\u0ca1)","Malayalam (\u0d2e\u0d32\u0d2f\u0d3e\u0d33\u0d02)","Persian/Farsi (\u0641\u0627\u0631\u0633\u06cc)","Pashto (\u067e\u069a\u062a\u0648)","Swahili (Kiswahili)","Hausa","Yoruba","Zulu","Amharic (\u12a0\u121b\u122d\u129b)","Somali (Soomaali)","Indonesian (Bahasa)","Malay (Bahasa Melayu)","Filipino (Tagalog)","Vietnamese (Ti\u1ebfng Vi\u1ec7t)","Thai (\u0e20\u0e32\u0e29\u0e32\u0e44\u0e17\u0e22)","Polish (Polski)","Swedish (Svenska)","Norwegian (Norsk)","Danish (Dansk)","Finnish (Suomi)","Greek (\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac)","Czech (\u010ce\u0161tina)","Romanian (Rom\u00e2n\u0103)","Hungarian (Magyar)","Hebrew (\u05e2\u05d1\u05e8\u05d9\u05ea)","Ukrainian (\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430)","Serbian (\u0421\u0440\u043f\u0441\u043a\u0438)","Croatian (Hrvatski)","Slovak (Sloven\u010dina)","Bulgarian (\u0411\u044a\u043b\u0433\u0430\u0440\u0441\u043a\u0438)","Lithuanian (Lietuvi\u0173)","Latvian (Latvie\u0161u)","Estonian (Eesti)","Afrikaans"];
+var TONES = ["Professional","Casual & Friendly","Funny & Witty","Inspirational","Urgent & Bold","Luxury & Premium","Storytelling","Empathetic","Persuasive","Minimalist","Playful","Authoritative"];
+var DEMO_EX = [
+  {flag:"\u{1F1F5}\u{1F1F0}",lang:"Urdu",name:"Urdu (\u0627\u0631\u062f\u0648)",text:"\u{1F525} \u0646\u0626\u06cc \u0628\u0631\u0627\u0646\u0688 \u06a9\u0627 \u0622\u063a\u0627\u0632! \u0628\u06c1\u062a\u0631\u06cc\u0646 \u0645\u0644\u0628\u0648\u0633\u0627\u062a \u2014 \u0622\u062c \u06c1\u06cc \u062e\u0631\u06cc\u062f\u06cc\u06ba! \u{1F6CD}\uFE0F"},
+  {flag:"\u{1F1F8}\u{1F1E6}",lang:"Arabic",name:"Arabic (\u0627\u0644\u0639\u0631\u0628\u064a\u0629)",text:"\u{1F525} \u0627\u0646\u0637\u0644\u0627\u0642 \u0645\u0630\u0647\u0644 \u0644\u0644\u0639\u0644\u0627\u0645\u0629 \u0627\u0644\u062c\u062f\u064a\u062f\u0629! \u0623\u0632\u064a\u0627\u0621 \u0631\u0627\u0626\u0639\u0629 \u2014 \u0627\u062e\u062a\u0631 \u0627\u0644\u0622\u0646! \u{1F6CD}\uFE0F"},
+  {flag:"\u{1F1EE}\u{1F1F3}",lang:"Hindi",name:"Hindi (\u0939\u093f\u0928\u094d\u0926\u0940)",text:"\u{1F525} \u0928\u090f \u092c\u094d\u0930\u093e\u0902\u0921 \u0915\u093e \u0906\u0917\u093e\u091c! \u092c\u0947\u0939\u0924\u0930\u0940\u0928 \u0915\u092a\u095c\u0947 \u2014 \u0906\u091c \u0939\u0940 \u0916\u0930\u0940\u0926\u0947\u0902! \u{1F6CD}\uFE0F"},
+  {flag:"\u{1F1EB}\u{1F1F7}",lang:"French",name:"French (Fran\u00e7ais)",text:"\u{1F525} Lancement explosif! V\u00eatements incroyables \u2014 Achetez maintenant! \u{1F6CD}\uFE0F"},
+  {flag:"\u{1F1EA}\u{1F1F8}",lang:"Spanish",name:"Spanish (Espa\u00f1ol)",text:"\u{1F525} \u00a1Lanzamiento explosivo! Ropa incre\u00edble \u2014 \u00a1Compra ahora! \u{1F6CD}\uFE0F"},
+  {flag:"\u{1F1E9}\u{1F1EA}",lang:"German",name:"German (Deutsch)",text:"\u{1F525} Explosiver Launch! Unglaubliche Kleidung \u2014 Jetzt kaufen! \u{1F6CD}\uFE0F"},
+  {flag:"\u{1F1EF}\u{1F1F5}",lang:"Japanese",name:"Japanese (\u65e5\u672c\u8a9e)",text:"\u{1F525} \u65b0\u30d6\u30e9\u30f3\u30c9\u306e\u7206\u767a\u7684\u306a\u30ed\u30fc\u30f3\u30c1\uff01\u7d20\u6674\u3089\u3057\u3044\u670d \u2014 \u4eca\u3059\u3050\u8cfc\u5165\uff01\u{1F6CD}\uFE0F"}
+];
+var TOOLS = [
+  {id:"social",icon:"\u{1F4F1}",name:"Social Captions",desc:"Viral captions for any platform",cat:"Content",tag:"hot"},
+  {id:"hashtags",icon:"#\uFE0F\u20E3",name:"Hashtag Generator",desc:"30 trending hashtags per niche",cat:"Content",tag:"hot"},
+  {id:"thread",icon:"\u{1F9F5}",name:"Twitter Thread",desc:"Viral threads with hooks",cat:"Content"},
+  {id:"linkedin",icon:"\u{1F4BC}",name:"LinkedIn Post",desc:"Professional posts that grow",cat:"Content",tag:"new"},
+  {id:"blog",icon:"\u270D\uFE0F",name:"Blog Post Writer",desc:"Full SEO-optimized articles",cat:"Content"},
+  {id:"story",icon:"\u{1F4D6}",name:"Brand Story",desc:"Compelling brand storytelling",cat:"Content"},
+  {id:"quote",icon:"\u{1F4AC}",name:"Quote Creator",desc:"Inspiring shareable quotes",cat:"Content",tag:"new"},
+  {id:"newsletter",icon:"\u{1F4F0}",name:"Newsletter",desc:"Full email newsletter content",cat:"Content"},
+  {id:"caption_pack",icon:"\u{1F3A8}",name:"Caption Pack",desc:"10 captions for any campaign",cat:"Content",tag:"new"},
+  {id:"email",icon:"\u{1F4E7}",name:"Email Campaign",desc:"Subject lines + full email",cat:"Marketing"},
+  {id:"cold",icon:"\u{1F4EC}",name:"Cold Email",desc:"B2B outreach emails",cat:"Marketing",tag:"new"},
+  {id:"ad",icon:"\u{1F3AF}",name:"Ad Copy",desc:"Facebook, Google, Instagram",cat:"Marketing",tag:"hot"},
+  {id:"video",icon:"\u{1F3AC}",name:"Video Ad Script",desc:"30-60 second video scripts",cat:"Marketing"},
+  {id:"youtube",icon:"\u25B6\uFE0F",name:"YouTube Package",desc:"Title, description, script",cat:"Marketing"},
+  {id:"podcast",icon:"\u{1F399}\uFE0F",name:"Podcast Script",desc:"Full episode outline",cat:"Marketing"},
+  {id:"influencer",icon:"\u{1F31F}",name:"Influencer Pitch",desc:"Brand collaboration pitches",cat:"Marketing",tag:"new"},
+  {id:"webinar",icon:"\u{1F5A5}\uFE0F",name:"Webinar Script",desc:"Full presentation script",cat:"Marketing"},
+  {id:"sms",icon:"\u{1F4AC}",name:"SMS Marketing",desc:"High-converting SMS",cat:"Marketing"},
+  {id:"product",icon:"\u{1F6CD}\uFE0F",name:"Product Description",desc:"eCommerce listings",cat:"Ecommerce",tag:"hot"},
+  {id:"review",icon:"\u2B50",name:"Review Response",desc:"Reply to reviews",cat:"Ecommerce"},
+  {id:"daraz",icon:"\u{1F3EA}",name:"Daraz/Amazon Listing",desc:"Marketplace listings",cat:"Ecommerce",tag:"new"},
+  {id:"promo",icon:"\u{1F381}",name:"Promo Announcement",desc:"Sale announcements",cat:"Ecommerce"},
+  {id:"unboxing",icon:"\u{1F4E6}",name:"Unboxing Script",desc:"Product unboxing videos",cat:"Ecommerce"},
+  {id:"pitch",icon:"\u{1F4A1}",name:"Sales Pitch",desc:"Verbal sales pitch",cat:"Business"},
+  {id:"press",icon:"\u{1F4F0}",name:"Press Release",desc:"News announcements",cat:"Business"},
+  {id:"business",icon:"\u{1F3E2}",name:"Business Name",desc:"Catchy names + taglines",cat:"Business"},
+  {id:"faq",icon:"\u2753",name:"FAQ Generator",desc:"12 Q&As for any product",cat:"Business"},
+  {id:"landing",icon:"\u{1F5A5}\uFE0F",name:"Landing Page Copy",desc:"High-converting pages",cat:"Business",tag:"new"},
+  {id:"proposal",icon:"\u{1F4CB}",name:"Business Proposal",desc:"Professional proposals",cat:"Business"},
+  {id:"mission",icon:"\u{1F3AF}",name:"Mission Statement",desc:"Vision & mission copy",cat:"Business"},
+  {id:"investor",icon:"\u{1F4B0}",name:"Investor Pitch",desc:"Pitch deck content",cat:"Business",tag:"pro"},
+  {id:"bio",icon:"\u{1F464}",name:"Bio Generator",desc:"Multi-platform bios",cat:"Personal"},
+  {id:"resume",icon:"\u{1F4C4}",name:"AI Resume Builder",desc:"ATS-optimized resume",cat:"Personal",tag:"hot"},
+  {id:"cover",icon:"\u{1F4DD}",name:"Cover Letter",desc:"Tailored cover letters",cat:"Personal"},
+  {id:"linkedin_summary",icon:"\u{1F517}",name:"LinkedIn Summary",desc:"Powerful about section",cat:"Personal",tag:"new"},
+  {id:"apology",icon:"\u{1F64F}",name:"Apology Letter",desc:"Professional apologies",cat:"Personal"},
+  {id:"recommendation",icon:"\u{1F3C5}",name:"Recommendation Letter",desc:"Reference letters",cat:"Personal"},
+  {id:"seo",icon:"\u{1F50D}",name:"SEO Meta Tags",desc:"Title, meta, schema",cat:"SEO"},
+  {id:"keyword",icon:"\u{1F5DD}\uFE0F",name:"Keyword Research",desc:"Keywords + intent",cat:"SEO",tag:"new"},
+  {id:"seo_blog",icon:"\u{1F4CA}",name:"SEO Blog Outline",desc:"Keyword-optimized structure",cat:"SEO"},
+  {id:"backlink",icon:"\u{1F517}",name:"Backlink Outreach",desc:"Link building emails",cat:"SEO",tag:"pro"},
+  {id:"poem",icon:"\u{1F3AD}",name:"Poem / Poetry",desc:"Creative poems",cat:"Creative",tag:"new"},
+  {id:"story_creative",icon:"\u{1F4DA}",name:"Short Story",desc:"Creative fiction",cat:"Creative"},
+  {id:"speech",icon:"\u{1F3A4}",name:"Speech Writer",desc:"Speeches for any occasion",cat:"Creative"},
+  {id:"script",icon:"\u{1F3AC}",name:"Movie Script",desc:"Scene scripts",cat:"Creative",tag:"pro"},
+  {id:"translate",icon:"\u{1F30D}",name:"AI Translator",desc:"Translate & localize",cat:"Tools"},
+  {id:"summarize",icon:"\u{1F4CB}",name:"Text Summarizer",desc:"Summarize any text",cat:"Tools",tag:"new"},
+  {id:"rewrite",icon:"\u2728",name:"Content Rewriter",desc:"Rewrite & improve",cat:"Tools"},
+  {id:"grammar",icon:"\u270F\uFE0F",name:"Grammar Fix",desc:"Fix grammar & style",cat:"Tools",tag:"new"}
+];
+var CATS = ["All","Content","Marketing","Ecommerce","Business","Personal","SEO","Creative","Tools"];
+
+// ===== APP STATE =====
+var AT = TOOLS[0];
+var FV = {lang:"English",tone:"Professional",topic:"",platform:"Instagram",niche:"",goal:"",audience:"",industry:"Technology",name:"",role:"",exp:"3-5 years",skills:"",company:"",background:"",targetLang:"Spanish (Espa\u00f1ol)",pageType:"Landing page"};
+var HIST = [];
+
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+// ===== SIDEBAR =====
+function renderSb(q) {
+  q = q || '';
+  var c = document.getElementById('sbt');
+  if (!c) return;
+  c.innerHTML = '';
+  var cats = [];
+  TOOLS.forEach(function(t){ if(cats.indexOf(t.cat)<0) cats.push(t.cat); });
+  var filtered = q ? TOOLS.filter(function(t){ return t.name.toLowerCase().indexOf(q.toLowerCase())>=0 || t.desc.toLowerCase().indexOf(q.toLowerCase())>=0; }) : null;
+  function mk(tool) {
+    var b = document.createElement('button');
+    b.className = 'sb-item' + (AT.id===tool.id?' act':'');
+    b.innerHTML = '<span class="sb-em">'+tool.icon+'</span><span class="sb-n">'+tool.name+'</span>'+(tool.tag?'<span class="sb-tag '+tool.tag+'">'+tool.tag.toUpperCase()+'</span>':'');
+    b.onclick = function(){ selTool(tool); };
+    return b;
+  }
+  if (filtered) {
+    filtered.forEach(function(t){ c.appendChild(mk(t)); });
+  } else {
+    cats.forEach(function(cat){
+      var l = document.createElement('div'); l.className='sb-cl'; l.textContent=cat; c.appendChild(l);
+      TOOLS.filter(function(t){ return t.cat===cat; }).forEach(function(t){ c.appendChild(mk(t)); });
+    });
+  }
+}
+function filterSb(v){ renderSb(v); }
+function selTool(t){
+  AT = t;
+  var tt = document.getElementById('ttitle');
+  var ts = document.getElementById('tsub');
+  var bc = document.getElementById('bc');
+  var oa = document.getElementById('oarea');
+  if(tt) tt.innerHTML = t.icon+' '+t.name;
+  if(ts) ts.textContent = t.desc;
+  if(bc) bc.textContent = t.name;
+  if(oa) oa.innerHTML = '';
+  renderSb(document.getElementById('sbsrch') ? document.getElementById('sbsrch').value : '');
+  renderForm();
+  updLang();
+}
+
+// ===== FORM =====
+function renderForm(){
+  var id = AT.id;
+  var a = document.getElementById('farea');
+  if(!a) return;
+  function inp(l,k,ph,rows){
+    rows = rows||1;
+    return '<div class="fg"><label class="fl">'+l+'</label>'+(rows>1?'<textarea class="fi" rows="'+rows+'" placeholder="'+ph+'" oninput="FV[\''+k+'\']=this.value;updLang()">'+esc(FV[k]||'')+'</textarea>':'<input class="fi" type="text" placeholder="'+ph+'" value="'+esc(FV[k]||'')+'" oninput="FV[\''+k+'\']=this.value;updLang()">')+'</div>';
+  }
+  function sel(l,k,opts){
+    var ops = opts.map(function(o){ return '<option'+(FV[k]===o?' selected':'')+'>'+esc(o)+'</option>'; }).join('');
+    return '<div class="fg"><label class="fl">'+l+'</label><select class="fi" onchange="FV[\''+k+'\']=this.value;updLang()">'+ops+'</select></div>';
+  }
+  function r2(a,b){ return '<div class="r2">'+a+b+'</div>'; }
+  var cm = function(){ return r2(sel('Output Language','lang',LANGS), sel('Tone','tone',TONES)); };
+  var html = '';
+  if(id==='hashtags') html=inp('Niche / Topic','topic','e.g. fitness, travel, food blog...')+inp('Extra Context','niche','e.g. targeting women 25-35 in USA')+cm();
+  else if(id==='resume') html=r2(inp('Full Name','name','John Smith'),inp('Target Job Title','role','Senior Engineer'))+r2(inp('Experience','exp','5 years'),inp('Industry','industry','Technology'))+inp('Key Skills','skills','React, Python, AWS...')+inp('Career Summary','topic','Describe your background...','textarea',3)+sel('Output Language','lang',LANGS);
+  else if(id==='cover') html=inp('Job Title','topic','Senior Marketing Manager')+inp('Company Name','company','Google, Startup XYZ...')+inp('Your Background','background','5 years experience...','textarea',2)+cm();
+  else if(id==='translate') html=inp('Text to Translate','topic','Paste your content here...','textarea',4)+r2(sel('Translate To','targetLang',LANGS),sel('Tone','tone',TONES));
+  else if(['social','bio','caption_pack'].indexOf(id)>=0) html=inp('Topic / Brand / Person','topic','Describe what this is about...','textarea',3)+r2(sel('Platform','platform',['Instagram','Twitter/X','LinkedIn','TikTok','Facebook','Pinterest','YouTube']),sel('Language','lang',LANGS))+sel('Tone','tone',TONES);
+  else if(['ad','video','sms'].indexOf(id)>=0) html=inp('Product / Service','topic','Describe what you are advertising...','textarea',3)+r2(sel('Platform','platform',['Facebook Ads','Instagram Ads','Google Ads','TikTok Ads']),sel('Language','lang',LANGS))+sel('Tone','tone',TONES);
+  else if(['pitch','product','cold','faq','daraz','promo'].indexOf(id)>=0) html=inp('Topic / Product / Service','topic','Describe in detail...','textarea',3)+inp('Target Audience','audience','e.g. small business owners...')+cm();
+  else if(['business','mission','investor'].indexOf(id)>=0) html=inp('Business Concept','topic','What does your business do?','textarea',2)+r2(inp('Industry','industry','Technology / Fashion...'),sel('Language','lang',LANGS));
+  else if(['seo','landing','seo_blog'].indexOf(id)>=0) html=inp('Topic / Page / Product','topic','What is this page about?','textarea',2)+r2(inp('Page Type','pageType','Landing page / Blog...'),sel('Language','lang',LANGS));
+  else html=inp('Topic / Subject','topic','What do you want to create?','textarea',3)+cm();
+  var canGen = (id==='hashtags') ? '(FV.topic||FV.niche).trim()' : 'FV.topic.trim()';
+  html += '<button class="gen-btn" id="gbtn" onclick="generate()" '+(eval(canGen)?'':'disabled')+'>&#x2756; Generate with AI \u2014 '+AT.name+'</button>';
+  a.innerHTML = html;
+}
+function updLang(){
+  var d = document.getElementById('ldisp');
+  if(d) d.textContent = FV.lang||'English';
+  var b = document.getElementById('gbtn');
+  if(b){
+    var id=AT.id;
+    var can = (id==='hashtags') ? (FV.topic||FV.niche||'').trim() : (FV.topic||'').trim();
+    b.disabled = !can;
+  }
+}
+
+// ===== PROMPT BUILDER =====
+function bp(id,d){
+  var L=d.lang||'English',T=d.tone||'Professional',t=d.topic||'';
+  var P='Write your COMPLETE response in '+L+'. Tone: '+T+'. Use **Bold** for all headings. Write detailed, comprehensive, high-quality content with proper formatting.\n\n';
+  var m = {
+social:P+'You are a world-class social media strategist. Create 3 HIGHLY ENGAGING viral social media captions for:\nTopic: "'+t+'"\nPlatform: '+(d.platform||'Instagram')+'\n\nFor EACH caption:\n\u2756 CAPTION [1/2/3]:\n[Powerful hook + story + emoji + CTA. 150-220 chars. Authentic not robotic.]\n\nHASHTAGS: [6-8 mix of popular + niche]\nEngagement Hook: [Question to drive comments]\n\n---\nCaption 1: Storytelling style\nCaption 2: Value-driven style\nCaption 3: Emotional/inspirational',
+
+hashtags:P+'You are a social media growth strategist. Generate 30 POWERFUL hashtags for:\nNiche: "'+(t||d.niche)+'"\n\n\uD83D\uDD25 TIER 1 - MASS REACH (10 hashtags | 500K-10M posts):\n[10 hashtags, one per line]\n\n\u26A1 TIER 2 - ENGAGED AUDIENCE (10 hashtags | 50K-500K posts):\n[10 hashtags]\n\n\uD83C\uDFAF TIER 3 - NICHE DOMINANCE (10 hashtags | under 50K):\n[10 hashtags]\n\n\u2705 STRATEGY TIP: [Expert tip for using these]',
+
+thread:P+'You are a viral Twitter/X creator. Write a powerful 10-tweet thread about:\n"'+t+'"\n\nTweet 1 (HOOK - stops scrolling):\nTweet 2 (Context - why this matters):\nTweets 3-8 (Value bombs - one insight each):\nTweet 9 (Story/proof):\nTweet 10 (CTA - ask retweet + reply)\n\nEach tweet max 280 chars. Make every tweet standalone valuable.',
+
+linkedin:P+'You are a LinkedIn growth expert. Create 3 LinkedIn posts about:\n"'+t+'"\n\nEach post must have:\n- HOOK (first 2 lines must force "see more" click)\n- BODY (4-6 short scannable paragraphs)\n- KEY INSIGHT (bold takeaway)\n- ENGAGEMENT CTA (specific question)\n- HASHTAGS (4 relevant)\n\nPost 1: Storytelling | Post 2: Insight/Data | Post 3: Contrarian opinion',
+
+blog:P+'You are an expert SEO content writer. Write a COMPLETE 900-word blog post:\n"'+t+'"\n\n# [SEO Title with power word]\n\n## Introduction\n[Shocking stat or question. Authority. Preview. Make them NEED to read on.]\n\n## [H2 Section 1]\n[Detailed with examples/data]\n\n## [H2 Section 2]\n[Detailed content]\n\n## [H2 Section 3]\n[Detailed content]\n\n## Action Steps\n[Numbered actionable list]\n\n## Conclusion\n[Summary + strong CTA]\n\n---\nSEO TITLE (60 chars):\nMETA DESCRIPTION (155 chars):\nPRIMARY KEYWORD:\nSECONDARY KEYWORDS (5):',
+
+story:P+'You are a master brand storyteller. Create a compelling brand story about:\n"'+t+'"\n\nUsing StoryBrand framework:\n\u2022 THE HERO (Customer): [Who they are + aspirations]\n\u2022 THE PROBLEM: [External + Internal + Philosophical]\n\u2022 THE GUIDE (Brand): [Empathy + Authority]\n\u2022 THE PLAN: [3 simple steps]\n\u2022 THE TRANSFORMATION: [Before vs After]\n\nFULL STORY (400 words):\n[Complete emotional narrative]\n\nTAGLINE OPTIONS (3):\n[Three powerful one-liners]',
+
+quote:P+'You are a professional copywriter. Create 15 POWERFUL shareable quotes about:\n"'+t+'"\n\n\uD83D\uDD25 MOTIVATIONAL (5):\n"[Quote]" - [Platform recommendation]\n\n\uD83D\uDCA1 THOUGHT-PROVOKING (5):\n"[Quote]" - [Platform recommendation]\n\n\uD83D\uDE04 WITTY/CLEVER (5):\n"[Quote]" - [Platform recommendation]\n\n\uD83C\uDF1F DESIGN TIP: [Best design approach for top 3]',
+
+newsletter:P+'You are an email marketing strategist. Write a COMPLETE newsletter about:\n"'+t+'"\n\n5 SUBJECT LINE OPTIONS (A/B/C/D/E):\nA) Curiosity: [] B) Benefit: [] C) Question: [] D) Urgency: [] E) Emoji: []\n\nPREVIEW TEXT (90 chars):\n\nOPENING (2 sentences, personal):\n\nMAIN STORY (350 words):\n[Engaging narrative with clear value + surprising insight]\n\nQUICK WINS (3 bullets):\n\nSTAT OF THE WEEK:\n\nREADER QUESTION:\n\nCTA SECTION:\nButton text: [] | Supporting copy: []\n\nSIGN-OFF:',
+
+caption_pack:P+'You are a social media content creator. Create a COMPLETE 10-caption pack for:\n"'+t+'"\nPlatform: '+(d.platform||'Instagram')+'\n\n1) AWARENESS (Hook new audience):\n2) EDUCATION (Teach something):\n3) STORYTELLING (Behind scenes):\n4) SOCIAL PROOF (Trust building):\n5) ENGAGEMENT (Drive comments + question):\n6) INSPIRATION (Motivational):\n7) PROMOTIONAL (Soft sell + CTA):\n8) COMMUNITY (User-focused):\n9) URGENCY (Limited time):\n10) VIRAL WILDCARD (Bold/unexpected):\n\nEach with relevant hashtags and emoji',
+
+email:P+'You are a world-class email copywriter. Create a COMPLETE email campaign for:\n"'+t+'"\n\n5 SUBJECT LINES: Curiosity | Urgency | Benefit | Personalized | Emoji\n\nPREVIEW TEXT (90 chars):\n\nCOMPLETE EMAIL:\nSubject: [best option]\n[Name],\n[HOOK - 1-2 sentences]\n[BRIDGE - connect to offer]\n[MAIN VALUE - 2-3 paragraphs, YOU-focused]\n[SOCIAL PROOF - one testimonial]\n[CTA BUTTON]: []\n[Secondary CTA]\n[Sign-off]\nP.S. [Compelling reason to act]',
+
+cold:P+'You are a B2B sales expert. Write a 3-email cold outreach SEQUENCE for:\n"'+t+'"\nTarget: '+(d.audience||'Decision makers')+'\n\n---EMAIL 1 (Day 1)---\nSubject: [Under 7 words, personalized]\n[Opening: Reference their company specifically]\n[One sentence value prop + measurable result]\n[Soft ask: 15-min call NOT demo]\n\n---EMAIL 2 (Day 4)---\nSubject: Re: [thread]\n[3 sentences: Social proof + restate value + lighter ask]\n\n---EMAIL 3 (Day 10)---\nSubject: [Closing loop - FOMO]\n[Permission-based breakup. Leave door open.]\n\nPRO TIPS: Best send times | Personalization variables | Expected response rate',
+
+ad:P+'You are a performance marketer managing $50M+ ad spend. Create HIGH-CONVERTING ads for:\n"'+t+'"\nPlatform: '+(d.platform||'Facebook Ads')+'\n\n---AD 1: PROBLEM-AGITATE-SOLVE---\nHeadline (40 chars): []\nPrimary Text: [Identify pain. Agitate. Solution. Proof.]\nCTA: [] | Hook for first 3 seconds: []\n\n---AD 2: SOCIAL PROOF---\nHeadline: [Specific result e.g. how X got Y in Z days]\nText: [Testimonial lead. How it works. Remove risk. CTA]\n\n---AD 3: URGENCY/SCARCITY---\nHeadline: [Time/quantity limited]\nText: [FOMO. What they miss. CTA]\n\nTARGETING SUGGESTION:\nBUDGET TIP:\nA/B TEST RECOMMENDATION:',
+
+video:P+'You are a viral video scriptwriter. Write a COMPLETE 60-second video ad for:\n"'+t+'"\n\n[00:00-05] HOOK\nVisual: [Exact scene] | Voiceover: [Exact words - stop scroll in 3 sec]\n[00:05-20] PROBLEM\nVisual: [] | Voiceover: [] | Emotion: []\n[00:20-40] SOLUTION\nVisual: [Product demo] | Voiceover: [Features as benefits]\n[00:40-55] PROOF\nVisual: [Testimonial/stats] | Voiceover: []\n[00:55-60] CTA\nVisual: [] | Voiceover: [] | On-screen text: []\n\nB-ROLL SHOTS NEEDED (6):\nMUSIC MOOD: | VOICE TONE:',
+
+youtube:P+'You are a YouTube SEO expert. Create a COMPLETE package for:\n"'+t+'"\n\n5 TITLE OPTIONS: Curiosity | How-to | List | Controversy | Result-focused\n\nFULL DESCRIPTION (300 words, SEO-optimized):\n[First 150 chars critical for CTR]\n[Keywords naturally placed]\n[Timestamps] [Links] [5 hashtags]\n\n30-SECOND HOOK SCRIPT (word for word):\n[Pattern interrupt + Big promise + Preview + Best moment tease]\n\nCHAPTERS: 0:00 + all sections\n\n15 TAGS:\n\nTHUMBNAIL CONCEPT:\nBackground: | Text (4 words max): | Expression: []\n\nPINNED COMMENT:',
+
+podcast:P+'You are a professional podcast producer. Create a COMPLETE episode package for:\n"'+t+'"\n\n3 EPISODE TITLE OPTIONS:\n\nCOMPLETE 60-MIN OUTLINE:\n0:00-1:00 COLD OPEN [teaser of best moment]\n1:00-3:00 INTRO [welcome + overview]\n3:00-18:00 SEGMENT 1: [] [3 key points]\n18:00-33:00 SEGMENT 2: [] [3 key points]\n33:00-48:00 SEGMENT 3: [] [3 key points]\n48:00-53:00 ACTION STEPS [5 takeaways]\n53:00-60:00 OUTRO [summary + CTA + next episode]\n\nFULL INTRO SCRIPT (2 min, word for word):\n\n8 INTERVIEW QUESTIONS:\n\nSHOW NOTES SUMMARY (100 words):',
+
+influencer:P+'You are a top influencer marketing manager. Create a COMPLETE collaboration package for:\n"'+t+'"\n\nDM PITCH (150 chars max - conversational, mention their content):\n\nFULL EMAIL PITCH:\nSubject: [Personalized, specific to their content]\n[Specific compliment about recent content]\n[Brand intro: 1 sentence]\n[Why THEM specifically]\n[Offer: deliverables + compensation]\n[What you need: exact deliverables + timeline]\n[Soft CTA]\n\nRATE GUIDE: Nano (1K-10K): | Micro (10K-100K): | Macro (100K-1M):\nNEGOTIATION TIP:\n\nCONTENT BRIEF TEMPLATE:\nMust include: | Must avoid: | Hashtags: | Disclosure: | Deadline:',
+
+webinar:P+'You are a 7-figure webinar expert. Create a COMPLETE webinar package for:\n"'+t+'"\n\n3 WEBINAR TITLES:\n\nREGISTRATION PAGE:\nHeadline: | Subheadline: | 3 bullet outcomes: | CTA: []\n\n60-MIN AGENDA:\n0-5 min: WELCOME + CREDIBILITY\n5-20 min: THE PROBLEM [make audience feel understood]\n20-40 min: THE SOLUTION [3 teaching points]\n40-50 min: CASE STUDY\n50-60 min: PITCH + Q&A\n\nFULL OPENING SCRIPT (5 min, word for word):\n\nCLOSING PITCH SCRIPT (5 min):\n\nFOLLOW-UP EMAILS:\nEmail 1 (no-shows during): []\nEmail 2 (replay for attendees): []\nEmail 3 (last chance): []',
+
+sms:P+'You are an SMS marketing expert (35%+ CTR). Create 8 CONVERTING messages for:\n"'+t+'"\nUnder 160 chars each. Include [NAME] variable.\n\n1) FLASH SALE (urgency + scarcity):\n2) NEW ARRIVAL (excitement + FOMO):\n3) ABANDONED CART (recovery):\n4) LOYALTY REWARD (VIP feel):\n5) RE-ENGAGEMENT (win back):\n6) EVENT REMINDER (countdown):\n7) FEEDBACK REQUEST (social proof):\n8) REFERRAL ASK (word of mouth):\n\nBEST SEND TIMES: | OPT-OUT COMPLIANCE TIP: | EXPECTED CTR:',
+
+product:P+'You are an e-commerce conversion copywriter for $1M+/month stores. Write a COMPLETE product listing for:\n"'+t+'"\nTarget buyer: '+(d.audience||'Online shoppers')+'\n\nTITLE (80 chars, SEO + conversion):\nHOOK HEADLINE:\nSUBHEADLINE:\n\nOPENING (2-3 sentences - paint the after picture):\n\nTOP 5 BENEFITS (not features):\n\u2705 [Benefit]: [2-sentence why it matters]\n[x5]\n\nFEATURES LIST:\n\nSOCIAL PROOF (2 micro-testimonials):\n\nOBJECTION BUSTERS:\nQ: [] A: []\nQ: [] A: []\n\nURGENCY ELEMENT:\nPRIMARY CTA:\nSHORT AD VERSION (60 words):',
+
+review:P+'You are a reputation management expert. Write PROFESSIONAL review responses for:\n"'+t+'"\n\n5-STAR RESPONSE:\n[Warm, personalized, specific acknowledgment, invite back. Under 75 words.]\n\n3-STAR RESPONSE:\n[Thank genuinely, address issue without excuses, show improvement, invite back with offer. Under 80 words.]\n\n1-STAR ANGRY RESPONSE:\n[De-escalate, empathize, take ownership, offer offline resolution. Professional throughout. Under 80 words.]\n\nFAKE/COMPETITOR RESPONSE:\n[Professional, factual, flag as potentially inauthentic. Under 60 words.]\n\nREPUTATION STRATEGY (3 pro tips):',
+
+daraz:P+'You are a marketplace SEO expert for Daraz/Amazon. Complete OPTIMIZED listing for:\n"'+t+'"\n\nTITLE (200 chars): [Brand + Type + Feature + User + Spec]\n\n5 BULLET POINTS:\n\uD83D\uDD39 [BENEFIT IN CAPS]: [spec + why it matters]\n[x5]\n\nFULL DESCRIPTION (400 words):\n[Hook + product story + detailed features + who its for + usage + package contents + warranty]\n\n25 BACKEND KEYWORDS: [include misspellings + synonyms]\n\nPRICE STRATEGY TIP:\nMAIN IMAGE DESCRIPTION (for max CTR):',
+
+promo:P+'You are a promotional marketing expert. Create a COMPLETE campaign for:\n"'+t+'"\n\nCAMPAIGN NAME: | CORE MESSAGE: | URGENCY MECHANISM:\n\n3 INSTAGRAM CAPTIONS (Energy | Value | Story):\n\nINSTAGRAM STORY (3 slides: Tease | Reveal | CTA):\n\nFULL EMAIL (Subject + body):\n\n2 SMS (Launch day + Last chance):\n\nWHATSAPP BROADCAST:\n\nFACEBOOK AD (Headline + body):\n\nWEBSITE BANNER COUNTDOWN COPY:',
+
+unboxing:P+'You are a YouTube product reviewer. Write a COMPLETE unboxing script for:\n"'+t+'"\n\n[0:00-0:15] HOOK: [Excitement/question about product]\n[0:15-1:00] PACKAGING: [Details + anticipation building]\n[1:00-2:30] INSIDE THE BOX: [Each item + genuine reactions]\n[2:30-4:00] FIRST LOOK: [Design + build quality + standout features]\n[4:00-7:00] HANDS-ON TEST: [Primary functions + reactions + audience questions]\n[7:00-8:30] PROS (5+) & CONS (2-3) & WHO ITS FOR:\n[8:30-9:30] VERDICT: [Score /10 + would you buy it + why]\n[9:30-10:00] OUTRO: [Subscribe CTA + next video tease]',
+
+pitch:P+'You are a master sales trainer. Create a COMPLETE sales pitch system for:\n"'+t+'"\nTarget: '+(d.audience||'Prospects')+'\n\n30-SECOND ELEVATOR PITCH:\n[I help [target] achieve [result] without [pain] by [method]]\n\n2-MINUTE DISCOVERY PITCH:\n[0-20s] ATTENTION: [Bold claim or stat]\n[20-50s] PROBLEM: [Describe pain so well they think you read their mind]\n[50-80s] SOLUTION: [What + how + why different]\n[80-105s] PROOF: [Specific result]\n[105-120s] SOFT CLOSE: [Low-commitment CTA]\n\n5 OBJECTIONS + PERFECT RESPONSES:\n1. Too expensive: []\n2. Need to think: []\n3. Have solution: []\n4. Bad timing: []\n5. Need approval: []\n\nFOLLOW-UP: Day 1 | Day 3 | Day 7 | Day 14',
+
+press:P+'You are a PR professional. Write a COMPLETE press release for:\n"'+t+'"\n\nFOR IMMEDIATE RELEASE\nContact: [Name | Email | Phone]\n\n[HEADLINE: Under 80 chars, active voice, newsworthy]\n[SUBHEADLINE: Context + key stat]\n\n[DATELINE] - [LEDE: Who What When Where Why How in 2-3 sentences]\n\n[BODY 1: Context and significance]\n\n[EXECUTIVE QUOTE]: "[Compelling statement]" said [Name, Title].\n\n[BODY 2: Supporting details + stats]\n\n[BODY 3: Future implications + availability]\n\n###\n\nABOUT [COMPANY]: [3-sentence boilerplate]\n\nMEDIA PITCH EMAIL:\nSubject: | 5-sentence pitch to journalist:',
+
+business:P+'You are a world-class brand naming expert. Create outstanding business names for:\n"'+t+'"\nIndustry: '+(d.industry||'Technology')+'\n\n15 NAME IDEAS:\n[Name] - [Type: Invented/Real/Combo] - [Why it works] - [Domain note]\n[x15]\n\nTOP 5 DEEP ANALYSIS:\n[NAME]: Why it wins | Brand personality\nTagline A: | Tagline B: | Tagline C:\nLogo concept: | Color direction:\nDomain options: .com | .io | .co\n\nNAMING STRATEGY: What to avoid | Legal considerations | International appeal',
+
+faq:P+'You are a conversion optimization expert. Create 15 COMPREHENSIVE FAQ Q&As for:\n"'+t+'"\n\nGENERAL (3): What is it | Who is it for | How is it different\nGETTING STARTED (3): Setup | First steps | Timeline\nPRICING & VALUE (3): ROI | Payment | Refund policy\nTRUST & SECURITY (3): Privacy | Data | Guarantee\nCOMMON CONCERNS (3): Top objections answered with empathy\n\nFormat each:\nQ: [Question]\nA: [3-4 sentence detailed, jargon-free answer]\n\nBONUS: 3 ultra-short checkout page FAQs',
+
+landing:P+'You are a CRO expert (8%+ conversion rates). Create COMPLETE landing page copy for:\n"'+t+'"\n\nABOVE FOLD:\nHEADLINE (10 words, clear benefit): []\nSUBHEADLINE (1 sentence, adds credibility): []\nCTA BUTTON (Action verb + benefit): []\nMICRO-COPY (Reduce friction): []\nTRUST BADGES (3): [] | [] | []\n\nSOCIAL PROOF BAR:\n[Stat + logos]\n\n3 VALUE PROPS (Icon | Title | 2-sentence benefit):\n\n5 FEATURES (Feature + what it does + why it matters to customer):\n\n2 TESTIMONIALS (Quote + Name + Title + Result):\n\n5 FAQs (Top objections answered):\n\nFINAL CTA SECTION:\nHeadline: | Subtext: | Button: | Guarantee statement:',
+
+proposal:P+'You are a $500/hour consultant. Create a WINNING proposal for:\n"'+t+'"\nClient: '+(d.audience||'Potential client')+'\n\n1. EXECUTIVE SUMMARY (4 paragraphs):\n[We understand your challenge. Our solution. Why us. What success looks like.]\n\n2. THE CHALLENGE:\nCurrent situation: | Root cause: | Cost of inaction:\n\n3. RECOMMENDED SOLUTION:\nApproach: | Methodology: | Why this works:\n\n4. SCOPE OF WORK:\nPhase 1: [Deliverables + timeline]\nPhase 2: [Deliverables + timeline]\nPhase 3: [Deliverables + timeline]\n\n5. EXPECTED OUTCOMES:\nKPIs we track: | Timeline to results:\n\n6. INVESTMENT:\nOption A (Basic): $[] | Option B (Recommended): $[] | Option C (Premium): $[]\nPayment terms:\n\n7. CREDENTIALS: [Case study + 2 testimonials]\n\n8. NEXT STEPS: [Clear 3-step process] | Valid until: []',
+
+mission:P+'You are a brand strategy consultant. Create a COMPLETE brand identity for:\n"'+t+'"\nIndustry: '+(d.industry||'Technology')+'\n\nMISSION STATEMENT (under 25 words, present tense, memorable):\n[What you do + for whom + with what impact]\n\nVISION STATEMENT (under 20 words, future tense, aspirational):\n\n6 CORE VALUES:\n[Value]: [What it looks like in action]\n[x6]\n\nBRAND PROMISE:\n[One thing customers can always count on]\n\nPOSITIONING STATEMENT:\nFor [target] who [need], [Brand] is the [category] that [benefit] because [reason].\n\nBRAND PERSONALITY (5 adjectives + archetype):\n\n5 TAGLINE OPTIONS:\n1. Bold | 2. Benefit | 3. Action | 4. Emotional | 5. Minimal\n\nELEVATOR PITCH (30-second version):',
+
+investor:P+'You are a pitch deck coach ($500M+ raised). Create COMPLETE investor deck content for:\n"'+t+'"\n\nSLIDE 1 - COVER: Name + tagline + one-line description\n\nSLIDE 2 - PROBLEM:\nSize (with data): | Who suffers: | Current bad solutions:\n\nSLIDE 3 - SOLUTION:\nWhat you do: | Key insight: | Demo note:\n\nSLIDE 4 - MARKET:\nTAM: $[]B | SAM: $[]B | SOM (3yr): $[]M | Why NOW:\n\nSLIDE 5 - PRODUCT:\nCore features (5): | Unfair advantage: | Roadmap phases:\n\nSLIDE 6 - TRACTION:\nKey metrics: | Growth: | Notable customers:\n\nSLIDE 7 - BUSINESS MODEL:\nRevenue model: | Unit economics: | LTV:CAC: | Margins:\n\nSLIDE 8 - TEAM:\nFounders + expertise: | Why this team now: | Advisors:\n\nSLIDE 9 - FINANCIALS:\n3-year projections: | Key assumptions:\n\nSLIDE 10 - THE ASK:\nRaising: $[] | Use of funds: | Timeline to milestone:',
+
+bio:P+'You are a personal branding expert. Create 5 OUTSTANDING bios for:\n"'+t+'"\nPlatform: '+(d.platform||'LinkedIn')+'\n\nBIO 1 - MICRO (Twitter/TikTok, 80 chars):\n[Pack punch: Hook + credential + personality]\n\nBIO 2 - SHORT (Instagram, 150 chars):\n[Hook | Credibility | What you do for others | Personality/CTA]\n\nBIO 3 - MEDIUM (LinkedIn headline, 220 chars):\n[Title | Value prop | Unique angle | Achievement]\n\nBIO 4 - PROFESSIONAL (150 words, 3rd person):\n[Achievement opener. Expertise + proof. Current focus + what seeking.]\n\nBIO 5 - STORYTELLING (200 words, 1st person, magazine profile style):\n[Origin + turning point + mission + proof + human element]\n\nPERSONAL BRAND TIPS:\n- Keywords for discoverability\n- Profile optimization for platform\n- 5 content pillars to own',
+
+resume:P+'You are a certified executive resume writer (CPRW). Create a COMPLETE ATS-optimized resume for:\nName: '+(d.name||'[Name]')+' | Role: '+(d.role||t)+' | Exp: '+d.exp+' | Skills: '+d.skills+' | Industry: '+d.industry+'\nBackground: '+t+'\n\n\u2501\u2501 CONTACT \u2501\u2501\n[Name] | [Email] | [Phone] | [LinkedIn] | [City]\n\n\u2501\u2501 EXECUTIVE SUMMARY \u2501\u2501\n[4 sentences: Years + industry + seniority | Core expertise | BIGGEST achievement with number | What you bring]\n\n\u2501\u2501 CORE COMPETENCIES \u2501\u2501\n[15-18 keywords in 3 columns - ATS optimized]\n\n\u2501\u2501 PROFESSIONAL EXPERIENCE \u2501\u2501\n[TITLE | COMPANY | Location | Dates]\n[Company descriptor if not Fortune 500]\n\u2022 [ACTION VERB + what you did + QUANTIFIED result. E.g.: Increased revenue 47% in 18 months...]\n\u2022 [Achievement 2]\n\u2022 [Achievement 3]\n\u2022 [Cross-functional achievement]\n[Repeat for 3 most recent/relevant roles]\n\n\u2501\u2501 EDUCATION \u2501\u2501\n[Degree | Institution | Year]\n\n\u2501\u2501 CERTIFICATIONS & AWARDS \u2501\u2501\n\n\u2501\u2501 LANGUAGES \u2501\u2501',
+
+cover:P+'You are an executive career coach and cover letter specialist. Write a POWERFUL interview-winning cover letter for:\nRole: "'+t+'" | Company: '+d.company+' | Background: '+d.background+'\n\n[Name | Email | Phone | LinkedIn | Date]\n\nDear [Hiring Manager],\n\n[OPENING - The Hook]:\n[DO NOT start with I am applying. Start with: compelling achievement | shared belief | specific company knowledge. Make them need to read on.]\n\n[WHY THIS COMPANY]:\n[Specific knowledge of their mission/recent news/culture. Genuine alignment.]\n\n[YOUR TOP 3 ACHIEVEMENTS]:\n[3 specific accomplishments with quantified results matching job requirements. Power verbs.]\n\n[YOUR UNIQUE VALUE]:\n[Specific combination of skills + experience making you uniquely perfect for THIS role.]\n\n[CONFIDENT CLOSE]:\n[Forward-looking. Specific interview request. Proactive not passive.]\n\n[Signature]\n\nKEYWORDS TO ADD: | CUSTOMIZATION TIPS:',
+
+linkedin_summary:P+'You are a LinkedIn optimization expert. Write an OUTSTANDING About section for:\n"'+t+'"\n\nABOUT SECTION (300 words):\n\n[OPENING HOOK - first 2 lines before see more]:\n[Must stop scroll. Bold claim / surprising fact / intriguing question]\n\n[THE STORY]:\n[How you got here. Defining moment. Human. 2-3 short paragraphs.]\n\n[WHAT YOU DO]:\n[Specific. Who you help. How. What makes approach different.]\n\n[PROOF - 3 achievements with numbers]:\n\u2022 [] \u2022 [] \u2022 []\n\n[SPECIALTIES - 8 keywords naturally woven in]:\n\n[WHAT YOU SEEK]:\n[Speaking? Clients? Collaboration?]\n\n[CTA - specific invitation]:\n\n5 HEADLINE OPTIONS (220 chars, keyword-rich):',
+
+apology:P+'You are a communication expert. Write PERFECT apology communications for:\n"'+t+'"\n\nPROFESSIONAL APOLOGY (200-250 words):\n[Acknowledge specifically + genuine accountability (no excuses) + impact recognition + concrete fix + prevention commitment + sincere close]\n\nPERSONAL/CASUAL (100-150 words):\n[Warm, human, same genuine elements, conversational]\n\nSHORT MESSAGE/WhatsApp (under 50 words):\n[Direct, genuine, not over-explained]\n\nVERBAL SCRIPT (for face-to-face/phone):\n[Opening acknowledgment + listening invitation + specific statement + going-forward commitment]\n\n5 PHRASES TO AVOID:\n[That actually make apologies worse]\n\nFOLLOW-UP ACTION:\n[Specific action to back up your words]',
+
+recommendation:P+'You are a professional writing expert. Write an EXCEPTIONAL recommendation letter for:\n"'+t+'"\nFrom: '+(d.audience||'Professional reference')+'\n\n[Name | Title | Email | Phone | Date]\n\nDear [Name/Committee],\n\n[OPENING - Credibility + Bold Endorsement]:\n[How long/how you know them + immediate strong endorsement. Do not bury it.]\n\n[SPECIFIC ACHIEVEMENT 1]:\n[Story: situation + what they did + measurable result]\n\n[SPECIFIC ACHIEVEMENT 2]:\n[Different strength with concrete example]\n\n[CHARACTER & UNIQUE QUALITIES]:\n[What makes them stand out from others in similar roles. Personality traits with evidence. Cultural fit.]\n\n[STRONG CLOSE]:\n[Unequivocal endorsement. Specific for this role. Offer to discuss. Contact info.]\n\nSincerely, [Signature]\n\nCUSTOMIZATION NOTES: [3 tips to personalize further]',
+
+seo:P+'You are a senior SEO strategist. Create a COMPLETE SEO package for:\n"'+t+'"\nPage type: '+(d.pageType||'Landing page')+'\n\nTITLE TAG (55-58 chars): [Primary keyword near front + power word + brand]\nMETA DESCRIPTION (150-155 chars): [Keyword + benefit + CTA verb - make it clickable]\nPRIMARY KEYWORD: [] | Difficulty: [] | Intent: [] | Volume estimate:\n\n8 SECONDARY KEYWORDS (with intent):\n5 LSI KEYWORDS:\n\nOG TITLE (90 chars): [] | OG DESCRIPTION (200 chars): []\nURL SLUG: [short, hyphenated, keyword-rich]\nSCHEMA TYPE: [recommended + why]\n\nCORE WEB VITALS TIPS (3 specific):\nINTERNAL LINKING STRATEGY (3 recommendations):\nCONTENT GAPS (3 topics competitors likely cover):',
+
+keyword:P+'You are a senior SEO strategist. Conduct COMPREHENSIVE keyword research for:\n"'+t+'"\n\nPRIMARY KEYWORD: [] | Volume: | Difficulty: | Intent: | Why target:\n\n15 HIGH-VALUE KEYWORDS:\n[Keyword | Volume | Difficulty | Intent | Content type]\n[x15]\n\n10 LOW-COMPETITION GEMS: [Keyword | Volume | Why easy to rank]\n\n10 HIGH-INTENT LONG-TAILS: [Better converters even with less traffic]\n\n15 PEOPLE ALSO ASK QUESTIONS:\n\nCONTENT CLUSTER STRATEGY:\nPillar page: | 10 cluster pieces: []\n\n10 BLOG POST TITLES (ready to use):\n\nCOMPETITOR KEYWORD GAPS (3 opportunities):',
+
+seo_blog:P+'You are a content strategist and SEO expert. Create a COMPLETE blog outline for:\n"'+t+'"\n\nFOCUS KEYWORD: | Difficulty: | Intent: | Word count target: | Competitor analysis:\n\nSEO TITLE (2 options): A) [] B) []\nMETA DESCRIPTION (155 chars):\n\nCOMPLETE OUTLINE:\n# [H1]\n## Introduction (150-200 words) [Hook | Context | Preview | Promise]\n## [H2: Section 1] [Sub-outline with bullet points]\n### [H3] | ### [H3]\n## [H2: Section 2] [Full sub-outline]\n## [H2: Section 3] [Full sub-outline]\n## [H2: Practical How-To] [Step-by-step]\n## FAQ (5 Q&As from PAA)\n## Conclusion [Summary + CTA]\n\n15-POINT SEO CHECKLIST:\nINTERNAL LINK OPPORTUNITIES:\nESTIMATED READING TIME:',
+
+backlink:P+'You are a link building expert (10,000+ backlinks built). Write outreach emails for:\n"'+t+'"\n\nGUEST POST REQUEST:\nSubject: [Mention specific article on their site]\n[Specific compliment showing you read their content]\n[Your angle + why their audience loves it]\n[Your credentials - 2 sentences]\n[3 specific headline ideas tailored to their site]\n[Soft ask]\n\nBROKEN LINK REPLACEMENT:\nSubject: | [Find broken link + your replacement + why yours is better]\n\nRESOURCE PAGE INCLUSION:\nSubject: | [Acknowledge page + your content + value to their readers]\n\nSKYSCRAPER TECHNIQUE:\nSubject: | [Found their post + your comprehensive version + link ask]\n\nFOLLOW-UP: Day 5 | Day 12\n\nSTRATEGY: Best sources for this niche | DA target | Tools to find opportunities',
+
+poem:P+'You are a celebrated poet. Create MASTERFUL poems about:\n"'+t+'"\n\nLYRICAL RHYMING POEM (ABAB, 4 stanzas of 4 lines):\n[Complete poem with emotional depth + vivid imagery]\nTechnique note: []\n\nFREE VERSE POEM (20-30 lines, modern + emotional):\n[Use enjambment, metaphor, sensory details]\nTechnique note: []\n\n7 HAIKUS (5-7-5 syllables, each shows different facet):\n[All 7]\n\nSPOKEN WORD POEM (20-25 lines, performative, rhythmic):\n[Like a slam poetry performance]\n\nDESIGN SUGGESTIONS: [Best visual format for sharing each on social]',
+
+story_creative:P+'You are a professional fiction writer. Write a CAPTIVATING short story about:\n"'+t+'"\n\nStory Brief: Genre: [] | Theme: [] | Tone: [] | POV: []\n\n[TITLE: Compelling, slightly mysterious]\n\n[OPENING LINE - grab reader immediately: in media res / intriguing statement / vivid sensory detail]\n\n[ACT 1 - SETUP 100 words]:\n[World + character + what they WANT]\n\n[ACT 2 - CONFLICT 200 words]:\n[Disruption + raised stakes + impossible choice]\n\n[ACT 3 - CLIMAX 100 words]:\n[Maximum tension moment]\n\n[RESOLUTION 75 words]:\n[Aftermath - changed world/character]\n\n[FINAL LINE - resonant, memorable, reader keeps thinking]\n\nAUTHOR NOTES: Themes: [] | 2-sentence social teaser: [] | Sequel ideas: []',
+
+speech:P+'You are a professional speechwriter (wrote for heads of state + TEDx speakers). Create a COMPLETE 8-10 minute speech for:\n"'+t+'"\nAudience: '+(d.audience||'Professional')+'\n\nCore message: [] | Desired emotion: [] | Call to action: []\n\nCOMPLETE SPEECH (1,200-1,500 words):\n\n[OPENING 90 seconds - INTERRUPT NORMAL]:\n[NOT good morning. Start with: story | stat | question | bold claim. Immediate connection.]\n\n[TRANSITION 30 seconds]\n\n[MAIN POINT 1 - 2 minutes]:\n[Clear point + story/evidence + connect to audience]\n\n[MAIN POINT 2 - 2 minutes]:\n[Point + story]\n\n[MAIN POINT 3 - 2 minutes]:\n[Point + story]\n\n[EMOTIONAL PEAK - 1 minute]:\n[Most powerful, memorable moment]\n\n[CLOSING 90 seconds]:\n[Call back to opening. Memorable final image. Last line they quote for years.]\n\nDELIVERY NOTES:\nPower pause locations (5): | Vocal variety cues: | Audience interaction moments:',
+
+script:P+'You are a professional screenwriter. Write a COMPELLING short film script for:\n"'+t+'"\n\nScript Brief: Genre: [] | Theme: [] | Tone: [] | Runtime: 5-7 min\n\nCHARACTERS: [Name - description x2]\n\nFADE IN:\n\nINT./EXT. [LOCATION] - [TIME]\n[Scene description - what we SEE. Specific. Camera-ready but not over-directed.]\n\n[CHARACTER NAME]\n([action])\n[Dialogue - natural, character-revealing, subtext-rich, not just information transfer]\n\n[Continue building scene...]\n\n[SCENE 2 - Continue story]\n\n[SCENE 3 - Climax and resolution]\n\nFADE OUT.\n\nTHE END\n\nSCRIPT NOTES: Visual motifs: | Sound design: | Key production notes: | Budget estimation:',
+
+translate:P+'You are a certified translator and cultural localization expert. Complete translation package for:\nOriginal: "'+t+'"\nTarget language: '+(d.targetLang||'Spanish')+'\n\n1. ACCURATE TRANSLATION:\n[Word-for-word accurate, preserving all meaning]\n\n2. NATURAL/FLUENT VERSION:\n[Sounds native-written, natural idioms and phrasing]\n\n3. CULTURALLY ADAPTED VERSION:\n[Adjusted for cultural context - references, tone, formality]\n\n4. FORMAL/BUSINESS VERSION:\n[Professional tone for B2B, official, formal contexts]\n\n5. MARKETING OPTIMIZED VERSION:\n[For ads/promotional - persuasive, locally resonant]\n\nTRANSLATOR NOTES:\n3 cultural considerations: []\nPhrases that do not translate directly: []\nFormality guidance: [When to use which version]\nLocal market insight: [Key fact about marketing to this audience]',
+
+summarize:P+'You are a professional content analyst. Provide a COMPREHENSIVE analysis of:\n"'+t+'"\n\nEXECUTIVE SUMMARY (50 words): [Pure essence for busy executives]\nONE-PARAGRAPH SUMMARY (100 words): [Context + tight]\nDETAILED SUMMARY (200 words): [Full nuance]\n\n8 KEY POINTS: [bullet each]\n\n3 CRITICAL INSIGHTS: [Not obvious but important]\n\n3 QUOTES WORTH SAVING: [Most memorable statements]\n\n5 ACTION ITEMS: [Concrete things to DO based on this]\n\nWHO SHOULD READ THIS: [Specific audience]\n\nRELATED TOPICS TO EXPLORE: [3 rabbit holes]\n\nSOCIAL VERSIONS:\nTweet (280 chars): []\nLinkedIn hook (2 lines): []\nInstagram caption + hashtags: []',
+
+rewrite:P+'You are a master editor. Transform this into 4 superior versions:\nOriginal: "'+t+'"\n\nVERSION 1 - PROFESSIONAL/EXECUTIVE:\n[Polished, authoritative, sophisticated. For business comms, reports, presentations.]\nImprovements: []\n\nVERSION 2 - CONVERSATIONAL/ENGAGING:\n[Natural, warm. Like talking to smart friend. Active voice. For blogs, social, emails.]\nImprovements: []\n\nVERSION 3 - PUNCHY/BOLD:\n[Short sentences. Power words. No hedging. Maximum impact minimum words. For ads, headlines.]\nImprovements: []\n\nVERSION 4 - SEO OPTIMIZED:\n[Natural keywords. Clear structure. Scannable. For website + blog.]\nKeywords incorporated: []\n\nEDITOR NOTES:\nOriginal strengths to keep: []\nIssues fixed: []\nRecommended version for your purpose: []',
+
+grammar:P+'You are a professional editor. Complete editing service for:\n"'+t+'"\n\nCORRECTED VERSION:\n[Every error fixed - grammar, spelling, punctuation]\n\nEDITING REPORT:\nTotal issues: [] | Grammar: [] | Style: [] | Clarity: []\n\nERRORS & EXPLANATIONS:\nOriginal: "[]" → Corrected: "[]" | Rule: []\n[Repeat for each significant change]\n\nSTYLE IMPROVEMENTS:\n[Beyond grammar - flow, tone, word choice changes]\n\nREADABILITY:\nOriginal score: [] | Revised: [] | Target: []\n\nENHANCED VERSION:\n[Not just corrected - actually improved with better words, structure, clarity]\n\nWRITING TIPS:\n[3 personalized tips based on patterns in this text]'
+  };
+  return m[id] || (P+'You are an expert assistant. Help with this in '+L+':\n"'+t+'"\n\nProvide comprehensive, detailed, professional response that exceeds expectations. Include examples, actionable advice, and specific details.');
+}
+
+// ===== GENERATE =====
+function renderMD(txt) {
+  if (!txt) return '';
+  var lines = txt.split('\n');
+  var html = '';
+  var inList = false;
+
+  for (var i = 0; i < lines.length; i++) {
+    var line = lines[i];
+
+    // Escape HTML
+    var safe = line.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+    // Apply inline bold: **text**
+    safe = safe.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    // Apply inline bold: __text__
+    safe = safe.replace(/__([^_]+)__/g, '<strong>$1</strong>');
+
+    // H1: # Title
+    if (/^# /.test(line)) {
+      if (inList) { html += '</div>'; inList = false; }
+      html += '<h1 class="rmd-h1">' + safe.replace(/^# /,'') + '</h1>';
+    }
+    // H2: ## Title
+    else if (/^## /.test(line)) {
+      if (inList) { html += '</div>'; inList = false; }
+      html += '<h2 class="rmd-h2">' + safe.replace(/^## /,'') + '</h2>';
+    }
+    // H3: ### Title
+    else if (/^### /.test(line)) {
+      if (inList) { html += '</div>'; inList = false; }
+      html += '<h3 class="rmd-h3">' + safe.replace(/^### /,'') + '</h3>';
+    }
+    // HR: ---
+    else if (/^-{3,}$/.test(line.trim())) {
+      if (inList) { html += '</div>'; inList = false; }
+      html += '<hr class="rmd-hr">';
+    }
+    // Bullet: - or * or • or ✦ or ✅ or 🔹
+    else if (/^[\-\*\u2022\u2756\u2705\u2714\u25CF\uD83D]/.test(line)) {
+      if (!inList) { html += '<div class="rmd-list">'; inList = true; }
+      var content = safe.replace(/^[\-\*\u2022\u2756\u2705\u2714\u25CF]\s*/,'');
+      html += '<div class="rmd-li"><span class="rmd-check">&#10003;</span><span>' + content + '</span></div>';
+    }
+    // Numbered list: 1. or 1)
+    else if (/^\d+[\.\)]\s/.test(line)) {
+      if (!inList) { html += '<div class="rmd-list">'; inList = true; }
+      var num = safe.match(/^(\d+)/)[1];
+      var content = safe.replace(/^\d+[\.\)]\s*/,'');
+      html += '<div class="rmd-li"><span class="rmd-num">' + num + '.</span><span>' + content + '</span></div>';
+    }
+    // Empty line = paragraph break
+    else if (line.trim() === '') {
+      if (inList) { html += '</div>'; inList = false; }
+      html += '<div class="rmd-spacer"></div>';
+    }
+    // Normal paragraph line
+    else {
+      if (inList) { html += '</div>'; inList = false; }
+      html += '<p class="rmd-p">' + safe + '</p>';
+    }
+  }
+
+  if (inList) html += '</div>';
+  return html;
+}
+
+
+
+async function generate(){
+  if(uc>=30){ showUpg(); return; }
+  var oa = document.getElementById('oarea');
+  if(!oa) return;
+  oa.innerHTML='<div class="out-card"><div class="out-hdr"><div class="out-ttl"><div class="odot"></div>Generating in '+FV.lang+'...</div></div><div class="out-body lstt"><div class="spin"></div><div class="ltxt">AI crafting your content in '+FV.lang+'...</div></div></div>';
+  var gb = document.getElementById('gbtn');
+  if(gb){ gb.disabled=true; gb.textContent='Generating...'; }
+  try {
+    var resp = await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:bp(AT.id,FV)})});
+    var data = await resp.json();
+    if(data.error) throw new Error(data.error);
+    var txt = data.text || 'Error: no output.';
+    incUsage();
+    HIST.unshift({name:AT.name,lang:FV.lang,text:txt});
+    if(HIST.length>5) HIST.pop();
+    updHist();
+    oa.innerHTML='<div class="out-card"><div class="out-hdr"><div class="out-ttl"><div class="odot"></div>Generated in '+FV.lang+'</div><div class="oacts"><button class="oa" id="cb" onclick="cpOut()">Copy All</button><button class="oa" onclick="generate()">&#x21BA; Redo</button></div></div><div class="out-body" id="otxt">'+esc(txt)+'</div></div>';
+  } catch(e) {
+    oa.innerHTML='<div class="err-box">&#x26A0;&#xFE0F; '+esc(e.message)+'<br><small>Check Vercel environment variables — ANTHROPIC_API_KEY must be set.</small></div>';
+  }
+  var b = document.getElementById('gbtn');
+  if(b){ b.disabled=false; b.textContent='\u2756 Generate with AI \u2014 '+AT.name; }
+}
+function cpOut(){
+  var e=document.getElementById('otxt'); if(!e) return;
+  // Copy plain text, strip HTML
+  var tmp=document.createElement('div'); tmp.innerHTML=e.innerHTML; 
+  navigator.clipboard.writeText(tmp.innerText || tmp.textContent);
+  var b=document.getElementById('cb'); if(b){ b.textContent='\u2713 Copied!'; b.classList.add('ok'); setTimeout(function(){ b.textContent='Copy All'; b.classList.remove('ok'); },2000); }
+}
+function updHist(){
+  var s=document.getElementById('hstrip'); if(!s) return;
+  if(!HIST.length){ s.style.display='none'; return; }
+  s.style.display='flex';
+  s.innerHTML='<span style="font-size:11px;color:var(--t4);align-self:center;margin-right:4px;flex-shrink:0">History:</span>'+HIST.map(function(h,i){ return '<div class="hp" onclick="shHist('+i+')">'+h.name+' \u00b7 '+h.lang+'</div>'; }).join('');
+}
+function shHist(i){
+  var h=HIST[i];
+  var oa=document.getElementById('oarea'); if(!oa) return;
+  oa.innerHTML='<div class="out-card"><div class="out-hdr"><div class="out-ttl">\u2756 '+h.name+' \u2014 '+h.lang+'</div><div class="oacts"><button class="oa" id="cb" onclick="cpOut()">Copy All</button></div></div><div class="out-body" id="otxt">'+esc(h.text)+'</div></div>';
+}
+function showUpg(){
+  var oa=document.getElementById('oarea'); if(!oa) return;
+  oa.innerHTML='<div class="out-card"><div class="out-body lstt"><div style="font-size:38px">\u26A1</div><div class="hf" style="font-size:20px;font-weight:800;margin-bottom:8px">Daily Limit Reached</div><div style="font-size:14px;color:var(--t2);margin-bottom:22px">Upgrade for unlimited generations!</div><button class="btn btn-primary btn-lg" onclick="window.open(\'https://genixai-app.lemonsqueezy.com/checkout/buy/692cf374-f4a3-4188-b5f2-c2600b22e852\')">Upgrade to Pro &mdash; $12/mo</button><div style="font-size:12px;color:var(--t3);margin-top:10px">Resets midnight &middot; 30 free/day</div></div></div>';
+}
+
+// ===== LANDING INIT =====
+function initLanding(){
+  // Lang demo
+  var cc = document.getElementById('lchips');
+  if(cc) DEMO_EX.forEach(function(ex,i){
+    var c=document.createElement('div');
+    c.className='lchip'+(i===0?' act':'');
+    c.textContent=ex.flag+' '+ex.lang;
+    c.onclick=function(){
+      document.querySelectorAll('.lchip').forEach(function(x){ x.classList.remove('act'); });
+      c.classList.add('act');
+      var dl=document.getElementById('dlang'); if(dl) dl.textContent=ex.name;
+      var dout=document.getElementById('dout'); if(dout) dout.textContent=ex.flag+' '+ex.text;
+    };
+    cc.appendChild(c);
+  });
+  // Tools tabs + grid
+  var tabs=document.getElementById('ttabs');
+  var activeCat='All';
+  if(tabs) {
+    CATS.forEach(function(cat){
+      var b=document.createElement('button');
+      b.className='ttab'+(cat==='All'?' act':'');
+      b.textContent=cat;
+      b.onclick=function(){
+        activeCat=cat;
+        document.querySelectorAll('.ttab').forEach(function(x){ x.classList.remove('act'); });
+        b.classList.add('act');
+        rg(cat);
+      };
+      tabs.appendChild(b);
+    });
+  }
+  function rg(cat){
+    var g=document.getElementById('tgrid'); if(!g) return;
+    g.innerHTML='';
+    TOOLS.filter(function(t){ return cat==='All'||t.cat===cat; }).forEach(function(tool){
+      var d=document.createElement('div');
+      d.className='tc';
+      d.innerHTML=(tool.tag?'<div class="tc-tag '+tool.tag+'">'+tool.tag.toUpperCase()+'</div>':'')+'<span class="tc-em">'+tool.icon+'</span><div class="tc-name">'+tool.name+'</div><div class="tc-desc">'+tool.desc+'</div>';
+      d.onclick=function(){ if(CU){ launchApp(); selTool(tool); } else { openAuth('signup'); } };
+      g.appendChild(d);
+    });
+  }
+  rg('All');
+  // Marquee
+  var mq=document.getElementById('mq');
+  if(mq){
+    var mi=["\u{1F4F1} Social Captions","#\uFE0F\u20E3 Hashtags","\u{1F4C4} Resume Builder","\u{1F3AF} Ad Copy","\u{1F4E7} Email Campaign","\u{1F6CD}\uFE0F Product Listings","\u25B6\uFE0F YouTube Package","\u{1F50D} SEO Meta Tags","\u{1F4BC} LinkedIn Posts","\u{1F3AC} Video Scripts","\u{1F9F5} Twitter Threads","\u{1F30D} AI Translator","\u{1F4F0} Press Release","\u{1F3E2} Business Names","\u{1F4DD} Cover Letters","\u{1F5DD}\uFE0F Keyword Research","\u{1F3AD} Poetry","\u{1F4DA} Short Stories","\u{1F3A4} Speeches","\u{1F4A1} Sales Pitch"];
+    var all=[].concat(mi,mi);
+    all.forEach(function(item){
+      var d=document.createElement('div');
+      d.className='mq-item';
+      var parts=item.split(' ');
+      d.innerHTML='<span>'+parts[0]+'</span>'+parts.slice(1).join(' ');
+      mq.appendChild(d);
+    });
+  }
+  // Counters
+  var co=new IntersectionObserver(function(entries){
+    entries.forEach(function(x){
+      if(x.isIntersecting){
+        x.target.querySelectorAll('.sv').forEach(function(el){
+          var tg=parseInt(el.dataset.target),sf=el.dataset.suffix||'',d=2000,st=tg/(d/16);
+          var cur=0;
+          var t=setInterval(function(){
+            cur+=st;
+            if(cur>=tg){ cur=tg; clearInterval(t); }
+            el.textContent=(tg>=1000?Math.floor(cur).toLocaleString():Math.floor(cur))+sf;
+          },16);
+        });
+        co.unobserve(x.target);
+      }
+    });
+  },{threshold:0.3});
+  document.querySelectorAll('.stats-bar').forEach(function(s){ co.observe(s); });
+  // Scroll reveal
+  var ro=new IntersectionObserver(function(entries){ entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); }); },{threshold:0.1});
+  document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(function(e){ ro.observe(e); });
+  // Nav scroll
+  window.addEventListener('scroll',function(){
+    var n=document.querySelector('.nav');
+    if(n) n.style.boxShadow=window.scrollY>40?'0 4px 28px rgba(0,0,0,.5)':'';
+  });
+}
+
+// ===== START =====
+initLanding();
+chkUsage();
+window.addEventListener('load', function(){ initSB(); });
+
+// ===== PWA INSTALL =====
+var deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', function(e) {
+  e.preventDefault();
+  deferredPrompt = e;
+  // Show install banner after 30 seconds
+  setTimeout(function() {
+    var dismissed = localStorage.getItem('pwa_dismissed');
+    var installed = localStorage.getItem('pwa_installed');
+    if (!dismissed && !installed) {
+      var b = document.getElementById('install-banner');
+      if (b) b.style.display = 'flex';
+    }
+  }, 30000);
+});
+
+function installPWA() {
+  var b = document.getElementById('install-banner');
+  if (b) b.style.display = 'none';
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(function(r) {
+      if (r.outcome === 'accepted') {
+        localStorage.setItem('pwa_installed', '1');
+        showEarnToast('🎉 App installed! You get 10 bonus generations!');
+        // Give bonus generations on install
+        uc = Math.max(0, uc - 10);
+        svUsage();
+      }
+    });
+    deferredPrompt = null;
+  }
+}
+function dismissInstall() {
+  localStorage.setItem('pwa_dismissed', '1');
+  var b = document.getElementById('install-banner');
+  if (b) b.style.display = 'none';
+}
+
+// Register service worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').catch(function(e) { console.log('SW:', e); });
+  });
+}
+
+// Detect if running as installed PWA
+if (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) {
+  localStorage.setItem('pwa_installed', '1');
+}
+
+// ===== REFERRAL SYSTEM =====
+function getRefCode() {
+  var code = localStorage.getItem('my_ref_code');
+  if (!code) {
+    code = 'GX' + Math.random().toString(36).substr(2,8).toUpperCase();
+    localStorage.setItem('my_ref_code', code);
+  }
+  return code;
+}
+function getRefLink() {
+  return window.location.origin + '?ref=' + getRefCode();
+}
+function copyRefLink() {
+  navigator.clipboard.writeText(getRefLink());
+  showEarnToast('✅ Referral link copied! Share it to earn 20% commission!');
+}
+
+// Check if user came via referral
+function checkRef() {
+  var params = new URLSearchParams(window.location.search);
+  var ref = params.get('ref');
+  if (ref && ref !== getRefCode()) {
+    localStorage.setItem('referred_by', ref);
+    // Give extra free generations to referred user
+    uc = Math.max(0, uc - 5); // 5 bonus gens
+    svUsage();
+  }
+}
+
+// ===== EARN TOAST =====
+function showEarnToast(msg) {
+  var t = document.getElementById('earn-toast');
+  if (!t) return;
+  t.style.display = 'flex';
+  t.innerHTML = '<div class="earn-icon">💰</div><div>' + msg + '</div>';
+  t.className = 'earn-toast';
+  setTimeout(function() {
+    t.style.display = 'none';
+  }, 4000);
+}
+
+// Show referral section in app after login
+function showRefSection() {
+  var strip = document.getElementById('hstrip');
+  if (!strip) return;
+  var refLink = getRefLink();
+  var refHtml = '<div class="ref-banner"><div class="ref-icon">💸</div><div class="ref-text"><div class="ref-title">Earn 20% Commission Per Referral!</div><div class="ref-sub">Share your link — earn 20% of every Pro/Business subscription your friends buy. Paid monthly via Lemon Squeezy!</div><div class="ref-link-box" onclick="copyRefLink()" title="Click to copy">🔗 ' + refLink + '</div></div></div>';
+  // Insert ref banner above history
+  var existing = document.getElementById('ref-section');
+  if (!existing) {
+    var div = document.createElement('div');
+    div.id = 'ref-section';
+    div.innerHTML = refHtml;
+    strip.parentNode.insertBefore(div, strip);
+  }
+}
+
+// Override launchApp to show referral
+var _origLaunch = launchApp;
+launchApp = function() {
+  _origLaunch();
+  setTimeout(showRefSection, 500);
+};
+
+// Init
+checkRef();
+// Check if user is already logged in on page load
+setTimeout(function() {
+  if (CU) {
+    // User is logged in, update nav button
+    var btn = document.getElementById('nav-launch-btn');
+    if (btn) btn.textContent = 'Open App →';
+    var pill = document.getElementById('nav-pill');
+    if (pill) pill.style.display = 'none';
+  }
+}, 1000);
+
+</script>
+
+<!-- INSTALL BANNER -->
+<div class="install-banner" id="install-banner" style="display:none">
+  <div class="ib-icon">G</div>
+  <div class="ib-text">
+    <div class="ib-title">Install GenixAI App</div>
+    <div class="ib-sub">Add to home screen — works offline!</div>
+  </div>
+  <div class="ib-btns">
+    <button class="ib-btn-install" onclick="installPWA()">Install</button>
+    <button class="ib-btn-close" onclick="dismissInstall()">&#x2715;</button>
+  </div>
+</div>
+
+<!-- EARN TOAST placeholder -->
+<div id="earn-toast" style="display:none"></div>
+
+</body>
+</html>
