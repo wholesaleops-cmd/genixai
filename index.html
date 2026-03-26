@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GenixAI — World's #1 AI Platform | 50 Tools | 55+ Languages</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#060610;--bg2:#0b0b1a;--bg3:#111126;--bg4:#181830;
+  --a1:#7c5cfc;--a2:#9b7dff;--a3:#b89dff;
+  --g1:#00d4a0;--p2:#ff80c0;--gold:#f0b429;
+  --t1:#f4f0ff;--t2:#a8a4c8;--t3:#5a5878;--t4:#2e2c48;
+  --bd:#1e1c3a;--bd2:#2d2b50;--bd3:#3d3b68;
+  --r:14px;--r2:10px;
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t1);min-height:100vh;overflow-x:hidden;transition:background .3s,color .3s}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:var(--bd3);border-radius:3px}
+
+/* LIGHT MODE */
+body.lm{--bg:#fafafe;--bg2:#fff;--bg3:#f4f2ff;--bg4:#ede9ff;--t1:#0f0d1a;--t2:#2d2650;--t3:#6b6490;--t4:#a8a2c8;--bd:#e2ddf5;--bd2:#d0cae8;--bd3:#b8b0d8;--a1:#6b4de0;--a2:#8b6ef0;--a3:#6b4de0;--g1:#00a87e}
+body.lm .nav{background:rgba(255,255,255,.96);box-shadow:0 2px 20px rgba(107,77,224,.08)}
+body.lm .hero-wrap{background:linear-gradient(180deg,#f0ecff,#fafafe)}
+body.lm .tc{background:#fff;border-color:#e2ddf5}
+body.lm .tc:hover{box-shadow:0 8px 32px rgba(107,77,224,.15)}
+body.lm .tcard{background:#fff;border-color:#e2ddf5}
+body.lm .how-wrap{background:#f8f6ff}
+body.lm .about-outer{background:#fff}
+body.lm .fcard,.lm .out-card,.lm .auth-card{background:#fff;border-color:#e2ddf5}
+body.lm .fi{background:#f8f6ff;border-color:#e2ddf5;color:#0f0d1a}
+body.lm .sb{background:#fff;border-color:#e2ddf5}
+body.lm .sb-item:hover{background:#f4f2ff}
+body.lm .gen-main{background:#fafafe}
+body.lm .gen-tb,.lm .out-hdr{background:#f4f2ff;border-color:#e2ddf5}
+body.lm .ldemo,.lm .demo-card{background:#fff;border-color:#e2ddf5}
+body.lm .pc{background:#fff;border-color:#e2ddf5}
+body.lm footer{background:#f4f2ff}
+body.lm .logo-name,.lm .grad-text{background:linear-gradient(135deg,#6b4de0,#d4368a);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:62px;border-bottom:1px solid rgba(124,92,252,.15);background:rgba(6,6,16,.94);backdrop-filter:blur(24px);position:sticky;top:0;z-index:100}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.logo-icon{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,#7c5cfc,#b89dff,#ff4da6);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:16px;font-weight:800;color:#fff}
+.logo-name{font-family:'Syne',sans-serif;font-size:19px;font-weight:800;background:linear-gradient(135deg,#b89dff,#ff80c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:4px}
+.nl{padding:7px 14px;font-size:13px;font-weight:500;color:var(--t2);background:none;border:none;cursor:pointer;border-radius:8px;transition:all .2s;text-decoration:none}
+.nl:hover{color:var(--t1);background:rgba(255,255,255,.05)}
+.nav-right{display:flex;gap:10px;align-items:center}
+.pill{background:rgba(0,212,160,.12);border:1px solid rgba(0,212,160,.25);color:var(--g1);font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:.5px}
+.btn{padding:10px 22px;border-radius:var(--r2);font-family:'Syne',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;border:none;display:inline-flex;align-items:center;gap:6px;text-decoration:none}
+.btn-ghost{background:transparent;color:var(--t2);border:1px solid var(--bd2)}
+.btn-ghost:hover{color:var(--t1);background:rgba(255,255,255,.04)}
+.btn-p{background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;box-shadow:0 4px 20px rgba(124,92,252,.3)}
+.btn-p:hover{transform:translateY(-1px);box-shadow:0 8px 28px rgba(124,92,252,.45)}
+.btn-lg{padding:14px 36px;font-size:15px;border-radius:var(--r)}
+.btn-xl{padding:16px 44px;font-size:16px;border-radius:var(--r)}
+.theme-btn{width:38px;height:38px;border-radius:50%;background:rgba(124,92,252,.1);border:1px solid rgba(124,92,252,.2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .2s;flex-shrink:0}
+.theme-btn:hover{background:rgba(124,92,252,.2);transform:scale(1.1)}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;padding:90px 32px 70px;text-align:center}
+.h-orb1{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(124,92,252,.1),transparent 65%);top:-200px;left:50%;transform:translateX(-50%);pointer-events:none}
+.h-orb2{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(255,77,166,.06),transparent 65%);top:0;right:5%;pointer-events:none}
+.h-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(124,92,252,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(124,92,252,.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:860px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(124,92,252,.1);border:1px solid rgba(124,92,252,.2);color:var(--a3);font-size:11px;font-weight:700;padding:6px 18px;border-radius:20px;margin-bottom:28px;letter-spacing:1px;text-transform:uppercase}
+.hbdot{width:5px;height:5px;border-radius:50%;background:var(--a2);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero-title{font-family:'Syne',sans-serif;font-size:clamp(38px,7vw,78px);font-weight:800;line-height:1.04;letter-spacing:-2px;margin-bottom:22px}
+.grad-text{background:linear-gradient(135deg,#7c5cfc,#b89dff,#ff4da6,#f0b429);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200%;animation:gm 4s linear infinite}
+@keyframes gm{0%{background-position:0% center}100%{background-position:200% center}}
+.hero-sub{font-size:18px;color:var(--t2);line-height:1.75;max-width:580px;margin:0 auto 36px;font-weight:300}
+.hero-sub strong{color:var(--t1);font-weight:600}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.trust{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap}
+.ti{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--t3)}
+.ti-dot{width:5px;height:5px;border-radius:50%;background:var(--g1)}
+
+/* STATS */
+.stats-bar{border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);background:var(--bg2)}
+.si{display:flex;max-width:1100px;margin:0 auto}
+.sc{flex:1;padding:26px 20px;text-align:center;border-right:1px solid var(--bd)}
+.sc:last-child{border-right:none}
+.sv{font-family:'Syne',sans-serif;font-size:clamp(26px,3vw,40px);font-weight:800;background:linear-gradient(135deg,#b89dff,#ff80c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:6px}
+.sl{font-size:13px;color:var(--t3);font-weight:500}
+
+/* MARQUEE */
+.mq-outer{padding:16px 0;border-bottom:1px solid var(--bd);overflow:hidden}
+.mq-track{display:flex;animation:marquee 30s linear infinite;width:max-content}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mq-item{display:flex;align-items:center;gap:8px;padding:6px 22px;font-size:13px;font-weight:600;color:var(--t3);white-space:nowrap;border-right:1px solid var(--bd)}
+
+/* SECTIONS */
+.sec{padding:72px 32px;max-width:1200px;margin:0 auto}
+.sec-ctr{text-align:center;max-width:640px;margin:0 auto 48px}
+.sec-ey{display:inline-block;background:rgba(124,92,252,.1);border:1px solid rgba(124,92,252,.2);color:var(--a3);font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+.sec-title{font-family:'Syne',sans-serif;font-size:clamp(26px,4vw,44px);font-weight:800;line-height:1.1;letter-spacing:-.5px;margin-bottom:12px}
+.sec-sub{font-size:16px;color:var(--t2);line-height:1.7;font-weight:300}
+
+/* TOOLS */
+.tools-outer{border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);padding:72px 0}
+.tools-con{max-width:1280px;margin:0 auto;padding:0 32px}
+.ttabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:26px;background:var(--bg2);padding:5px;border-radius:var(--r);border:1px solid var(--bd);width:fit-content}
+.ttab{padding:7px 16px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--t3);transition:all .2s;font-family:'Inter',sans-serif}
+.ttab:hover{color:var(--t2)}
+.ttab.act{background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;box-shadow:0 4px 14px rgba(124,92,252,.3)}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:11px}
+.tc{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:20px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.tc:hover{border-color:rgba(124,92,252,.4);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.tc-em{font-size:26px;margin-bottom:12px;display:block}
+.tc-tag{position:absolute;top:10px;right:10px;font-size:9px;font-weight:800;padding:2px 7px;border-radius:5px;text-transform:uppercase}
+.tc-tag.hot{background:rgba(255,77,166,.15);color:#ff80c0;border:1px solid rgba(255,77,166,.2)}
+.tc-tag.new{background:rgba(0,212,160,.12);color:var(--g1);border:1px solid rgba(0,212,160,.2)}
+.tc-tag.pro{background:rgba(240,180,41,.12);color:var(--gold);border:1px solid rgba(240,180,41,.2)}
+.tc-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px}
+.tc-desc{font-size:12px;color:var(--t3);line-height:1.5}
+
+/* HOW */
+.how-wrap{background:var(--bg2);border-top:1px solid var(--bd)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr)}
+.step{padding:36px 22px;text-align:center;border-right:1px solid var(--bd)}
+.step:last-child{border-right:none}
+.step-ic{width:80px;height:80px;border-radius:50%;background:var(--bg3);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-size:28px;position:relative;transition:all .3s}
+.step-n{position:absolute;top:-4px;right:-4px;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif}
+.step-t{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:6px}
+.step-d{font-size:13px;color:var(--t3);line-height:1.6}
+
+/* LANG DEMO */
+.ldemo{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:32px;margin-top:36px;position:relative;overflow:hidden}
+.ldemo::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#7c5cfc,#b89dff,#ff4da6,#f0b429)}
+.lchips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px}
+.lchip{padding:6px 14px;border-radius:20px;font-size:12px;font-weight:600;border:1px solid var(--bd2);color:var(--t2);background:var(--bg3);cursor:pointer;transition:all .18s}
+.lchip.act{background:rgba(124,92,252,.15);border-color:var(--a2);color:var(--a3)}
+.demo-card{background:var(--bg);border:1px solid var(--bd);border-radius:var(--r2);padding:20px}
+.demo-grid{display:grid;grid-template-columns:1fr 40px 1fr;gap:14px;align-items:center;margin-bottom:16px}
+.darr{width:40px;height:40px;border-radius:50%;background:rgba(124,92,252,.12);border:1px solid rgba(124,92,252,.2);display:flex;align-items:center;justify-content:center;font-size:16px}
+.dl{font-size:10px;font-weight:800;letter-spacing:1px;color:var(--t3);text-transform:uppercase;margin-bottom:5px}
+.dout{font-size:14px;color:var(--t1);line-height:1.75;padding:14px;background:rgba(124,92,252,.06);border-radius:8px;border:1px solid rgba(124,92,252,.1)}
+
+/* ABOUT */
+.about-outer{background:var(--bg2);border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.av-main{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);padding:26px;margin-bottom:14px;position:relative;overflow:hidden}
+.av-main::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#7c5cfc,#b89dff,#ff4da6)}
+.av-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.av-sm{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);padding:16px;display:flex;align-items:center;gap:12px;transition:all .2s}
+.atp{font-size:13px;font-weight:600;margin-bottom:2px}
+.ats{font-size:11px;color:var(--t3)}
+.about-txt p{font-size:15px;color:var(--t2);line-height:1.85;margin-bottom:14px}
+.about-txt strong{color:var(--t1);font-weight:600}
+.hl-list{margin-top:20px;display:flex;flex-direction:column;gap:12px}
+.hl{display:flex;align-items:flex-start;gap:11px}
+.hl-ic{width:32px;height:32px;border-radius:9px;background:rgba(124,92,252,.1);border:1px solid rgba(124,92,252,.15);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;margin-top:2px}
+.hl-t{font-size:14px;font-weight:600;margin-bottom:2px}
+.hl-d{font-size:12px;color:var(--t3);line-height:1.5}
+
+/* TESTIMONIALS */
+.tcard{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:28px;position:relative;overflow:hidden;transition:all .22s}
+.tcard:hover{border-color:rgba(124,92,252,.3);transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.4)}
+.tqm{position:absolute;top:16px;right:20px;font-size:52px;color:rgba(124,92,252,.07);font-family:Georgia,serif;line-height:1}
+.tst{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:14px}
+.tbody{font-size:14px;color:var(--t2);line-height:1.8;margin-bottom:20px;font-style:italic}
+.tfoot{display:flex;align-items:center;gap:11px;padding-top:16px;border-top:1px solid var(--bd)}
+.tav{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;font-family:'Syne',sans-serif;flex-shrink:0}
+.tnm{font-size:14px;font-weight:600}
+.trl{font-size:11px;color:var(--t3);margin-top:2px}
+.tgrid-6{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+
+/* PRICING */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:980px;margin:0 auto}
+.pc{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);padding:28px;position:relative;overflow:hidden;transition:transform .2s}
+.pc:hover{transform:translateY(-2px)}
+.pc.feat{border-color:rgba(124,92,252,.35)}
+.pc.feat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#7c5cfc,#b89dff,#ff4da6)}
+.pc-pop{position:absolute;top:18px;right:18px;background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;font-size:10px;font-weight:800;padding:3px 10px;border-radius:7px;letter-spacing:.5px;text-transform:uppercase}
+.pc-name{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:5px}
+.pc-tag{font-size:13px;color:var(--t3);margin-bottom:20px}
+.pc-price{font-family:'Syne',sans-serif;font-size:50px;font-weight:800;line-height:1;background:linear-gradient(135deg,#b89dff,#ff80c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.pc-free{font-family:'Syne',sans-serif;font-size:50px;font-weight:800;line-height:1;color:var(--t1)}
+.pc-mo{font-size:15px;color:var(--t3);font-weight:400;-webkit-text-fill-color:var(--t3)}
+.pc-per{font-size:12px;color:var(--t3);margin-bottom:20px;margin-top:4px}
+.pc-div{height:1px;background:var(--bd);margin:18px 0}
+.pcl{list-style:none;margin-bottom:24px}
+.pcl li{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--t2);padding:6px 0;line-height:1.4}
+.pcl li.y::before{content:'\2713';color:var(--g1);font-weight:700;flex-shrink:0}
+.pcl li.n{color:var(--t4)}
+.pcl li.n::before{content:'\2717';color:var(--t4);font-weight:700;flex-shrink:0}
+.pc-btn{width:100%;padding:13px;border-radius:var(--r2);font-family:'Syne',sans-serif;font-size:14px;font-weight:700;cursor:pointer;border:none;transition:all .2s}
+
+/* CTA */
+.cta-outer{padding:88px 32px;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--bd)}
+.cta-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(124,92,252,.09),transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+footer{padding:32px;border-top:1px solid var(--bd);text-align:center;color:var(--t3);font-size:13px;line-height:2;background:var(--bg2)}
+footer a{color:var(--a3);text-decoration:none}
+
+/* APP */
+#app-view{display:none}
+.app-layout{display:flex;height:calc(100vh - 62px)}
+.sb{width:260px;background:var(--bg2);border-right:1px solid var(--bd);display:flex;flex-direction:column;overflow:hidden;flex-shrink:0}
+.sb-top{padding:12px;border-bottom:1px solid var(--bd)}
+.sb-srch{width:100%;background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r2);padding:9px 14px;color:var(--t1);font-family:'Inter',sans-serif;font-size:13px;outline:none}
+.sb-srch:focus{border-color:var(--a1)}
+.sb-scroll{overflow-y:auto;flex:1;padding:6px}
+.sb-cl{font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--t4);padding:10px 10px 5px;text-transform:uppercase}
+.sb-item{display:flex;align-items:center;gap:9px;padding:8px 11px;cursor:pointer;transition:all .12s;border:1px solid transparent;margin:2px 0;border-radius:var(--r2);background:none;width:100%;text-align:left}
+.sb-item:hover{background:var(--bg3)}
+.sb-item.act{background:rgba(124,92,252,.1);border-color:rgba(124,92,252,.2)}
+.sb-em{font-size:15px;width:22px;text-align:center;flex-shrink:0}
+.sb-n{font-size:13px;font-weight:500;color:var(--t2);flex:1}
+.sb-item.act .sb-n{color:var(--a3);font-weight:600}
+.sb-tag{font-size:9px;font-weight:800;padding:2px 6px;border-radius:5px;text-transform:uppercase}
+.sb-tag.hot{background:rgba(255,77,166,.15);color:#ff80c0}
+.sb-tag.new{background:rgba(0,212,160,.12);color:var(--g1)}
+.sb-tag.pro{background:rgba(240,180,41,.12);color:var(--gold)}
+.gen-main{flex:1;overflow-y:auto;background:var(--bg);display:flex;flex-direction:column}
+.gen-tb{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;border-bottom:1px solid var(--bd);background:var(--bg2);flex-shrink:0}
+.bcrumb{font-size:13px;color:var(--t3);display:flex;align-items:center;gap:7px}
+.bcrumb span{color:var(--t1);font-weight:600}
+.u-wrap{display:flex;align-items:center;gap:9px;font-size:12px;color:var(--t3)}
+.u-outer{width:70px;height:4px;background:var(--bg4);border-radius:2px;overflow:hidden}
+.u-inner{height:100%;background:linear-gradient(90deg,#7c5cfc,#b89dff);border-radius:2px;transition:width .3s}
+.gen-body{padding:24px;overflow-y:auto;flex:1}
+.gen-inner{max-width:820px}
+.tool-hdr{margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--bd)}
+.tool-title{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;margin-bottom:7px;display:flex;align-items:center;gap:10px}
+.tool-sub2{font-size:14px;color:var(--t3)}
+.lang-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,212,160,.08);border:1px solid rgba(0,212,160,.18);color:var(--g1);font-size:11px;font-weight:700;padding:4px 12px;border-radius:10px;margin-top:9px}
+.fcard{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);padding:22px;margin-bottom:14px}
+.fl{font-size:10px;font-weight:800;letter-spacing:1.2px;color:var(--t3);margin-bottom:7px;display:block;text-transform:uppercase}
+.fi{width:100%;background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r2);padding:11px 15px;color:var(--t1);font-family:'Inter',sans-serif;font-size:14px;transition:border-color .2s;resize:none;line-height:1.6;outline:none}
+.fi:focus{border-color:var(--a1)}
+.fi::placeholder{color:var(--t4)}
+select.fi{appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a5878' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center}
+.r2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.fg{margin-bottom:13px}
+.gen-btn{width:100%;padding:15px;border-radius:var(--r2);border:none;cursor:pointer;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;transition:all .2s;box-shadow:0 4px 20px rgba(124,92,252,.28)}
+.gen-btn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 8px 28px rgba(124,92,252,.42)}
+.gen-btn:disabled{opacity:.35;cursor:not-allowed;transform:none;box-shadow:none}
+.out-card{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;margin-top:14px}
+.out-hdr{display:flex;align-items:center;justify-content:space-between;padding:13px 20px;border-bottom:1px solid var(--bd);background:var(--bg3)}
+.out-ttl{font-size:11px;font-weight:800;letter-spacing:1.2px;color:var(--a3);text-transform:uppercase;display:flex;align-items:center;gap:7px}
+.odot{width:6px;height:6px;border-radius:50%;background:var(--a2);animation:pulse 1.5s infinite}
+.oacts{display:flex;gap:6px}
+.oa{background:var(--bg4);border:1px solid var(--bd);border-radius:6px;padding:4px 12px;font-size:12px;font-weight:600;color:var(--t2);cursor:pointer;transition:all .15s}
+.oa:hover{background:var(--bg2);color:var(--t1)}
+.oa.ok{color:var(--g1);border-color:rgba(0,212,160,.3)}
+.out-body{padding:22px;font-size:14px;line-height:1.85;color:var(--t2);min-height:180px;word-break:break-word}
+.lstt{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;min-height:200px}
+.spin{width:48px;height:48px;border-radius:50%;border:2px solid rgba(124,92,252,.2);border-top-color:var(--a2);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ltxt{font-size:13px;color:var(--t3)}
+.hist-row{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.hp{background:var(--bg2);border:1px solid var(--bd);border-radius:11px;padding:4px 12px;font-size:11px;font-weight:600;color:var(--t3);cursor:pointer;transition:all .15s}
+.hp:hover{border-color:var(--a2);color:var(--a3)}
+.err-box{background:rgba(255,77,166,.06);border:1px solid rgba(255,77,166,.15);border-radius:var(--r2);padding:14px;font-size:13px;color:#ff80c0;margin-top:12px}
+
+/* AUTH */
+.auth-ov{display:none;position:fixed;inset:0;background:rgba(6,6,16,.88);backdrop-filter:blur(18px);z-index:9999;align-items:center;justify-content:center;padding:20px}
+.auth-ov.open{display:flex}
+.auth-modal{width:100%;max-width:430px;position:relative}
+.auth-close{position:absolute;top:-14px;right:-14px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:var(--t2);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:all .2s}
+.auth-close:hover{background:rgba(255,255,255,.12)}
+.auth-card{background:var(--bg2);border:1px solid var(--bd2);border-radius:18px;overflow:hidden}
+.auth-bar{height:2px;background:linear-gradient(90deg,#7c5cfc,#b89dff,#ff4da6,#f0b429)}
+.auth-hdr{padding:28px 28px 0;text-align:center}
+.auth-logo{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px}
+.auth-li{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#7c5cfc,#b89dff,#ff4da6);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:14px;font-weight:800;color:#fff}
+.auth-ln{font-family:'Syne',sans-serif;font-size:17px;font-weight:800;background:linear-gradient(135deg,#b89dff,#ff80c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.auth-title{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:var(--t1);margin-bottom:6px}
+.auth-sub{font-size:13px;color:var(--t3);margin-bottom:0}
+.auth-body{padding:24px 28px 28px}
+.google-btn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;padding:12px;background:rgba(255,255,255,.04);border:1px solid var(--bd2);border-radius:10px;color:var(--t1);font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;margin-bottom:18px}
+.google-btn:hover{background:rgba(255,255,255,.08);border-color:var(--bd3)}
+.auth-div{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.auth-div-line{flex:1;height:1px;background:var(--bd)}
+.auth-div-txt{font-size:11px;color:var(--t4);font-weight:700;letter-spacing:.5px;white-space:nowrap}
+.auth-field{margin-bottom:13px}
+.auth-label{font-size:10px;font-weight:800;letter-spacing:1.2px;color:var(--t3);display:block;margin-bottom:7px;text-transform:uppercase}
+.auth-input{width:100%;background:var(--bg3);border:1px solid var(--bd);border-radius:9px;padding:11px 15px;color:var(--t1);font-family:'Inter',sans-serif;font-size:14px;outline:none;transition:border-color .2s}
+.auth-input:focus{border-color:var(--a1)}
+.auth-input::placeholder{color:var(--t4)}
+.pass-wrap{position:relative}
+.pass-eye{position:absolute;right:11px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--t3);font-size:14px;padding:4px}
+.forgot-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+.forgot-btn{color:var(--a2);background:none;border:none;cursor:pointer;font-size:12px;font-weight:500;font-family:'Inter',sans-serif}
+.auth-msg{display:none;padding:10px 13px;border-radius:8px;font-size:13px;margin-top:11px}
+.auth-msg.err{background:rgba(255,77,166,.08);border:1px solid rgba(255,77,166,.2);color:#ff80c0}
+.auth-msg.ok{background:rgba(0,212,160,.08);border:1px solid rgba(0,212,160,.2);color:var(--g1)}
+.auth-submit{width:100%;padding:13px;background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;border:none;border-radius:9px;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;cursor:pointer;margin-top:14px;transition:all .2s;box-shadow:0 4px 18px rgba(124,92,252,.28)}
+.auth-submit:hover{transform:translateY(-1px);box-shadow:0 7px 24px rgba(124,92,252,.42)}
+.auth-submit:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.auth-switch{text-align:center;margin-top:18px;font-size:13px;color:var(--t3)}
+.auth-sw-btn{color:var(--a2);background:none;border:none;cursor:pointer;font-weight:600;font-size:13px;font-family:'Inter',sans-serif;margin-left:4px}
+.auth-benefits{margin-top:14px;padding:12px 14px;background:rgba(124,92,252,.05);border:1px solid rgba(124,92,252,.1);border-radius:9px}
+.ab-title{font-size:11px;font-weight:700;color:var(--a2);margin-bottom:8px;letter-spacing:.5px}
+.ab-item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--t2);margin-bottom:5px}
+
+/* USER NAV */
+.user-wrap{position:relative}
+.user-av{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#7c5cfc,#ff4da6);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:12px;font-weight:800;color:#fff;cursor:pointer;border:2px solid rgba(124,92,252,.3);transition:all .2s}
+.user-av:hover{border-color:rgba(124,92,252,.6);transform:scale(1.05)}
+.user-drop{position:absolute;top:calc(100% + 8px);right:0;background:var(--bg2);border:1px solid var(--bd2);border-radius:12px;padding:7px;min-width:190px;box-shadow:0 14px 44px rgba(0,0,0,.6);z-index:200;display:none}
+.user-drop.open{display:block}
+.drop-email{padding:8px 10px;font-size:12px;color:var(--t3);border-bottom:1px solid var(--bd);margin-bottom:4px;word-break:break-all}
+.drop-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:7px;font-size:13px;font-weight:500;color:var(--t2);cursor:pointer;transition:all .12s;border:none;background:none;width:100%;text-align:left;font-family:'Inter',sans-serif}
+.drop-item:hover{background:rgba(255,255,255,.05);color:var(--t1)}
+.drop-item.red:hover{background:rgba(255,77,166,.07);color:#ff80c0}
+
+/* RESPONSIVE */
+@media(max-width:900px){.nav-links{display:none}.about-grid{grid-template-columns:1fr}.pgrid{grid-template-columns:1fr}.si{flex-wrap:wrap}.steps{grid-template-columns:1fr 1fr}.tgrid-6{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.hero{padding:60px 20px 50px}.sec{padding:56px 20px}.tools-con{padding:0 20px}.r2{grid-template-columns:1fr}.app-layout{flex-direction:column;height:auto}.sb{width:100%;height:190px}.steps{grid-template-columns:1fr 1fr}.tgrid-6{grid-template-columns:1fr}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.float{animation:float 5s ease-in-out infinite}
+</style>
+</head>
+<body>
+<!-- AUTH MODAL -->
+<div class="auth-ov" id="auth-ov">
+  <div class="auth-modal">
+    <button class="auth-close" onclick="closeAuth()">&#x2715;</button>
+    <div class="auth-card">
+      <div class="auth-bar"></div>
+      <div class="auth-hdr">
+        <div class="auth-logo"><div class="auth-li">G</div><div class="auth-ln">GenixAI</div></div>
+        <div class="auth-title" id="a-title">Welcome back</div>
+        <div class="auth-sub" id="a-sub">Sign in to access 50 AI tools in 55+ languages</div>
+      </div>
+      <div class="auth-body">
+        <!-- Google Only -->
+        <button class="google-btn" onclick="authGoogle()">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Continue with Google
+        </button>
+        <div class="auth-div"><div class="auth-div-line"></div><div class="auth-div-txt">OR CONTINUE WITH EMAIL</div><div class="auth-div-line"></div></div>
+        <div id="a-name-field" style="display:none" class="auth-field">
+          <label class="auth-label">Full Name</label>
+          <input id="a-name" class="auth-input" type="text" placeholder="Your full name">
+        </div>
+        <div class="auth-field">
+          <label class="auth-label">Email Address</label>
+          <input id="a-email" class="auth-input" type="email" placeholder="you@example.com">
+        </div>
+        <div id="a-pass-wrap" class="auth-field">
+          <div class="forgot-row">
+            <label class="auth-label" style="margin-bottom:0">Password</label>
+            <button class="forgot-btn" id="a-forgot" onclick="setMode('forgot')">Forgot password?</button>
+          </div>
+          <div class="pass-wrap">
+            <input id="a-pass" class="auth-input" type="password" placeholder="Min 8 characters" onkeydown="if(event.key==='Enter')doAuth()">
+            <button class="pass-eye" onclick="toggleEye()">&#128065;</button>
+          </div>
+        </div>
+        <div class="auth-msg" id="a-msg"></div>
+        <button class="auth-submit" id="a-btn" onclick="doAuth()">Sign In</button>
+        <div class="auth-switch">
+          <span id="a-sw-txt">Don't have an account?</span>
+          <button class="auth-sw-btn" id="a-sw-btn" onclick="toggleMode()">Sign Up Free</button>
+        </div>
+        <div class="auth-benefits" id="a-bens" style="display:none">
+          <div class="ab-title">&#10022; FREE ACCOUNT INCLUDES</div>
+          <div class="ab-item"><span style="color:var(--g1);font-weight:700">&#10003;</span>30 free generations daily</div>
+          <div class="ab-item"><span style="color:var(--g1);font-weight:700">&#10003;</span>All 50 AI tools</div>
+          <div class="ab-item"><span style="color:var(--g1);font-weight:700">&#10003;</span>All 55+ languages</div>
+          <div class="ab-item"><span style="color:var(--g1);font-weight:700">&#10003;</span>No credit card required</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LANDING -->
+<div id="lv">
+<nav class="nav">
+  <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})"><div class="logo-icon">G</div><div class="logo-name">GenixAI</div></div>
+  <div class="nav-links">
+    <a href="#tools" class="nl">50 Tools</a>
+    <a href="#how" class="nl">How it works</a>
+    <a href="#about" class="nl">About</a>
+    <a href="#pricing" class="nl">Pricing</a>
+  </div>
+  <div class="nav-right" id="nav-right">
+    <button class="theme-btn" id="tbtn" onclick="toggleTheme()" title="Toggle Light/Dark">&#9790;</button>
+    <span class="pill" id="nav-pill">FREE TO USE</span>
+    <button class="btn btn-p" id="nav-main-btn" onclick="handleLaunch()">Get Started &#8594;</button>
+  </div>
+</nav>
+<div class="hero">
+  <div class="h-orb1"></div><div class="h-orb2"></div><div class="h-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><div class="hbdot"></div>50 AI TOOLS &nbsp;&middot;&nbsp; 55+ LANGUAGES &nbsp;&middot;&nbsp; WORLDWIDE</div>
+    <h1 class="hero-title" style="font-family:'Syne',sans-serif">The World's Most Powerful<br><span class="grad-text">Multilingual AI Platform</span></h1>
+    <p class="hero-sub">Generate <strong>any content</strong> &mdash; captions, resumes, ads, emails, SEO copy and 45 more &mdash; in <strong>55+ languages</strong> for any country, any audience.</p>
+    <div class="hero-btns">
+      <button class="btn btn-p btn-xl" onclick="handleSignup()">&#10024; Start Generating Free</button>
+      <a href="#tools" class="btn btn-ghost btn-lg">Explore 50 Tools &#8595;</a>
+    </div>
+    <div class="trust">
+      <div class="ti"><div class="ti-dot"></div>5,000+ creators worldwide</div>
+      <div class="ti"><div class="ti-dot"></div>No credit card needed</div>
+      <div class="ti"><div class="ti-dot"></div>Powered by Claude AI</div>
+      <div class="ti"><div class="ti-dot"></div>Results in 10 seconds</div>
+    </div>
+  </div>
+</div>
+<div class="stats-bar"><div class="si">
+  <div class="sc"><div class="sv" data-target="50" data-suffix="">0</div><div class="sl">AI Tools</div></div>
+  <div class="sc"><div class="sv" data-target="55" data-suffix="+">0</div><div class="sl">Languages</div></div>
+  <div class="sc"><div class="sv" data-target="5000" data-suffix="+">0</div><div class="sl">Global Users</div></div>
+  <div class="sc"><div class="sv" data-target="10" data-suffix="s">0</div><div class="sl">Avg Generation</div></div>
+  <div class="sc"><div class="sv" data-target="99" data-suffix="%">0</div><div class="sl">Uptime</div></div>
+</div></div>
+<div class="mq-outer"><div class="mq-track" id="mq"></div></div>
+
+<div id="tools" class="tools-outer">
+  <div class="tools-con">
+    <div class="sec-ctr reveal"><div class="sec-ey">50 AI TOOLS</div><h2 class="sec-title" style="font-family:'Syne',sans-serif">Every Tool You'll Ever Need</h2><p class="sec-sub">50 AI-powered tools in 55+ languages. One platform. Unlimited possibilities.</p></div>
+    <div class="ttabs" id="ttabs"></div>
+    <div class="tgrid" id="tgrid"></div>
+  </div>
+</div>
+
+<div id="how" class="how-wrap">
+  <div class="sec" style="max-width:1100px">
+    <div class="sec-ctr reveal"><div class="sec-ey">HOW IT WORKS</div><h2 class="sec-title" style="font-family:'Syne',sans-serif">4 Steps to Amazing Content</h2><p class="sec-sub">From zero to publish-ready content in any language in under 60 seconds.</p></div>
+    <div class="steps">
+      <div class="step reveal d1"><div class="step-ic">&#127919;<div class="step-n">1</div></div><div class="step-t" style="font-family:'Syne',sans-serif">Choose Tool</div><div class="step-d">Pick from 50 AI tools across 9 categories</div></div>
+      <div class="step reveal d2"><div class="step-ic">&#127757;<div class="step-n">2</div></div><div class="step-t" style="font-family:'Syne',sans-serif">Select Language</div><div class="step-d">Choose any of 55+ languages worldwide</div></div>
+      <div class="step reveal d3"><div class="step-ic">&#9999;&#65039;<div class="step-n">3</div></div><div class="step-t" style="font-family:'Syne',sans-serif">Describe Topic</div><div class="step-d">Write a short description of what you need</div></div>
+      <div class="step reveal d4"><div class="step-ic">&#9889;<div class="step-n">4</div></div><div class="step-t" style="font-family:'Syne',sans-serif">Get AI Content</div><div class="step-d">Professional content in seconds — copy and use!</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="sec">
+  <div class="sec-ctr reveal"><div class="sec-ey">MULTILINGUAL ENGINE</div><h2 class="sec-title" style="font-family:'Syne',sans-serif">You Pick the Language.<br>AI Writes Perfectly in It.</h2><p class="sec-sub">Not translation &mdash; actual AI content generated natively in your language with full cultural context.</p></div>
+  <div class="ldemo reveal">
+    <div class="lchips" id="lchips"></div>
+    <div class="demo-card">
+      <div class="demo-grid">
+        <div><div class="dl">Your Input</div><div style="font-size:14px;color:var(--t2)">"Launch sale for new clothing brand &mdash; exciting &amp; bold"</div></div>
+        <div class="darr">&#8594;</div>
+        <div><div class="dl">Output Language</div><div style="font-size:14px;color:var(--a3);font-weight:600" id="dlang">English</div></div>
+      </div>
+      <div class="dl">&#10022; AI Generated Output</div>
+      <div class="dout" id="dout">New Brand EXPLOSIVE Launch! Premium clothing at unbeatable prices &mdash; Shop NOW before it's gone! #Fashion #NewArrival #Sale</div>
+    </div>
+  </div>
+</div>
+
+<div id="about" class="about-outer">
+  <div class="sec">
+    <div class="about-grid">
+      <div class="about-txt reveal" style="transition-delay:.1s">
+        <div class="sec-ey">ABOUT GENIXAI</div>
+        <h2 class="sec-title" style="font-family:'Syne',sans-serif">Built for the Entire World.<br>Not Just One Market.</h2>
+        <p>Most AI tools are built for <strong>English-speaking Western markets only</strong>. GenixAI is different &mdash; built to serve <strong>every language, every culture, every market</strong> on the planet.</p>
+        <p>Whether you're in <strong>Pakistan, UAE, Brazil, Japan, Nigeria, or Germany</strong> &mdash; GenixAI creates content that resonates locally.</p>
+        <div class="hl-list">
+          <div class="hl"><div class="hl-ic">&#127757;</div><div><div class="hl-t">Truly Multilingual AI</div><div class="hl-d">Content generated natively in 55+ languages with cultural context</div></div></div>
+          <div class="hl"><div class="hl-ic">&#9889;</div><div><div class="hl-t">50 Tools in One Platform</div><div class="hl-d">No switching apps &mdash; everything from one powerful dashboard</div></div></div>
+          <div class="hl"><div class="hl-ic">&#128274;</div><div><div class="hl-t">Powered by Claude AI</div><div class="hl-d">Built on Anthropic's Claude &mdash; world's safest and most capable AI</div></div></div>
+          <div class="hl"><div class="hl-ic">&#128176;</div><div><div class="hl-t">Global Affordable Pricing</div><div class="hl-d">Priced for every market &mdash; start free, upgrade anytime</div></div></div>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:.2s">
+        <div class="av-main float">
+          <div style="font-size:11px;font-weight:800;letter-spacing:1px;color:var(--a3);margin-bottom:14px;text-transform:uppercase">&#10022; Same Topic &#8594; 4 Languages Instantly</div>
+          <div style="background:var(--bg4);border-radius:8px;padding:11px;margin-bottom:9px;font-size:13px"><span style="color:var(--t3)">Topic:</span> <span style="color:var(--t1)">"AI tool for content creators &mdash; 50% off launch"</span></div>
+          <div style="background:var(--bg);border-radius:8px;padding:11px;margin-bottom:7px"><div style="font-size:10px;color:var(--g1);font-weight:700;margin-bottom:4px">ENGLISH</div><div style="font-size:13px;line-height:1.6">AI tool for content creators &mdash; 50% Launch Discount! Try it now!</div></div>
+          <div style="background:var(--bg);border-radius:8px;padding:11px;margin-bottom:7px"><div style="font-size:10px;color:var(--p2);font-weight:700;margin-bottom:4px">ARABIC</div><div style="font-size:13px;line-height:1.6">&#x623;&#x62F;&#x627;&#x629; AI &#x644;&#x635;&#x646;&#x651;&#x627;&#x639; &#x627;&#x644;&#x645;&#x62D;&#x62A;&#x648;&#x649; &#x2014; &#x62E;&#x635;&#x645; 50%!</div></div>
+          <div style="background:var(--bg);border-radius:8px;padding:11px"><div style="font-size:10px;color:var(--a3);font-weight:700;margin-bottom:4px">JAPANESE</div><div style="font-size:13px;line-height:1.6">&#x30B3;&#x30F3;&#x30C6;&#x30F3;&#x30C4;&#x30AF;&#x30EA;&#x30A8;&#x30FC;&#x30BF;&#x30FC;&#x5411;&#x3051;AI&#x30C4;&#x30FC;&#x30EB; &#x2014; 50%&#x30AA;&#x30D5;!</div></div>
+        </div>
+        <div class="av-row">
+          <div class="av-sm"><div style="width:40px;height:40px;border-radius:12px;background:rgba(124,92,252,.15);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">&#128640;</div><div><div class="atp">10x Faster</div><div class="ats">Than manual writing</div></div></div>
+          <div class="av-sm"><div style="width:40px;height:40px;border-radius:12px;background:rgba(0,212,160,.12);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">&#9989;</div><div><div class="atp">100% Unique</div><div class="ats">Every generation</div></div></div>
+          <div class="av-sm"><div style="width:40px;height:40px;border-radius:12px;background:rgba(255,77,166,.12);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">&#127757;</div><div><div class="atp">55+ Languages</div><div class="ats">Global reach</div></div></div>
+          <div class="av-sm"><div style="width:40px;height:40px;border-radius:12px;background:rgba(240,180,41,.12);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">&#9889;</div><div><div class="atp">~10 Seconds</div><div class="ats">Per generation</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 6 TESTIMONIALS -->
+<div class="sec">
+  <div class="sec-ctr reveal"><div class="sec-ey">TESTIMONIALS</div><h2 class="sec-title" style="font-family:'Syne',sans-serif">Loved by Creators Worldwide</h2><p class="sec-sub">Join thousands of creators, freelancers, and businesses using GenixAI daily.</p></div>
+  <div class="tgrid-6">
+    <div class="tcard reveal d1"><div class="tqm">"</div><div class="tst">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="tbody">GenixAI completely transformed how I create content. I produce Arabic and English posts simultaneously &mdash; my engagement literally tripled in 3 weeks. This is not just a tool, it is a complete game-changer!</div><div class="tfoot"><div class="tav" style="background:rgba(124,92,252,.2);color:var(--a3)">SA</div><div><div class="tnm">Sara Ahmed</div><div class="trl">Social Media Manager &middot; Dubai, UAE</div></div></div></div>
+    <div class="tcard reveal d2"><div class="tqm">"</div><div class="tst">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="tbody">As a freelancer serving clients in 5 countries, GenixAI is my ultimate secret weapon. I deliver native-level content in languages I don't even speak. My income doubled in 2 months using this platform.</div><div class="tfoot"><div class="tav" style="background:rgba(0,212,160,.2);color:var(--g1)">MK</div><div><div class="tnm">Miguel Kosta</div><div class="trl">Digital Freelancer &middot; Brazil</div></div></div></div>
+    <div class="tcard reveal d3"><div class="tqm">"</div><div class="tst">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="tbody">Built my complete ATS-optimized resume in Urdu AND English in under 5 minutes. Got the interview call the very next morning. The AI Resume Builder is absolutely mind-blowing quality!</div><div class="tfoot"><div class="tav" style="background:rgba(255,77,166,.2);color:var(--p2)">AR</div><div><div class="tnm">Abdul Rehman</div><div class="trl">Software Engineer &middot; Lahore, Pakistan</div></div></div></div>
+    <div class="tcard reveal d1"><div class="tqm">"</div><div class="tst">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="tbody">I run a Daraz store and needed perfect Urdu product descriptions. GenixAI generates flawless, SEO-optimized listings in seconds. My store conversions went up 200% &mdash; I am now the top seller!</div><div class="tfoot"><div class="tav" style="background:rgba(240,180,41,.2);color:var(--gold)">AK</div><div><div class="tnm">Ayesha Khan</div><div class="trl">eCommerce Seller &middot; Karachi, Pakistan</div></div></div></div>
+    <div class="tcard reveal d2"><div class="tqm">"</div><div class="tst">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="tbody">Our agency runs campaigns in 8 languages using GenixAI exclusively. Quality is consistent across every language. We cancelled 3 other paid tools &mdash; GenixAI does everything better at a fraction of the cost.</div><div class="tfoot"><div class="tav" style="background:rgba(124,92,252,.2);color:var(--a3)">JL</div><div><div class="tnm">Julia Larsson</div><div class="trl">Agency Director &middot; Stockholm, Sweden</div></div></div></div>
+    <div class="tcard reveal d3"><div class="tqm">"</div><div class="tst">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="tbody">The YouTube Package tool is a revolution. Full SEO title, description, hook script, tags &mdash; all in Hindi in 30 seconds. My channel grew from 2K to 12K subscribers in one month. Simply incredible!</div><div class="tfoot"><div class="tav" style="background:rgba(0,212,160,.2);color:var(--g1)">RS</div><div><div class="tnm">Rahul Sharma</div><div class="trl">YouTuber &middot; Mumbai, India</div></div></div></div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<div id="pricing" style="border-top:1px solid var(--bd);background:var(--bg2);padding:72px 32px">
+  <div class="sec-ctr reveal" style="max-width:680px;margin:0 auto 48px"><div class="sec-ey">PRICING</div><h2 class="sec-title" style="font-family:'Syne',sans-serif">Simple. Transparent. Powerful.</h2><p class="sec-sub">Start free forever. Upgrade when you need unlimited power.</p></div>
+  <div class="pgrid">
+    <div class="pc reveal d1"><div class="pc-name" style="font-family:'Syne',sans-serif">Free</div><div class="pc-tag">Try everything &mdash; forever free</div><div class="pc-free">Free</div><div class="pc-per">Always free &middot; no card needed</div><div class="pc-div"></div><ul class="pcl"><li class="y">30 generations per month</li><li class="y">All 50 AI tools</li><li class="y">All 55+ languages</li><li class="y">Basic tones &amp; styles</li><li class="n">Unlimited generations</li><li class="n">Export PDF / DOCX</li><li class="n">Priority support</li></ul><button class="pc-btn" onclick="handleSignup()" style="background:transparent;color:var(--t2);border:1px solid var(--bd2)">Start for Free</button></div>
+    <div class="pc feat reveal d2"><div class="pc-pop" style="font-family:'Syne',sans-serif">MOST POPULAR</div><div class="pc-name" style="font-family:'Syne',sans-serif">Pro</div><div class="pc-tag">For creators &amp; freelancers</div><div class="pc-price">$12<span class="pc-mo">/mo</span></div><div class="pc-per">billed monthly &middot; cancel anytime</div><div class="pc-div"></div><ul class="pcl"><li class="y">Unlimited generations</li><li class="y">All 50 AI tools</li><li class="y">All 55+ languages</li><li class="y">All 12 tone presets</li><li class="y">Priority support</li><li class="y">Export PDF / DOCX / TXT</li><li class="y">Remove watermark</li></ul><button class="pc-btn" onclick="window.open('https://genixai-app.lemonsqueezy.com/checkout/buy/692cf374-f4a3-4188-b5f2-c2600b22e852')" style="background:linear-gradient(135deg,#7c5cfc,#9b7dff);color:#fff;border:none;box-shadow:0 4px 18px rgba(124,92,252,.28);font-family:'Syne',sans-serif">Get Pro &mdash; $12/mo</button></div>
+    <div class="pc reveal d3"><div class="pc-name" style="font-family:'Syne',sans-serif">Business</div><div class="pc-tag">For agencies &amp; teams</div><div class="pc-price">$29<span class="pc-mo">/mo</span></div><div class="pc-per">billed monthly &middot; 5 seats</div><div class="pc-div"></div><ul class="pcl"><li class="y">Everything in Pro</li><li class="y">5 team members</li><li class="y">Brand voice profiles</li><li class="y">Bulk generation</li><li class="y">API access</li><li class="y">White-label option</li><li class="y">Dedicated support</li></ul><button class="pc-btn" onclick="window.open('https://genixai-app.lemonsqueezy.com/checkout/buy/32e890bb-5d91-48b5-ad4d-f1b30233888a')" style="background:transparent;color:var(--t2);border:1px solid var(--bd2)">Go Business &mdash; $29/mo</button></div>
+  </div>
+</div>
+
+<div class="cta-outer"><div class="cta-glow"></div><div style="position:relative;z-index:1"><h2 class="sec-title reveal" style="font-family:'Syne',sans-serif;margin-bottom:14px">Ready to Create Content in<br><span class="grad-text">Any Language?</span></h2><p class="sec-sub reveal" style="margin:0 auto 28px;max-width:500px">50 tools. 55+ languages. Free forever.</p><button class="btn btn-p btn-xl reveal" onclick="handleSignup()">&#128640; Launch GenixAI Free</button></div></div>
+<footer>&copy; 2025 GenixAI &middot; The World's #1 Multilingual AI Content Platform<br><a href="mailto:support@genixai.com">support@genixai.com</a> &nbsp;&middot;&nbsp; <a href="#">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="#">Terms</a></footer>
+</div>
+
+<!-- APP VIEW -->
+<div id="app-view">
+<nav class="nav">
+  <div class="logo" onclick="showLanding()"><div class="logo-icon">G</div><div class="logo-name">GenixAI</div></div>
+  <div class="nav-right" id="app-nav-right">
+    <button class="theme-btn" id="tbtn2" onclick="toggleTheme()" title="Toggle Light/Dark">&#9790;</button>
+    <span class="pill" id="app-pill">FREE &middot; 0/30 used</span>
+    <button class="btn btn-ghost" onclick="showLanding()" style="font-size:13px;padding:8px 16px">&#8592; Home</button>
+  </div>
+</nav>
+<div class="app-layout">
+  <div class="sb">
+    <div class="sb-top"><input class="sb-srch" id="sbsrch" placeholder="Search 50 tools..." oninput="filterSb(this.value)"></div>
+    <div class="sb-scroll" id="sbt"></div>
+  </div>
+  <div class="gen-main">
+    <div class="gen-tb">
+      <div class="bcrumb">GenixAI <span style="color:var(--t4)">&rsaquo;</span> <span id="bc">Social Captions</span></div>
+      <div class="u-wrap"><span id="utxt">0 / 30 today</span><div class="u-outer"><div class="u-inner" id="ubar" style="width:0%"></div></div></div>
+    </div>
+    <div class="gen-body"><div class="gen-inner">
+      <div id="hstrip" class="hist-row" style="display:none"></div>
+      <div class="tool-hdr"><div class="tool-title" style="font-family:'Syne',sans-serif" id="ttitle">Social Captions</div><div class="tool-sub2" id="tsub">Viral captions for any social media platform</div><div class="lang-badge">&#127757; Output Language: <span id="ldisp">English</span></div></div>
+      <div class="fcard" id="farea"></div>
+      <div id="oarea"></div>
+    </div></div>
+  </div>
+</div>
+</div>
+
+<script>
+// CONFIG
+var SB_URL='https://cffkybrerndyrhwzpzhd.supabase.co';
+var SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNmZmt5YnJlcm5keXJod3pwemhkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM1OTc0MjMsImV4cCI6MjA4OTE3MzQyM30.UgXb28Dky4Ddy_1eWLe9Esl7KpIvANZFoqK2SOCpjb4';
+var SB=null,CU=null,AMODE='login';
+
+// INIT SUPABASE
+window.addEventListener('load',function(){
+  try{
+    if(window.supabase&&window.supabase.createClient){
+      SB=window.supabase.createClient(SB_URL,SB_KEY);
+      SB.auth.getSession().then(function(r){
+        if(r.data&&r.data.session&&r.data.session.user){CU=r.data.session.user;updateNavUser();}
+      });
+      SB.auth.onAuthStateChange(function(evt,sess){
+        if((evt==='SIGNED_IN'||evt==='TOKEN_REFRESHED')&&sess&&sess.user){
+          CU=sess.user;updateNavUser();
+          if(document.getElementById('auth-ov').classList.contains('open')){closeAuth();launchApp();}
+        } else if(evt==='SIGNED_OUT'){CU=null;updateNavGuest();}
+      });
+    }
+  }catch(e){console.log('SB:',e);}
+  initLanding();
+  chkUsage();
+  initTheme();
+});
+
+// NAV USER
+function updateNavUser(){
+  if(!CU)return;
+  var nr=document.getElementById('nav-right');
+  var email=CU.email||'';
+  var init=email.slice(0,2).toUpperCase();
+  var old=document.getElementById('user-wrap-el');
+  if(old)old.remove();
+  var p=document.getElementById('nav-pill');
+  if(p)p.style.display='none';
+  var wrap=document.createElement('div');
+  wrap.className='user-wrap';wrap.id='user-wrap-el';
+  wrap.innerHTML='<div class="user-av" id="uav" onclick="toggleDrop()">'+init+'</div><div class="user-drop" id="udrop"><div class="drop-email">'+email+'</div><button class="drop-item" onclick="closeDrop();launchApp()">⚡ Open App</button><button class="drop-item" onclick="closeDrop();window.open(\'https://genixai-app.lemonsqueezy.com/checkout/buy/692cf374-f4a3-4188-b5f2-c2600b22e852\')">&#x1F4A5; Upgrade to Pro</button><button class="drop-item red" onclick="signOut()">→ Sign Out</button></div>';
+  nr.insertBefore(wrap,nr.firstChild);
+  document.addEventListener('click',function(e){if(!e.target.closest('.user-wrap'))closeDrop();});
+}
+function updateNavGuest(){var w=document.getElementById('user-wrap-el');if(w)w.remove();var p=document.getElementById('nav-pill');if(p)p.style.display='';}
+function toggleDrop(){var d=document.getElementById('udrop');if(d)d.classList.toggle('open');}
+function closeDrop(){var d=document.getElementById('udrop');if(d)d.classList.remove('open');}
+async function signOut(){if(SB)await SB.auth.signOut();CU=null;updateNavGuest();showLanding();}
+
+// AUTH
+function openAuth(mode){
+  AMODE=mode||'login';
+  document.getElementById('auth-ov').classList.add('open');
+  setMode(AMODE);
+  setTimeout(function(){document.getElementById('a-email').focus();},150);
+}
+function closeAuth(){document.getElementById('auth-ov').classList.remove('open');clearMsg();}
+function setMode(m){
+  AMODE=m;
+  var ti=document.getElementById('a-title'),su=document.getElementById('a-sub'),btn=document.getElementById('a-btn');
+  var sw1=document.getElementById('a-sw-txt'),sw2=document.getElementById('a-sw-btn');
+  var nf=document.getElementById('a-name-field'),pw=document.getElementById('a-pass-wrap'),fg=document.getElementById('a-forgot'),bn=document.getElementById('a-bens');
+  clearMsg();
+  if(m==='login'){ti.textContent='Welcome back';su.textContent='Sign in to access 50 AI tools in 55+ languages';btn.textContent='Sign In';sw1.textContent="Don't have an account?";sw2.textContent='Sign Up Free';nf.style.display='none';pw.style.display='block';fg.style.display='block';bn.style.display='none';}
+  else if(m==='signup'){ti.textContent='Create your account';su.textContent='Start generating in 55+ languages \u2014 free forever';btn.textContent='Create Free Account';sw1.textContent='Already have an account?';sw2.textContent='Sign In';nf.style.display='block';pw.style.display='block';fg.style.display='none';bn.style.display='block';}
+  else{ti.textContent='Reset password';su.textContent="Enter your email and we'll send a reset link";btn.textContent='Send Reset Link';sw1.textContent='Remembered it?';sw2.textContent='Back to Sign In';nf.style.display='none';pw.style.display='none';if(fg)fg.style.display='none';bn.style.display='none';}
+}
+function toggleMode(){setMode(AMODE==='login'?'signup':'login');}
+function toggleEye(){var p=document.getElementById('a-pass');if(p)p.type=p.type==='password'?'text':'password';}
+function showMsg(t,tp){var el=document.getElementById('a-msg');el.style.display='block';el.className='auth-msg '+(tp||'err');el.textContent=t;}
+function clearMsg(){var el=document.getElementById('a-msg');if(el){el.style.display='none';el.textContent='';}}
+function setBtnLoad(on){var b=document.getElementById('a-btn');if(!b)return;b.disabled=on;if(!on){if(AMODE==='login')b.textContent='Sign In';else if(AMODE==='signup')b.textContent='Create Free Account';else b.textContent='Send Reset Link';}else b.textContent='Please wait...';}
+
+async function doAuth(){
+  var email=(document.getElementById('a-email')||{}).value||'';
+  var pass=(document.getElementById('a-pass')||{}).value||'';
+  var name=(document.getElementById('a-name')||{}).value||'';
+  email=email.trim();
+  if(!email){showMsg('Please enter your email address');return;}
+  if(!SB){showMsg('Auth loading, please try again in a moment');return;}
+  setBtnLoad(true);clearMsg();
+  try{
+    if(AMODE==='login'){
+      if(!pass){showMsg('Please enter your password');setBtnLoad(false);return;}
+      var r=await SB.auth.signInWithPassword({email:email,password:pass});
+      if(r.error)throw r.error;
+      if(r.data&&r.data.user){CU=r.data.user;updateNavUser();closeAuth();launchApp();}
+    } else if(AMODE==='signup'){
+      if(!pass||pass.length<8){showMsg('Password must be at least 8 characters');setBtnLoad(false);return;}
+      var r=await SB.auth.signUp({email:email,password:pass,options:{data:{full_name:name||email.split('@')[0]}}});
+      if(r.error)throw r.error;
+      showMsg('Account created! Please check your email to verify, then sign in.','ok');setBtnLoad(false);return;
+    } else {
+      var r=await SB.auth.resetPasswordForEmail(email,{redirectTo:window.location.origin});
+      if(r.error)throw r.error;
+      showMsg('Reset link sent! Check your inbox.','ok');setBtnLoad(false);return;
+    }
+  }catch(e){showMsg(e.message||'Something went wrong. Please try again.');setBtnLoad(false);}
+}
+
+async function authGoogle(){
+  if(!SB){showMsg('Auth loading, try again');return;}
+  try{
+    var r=await SB.auth.signInWithOAuth({provider:'google',options:{redirectTo:window.location.origin}});
+    if(r.error)showMsg(r.error.message);
+  }catch(e){showMsg(e.message||'Google login failed');}
+}
+
+document.getElementById('auth-ov').addEventListener('click',function(e){if(e.target===this)closeAuth();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAuth();});
+
+// NAV
+function handleLaunch(){if(CU)launchApp();else openAuth('login');}
+function handleSignup(){if(CU)launchApp();else openAuth('signup');}
+function showLanding(){document.getElementById('lv').style.display='block';document.getElementById('app-view').style.display='none';}
+function launchApp(){document.getElementById('lv').style.display='none';document.getElementById('app-view').style.display='block';chkUsage();uui();renderSb();renderForm();}
+
+// THEME
+function initTheme(){var t=localStorage.getItem('gx_theme');if(t==='light'){document.body.classList.add('lm');updateThemeBtns(true);}}
+function toggleTheme(){var isL=document.body.classList.toggle('lm');localStorage.setItem('gx_theme',isL?'light':'dark');updateThemeBtns(isL);}
+function updateThemeBtns(isL){document.querySelectorAll('.theme-btn').forEach(function(b){b.innerHTML=isL?'☀':'☾';});}
+
+// USAGE
+var UC=parseInt(localStorage.getItem('gx_u')||'0'),UD=localStorage.getItem('gx_d')||'';
+function td(){return new Date().toDateString();}
+function chkUsage(){if(UD!==td()){UC=0;UD=td();svUsage();}}
+function svUsage(){localStorage.setItem('gx_u',UC);localStorage.setItem('gx_d',UD);}
+function incUsage(){UC++;UD=td();svUsage();uui();}
+function uui(){var p=Math.min((UC/30)*100,100);var bar=document.getElementById('ubar');var txt=document.getElementById('utxt');var pill=document.getElementById('app-pill');if(bar)bar.style.width=p+'%';if(txt)txt.textContent=UC+' / 30 today';if(pill)pill.textContent='FREE \u00b7 '+UC+'/30 used';}
+
+// DATA
+var LANGS=["English","Urdu (\u0627\u0631\u062f\u0648)","Hindi (\u0939\u093f\u0928\u094d\u0926\u0940)","Arabic (\u0627\u0644\u0639\u0631\u0628\u064a\u0629)","Spanish (Espa\u00f1ol)","French (Fran\u00e7ais)","German (Deutsch)","Portuguese (Portugu\u00eas)","Italian (Italiano)","Dutch (Nederlands)","Turkish (T\u00fcrk\u00e7e)","Russian (\u0420\u0443\u0441\u0441\u043a\u0438\u0439)","Chinese Simplified (\u4e2d\u6587)","Chinese Traditional (\u7e41\u9ad4)","Japanese (\u65e5\u672c\u8a9e)","Korean (\ud55c\uad6d\uc5b4)","Bengali (\u09ac\u09be\u0982\u09b2\u09be)","Punjabi (\u0a2a\u0a70\u0a1c\u0a3e\u0a2c\u0a40)","Tamil (\u0ba4\u0bae\u0bbf\u0bb4\u0bcd)","Telugu (\u0c24\u0c46\u0c32\u0c41\u0c17\u0c41)","Marathi (\u092e\u0930\u093e\u0920\u0940)","Persian (\u0641\u0627\u0631\u0633\u06cc)","Pashto (\u067e\u069a\u062a\u0648)","Swahili","Hausa","Yoruba","Zulu","Indonesian","Malay","Filipino","Vietnamese","Thai (\u0e20\u0e32\u0e29\u0e32\u0e44\u0e17\u0e22)","Polish","Swedish","Norwegian","Danish","Finnish","Greek (\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac)","Czech","Romanian","Hungarian","Hebrew (\u05e2\u05d1\u05e8\u05d9\u05ea)","Ukrainian","Serbian","Croatian","Slovak","Bulgarian","Lithuanian","Latvian","Estonian","Afrikaans"];
+var TONES=["Professional","Casual & Friendly","Funny & Witty","Inspirational","Urgent & Bold","Luxury & Premium","Storytelling","Empathetic","Persuasive","Minimalist","Playful","Authoritative"];
+var DEX=[
+  {lang:"English",name:"English",text:"New Brand EXPLOSIVE Launch! Premium clothing at unbeatable prices \u2014 Shop NOW! #Fashion #NewArrival #Sale"},
+  {lang:"French",name:"French (Fran\u00e7ais)",text:"Lancement EXPLOSIF de notre nouvelle marque! V\u00eatements premium \u2014 Achetez MAINTENANT! #Mode #NouvelleMarque"},
+  {lang:"Chinese",name:"Chinese (\u4e2d\u6587)",text:"\u65b0\u54c1\u724c\u7206\u70b8\u5f0f\u4e0a\u5e02\uff01\u4f18\u8d28\u670d\u88c5\uff0c\u4ef7\u683c\u4e0d\u53ef\u601d\u8bae \u2014 \u73b0\u5728\u5c31\u8d2d\u4e70\uff01 #\u65f6\u5c1a #\u65b0\u54c1"},
+  {lang:"Arabic",name:"Arabic (\u0627\u0644\u0639\u0631\u0628\u064a\u0629)",text:"\u0627\u0646\u0637\u0644\u0627\u0642 \u0645\u0630\u0647\u0644! \u0623\u0632\u064a\u0627\u0621 \u0631\u0627\u0626\u0639\u0629 \u2014 \u0627\u062e\u062a\u0631 \u0627\u0644\u0622\u0646! #\u0645\u0648\u0636\u0629"},
+  {lang:"Spanish",name:"Spanish (Espa\u00f1ol)",text:"\u00a1Lanzamiento EXPLOSIVO! Ropa incre\u00edble \u2014 \u00a1Compra ahora! #Moda #Oferta"},
+  {lang:"German",name:"German (Deutsch)",text:"Explosiver Launch! Unglaubliche Kleidung \u2014 Jetzt kaufen! #Mode #Sale"},
+  {lang:"Japanese",name:"Japanese (\u65e5\u672c\u8a9e)",text:"\u65b0\u30d6\u30e9\u30f3\u30c9\u306e\u30ed\u30fc\u30f3\u30c1\uff01\u7d20\u6674\u3089\u3057\u3044\u670d \u2014 \u4eca\u3059\u3050\u8cfc\u5165\uff01"}
+];
+var TOOLS=[
+  {id:"social",icon:"\uD83D\uDCF1",name:"Social Captions",desc:"Viral captions for any platform",cat:"Content",tag:"hot"},
+  {id:"hashtags",icon:"#",name:"Hashtag Generator",desc:"30 trending hashtags per niche",cat:"Content",tag:"hot"},
+  {id:"thread",icon:"\uD83E\uDDF5",name:"Twitter Thread",desc:"Viral threads with hooks & CTA",cat:"Content"},
+  {id:"linkedin",icon:"\uD83D\uDCBC",name:"LinkedIn Post",desc:"Professional posts that grow",cat:"Content",tag:"new"},
+  {id:"blog",icon:"\u270D\uFE0F",name:"Blog Post Writer",desc:"Full SEO-optimized articles",cat:"Content"},
+  {id:"story",icon:"\uD83D\uDCD6",name:"Brand Story",desc:"Compelling brand storytelling",cat:"Content"},
+  {id:"quote",icon:"\uD83D\uDCAC",name:"Quote Creator",desc:"Inspiring shareable quotes",cat:"Content",tag:"new"},
+  {id:"newsletter",icon:"\uD83D\uDCF0",name:"Newsletter",desc:"Full email newsletter content",cat:"Content"},
+  {id:"caption_pack",icon:"\uD83C\uDFA8",name:"Caption Pack",desc:"10 captions for any campaign",cat:"Content",tag:"new"},
+  {id:"email",icon:"\uD83D\uDCE7",name:"Email Campaign",desc:"Subject lines + full email body",cat:"Marketing"},
+  {id:"cold",icon:"\uD83D\uDCEC",name:"Cold Email",desc:"B2B outreach emails that convert",cat:"Marketing",tag:"new"},
+  {id:"ad",icon:"\uD83C\uDFAF",name:"Ad Copy",desc:"Facebook, Google, Instagram ads",cat:"Marketing",tag:"hot"},
+  {id:"video",icon:"\uD83C\uDFAC",name:"Video Ad Script",desc:"30-60 second video scripts",cat:"Marketing"},
+  {id:"youtube",icon:"\u25B6\uFE0F",name:"YouTube Package",desc:"Title, description, hook script",cat:"Marketing"},
+  {id:"podcast",icon:"\uD83C\uDF99\uFE0F",name:"Podcast Script",desc:"Full episode outline & intro",cat:"Marketing"},
+  {id:"influencer",icon:"\uD83C\uDF1F",name:"Influencer Pitch",desc:"Brand collaboration pitches",cat:"Marketing",tag:"new"},
+  {id:"webinar",icon:"\uD83D\uDDA5\uFE0F",name:"Webinar Script",desc:"Full presentation script",cat:"Marketing"},
+  {id:"sms",icon:"\uD83D\uDCAC",name:"SMS Marketing",desc:"High-converting SMS campaigns",cat:"Marketing"},
+  {id:"product",icon:"\uD83D\uDECD\uFE0F",name:"Product Description",desc:"eCommerce listings that sell",cat:"Ecommerce",tag:"hot"},
+  {id:"review",icon:"\u2B50",name:"Review Response",desc:"Reply to good & bad reviews",cat:"Ecommerce"},
+  {id:"daraz",icon:"\uD83C\uDFEA",name:"Daraz/Amazon Listing",desc:"Marketplace-optimized listings",cat:"Ecommerce",tag:"new"},
+  {id:"promo",icon:"\uD83C\uDF81",name:"Promo Announcement",desc:"Sale & discount announcements",cat:"Ecommerce"},
+  {id:"unboxing",icon:"\uD83D\uDCE6",name:"Unboxing Script",desc:"Product unboxing video scripts",cat:"Ecommerce"},
+  {id:"pitch",icon:"\uD83D\uDCA1",name:"Sales Pitch",desc:"Verbal sales pitch for any product",cat:"Business"},
+  {id:"press",icon:"\uD83D\uDCF0",name:"Press Release",desc:"Professional news announcements",cat:"Business"},
+  {id:"business",icon:"\uD83C\uDFE2",name:"Business Name",desc:"Catchy names + taglines",cat:"Business"},
+  {id:"faq",icon:"\u2753",name:"FAQ Generator",desc:"12 Q&As for any product",cat:"Business"},
+  {id:"landing",icon:"\uD83D\uDDA5\uFE0F",name:"Landing Page Copy",desc:"High-converting page sections",cat:"Business",tag:"new"},
+  {id:"proposal",icon:"\uD83D\uDCCB",name:"Business Proposal",desc:"Professional client proposals",cat:"Business"},
+  {id:"mission",icon:"\uD83C\uDFAF",name:"Mission Statement",desc:"Company vision & mission copy",cat:"Business"},
+  {id:"investor",icon:"\uD83D\uDCB0",name:"Investor Pitch",desc:"Pitch deck content",cat:"Business",tag:"pro"},
+  {id:"bio",icon:"\uD83D\uDC64",name:"Bio Generator",desc:"Multi-platform profile bios",cat:"Personal"},
+  {id:"resume",icon:"\uD83D\uDCC4",name:"AI Resume Builder",desc:"ATS-optimized professional resume",cat:"Personal",tag:"hot"},
+  {id:"cover",icon:"\uD83D\uDCDD",name:"Cover Letter",desc:"Tailored cover letters fast",cat:"Personal"},
+  {id:"linkedin_summary",icon:"\uD83D\uDD17",name:"LinkedIn Summary",desc:"Powerful LinkedIn about section",cat:"Personal",tag:"new"},
+  {id:"apology",icon:"\uD83D\uDE4F",name:"Apology Letter",desc:"Professional apology messages",cat:"Personal"},
+  {id:"recommendation",icon:"\uD83C\uDFC5",name:"Recommendation Letter",desc:"Professional reference letters",cat:"Personal"},
+  {id:"seo",icon:"\uD83D\uDD0D",name:"SEO Meta Tags",desc:"Title tags, meta, schema markup",cat:"SEO"},
+  {id:"keyword",icon:"\uD83D\uDDDD\uFE0F",name:"Keyword Research",desc:"SEO keywords + search intent",cat:"SEO",tag:"new"},
+  {id:"seo_blog",icon:"\uD83D\uDCCA",name:"SEO Blog Outline",desc:"Keyword-optimized blog structure",cat:"SEO"},
+  {id:"backlink",icon:"\uD83D\uDD17",name:"Backlink Outreach",desc:"Link building email templates",cat:"SEO",tag:"pro"},
+  {id:"poem",icon:"\uD83C\uDFAD",name:"Poem / Poetry",desc:"Creative poems in any language",cat:"Creative",tag:"new"},
+  {id:"story_creative",icon:"\uD83D\uDCDA",name:"Short Story",desc:"Engaging creative fiction",cat:"Creative"},
+  {id:"speech",icon:"\uD83C\uDFA4",name:"Speech Writer",desc:"Speeches for any occasion",cat:"Creative"},
+  {id:"script",icon:"\uD83C\uDFAC",name:"Movie Script",desc:"Scene scripts & screenplays",cat:"Creative",tag:"pro"},
+  {id:"translate",icon:"\uD83C\uDF0D",name:"AI Translator",desc:"Translate & culturally localize",cat:"Tools"},
+  {id:"summarize",icon:"\uD83D\uDCCB",name:"Text Summarizer",desc:"Summarize any long text",cat:"Tools",tag:"new"},
+  {id:"rewrite",icon:"\u2728",name:"Content Rewriter",desc:"Rewrite & improve any content",cat:"Tools"},
+  {id:"grammar",icon:"\u270F\uFE0F",name:"Grammar Fix",desc:"Fix grammar, style, clarity",cat:"Tools",tag:"new"}
+];
+var CATS=["All","Content","Marketing","Ecommerce","Business","Personal","SEO","Creative","Tools"];
+var AT=TOOLS[0],FV={lang:"English",tone:"Professional",topic:"",platform:"Instagram",niche:"",audience:"",industry:"Technology",name:"",role:"",exp:"3-5 years",skills:"",company:"",background:"",targetLang:"French (Fran\u00e7ais)",pageType:"Landing page"},HIST=[];
+
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+// RENDER MARKDOWN - Clean, no raw symbols shown
+function rMD(txt){
+  if(!txt)return'';
+  var lines=txt.split('\n');
+  var out='';
+  for(var i=0;i<lines.length;i++){
+    var line=lines[i];
+    var tr=line.trim();
+    if(tr===''){out+='<div style="height:10px"></div>';continue;}
+    // Escape
+    var s=tr.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    // Bold **text**
+    s=s.replace(/\*\*([^*]+)\*\*/g,'<b style="color:var(--t1);font-weight:700">$1</b>');
+    // Check heading
+    if(tr.charAt(0)==='#'){
+      var lvl=0;
+      while(lvl<tr.length&&tr.charAt(lvl)==='#')lvl++;
+      var txt2=s.slice(lvl).trim();
+      if(lvl===1)out+='<div style="font-family:Syne,sans-serif;font-size:20px;font-weight:800;background:linear-gradient(135deg,#b89dff,#ff80c0);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:24px 0 10px;display:block;line-height:1.3">'+txt2+'</div>';
+      else if(lvl===2)out+='<div style="font-family:Syne,sans-serif;font-size:17px;font-weight:700;color:var(--t1);margin:20px 0 9px;padding-bottom:7px;border-bottom:2px solid rgba(124,92,252,0.2);display:block">'+txt2+'</div>';
+      else out+='<div style="font-family:Syne,sans-serif;font-size:14px;font-weight:700;color:#b89dff;margin:14px 0 7px;display:block">'+txt2+'</div>';
+    }
+    // HR
+    else if(tr==='---'||tr==='***'||tr==='___'){out+='<hr style="border:none;border-top:1px solid rgba(124,92,252,0.2);margin:16px 0">';}
+    // Numbered list
+    else if(/^[0-9]+[.)]\s/.test(tr)){
+      var num=tr.match(/^([0-9]+)/)[1];
+      var ct=s.replace(/^[0-9]+[.)]\s*/,'');
+      out+='<div style="display:flex;gap:12px;margin:7px 0;line-height:1.75"><span style="color:#9b7dff;font-weight:800;min-width:24px;flex-shrink:0;font-family:Syne,sans-serif">'+num+'.</span><span style="color:var(--t2)">'+ct+'</span></div>';
+    }
+    // Bullet (only - or *)
+    else if((tr.charAt(0)==='-'||tr.charAt(0)==='*')&&tr.charAt(1)===' '){
+      var ct=s.slice(2);
+      out+='<div style="display:flex;gap:10px;margin:7px 0;line-height:1.75"><span style="color:#00d4a0;font-weight:700;flex-shrink:0">✓</span><span style="color:var(--t2)">'+ct+'</span></div>';
+    }
+    // Normal
+    else{out+='<p style="color:var(--t2);line-height:1.85;margin:8px 0;font-size:14px">'+s+'</p>';}
+  }
+  return out;
+}
+
+// SIDEBAR
+function renderSb(q){
+  q=q||'';
+  var c=document.getElementById('sbt');if(!c)return;c.innerHTML='';
+  var cats=[];TOOLS.forEach(function(t){if(cats.indexOf(t.cat)<0)cats.push(t.cat);});
+  var filt=q?TOOLS.filter(function(t){return t.name.toLowerCase().indexOf(q.toLowerCase())>=0||t.desc.toLowerCase().indexOf(q.toLowerCase())>=0;}):null;
+  function mk(tool){var b=document.createElement('button');b.className='sb-item'+(AT.id===tool.id?' act':'');b.innerHTML='<span class="sb-em">'+tool.icon+'</span><span class="sb-n">'+tool.name+'</span>'+(tool.tag?'<span class="sb-tag '+tool.tag+'">'+tool.tag.toUpperCase()+'</span>':'');b.onclick=function(){selTool(tool);};return b;}
+  if(filt){filt.forEach(function(t){c.appendChild(mk(t));});}
+  else{cats.forEach(function(cat){var l=document.createElement('div');l.className='sb-cl';l.textContent=cat;c.appendChild(l);TOOLS.filter(function(t){return t.cat===cat;}).forEach(function(t){c.appendChild(mk(t));});});}
+}
+function filterSb(v){renderSb(v);}
+function selTool(t){AT=t;var tt=document.getElementById('ttitle');var ts=document.getElementById('tsub');var bc=document.getElementById('bc');var oa=document.getElementById('oarea');if(tt)tt.textContent=t.icon+' '+t.name;if(ts)ts.textContent=t.desc;if(bc)bc.textContent=t.name;if(oa)oa.innerHTML='';renderSb(document.getElementById('sbsrch')?document.getElementById('sbsrch').value:'');renderForm();updL();}
+
+// FORM
+function renderForm(){
+  var id=AT.id,a=document.getElementById('farea');if(!a)return;
+  function inp(l,k,ph,rows){rows=rows||1;return '<div class="fg"><label class="fl">'+l+'</label>'+(rows>1?'<textarea class="fi" rows="'+rows+'" placeholder="'+ph+'" oninput="FV[\''+k+'\']=this.value;updL()">'+esc(FV[k]||'')+'</textarea>':'<input class="fi" type="text" placeholder="'+ph+'" value="'+esc(FV[k]||'')+'" oninput="FV[\''+k+'\']=this.value;updL()">')+'</div>';}
+  function sel(l,k,opts){var ops=opts.map(function(o){return'<option'+(FV[k]===o?' selected':'')+'>'+esc(o)+'</option>';}).join('');return'<div class="fg"><label class="fl">'+l+'</label><select class="fi" onchange="FV[\''+k+'\']=this.value;updL()">'+ops+'</select></div>';}
+  function r2(a,b){return'<div class="r2">'+a+b+'</div>';}
+  var cm=function(){return r2(sel('Output Language','lang',LANGS),sel('Tone','tone',TONES));};
+  var html='';
+  if(id==='hashtags')html=inp('Niche / Topic','topic','e.g. fitness, travel, food blog...')+inp('Extra Context','niche','e.g. targeting women 25-35 in USA')+cm();
+  else if(id==='resume')html=r2(inp('Full Name','name','John Smith'),inp('Target Job Title','role','Senior Engineer'))+r2(inp('Experience','exp','5 years'),inp('Industry','industry','Technology'))+inp('Key Skills','skills','React, Python, AWS...')+inp('Career Summary','topic','Describe your background...','textarea',3)+sel('Output Language','lang',LANGS);
+  else if(id==='cover')html=inp('Job Title','topic','Senior Marketing Manager')+inp('Company Name','company','Google, Startup XYZ...')+inp('Your Background','background','5 years experience...','textarea',2)+cm();
+  else if(id==='translate')html=inp('Text to Translate','topic','Paste your content here...','textarea',4)+r2(sel('Translate To','targetLang',LANGS),sel('Tone','tone',TONES));
+  else if(['social','bio','caption_pack'].indexOf(id)>=0)html=inp('Topic / Brand / Person','topic','Describe what this is about...','textarea',3)+r2(sel('Platform','platform',['Instagram','Twitter/X','LinkedIn','TikTok','Facebook','Pinterest','YouTube']),sel('Language','lang',LANGS))+sel('Tone','tone',TONES);
+  else if(['ad','video','sms'].indexOf(id)>=0)html=inp('Product / Service','topic','Describe what you are advertising...','textarea',3)+r2(sel('Platform','platform',['Facebook Ads','Instagram Ads','Google Ads','TikTok Ads']),sel('Language','lang',LANGS))+sel('Tone','tone',TONES);
+  else if(['pitch','product','cold','faq','daraz','promo'].indexOf(id)>=0)html=inp('Topic / Product / Service','topic','Describe in detail...','textarea',3)+inp('Target Audience','audience','e.g. small business owners...')+cm();
+  else if(['business','mission','investor'].indexOf(id)>=0)html=inp('Business Concept','topic','What does your business do?','textarea',2)+r2(inp('Industry','industry','Technology / Fashion / Food...'),sel('Language','lang',LANGS));
+  else if(['seo','landing','seo_blog'].indexOf(id)>=0)html=inp('Topic / Page / Product','topic','What is this page about?','textarea',2)+r2(inp('Page Type','pageType','Landing page / Blog...'),sel('Language','lang',LANGS));
+  else html=inp('Topic / Subject','topic','What do you want to create?','textarea',3)+cm();
+  var cg=(id==='hashtags')?"(FV.topic||FV.niche).trim()":"FV.topic.trim()";
+  html+='<button class="gen-btn" id="gbtn" onclick="generate()" '+(eval(cg)?'':'disabled')+'>❖ Generate with AI &mdash; '+AT.name+'</button>';
+  a.innerHTML=html;
+}
+function updL(){var d=document.getElementById('ldisp');if(d)d.textContent=FV.lang||'English';var b=document.getElementById('gbtn');if(b){var id=AT.id;var can=(id==='hashtags')?(FV.topic||FV.niche||'').trim():(FV.topic||'').trim();b.disabled=!can;}}
+
+// PROMPTS
+function bp(id,d){
+  var L=d.lang||'English',T=d.tone||'Professional',t=d.topic||'';
+  var P='Write your COMPLETE response in '+L+'. Tone: '+T+'. Use ## for section headings and - for bullet points so content renders beautifully formatted. Write detailed, comprehensive, high-quality content.\n\n';
+  var m={
+    social:P+'You are a world-class social media strategist. Create 3 HIGHLY ENGAGING viral social media captions for:\nTopic: "'+t+'"\nPlatform: '+(d.platform||'Instagram')+'\n\n## Caption 1 (Storytelling style)\n[Write powerful hook + story + emojis + CTA. 150-220 chars.]\n\n- Hashtags: [6 targeted hashtags]\n- Engagement hook: [Question to drive comments]\n\n## Caption 2 (Value-driven style)\n[Write value-packed caption]\n\n- Hashtags: [6 hashtags]\n\n## Caption 3 (Emotional/Inspirational)\n[Write emotionally resonant caption]\n\n- Hashtags: [6 hashtags]\n\nMake each caption authentic, not robotic. Native language quality.',
+    hashtags:P+'You are a social media growth strategist. Generate 30 POWERFUL hashtags for:\nNiche: "'+(t||d.niche)+'"\n\n## Tier 1 - Mass Reach (500K to 10M posts)\n[List 10 hashtags, one per line with brief note]\n\n## Tier 2 - Engaged Audience (50K to 500K posts)\n[List 10 hashtags]\n\n## Tier 3 - Niche Dominance (under 50K posts)\n[List 10 hashtags]\n\n## Strategy Tip\n[One expert tip for maximum results]',
+    thread:P+'You are a viral Twitter/X creator. Write a powerful 10-tweet thread about:\n"'+t+'"\n\n## Thread Structure\n\n**Tweet 1 (Explosive Hook):**\n[Bold, controversial or curiosity-driven opener - max 280 chars]\n\n**Tweet 2 (Context):**\n[Why this matters - max 280 chars]\n\n**Tweet 3:** [Value bomb]\n**Tweet 4:** [Value bomb]\n**Tweet 5:** [Value bomb]\n**Tweet 6:** [Value bomb]\n**Tweet 7:** [Value bomb]\n**Tweet 8:** [Value bomb]\n\n**Tweet 9 (Story/Proof):**\n[Personal story or case study]\n\n**Tweet 10 (CTA):**\n[Ask retweet + follow + specific question]',
+    linkedin:P+'You are a LinkedIn growth expert. Create 3 LinkedIn posts about:\n"'+t+'"\n\n## Post 1 - Storytelling Style\n[Hook (first 2 lines must force see more), story body 4-5 short paragraphs, key insight, engagement CTA, 4 hashtags]\n\n## Post 2 - Insight/Data Style\n[Data-driven hook, insights body, bold takeaway, question CTA, hashtags]\n\n## Post 3 - Contrarian Bold Opinion\n[Controversial opener, argument, evidence, conclusion, CTA, hashtags]',
+    blog:P+'You are an expert SEO content writer. Write a COMPLETE 900-word blog post:\n"'+t+'"\n\n## [Compelling SEO Title]\n\n## Introduction\n[Shocking stat or question. Authority. Preview. Make them NEED to read on. 2-3 paragraphs.]\n\n## [Section 1]\n[Detailed content with examples and data]\n\n## [Section 2]\n[Detailed content]\n\n## [Section 3]\n[Detailed content]\n\n## Practical Action Steps\n[Numbered actionable list]\n\n## Conclusion\n[Summary + strong CTA]\n\n---\n**SEO Title (60 chars):** []\n**Meta Description (155 chars):** []\n**Primary Keyword:** []\n**Secondary Keywords:** []',
+    story:P+'You are a master brand storyteller. Create a compelling brand story for:\n"'+t+'"\n\n## The Hero (Your Customer)\n[Who they are, aspirations, daily life]\n\n## The Problem\n[External problem + internal frustration + philosophical injustice]\n\n## The Guide (Your Brand)\n[Empathy + authority]\n\n## The Transformation\n[Before vs After - vivid picture]\n\n## Full Brand Story (400 words)\n[Complete emotional narrative]\n\n## Tagline Options\n- Option 1: []\n- Option 2: []\n- Option 3: []',
+    quote:P+'You are a professional copywriter. Create 15 powerful shareable quotes about:\n"'+t+'"\n\n## Motivational Quotes (5)\n[5 deep inspiring quotes]\n\n## Thought-Provoking Quotes (5)\n[5 quotes that make audience stop and think]\n\n## Witty/Clever Quotes (5)\n[5 humor + wisdom quotes]\n\n## Design Tip\n[Best visual approach for top 3 quotes]',
+    newsletter:P+'You are an expert email marketing strategist. Write a COMPLETE newsletter about:\n"'+t+'"\n\n## Subject Line Options\n- A) [Curiosity - under 50 chars]\n- B) [Benefit - under 50 chars]\n- C) [Question - under 50 chars]\n- D) [Urgency]\n- E) [With emoji]\n\n**Preview Text (90 chars):** []\n\n## Opening\n[Personal, conversational - 2 sentences]\n\n## Main Story\n[300-350 words engaging narrative with clear value and surprising insight]\n\n## Quick Wins\n- [Actionable tip 1]\n- [Actionable tip 2]\n- [Actionable tip 3]\n\n## Stat of the Week\n[Impressive relevant statistic]\n\n## Call to Action\n**Button:** [] | **Supporting copy:** []',
+    caption_pack:P+'You are a social media content creator. Create a COMPLETE 10-caption content pack for:\n"'+t+'"\nPlatform: '+(d.platform||'Instagram')+'\n\n## Caption 1 - Awareness\n[Hook new audience + hashtags]\n\n## Caption 2 - Education\n[Teach something valuable + hashtags]\n\n## Caption 3 - Storytelling\n[Behind the scenes + hashtags]\n\n## Caption 4 - Social Proof\n[Trust building + hashtags]\n\n## Caption 5 - Engagement\n[Drive comments + question + hashtags]\n\n## Caption 6 - Inspiration\n[Motivational + hashtags]\n\n## Caption 7 - Promotional\n[Soft sell + CTA + hashtags]\n\n## Caption 8 - Community\n[User-focused + hashtags]\n\n## Caption 9 - Urgency\n[Limited time + CTA + hashtags]\n\n## Caption 10 - Viral Wildcard\n[Bold/unexpected + hashtags]',
+    email:P+'You are a world-class email copywriter. Create a COMPLETE email campaign for:\n"'+t+'"\n\n## Subject Lines (5 options)\n- A) [Curiosity]\n- B) [Urgency]\n- C) [Benefit]\n- D) [Personalized]\n- E) [With emoji]\n\n**Preview Text:** []\n\n## Complete Email\n**Subject:** [Best option]\n\n[Name],\n\n[HOOK - 1-2 sentences]\n\n[BRIDGE]\n\n[MAIN VALUE - 2-3 paragraphs, you-focused]\n\n[SOCIAL PROOF]\n\n**[CTA BUTTON TEXT]**\n\n[Secondary CTA]\n\n[Warm sign-off]\n\n**P.S.** [Compelling reason to act]',
+    cold:P+'You are a B2B sales expert. Write a 3-email cold outreach SEQUENCE for:\n"'+t+'"\nTarget: '+(d.audience||'Decision makers')+'\n\n## Email 1 (Day 1) - The Opener\n**Subject:** [Under 7 words, personalized]\n**Preview:** []\n\n[Specific opener referencing their company]\n[One sentence value prop + measurable result]\n[Soft ask: 15-min call]\n\n## Email 2 (Day 4) - The Follow-Up\n**Subject:** [Reply to thread]\n\n[3 sentences: social proof + restate value + lighter ask]\n\n## Email 3 (Day 10) - The Breakup\n**Subject:** [Closing the loop]\n\n[Permission-based close. Leave door open.]\n\n## Pro Tips\n- Best send times\n- Personalization variables\n- Expected response rate',
+    ad:P+'You are a performance marketer. Create HIGH-CONVERTING ad copy for:\n"'+t+'"\nPlatform: '+(d.platform||'Facebook Ads')+'\n\n## Ad 1 - Problem/Agitate/Solve\n**Headline (40 chars):** []\n**Primary Text:** [Identify pain. Agitate. Solution. Proof.]\n**CTA:** [] | **Hook:** []\n\n## Ad 2 - Social Proof + Result\n**Headline:** [Specific result]\n**Primary Text:** [Testimonial lead. How it works. Remove risk.]\n**CTA:** []\n\n## Ad 3 - Urgency/Scarcity\n**Headline:** [Time/quantity limited]\n**Primary Text:** [FOMO. What they miss. CTA]\n**CTA:** []\n\n## Strategy Notes\n**Targeting:** [] | **Starting Budget:** [] | **A/B Test:** []',
+    video:P+'You are a viral video scriptwriter. Write a COMPLETE 60-second video ad for:\n"'+t+'"\n\n## Script Brief\n- Target emotion: []\n- Core message: []\n- Desired action: []\n\n## Script\n\n**[00:00-05] HOOK**\nVisual: [] | Voiceover: [Exact words - stops scrolling in 3 sec]\n\n**[00:05-20] PROBLEM**\nVisual: [] | Voiceover: [] | Emotion: []\n\n**[00:20-40] SOLUTION**\nVisual: [Product demo] | Voiceover: [Features as benefits]\n\n**[00:40-55] PROOF**\nVisual: [Testimonial/stats] | Voiceover: []\n\n**[00:55-60] CTA**\nVisual: [] | Voiceover: [] | On-screen text: []\n\n## Production Notes\n- Music mood: []\n- B-roll shots needed: [6 shots]\n- Caption suggestions: []',
+    youtube:P+'You are a YouTube SEO expert. Create a COMPLETE package for:\n"'+t+'"\n\n## Title Options (5)\n- [Curiosity]\n- [How-to]\n- [List]\n- [Controversy]\n- [Result-focused]\n\n## Full SEO Description (300 words)\n[First 150 chars critical for CTR]\n[Main description with keywords]\n[Timestamps]\n[Links & hashtags]\n\n## 30-Second Hook Script (word for word)\n[Pattern interrupt + big promise + preview + tease best moment]\n\n## Chapter Timestamps\n0:00 - Intro\n[Continue all sections]\n\n## Tags (15)\n[All 15 tags]\n\n## Thumbnail Concept\n**Background:** [] | **Text (4 words max):** [] | **Design tip:** []\n\n## Pinned Comment\n[Engagement-driving comment to pin]',
+    podcast:P+'You are a professional podcast producer. Create a COMPLETE episode package for:\n"'+t+'"\n\n## Episode Title Options\n- [Curiosity-gap]\n- [Guest/Expert style]\n- [Result/transformation]\n\n## 60-Minute Outline\n**0:00-1:00** Cold Open [Tease best moment]\n**1:00-3:00** Intro [Welcome + overview]\n**3:00-18:00** Segment 1: [Topic + 3 key points]\n**18:00-33:00** Segment 2: [Topic + 3 key points]\n**33:00-48:00** Segment 3: [Topic + 3 key points]\n**48:00-53:00** Action Steps [5 takeaways]\n**53:00-60:00** Outro [Summary + CTA]\n\n## Full Intro Script (2 minutes, word for word)\n[Complete professional intro]\n\n## Interview Questions (8)\n[8 deep-dive questions]\n\n## Show Notes Summary (100 words)\n[]',
+    influencer:P+'You are a top influencer marketing manager. Create a COMPLETE collaboration package for:\n"'+t+'"\n\n## DM Pitch (150 chars max)\n[Conversational, mention specific content]\n\n## Full Email Pitch\n**Subject:** [Personalized, specific]\n\n[Specific compliment about recent content]\n[Brand intro: 1 sentence]\n[Why THEM specifically]\n[Offer: deliverables + compensation]\n[Exact deliverables + timeline needed]\n[Soft CTA]\n\n## Rate Guide\n- Nano (1K-10K): []\n- Micro (10K-100K): []\n- Macro (100K-1M): []\n- Negotiation tip: []\n\n## Content Brief Template\n- Must include: []\n- Must avoid: []\n- Required hashtags: []\n- Deadline structure: []',
+    webinar:P+'You are a 7-figure webinar expert. Create a COMPLETE package for:\n"'+t+'"\n\n## Webinar Title Options\n- []\n- []\n- []\n\n## Registration Page Copy\n**Headline:** [] | **Subheadline:** []\n**What they will learn:** [3 bullets]\n**CTA:** []\n\n## 60-Minute Agenda\n**0-5 min:** Welcome + Credibility\n**5-20 min:** The Problem [make audience feel understood]\n**20-40 min:** The Solution [3 teaching points with examples]\n**40-50 min:** Case Study [real transformation]\n**50-60 min:** Pitch + Q&A\n\n## Full Opening Script (5 min, word for word)\n[Complete professional opening]\n\n## Closing Pitch Script (5 min)\n[Complete offer presentation]\n\n## Follow-Up Emails\n**Email 1** (no-shows): []\n**Email 2** (replay): []\n**Email 3** (last chance): []',
+    sms:P+'You are an SMS marketing expert. Create 8 high-converting messages for:\n"'+t+'"\nEach under 160 chars. Include [NAME] variable.\n\n## SMS 1 - Flash Sale\n[Urgency + scarcity + CTA + [LINK]]\nBest send time: []\n\n## SMS 2 - New Arrival\n[Excitement + FOMO]\n\n## SMS 3 - Abandoned Cart\n[Recovery message]\n\n## SMS 4 - Loyalty Reward\n[VIP feel]\n\n## SMS 5 - Re-Engagement\n[Win back lapsed customers]\n\n## SMS 6 - Event Reminder\n[Countdown]\n\n## SMS 7 - Feedback Request\n[Social proof building]\n\n## SMS 8 - Referral Ask\n[Word of mouth]\n\n## Performance Tips\n- Best days/times: []\n- Expected CTR: []',
+    product:P+'You are an e-commerce conversion copywriter. Write a COMPLETE product listing for:\n"'+t+'"\nTarget buyer: '+(d.audience||'Online shoppers')+'\n\n## SEO Title (80 chars)\n[Brand + Feature + Benefit + Model]\n\n## Hook Headline\n[Emotional benefit-driven statement]\n\n## Opening Paragraph\n[Paint the after picture. Sensory language. 2-3 sentences.]\n\n## Top 5 Benefits (NOT features)\n- [Benefit 1: 2-sentence explanation]\n- [Benefit 2]\n- [Benefit 3]\n- [Benefit 4]\n- [Benefit 5]\n\n## Features List\n- [Feature: Spec]\n[Continue all features]\n\n## Social Proof\n[2 believable micro-testimonials]\n\n## Objection Busters\n- Q: [] A: []\n- Q: [] A: []\n\n## Call to Action\n[Compelling beyond just Buy Now]\n\n## Short Ad Version (60 words)\n[]',
+    review:P+'You are a reputation management expert. Write responses for all review types for:\n"'+t+'"\n\n## 5-Star Response\n[Warm, personalized, specific acknowledgment, invite back. Under 75 words.]\n\n## 3-Star Response\n[Thank genuinely, address specific issue without excuses, show improvement, invite back. Under 80 words.]\n\n## 1-Star Angry Response\n[De-escalate, empathize deeply, take ownership, offer offline resolution. Professional. Under 80 words.]\n\n## Fake/Competitor Review Response\n[Professional, factual, flag as potentially inauthentic. Under 60 words.]\n\n## Reputation Strategy Tips\n- Tip 1: []\n- Tip 2: []\n- Tip 3: []',
+    daraz:P+'You are a marketplace SEO expert for Daraz and Amazon. Create COMPLETE listing for:\n"'+t+'"\n\n## Optimized Title (200 chars)\n[Brand + Type + Feature + User + Spec]\n\n## 5 Bullet Points\n- **[BENEFIT IN CAPS]:** [Spec + why it matters]\n- **[BENEFIT]:** []\n- **[BENEFIT]:** []\n- **[BENEFIT]:** []\n- **[BENEFIT]:** []\n\n## Full Description (400 words)\n[Hook + product story + features + who for + usage + package contents + warranty]\n\n## 25 Backend Keywords\n[List all including misspellings + synonyms]\n\n## Price Strategy Tip\n[]\n\n## Main Image Description\n[What hero image should show for maximum CTR]',
+    promo:P+'You are a promotional marketing expert. Create COMPLETE campaign for:\n"'+t+'"\n\n## Campaign Name & Core Message\n**Name:** [] | **Message:** [] | **Urgency:** []\n\n## Instagram Posts (3 variations)\n**Variation 1 (Energy/excitement):** []\n**Variation 2 (Value/benefit):** []\n**Variation 3 (Story):** []\n\n## Instagram Story Sequence\n**Slide 1 (Tease):** [] | **Slide 2 (Reveal):** [] | **Slide 3 (CTA):** []\n\n## Email\n**Subject:** [] | **Body:** [Full email]\n\n## SMS\n**Launch day:** [] | **Last chance:** []\n\n## Facebook Ad\n**Headline:** [] | **Body:** []\n\n## Website Banner\n[Countdown copy]',
+    unboxing:P+'You are a professional YouTube product reviewer. Write COMPLETE unboxing script for:\n"'+t+'"\n\n## [00:00-00:15] Hook\n[Grab viewer with excitement about the product]\n\n## [00:15-01:00] Packaging Reveal\n[Details + anticipation building]\n\n## [01:00-02:30] Inside the Box\n[List everything + genuine reactions]\n\n## [02:30-04:00] First Look\n[Design + build quality + standout features]\n\n## [04:00-07:00] Hands-On Test\n[Primary functions + reactions + audience questions]\n\n## [07:00-08:30] Pros & Cons\n**Pros (5+):**\n- []\n**Cons (2-3):**\n- []\n**Who this is for:** []\n\n## [08:30-09:30] Verdict\n**Score:** /10 | **Would you buy it?** [] | **Why?** []\n\n## [09:30-10:00] Outro\n[Subscribe CTA + next video tease]',
+    pitch:P+'You are a master sales trainer. Create COMPLETE pitch system for:\n"'+t+'"\nTarget: '+(d.audience||'Prospects')+'\n\n## 30-Second Elevator Pitch\n[I help [target] achieve [result] without [pain] by [method]]\n\n## 2-Minute Discovery Pitch\n**[00:00-00:20] Attention Grabber:**\n[Bold claim or surprising stat]\n**[00:20-00:50] The Problem:**\n[Describe pain so well they think you read their mind]\n**[00:50-01:20] Your Solution:**\n[What + how + why different]\n**[01:20-01:45] Proof:**\n[Specific result you delivered]\n**[01:45-02:00] Soft Close:**\n[Low-commitment CTA]\n\n## 5 Objections + Perfect Responses\n1. Too expensive: []\n2. Need to think: []\n3. Have solution: []\n4. Bad timing: []\n5. Need approval: []\n\n## Follow-Up Sequence\n**Day 1:** [] | **Day 3:** [] | **Day 7:** [] | **Day 14:** []',
+    press:P+'You are a PR professional. Write COMPLETE press release for:\n"'+t+'"\n\n---\n\n**FOR IMMEDIATE RELEASE**\n\nContact: [Name | Email | Phone]\n\n## [HEADLINE - Under 80 chars, active voice, newsworthy]\n\n[SUBHEADLINE: Context + key stat]\n\n[DATELINE] - [LEDE: Who What When Where Why How in 2-3 sentences]\n\n[BODY 1: Context and significance]\n\n**Executive Quote:**\n"[Compelling statement]" said [Name, Title].\n\n[BODY 2: Supporting details + stats]\n\n[BODY 3: Future implications]\n\n###\n\n**About [Company]:** [3-sentence boilerplate]\n\n---\n\n## Media Pitch Email\n**Subject:** [] | **Body:** [5-sentence pitch to journalist]',
+    business:P+'You are a world-class brand naming expert. Create business names for:\n"'+t+'"\nIndustry: '+(d.industry||'Technology')+'\n\n## Top 15 Name Ideas\n[For each: Name - Type - Why it works - Domain note]\n\n## Top 5 Deep Analysis\n\n### Name 1: []\n- Why it wins: []\n- Brand personality: []\n- Tagline A: [] | Tagline B: [] | Tagline C: []\n- Domain options: .com | .io | .co\n\n### Name 2: [Same format]\n### Name 3: [Same]\n### Name 4: [Same]\n### Name 5: [Same]\n\n## Naming Strategy\n- What to avoid: []\n- Legal considerations: []\n- International appeal: []',
+    faq:P+'You are a conversion optimization expert. Create 15 comprehensive FAQ Q&As for:\n"'+t+'"\n\n## General Understanding\n**Q1: What exactly is this and how does it work?**\n[3-4 sentence detailed, jargon-free answer]\n\n**Q2: Who is this designed for?**\n[Specific personas. Who benefits most. Who it is NOT for.]\n\n**Q3: How is this different from alternatives?**\n[Honest comparison. Genuine USPs.]\n\n## Getting Started\n[3 more Q&As about setup, first steps, timeline]\n\n## Pricing & Value\n[3 Q&As about ROI, payment, refund policy]\n\n## Trust & Security\n[3 Q&As about privacy, data, guarantees]\n\n## Common Concerns\n[3 Q&As addressing top objections empathetically]',
+    landing:P+'You are a CRO expert with 8%+ conversion rates. Create COMPLETE landing page copy for:\n"'+t+'"\n\n## Above the Fold\n**Headline (10 words max):** []\n**Subheadline (1 sentence):** []\n**CTA Button:** [] | **Micro-copy:** []\n**Trust badges:** [] | [] | []\n\n## Social Proof Bar\n[Stat + logos]\n\n## Value Propositions (3 blocks)\n[Icon] **Title** | [2-sentence benefit]\n[Repeat x3]\n\n## Features (5)\n[Feature] - [What it does] - [Why it matters to customer]\n[Repeat x5]\n\n## Testimonials (2)\n"[Quote]" - [Name, Title, Company, Result]\n\n## FAQ (5 Q&As)\n[Top objections answered]\n\n## Final CTA\n**Headline:** [] | **Subtext:** [] | **Button:** [] | **Guarantee:** []',
+    proposal:P+'You are a business consultant. Create a WINNING proposal for:\n"'+t+'"\nClient: '+(d.audience||'Potential client')+'\n\n## Executive Summary\n[We understand your challenge. Our solution. Why us. What success looks like. 4 paragraphs.]\n\n## The Challenge We Will Solve\n**Current situation:** [] | **Root cause:** [] | **Cost of inaction:** []\n\n## Recommended Solution\n**Approach:** [] | **Methodology:** [] | **Why this works:** []\n\n## Scope of Work\n**Phase 1:** [Deliverables + timeline]\n**Phase 2:** [Deliverables + timeline]\n**Phase 3:** [Deliverables + timeline]\n\n## Expected Outcomes & ROI\n**KPIs:** [] | **Timeline to results:** []\n\n## Investment\n**Option A (Basic):** $[] | **Option B (Recommended):** $[] | **Option C (Premium):** $[]\n\n## Credentials\n[Case study + 2 testimonials]\n\n## Next Steps\n[Clear 3-step process] | **Valid until:** []',
+    mission:P+'You are a brand strategy consultant. Create COMPLETE brand identity for:\n"'+t+'"\nIndustry: '+(d.industry||'Technology')+'\n\n## Mission Statement\n[What you do + for whom + with what impact. Under 25 words. Present tense.]\n\n## Vision Statement\n[Aspirational future state. Under 20 words. Future tense.]\n\n## Core Values (6)\n- **[Value]:** [What it looks like in action]\n[Repeat x6]\n\n## Brand Promise\n[The one thing customers can always count on]\n\n## Positioning Statement\nFor [target] who [need], [Brand] is the [category] that [benefit] because [reason].\n\n## Brand Personality\n[5 adjectives + character archetype]\n\n## Tagline Options\n- Bold: []\n- Benefit: []\n- Action: []\n- Emotional: []\n- Minimal: []',
+    investor:P+'You are a pitch deck coach. Create COMPLETE investor deck content for:\n"'+t+'"\n\n## Slide 1 - Cover\n[Name + tagline + one-line description]\n\n## Slide 2 - The Problem\n**Size (with data):** [] | **Who suffers:** [] | **Current bad solutions:** []\n\n## Slide 3 - The Solution\n**What you do:** [] | **Key insight:** []\n\n## Slide 4 - Market Size\n**TAM:** $[]B | **SAM:** $[]B | **SOM (3yr):** $[]M | **Why NOW:** []\n\n## Slide 5 - Product\n**Core features (5):** [] | **Unfair advantage:** []\n\n## Slide 6 - Traction\n**Key metrics:** [] | **Notable customers:** []\n\n## Slide 7 - Business Model\n**Revenue model:** [] | **Unit economics:** [] | **LTV:CAC:** []\n\n## Slide 8 - Team\n**Founders:** [] | **Why this team:** []\n\n## Slide 9 - Financials\n**3-year projections:** [] | **Key assumptions:** []\n\n## Slide 10 - The Ask\n**Raising:** $[] | **Use of funds:** [] | **Milestone:** []',
+    bio:P+'You are a personal branding expert. Create 5 outstanding bios for:\n"'+t+'"\nPlatform: '+(d.platform||'LinkedIn')+'\n\n## Bio 1 - Micro (80 chars for Twitter/TikTok)\n[Pack punch: Hook + credential + personality]\n\n## Bio 2 - Short (150 chars for Instagram)\n[Hook | Credibility | What you do for others | CTA]\n\n## Bio 3 - Medium (LinkedIn headline, 220 chars)\n[Title | Value prop | Unique angle | Achievement]\n\n## Bio 4 - Professional (150 words, 3rd person)\n[Achievement opener. Expertise + proof. Current focus.]\n\n## Bio 5 - Storytelling (200 words, 1st person)\n[Origin + turning point + mission + proof + human element]\n\n## Personal Brand Tips\n- Keywords for discoverability: []\n- Profile optimization tips: []\n- Content pillars to own: []',
+    resume:P+'You are a certified executive resume writer. Create COMPLETE ATS-optimized resume for:\nName: '+(d.name||'[Name]')+' | Role: '+(d.role||t)+' | Exp: '+d.exp+' | Skills: '+d.skills+' | Industry: '+d.industry+'\nBackground: '+t+'\n\n---\n\n## Contact Information\n[Full Name] | [Email] | [Phone] | [LinkedIn] | [City]\n\n## Executive Summary\n[4 sentences: Years + industry + seniority | Core expertise | Biggest achievement with NUMBER | What you bring to next employer]\n\n## Core Competencies\n[15-18 keywords in 3 columns - ATS optimized]\n\n## Professional Experience\n\n**[TITLE] | [COMPANY] | [Location] | [Dates]**\n[Company descriptor]\n- [ACTION VERB + what you did + QUANTIFIED result]\n- [Achievement 2]\n- [Achievement 3]\n- [Cross-functional achievement]\n[Repeat for 3 most recent roles]\n\n## Education\n[Degree | Institution | Year]\n\n## Certifications & Awards\n[List with year]\n\n## Languages\n[Languages + proficiency]',
+    cover:P+'You are a career coach and cover letter specialist. Write POWERFUL cover letter for:\nRole: "'+t+'" | Company: '+d.company+' | Background: '+d.background+'\n\n---\n\n[Name | Email | Phone | Date]\n\nDear [Hiring Manager],\n\n## Opening - The Hook\n[DO NOT start with I am applying. Start with: compelling achievement | shared belief | specific company knowledge. Make them need to read on.]\n\n## Why This Company\n[Specific knowledge of their mission/recent news. Genuine alignment.]\n\n## Your Top 3 Achievements\n[3 specific accomplishments with quantified results matching job requirements. Power verbs.]\n\n## Your Unique Value\n[Specific combination making you perfect for THIS role.]\n\n## Confident Close\n[Forward-looking confidence. Specific interview request. Proactive.]\n\n[Professional signature]\n\n## Keywords to Add from Job Description\n[]\n\n## Customization Tips\n[]',
+    linkedin_summary:P+'You are a LinkedIn optimization expert. Write OUTSTANDING About section for:\n"'+t+'"\n\n## About Section (300 words)\n\n**Opening Hook (first 2 lines - must stop scroll):**\n[Bold claim / surprising fact / intriguing question]\n\n**The Story:**\n[How you got here. Defining moment. Human. 2-3 short paragraphs.]\n\n**What You Do:**\n[Specific. Who you help. How. What makes approach different.]\n\n**Proof - 3 Achievements with Numbers:**\n- [Achievement 1]\n- [Achievement 2]\n- [Achievement 3]\n\n**Specialties (8 keywords naturally woven in):**\n[]\n\n**What You Seek:**\n[Speaking? Clients? Job?]\n\n**CTA:**\n[Specific invitation to connect]\n\n## 5 Headline Options (220 chars each)\n- [Option 1]\n- [Option 2]\n- [Option 3]\n- [Option 4]\n- [Option 5]',
+    apology:P+'You are a communication expert. Write PERFECT apology communications for:\n"'+t+'"\n\n## Professional Written Apology (200-250 words)\n[Acknowledge specifically + genuine accountability (no excuses) + impact recognition + concrete fix + prevention commitment + sincere close]\n\n## Personal/Casual Apology (100-150 words)\n[Warm, human, same genuine elements, conversational]\n\n## Short Message/WhatsApp (under 50 words)\n[Direct, genuine, not over-explained]\n\n## Verbal Script (for phone/face-to-face)\n[Opening acknowledgment + listening invitation + specific statement + going-forward commitment]\n\n## 5 Phrases to AVOID\n[Phrases that make apologies worse]\n\n## Follow-Up Action\n[Specific action to back up your words]',
+    recommendation:P+'You are a professional writing expert. Write EXCEPTIONAL recommendation letter for:\n"'+t+'"\nFrom: '+(d.audience||'Professional reference')+'\n\n---\n\n[Name | Title | Email | Phone | Date]\n\nDear [Name/Committee],\n\n## Opening - Credibility + Bold Endorsement\n[How long/how you know them + immediate strong endorsement]\n\n## Specific Achievement 1\n[Story: situation + what they did + measurable result]\n\n## Specific Achievement 2\n[Different strength with concrete example]\n\n## Character & Unique Qualities\n[What makes them stand out. Personality traits with evidence.]\n\n## Strong Close\n[Unequivocal endorsement. Specific for this role. Offer to discuss.]\n\nSincerely, [Signature]\n\n## Customization Notes\n[3 tips to personalize further]',
+    seo:P+'You are a senior SEO strategist. Create COMPLETE SEO package for:\n"'+t+'"\nPage type: '+(d.pageType||'Landing page')+'\n\n## Core SEO Elements\n**Title Tag (55-58 chars):** [Primary keyword near front + power word + brand]\n**Meta Description (150-155 chars):** [Keyword + benefit + CTA verb - make it clickable]\n**Primary Keyword:** [] | **Difficulty:** [] | **Intent:** []\n\n## Secondary Keywords (8)\n[Each with intent]\n\n## LSI Keywords (5)\n[Semantically related terms]\n\n## Social/OG Tags\n**OG Title (90 chars):** [] | **OG Description (200 chars):** []\n\n## Technical Elements\n**URL Slug:** [] | **Schema Type:** [] + why\n\n## Core Web Vitals Tips (3)\n- [Tip 1]\n- [Tip 2]\n- [Tip 3]\n\n## Internal Linking Strategy\n[3 recommendations]\n\n## Content Gaps\n[3 topics competitors likely cover]',
+    keyword:P+'You are a senior SEO strategist. Conduct COMPREHENSIVE keyword research for:\n"'+t+'"\n\n## Primary Keyword\n**Keyword:** [] | **Volume:** [] | **Difficulty:** [] | **Intent:** []\n\n## Top 15 High-Value Keywords\n[Keyword | Monthly volume | Difficulty | Intent | Content type]\n[15 rows]\n\n## 10 Low-Competition Gems\n[Keyword | Volume | Why easy to rank]\n\n## 10 High-Intent Long-Tails\n[Better converters even with less traffic]\n\n## 15 People Also Ask Questions\n[Exact PAA questions]\n\n## Content Cluster Strategy\n**Pillar page:** [] | **10 cluster pieces:**\n- []\n\n## 10 Blog Post Titles (ready to use)\n[10 SEO-optimized titles]\n\n## Competitor Keyword Gaps\n[3 opportunities]',
+    seo_blog:P+'You are a content strategist and SEO expert. Create COMPLETE blog outline for:\n"'+t+'"\n\n## Pre-Writing Research\n**Focus Keyword:** [] | **Difficulty:** [] | **Intent:** [] | **Word count:** []\n\n## SEO Titles (2 options)\n- A) []\n- B) []\n\n**Meta Description (155 chars):** []\n\n## Complete Article Outline\n\n### H1 Title\n\n### Introduction (150-200 words)\n[Hook + Context + Preview + Promise]\n\n### [H2 Section 1]\n[Sub-outline with bullet points]\n#### [H3] | #### [H3]\n\n### [H2 Section 2]\n[Full sub-outline]\n\n### [H2 Section 3]\n[Full sub-outline]\n\n### [H2 Practical How-To]\n[Step-by-step]\n\n### FAQ (5 Q&As from PAA)\n\n### Conclusion\n[Summary + CTA]\n\n## SEO Checklist (15 points)\n[Full checklist]\n\n## Internal Link Opportunities\n[]\n\n## Estimated Reading Time\n[]',
+    backlink:P+'You are a link building expert. Write COMPLETE outreach emails for:\n"'+t+'"\n\n## Guest Post Request Email\n**Subject:** [Mention specific article on their site]\n\n[Specific compliment showing you read their content]\n[Your angle + why their audience loves it]\n[Your credentials - 2 sentences]\n[3 headline ideas tailored to their site]\n[Soft ask]\n\n## Broken Link Replacement Email\n**Subject:** [] | [Find broken link + your replacement + why yours is better]\n\n## Resource Page Inclusion Email\n**Subject:** [] | [Acknowledge page + your content + value]\n\n## Skyscraper Technique Email\n**Subject:** [] | [Their post + your comprehensive version + link ask]\n\n## Follow-Up Sequence\n**Day 5:** [] | **Day 12:** []\n\n## Strategy Notes\n- Best sources for this niche: []\n- DA to target: []\n- Tools to find opportunities: []',
+    poem:P+'You are a celebrated poet. Create MASTERFUL poems about:\n"'+t+'"\n\n## Lyrical Rhyming Poem (4 stanzas, ABAB rhyme)\n[Complete poem with emotional depth + vivid imagery]\n\n**Technique note:** []\n\n## Free Verse Poem (20-30 lines)\n[Use enjambment, metaphor, sensory details]\n\n**Technique note:** []\n\n## Haiku Series (7 haikus, 5-7-5 syllables)\n[All 7 haikus, each showing different facet]\n\n## Spoken Word Poem (20-25 lines, performative)\n[Like a slam poetry performance]\n\n## Design Suggestions\n[Best visual format for sharing each on social media]',
+    story_creative:P+'You are a professional fiction writer. Write CAPTIVATING short story about:\n"'+t+'"\n\n## Story Brief\n**Genre:** [] | **Theme:** [] | **Tone:** [] | **POV:** []\n\n## The Story\n\n### [TITLE - Compelling, slightly mysterious]\n\n[OPENING LINE - Grab reader immediately]\n\n### Act 1 - Setup (100 words)\n[World + character + what they WANT]\n\n### Act 2 - Conflict (200 words)\n[Disruption + raised stakes + impossible choice]\n\n### Act 3 - Climax (100 words)\n[Maximum tension moment]\n\n### Resolution (75 words)\n[Aftermath - changed world/character]\n\n[FINAL LINE - Resonant, memorable]\n\n## Author Notes\n- Themes: [] | 2-sentence social teaser: [] | Sequel ideas: []',
+    speech:P+'You are a professional speechwriter. Create COMPLETE 8-10 minute speech for:\n"'+t+'"\nAudience: '+(d.audience||'Professional')+'\n\n## Speech Brief\n**Core message:** [] | **Desired emotion:** [] | **Call to action:** []\n\n## Complete Speech (1,200 words)\n\n### Opening (90 seconds)\n[NOT good morning. Start with: story | stat | question | bold claim]\n\n### Transition (30 seconds)\n\n### Main Point 1 (2 minutes)\n[Clear point + story/evidence + connect to audience]\n\n### Main Point 2 (2 minutes)\n[Point + story]\n\n### Main Point 3 (2 minutes)\n[Point + story]\n\n### Emotional Peak (1 minute)\n[Most powerful memorable moment]\n\n### Closing (90 seconds)\n[Call back to opening. Memorable final line they quote for years.]\n\n## Delivery Notes\n- Power pause locations: []\n- Vocal variety cues: []\n- Audience interaction moments: []',
+    script:P+'You are a professional screenwriter. Write COMPELLING short film script for:\n"'+t+'"\n\n## Script Brief\n**Genre:** [] | **Theme:** [] | **Runtime:** 5-7 min\n\n## Characters\n- [Name - Description]\n- [Name - Description]\n\n---\n\n**FADE IN:**\n\n**INT./EXT. [LOCATION] - [TIME]**\n\n[Scene description - What we SEE. Specific. Camera-ready.]\n\n**CHARACTER NAME**\n(action)\nDialogue - natural, character-revealing, subtext-rich.\n\n**CHARACTER 2**\nDialogue\n\n[Continue Scene 2...]\n\n[Scene 3 - Climax and resolution]\n\n**FADE OUT.**\n\n**THE END**\n\n---\n\n## Script Notes\n- Visual motifs: [] | Sound design: [] | Budget estimate: []',
+    translate:P+'You are a certified translator and cultural localization expert. Translate:\nOriginal: "'+t+'"\nTarget: '+(d.targetLang||'French')+'\n\n## 1. Accurate Translation\n[Word-for-word accurate, preserving all meaning]\n\n## 2. Natural/Fluent Version\n[Sounds native-written, natural idioms]\n\n## 3. Culturally Adapted Version\n[Adjusted for cultural context - references, tone, formality]\n\n## 4. Formal Business Version\n[Professional tone for B2B/official contexts]\n\n## 5. Marketing Optimized Version\n[For ads - persuasive, locally resonant]\n\n## Translator Notes\n- 3 cultural considerations: []\n- Phrases that do not translate directly: []\n- Formality guidance: [When to use which version]\n- Local market insight: []',
+    summarize:P+'You are a professional content analyst. Comprehensive analysis of:\n"'+t+'"\n\n## Executive Summary (50 words)\n[Pure essence for busy executives]\n\n## One-Paragraph Summary (100 words)\n[Slightly more context]\n\n## Detailed Summary (200 words)\n[Full nuance]\n\n## Key Points (8 bullets)\n- [Most important]\n[Continue x8]\n\n## Critical Insights (3)\n[Not obvious but important]\n\n## Quotes Worth Saving\n- "[Quote 1]"\n- "[Quote 2]"\n- "[Quote 3]"\n\n## Action Items (5)\n[Concrete things to DO]\n\n## Who Should Read This\n[Specific audience description]\n\n## Social Media Versions\n**Tweet (280 chars):** []\n**LinkedIn hook (2 lines):** []\n**Instagram caption:** []',
+    rewrite:P+'You are a master editor. Transform into 4 superior versions:\nOriginal: "'+t+'"\n\n## Version 1 - Professional/Executive\n[Polished, authoritative, sophisticated. For business comms.]\n**Improvements made:** []\n\n## Version 2 - Conversational/Engaging\n[Natural, warm, like talking to a smart friend. Active voice.]\n**Improvements made:** []\n\n## Version 3 - Punchy/Bold\n[Short sentences. Power words. Maximum impact minimum words. For ads.]\n**Improvements made:** []\n\n## Version 4 - SEO Optimized\n[Natural keywords. Scannable. For website/blog.]\n**Keywords incorporated:** []\n\n## Editor Notes\n- Original strengths to keep: []\n- Issues fixed: []\n- Recommended version for your purpose: []',
+    grammar:P+'You are a professional editor. Complete editing for:\n"'+t+'"\n\n## Corrected Version\n[Every error fixed - grammar, spelling, punctuation]\n\n## Editing Report\n**Total issues:** [] | **Grammar:** [] | **Style:** [] | **Clarity:** []\n\n## Errors & Explanations\n**Original:** [] | **Corrected:** [] | **Rule:** []\n[Repeat for each significant change]\n\n## Style Improvements\n[Beyond grammar - flow, tone, word choice]\n\n## Readability\n**Original:** [] | **Revised:** [] | **Target:** []\n\n## Enhanced Version\n[Not just corrected - actually improved with better words and structure]\n\n## Writing Tips (3 personalized)\n[Based on patterns in this text]'
+  };
+  return m[id]||(P+'You are an expert assistant. Help with this request in '+L+':\n"'+t+'"\n\nProvide comprehensive, detailed, professional response with proper headings and formatting.');
+}
+
+// GENERATE
+async function generate(){
+  if(UC>=30){showUpg();return;}
+  var oa=document.getElementById('oarea');if(!oa)return;
+  oa.innerHTML='<div class="out-card"><div class="out-hdr"><div class="out-ttl"><div class="odot"></div>Generating in '+FV.lang+'...</div></div><div class="out-body lstt"><div class="spin"></div><div class="ltxt">AI crafting your content in '+FV.lang+'...</div></div></div>';
+  var gb=document.getElementById('gbtn');if(gb){gb.disabled=true;gb.textContent='Generating...';}
+  try{
+    var resp=await fetch('/api/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt:bp(AT.id,FV)})});
+    var data=await resp.json();
+    if(data.error)throw new Error(data.error);
+    var txt=data.text||'Error: no output.';
+    incUsage();
+    HIST.unshift({name:AT.name,lang:FV.lang,text:txt});
+    if(HIST.length>5)HIST.pop();
+    updHist();
+    oa.innerHTML='<div class="out-card"><div class="out-hdr"><div class="out-ttl"><div class="odot"></div>Generated in '+FV.lang+'</div><div class="oacts"><button class="oa" id="cb" onclick="cpOut()">Copy All</button><button class="oa" onclick="generate()">↻ Redo</button></div></div><div class="out-body" id="otxt">'+rMD(txt)+'</div></div>';
+  }catch(e){oa.innerHTML='<div class="err-box">⚠️ '+esc(e.message)+'<br><small>Check Vercel env vars &mdash; ANTHROPIC_API_KEY must be set.</small></div>';}
+  var b=document.getElementById('gbtn');if(b){b.disabled=false;b.textContent='❖ Generate with AI — '+AT.name;}
+}
+function cpOut(){var e=document.getElementById('otxt');if(!e)return;var tmp=document.createElement('div');tmp.innerHTML=e.innerHTML;navigator.clipboard.writeText(tmp.innerText||tmp.textContent);var b=document.getElementById('cb');if(b){b.textContent='\u2713 Copied!';b.classList.add('ok');setTimeout(function(){b.textContent='Copy All';b.classList.remove('ok');},2000);}}
+function updHist(){var s=document.getElementById('hstrip');if(!s)return;if(!HIST.length){s.style.display='none';return;}s.style.display='flex';s.innerHTML='<span style="font-size:11px;color:var(--t4);align-self:center;margin-right:4px;flex-shrink:0">History:</span>'+HIST.map(function(h,i){return'<div class="hp" onclick="shHist('+i+')">'+h.name+' \u00b7 '+h.lang+'</div>';}).join('');}
+function shHist(i){var h=HIST[i];var oa=document.getElementById('oarea');if(!oa)return;oa.innerHTML='<div class="out-card"><div class="out-hdr"><div class="out-ttl">❖ '+h.name+' \u2014 '+h.lang+'</div><div class="oacts"><button class="oa" id="cb" onclick="cpOut()">Copy All</button></div></div><div class="out-body" id="otxt">'+rMD(h.text)+'</div></div>';}
+function showUpg(){var oa=document.getElementById('oarea');if(!oa)return;oa.innerHTML='<div class="out-card"><div class="out-body lstt"><div style="font-size:38px">⚡</div><div style="font-family:Syne,sans-serif;font-size:20px;font-weight:800;margin-bottom:8px">Daily Limit Reached</div><div style="font-size:14px;color:var(--t2);margin-bottom:22px">Upgrade for unlimited generations!</div><button class="btn btn-p btn-lg" onclick="window.open(\'https://genixai-app.lemonsqueezy.com/checkout/buy/692cf374-f4a3-4188-b5f2-c2600b22e852\')">Upgrade to Pro &mdash; $12/mo</button></div></div>';}
+
+// LANDING
+function initLanding(){
+  // Demo chips
+  var cc=document.getElementById('lchips');
+  if(cc)DEX.forEach(function(ex,i){var c=document.createElement('div');c.className='lchip'+(i===0?' act':'');c.textContent=ex.lang;c.onclick=function(){document.querySelectorAll('.lchip').forEach(function(x){x.classList.remove('act');});c.classList.add('act');var dl=document.getElementById('dlang');if(dl)dl.textContent=ex.name;var dout=document.getElementById('dout');if(dout)dout.textContent=ex.text;};cc.appendChild(c);});
+  // Tools tabs + grid
+  var tabs=document.getElementById('ttabs');
+  if(tabs){CATS.forEach(function(cat){var b=document.createElement('button');b.className='ttab'+(cat==='All'?' act':'');b.textContent=cat;b.onclick=function(){document.querySelectorAll('.ttab').forEach(function(x){x.classList.remove('act');});b.classList.add('act');rg(cat);};tabs.appendChild(b);});}
+  function rg(cat){var g=document.getElementById('tgrid');if(!g)return;g.innerHTML='';TOOLS.filter(function(t){return cat==='All'||t.cat===cat;}).forEach(function(tool){var d=document.createElement('div');d.className='tc';d.innerHTML=(tool.tag?'<div class="tc-tag '+tool.tag+'">'+tool.tag.toUpperCase()+'</div>':'')+'<span class="tc-em">'+tool.icon+'</span><div class="tc-name">'+tool.name+'</div><div class="tc-desc">'+tool.desc+'</div>';d.onclick=function(){handleLaunch();setTimeout(function(){selTool(tool);},100);};g.appendChild(d);});}
+  rg('All');
+  // Marquee
+  var mq=document.getElementById('mq');
+  if(mq){var mi=["Social Captions","Hashtags","Resume Builder","Ad Copy","Email Campaign","Product Listings","YouTube Package","SEO Meta Tags","LinkedIn Posts","Video Scripts","Twitter Threads","AI Translator","Press Release","Business Names","Cover Letters","Keyword Research","Poetry","Short Stories","Speeches","Sales Pitch","Newsletter","Influencer Pitch","Landing Page","Proposals"];[].concat(mi,mi).forEach(function(item){var d=document.createElement('div');d.className='mq-item';d.textContent=item;mq.appendChild(d);});}
+  // Counters
+  var co=new IntersectionObserver(function(entries){entries.forEach(function(x){if(x.isIntersecting){x.target.querySelectorAll('.sv').forEach(function(el){var tg=parseInt(el.dataset.target),sf=el.dataset.suffix||'',dur=2000,st=tg/(dur/16);var cur=0;var t=setInterval(function(){cur+=st;if(cur>=tg){cur=tg;clearInterval(t);}el.textContent=(tg>=1000?Math.floor(cur).toLocaleString():Math.floor(cur))+sf;},16);});co.unobserve(x.target);}});},{threshold:0.3});
+  document.querySelectorAll('.stats-bar').forEach(function(s){co.observe(s);});
+  // Reveal
+  var ro=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(function(e){ro.observe(e);});
+  // Nav scroll
+  window.addEventListener('scroll',function(){var n=document.querySelector('.nav');if(n)n.style.boxShadow=window.scrollY>40?'0 4px 28px rgba(0,0,0,.5)':'';});
+}
+</script>
+</body>
+</html>
